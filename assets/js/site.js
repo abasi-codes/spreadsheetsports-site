@@ -1,6 +1,6 @@
 // Spreadsheet Sports — shared site code (no dependencies)
 const SS = (() => {
-  const DATA_V = 2;   // bump after re-exporting data/*.json so browsers refetch
+  const DATA_V = 3;   // bump after re-exporting data/*.json so browsers refetch
   const YT_CHANNEL = "https://www.youtube.com/@spreadsheetsportsanalytics";
   const SUB = YT_CHANNEL + "?sub_confirmation=1";
   const SOCIAL = [
