@@ -443,3 +443,24 @@ td .pill { display: inline-block; font: 600 11px var(--mono); padding: 3px 7px; 
 }
 .nl-done { padding: 14px 16px; border-radius: 10px; background: rgba(61,220,132,.1); border: 1px solid rgba(61,220,132,.35); color: var(--text); font-size: 15px; text-align: center; }
 .nl-done b { color: var(--green); }
+
+/* share + updates footer on player/team cards */
+.btn.sm { padding: 9px 14px; font-size: 13px; border-radius: 9px; }
+.btn.ghost { background: rgba(255,255,255,.04); }
+.btn.ghost:hover { background: rgba(255,255,255,.09); border-color: var(--text); }
+.share-bar { display: flex; flex-wrap: wrap; gap: 8px; }
+.dig-foot { display: grid; grid-template-columns: 1.15fr 1fr; gap: 28px; margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--line); }
+.dig-foot .note { margin: 8px 0 0; font-size: 12px; }
+@media (max-width: 820px) { .dig-foot { grid-template-columns: 1fr; } }
+/* standalone player/team pages */
+.entity-hero { padding: 56px 0 8px; }
+.crumbs { font: 500 12px var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--dim); }
+.crumbs a { color: var(--muted); }
+.crumbs a:hover { color: var(--text); }
+.entity-hero h1 { margin: 14px 0 10px; font-size: clamp(42px, 7vw, 84px); }
+.entity-hero .lead { max-width: 70ch; }
+.entity-find { max-width: 520px; margin-top: 22px; }
+.all-links { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 6px 14px; }
+.all-links a { display: flex; justify-content: space-between; gap: 10px; padding: 8px 10px; border-radius: 8px; color: var(--muted); font-size: 14px; border: 1px solid transparent; }
+.all-links a span { font: 600 12px var(--mono); color: var(--dim); }
+.all-links a:hover { color: var(--text); border-color: var(--line-2); background: rgba(255,255,255,.03); }

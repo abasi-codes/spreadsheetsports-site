@@ -18,6 +18,25 @@ const SS = (() => {
   const pct = (p, d = 1) => (p >= 0.995 ? "99%+" : p > 0 && p < 0.001 ? "<0.1%" : `${(p * 100).toFixed(d)}%`);
   const ord = (n) => n + (["th", "st", "nd", "rd"][(n % 100 - 20) % 10] || ["th", "st", "nd", "rd"][n % 100] || "th");
   const fold = (s) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+  // URL slug for player/team pages: "Nikola Jokić" -> "nikola-jokic" (tools/build_pages.py uses the same rule)
+  const slug = (s) => fold(s).replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+  // GA4 events (no-op if the tag hasn't loaded or is blocked)
+  const track = (name, params = {}) => { try { window.gtag && window.gtag("event", name, params); } catch {} };
+  // share bar: native share sheet on phones, X + copy link everywhere
+  function shareBar(el, { url, text, item }) {
+    const full = new URL(url, location.origin).href;
+    el.innerHTML = `<div class="share-bar"><button type="button" class="btn ghost sm share-native">↗&nbsp; Share</button>
+      <a class="btn ghost sm" target="_blank" rel="noopener" href="https://x.com/intent/post?text=${encodeURIComponent(text)}&url=${encodeURIComponent(full)}">Post on X</a>
+      <button type="button" class="btn ghost sm share-copy">Copy link</button></div>`;
+    const nat = el.querySelector(".share-native");
+    if (!navigator.share) nat.remove();
+    else nat.onclick = () => { navigator.share({ title: document.title, text, url: full }).then(() => track("share", { method: "native", item_id: item })).catch(() => {}); };
+    el.querySelector(".share-copy").onclick = async (e) => {
+      try { await navigator.clipboard.writeText(full); e.target.textContent = "Copied ✓"; } catch { prompt("Copy this link", full); }
+      track("share", { method: "copy", item_id: item });
+    };
+    el.querySelector("a").onclick = () => track("share", { method: "x", item_id: item });
+  }
   const thumb = (id, q = "maxresdefault") => `https://i.ytimg.com/vi/${id}/${q}.jpg`;
   const fmtDate = (d) => new Date(d + "T12:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
 
@@ -121,12 +140,12 @@ const SS = (() => {
 
   // Newsletter signups go to Formspark (form "Spreadsheet Sports Analytics"); its autoresponder sends the welcome email.
   const NEWSLETTER_ACTION = "https://submit-form.com/5hHo75qLJ";
-  function newsletter(el, { compact } = {}) {
+  function newsletter(el, { compact, note: noteText } = {}) {
     el.innerHTML = `<form class="nl ${compact ? "compact" : ""}" method="post" action="${NEWSLETTER_ACTION}">
       <input type="email" name="email" required placeholder="you@email.com" aria-label="Email address" autocomplete="email">
       <input type="checkbox" name="_honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
       <button class="btn red" type="submit">Join free</button></form>
-      <p class="note dim">One email a week. No spam, unsubscribe any time.</p>`;
+      <p class="note dim">${noteText || "One email a week. No spam, unsubscribe any time."}</p>`;
     const form = $("form", el), note = $(".note", el), btn = $("button", form);
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
@@ -136,6 +155,7 @@ const SS = (() => {
         const r = await fetch(NEWSLETTER_ACTION, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" },
           body: JSON.stringify({ email: form.email.value.trim(), page: location.pathname, signed_up: new Date().toISOString(), "_email.from": "Spreadsheet Sports" }) });
         if (!r.ok) throw new Error(r.status);
+        track("generate_lead", { form: "newsletter", page: location.pathname });
         form.outerHTML = `<div class="nl-done"><b>You're in.</b> Check your inbox for a welcome email.</div>`;
         note.textContent = "Didn't get it? Check spam or promotions.";
       } catch {
@@ -147,5 +167,5 @@ const SS = (() => {
 
   function boot() { chrome(); requestAnimationFrame(reveal); }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot); else boot();
-  return { data, $, $$, h, esc, pct, ord, fold, thumb, bars, videos, videoCard, embed, table, search, reveal, newsletter, fmtDate, YT_CHANNEL, SUB, icons };
+  return { data, $, $$, h, esc, pct, ord, fold, slug, track, shareBar, thumb, bars, videos, videoCard, embed, table, search, reveal, newsletter, fmtDate, YT_CHANNEL, SUB, icons };
 })();

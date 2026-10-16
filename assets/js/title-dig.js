@@ -1,6 +1,7 @@
 // Title odds: search any team and dig into what drives its 10,000-season odds
 document.addEventListener("DOMContentLoaded", async () => {
-  const { data, $, esc, pct, ord, fold, search } = SS;
+  const { data, $, esc, pct, ord, fold, search, slug, track, shareBar, newsletter } = SS;
+  const SINGLE = document.body.dataset.team;   // set on /teams/<slug>/ pages
   const [{ teams: T }, teams, title] = await Promise.all([data("title_teams"), data("teams"), data("title")]);
   const VER = ["Last season only", "+ Roster moves", "+ Aging & health (cut)", "+ Playoff experience", "+ Playoff rotation (final)"];
   const keys = Object.keys(T).sort((a, b) => T[b].p - T[a].p);
@@ -39,7 +40,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         <div><span class="card-label">#${rank} of 30 · ${confN(k)}</span><h3>${esc(tm.name)}</h3>
           <div class="meta"><span>Win the ${confN(k)} <b>${pctS(t.conf)}</b></span><span>Reg. season rating <b>${sg(t.reg)}</b> (${ord(t.reg_rank)})</span><span>Playoff rating <b>${sg(t.po)}</b> (${ord(t.po_rank)})</span></div></div>
         <div style="display:flex;gap:18px;align-items:flex-start"><div class="dig-odds"><div class="n">${pctS(t.p)}</div><div class="l">Win the 2027 title</div></div>
-          <button class="dig-close" aria-label="Close">✕</button></div>
+          ${SINGLE ? "" : `<button class="dig-close" aria-label="Close">✕</button>`}</div>
       </div>
       <div class="dig-body">
         <div>
@@ -54,10 +55,25 @@ document.addEventListener("DOMContentLoaded", async () => {
           <div class="dig-sec"><h4>Most likely Finals opponents</h4>${t.opp.length ? t.opp.map(([o, q]) => `<div class="comp" style="grid-template-columns:1fr auto"><div class="lbl"><a href="#${o}" style="color:inherit">${esc(teams[o].name)}</a></div><div class="p">${pctS(q)}</div></div>`).join("") : `<p class="muted" style="margin:0">They didn't reach the Finals in any of the 10,000 seasons.</p>`}</div>
           <div class="dig-sec"><h4>Titles in the backtest (2006–2026)</h4><div class="vote-chips">${t.history.length ? t.history.map(([y, rk, p]) => `<span class="win">★ ${y} · model had them #${rk} (${pct(p)})</span>`).join("") : "<span>No titles since 2006</span>"}</div></div>
         </div>
+      </div>
+      <div class="dig-foot">
+        <div><h4>Get updates when the ${esc(tm.name.split(" ").slice(-1)[0])}' odds move</h4><div id="nl-dig"></div></div>
+        <div><h4>Share this card</h4><div id="share-dig"></div>
+          ${SINGLE ? `<a class="link-arrow" href="/models/title.html" style="display:inline-block;margin-top:14px">All 30 teams</a>` : `<a class="link-arrow" href="/teams/${slug(tm.name)}/" style="display:inline-block;margin-top:14px">Open the ${esc(tm.name)} page</a>`}</div>
       </div></div>`;
+    newsletter($("#nl-dig"), { compact: true, note: "One email a week with model updates. Free." });
+    shareBar($("#share-dig"), { url: `/teams/${slug(tm.name)}/`, item: slug(tm.name),
+      text: `The model gives the ${tm.name} a ${pctS(t.p)} chance to win the 2027 title (#${rank} of 30). Here's why:` });
+    track("view_item", { item_category: "team", item_id: slug(tm.name), item_name: tm.name });
+    if (SINGLE) return;
     $(".dig-close").onclick = () => { $("#dig").innerHTML = ""; s.set(""); history.replaceState(null, "", location.pathname); };
   }
 
+  if (SINGLE) {
+    const k = keys.find((x) => slug(teams[x].name) === SINGLE); if (k) render(k);
+    if ($("#find")) search($("#find"), keys.map((x) => ({ k: x, name: teams[x].name, meta: `${x} · ${pctS(T[x].p)}` })), (n) => { location.href = `/teams/${slug(n.name)}/`; }, "Look up another team…");
+    return;
+  }
   const open = (k, scroll = true) => {
     if (!T[k]) return;
     render(k); s.set(teams[k].name);

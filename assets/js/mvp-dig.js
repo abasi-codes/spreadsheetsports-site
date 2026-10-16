@@ -1,6 +1,7 @@
 // MVP tracker: search any candidate and dig into why the model rates him where it does
 document.addEventListener("DOMContentLoaded", async () => {
-  const { data, $, esc, pct, ord, fold, search } = SS;
+  const { data, $, esc, pct, ord, fold, search, slug, track, shareBar, newsletter } = SS;
+  const SINGLE = document.body.dataset.player;   // set on /players/<slug>/ pages
   const [{ players }, teams, tt] = await Promise.all([data("mvp_players"), data("teams"), data("title_teams")]);
   const STEP = ["Projections + simulation", "How voters vote", "Voters' memory", "Three-peat fatigue", "Age 31+", "Tuned", "Defense", "Everyone healthy", "Last year's Finals"];
   const N = players.length;
@@ -55,7 +56,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         <div><span class="card-label">#${r.rank} of ${N} candidates</span><h3>${esc(r.name)}</h3>
           <div class="meta"><span><b>${esc(tname(r.team))}</b></span><span>Age <b>${r.age}</b></span>${r.mvps.length ? `<span><b>${r.mvps.length}×</b> MVP</span>` : ""}</div></div>
         <div style="display:flex;gap:18px;align-items:flex-start"><div class="dig-odds"><div class="n">${pctS(r.p)}</div><div class="l">Chance to win MVP</div></div>
-          <button class="dig-close" aria-label="Close">✕</button></div>
+          ${SINGLE ? "" : `<button class="dig-close" aria-label="Close">✕</button>`}</div>
       </div>
       <div class="dig-body">
         <div>
@@ -70,11 +71,27 @@ document.addEventListener("DOMContentLoaded", async () => {
           <div class="dig-sec"><h4>MVP voting history</h4><div class="vote-chips">${votes}</div></div>
           ${bt}
         </div>
+      </div>
+      <div class="dig-foot">
+        <div><h4>Get updates when his odds move</h4><div id="nl-dig"></div></div>
+        <div><h4>Share ${esc(r.name.split(" ").slice(-1)[0])}'s card</h4><div id="share-dig"></div>
+          ${SINGLE ? `<a class="link-arrow" href="/models/mvp.html" style="display:inline-block;margin-top:14px">Full 2027 MVP tracker</a>` : `<a class="link-arrow" href="/players/${slug(r.name)}/" style="display:inline-block;margin-top:14px">Open ${esc(r.name)}'s full page</a>`}</div>
       </div></div>`;
+    newsletter($("#nl-dig"), { compact: true, note: "One email a week with model updates. Free." });
+    shareBar($("#share-dig"), { url: `/players/${slug(r.name)}/`, item: slug(r.name),
+      text: `The model gives ${r.name} a ${pctS(r.p)} chance to win the 2027 MVP (#${r.rank} of ${N}). Here's why:` });
+    track("view_item", { item_category: "player", item_id: slug(r.name), item_name: r.name });
+    if (SINGLE) return;
     $(".dig-close").onclick = () => { $("#dig").innerHTML = ""; s.set(""); history.replaceState(null, "", location.pathname); };
     history.replaceState(null, "", "#" + encodeURIComponent(r.name.replace(/ /g, "-")));
   }
 
+  if (SINGLE) {
+    const r = players.find((p) => slug(p.name) === SINGLE); if (r) render(r);
+    const go = (n) => { location.href = `/players/${slug(n.name)}/`; };
+    if ($("#find")) search($("#find"), players.map((p) => ({ name: p.name, meta: `${p.team || "FA"} · ${pctS(p.p)}` })), go, "Look up another player…");
+    return;
+  }
   const open = (name, scroll = true) => {
     const r = players.find((p) => p.name === name); if (!r) return;
     render(r); s.set(r.name);
