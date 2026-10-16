@@ -46,7 +46,21 @@ const SS = (() => {
       <nav class="nav-lite"><a href="/models/mvp.html">MVP Tracker</a><a href="/models/title.html">Title Odds</a><a href="/#newsletter">Newsletter</a></nav>
       <div class="socials">${icons()}</div>
       <a class="yt-btn" href="${SUB}" target="_blank" rel="noopener">▶ Subscribe</a>
-    </div></header>`));
+      <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="m-nav"><span></span><span></span><span></span></button>
+    </div>
+    <nav class="m-nav" id="m-nav" hidden>
+      <a href="/models/mvp.html"><b>MVP Tracker</b><small>2027 odds · look up any player</small></a>
+      <a href="/models/title.html"><b>Title Odds</b><small>10,000 seasons · look up any team</small></a>
+      <a href="/#videos"><b>Latest videos</b><small>New on the channel</small></a>
+      <a href="/#newsletter"><b>Newsletter</b><small>The numbers that didn't make the video</small></a>
+      <div class="m-soc"><span>Follow</span><div class="socials">${icons()}</div></div>
+    </nav></header>`));
+    const btn = $(".menu-btn"), nav = $("#m-nav");
+    const set = (open) => { nav.hidden = !open; btn.setAttribute("aria-expanded", open); btn.setAttribute("aria-label", open ? "Close menu" : "Open menu"); document.body.classList.toggle("menu-open", open); };
+    btn.onclick = () => set(nav.hidden);
+    nav.addEventListener("click", (e) => { if (e.target.closest("a")) set(false); });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !nav.hidden) set(false); });
+    matchMedia("(min-width: 761px)").addEventListener("change", (e) => e.matches && set(false));
     document.body.append(h(`<footer class="site-foot"><div class="wrap">
       <div><a class="brand" href="/"><img src="/assets/img/logo.png" alt="" width="28" height="28">Spreadsheet <b>Sports</b></a>
       <p style="margin:10px 0 0;max-width:360px">NBA, by the numbers. Models, simulations and film breakdowns.</p></div>
