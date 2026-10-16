@@ -201,6 +201,12 @@ const SS = (() => {
 
   function boot() {
     chrome(); requestAnimationFrame(reveal);
+    $$(".all-links").forEach((el) => {
+      const n = el.querySelectorAll("a").length; if (n <= 24) return;
+      el.classList.add("clip");
+      const b = h(`<button class="btn all-more" type="button">Show all ${n}</button>`);
+      b.onclick = () => { el.classList.remove("clip"); b.remove(); }; el.after(b);
+    });
     document.addEventListener("keydown", (e) => {
       if (e.key !== "/" || /input|textarea/i.test(document.activeElement?.tagName || "")) return;
       const inp = document.querySelector(".search.big input"); if (!inp) return;
