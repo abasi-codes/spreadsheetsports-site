@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2027 NBA MVP Odds — Model Tracker · Spreadsheet Sports</title>
+<meta name="description" content="Preseason 2026-27 NBA MVP odds from a model backtested on 42 seasons of MVP voting. Called 10 of the last 20 MVPs in October. Vegas called 8.">
+<meta property="og:title" content="2027 NBA MVP Odds — Model Tracker">
+<meta property="og:image" content="https://spreadsheetsports.com/assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#08090b">
+<link rel="icon" href="/assets/img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/site.css?v=12">
+<script src="/assets/js/site.js?v=12" defer></script>
+</head>
+<body>
+<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow live">MVP Tracker · 2026-27</span>
+      <h1 class="display">Who wins<br>the <span class="hl">2027 MVP</span>?</h1>
+      <p class="lead">A preseason model trained on every MVP vote since 1985. It projects each star's season, scores him the way voters actually vote, then plays the season out 10,000 times.</p>
+      <div class="meta-row"><span>Locked <b>Oct 14, 2026</b></span><span>Backtest <b>1985–2026</b></span><span>Graded <b>June 2027</b></span></div>
+    </div>
+  </section>
+
+  <section style="padding-top:16px">
+    <div class="wrap grid g2" style="align-items:start">
+      <div class="card reveal">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px"><span class="card-label">Chance to win MVP</span><span class="tag red">Final model</span></div>
+        <div id="odds"></div>
+        <p class="dim" style="font-size:13px;margin:18px 0 0">Tap a name to dig in. Assumes every candidate reaches the 65-game minimum. Injuries are the biggest risk to any pick.</p>
+      </div>
+      <div class="reveal"><div id="video"></div>
+        <p class="muted" style="font-size:14px;margin:14px 2px 0">Watch the model get built, version by version, including the ideas that failed.</p></div>
+    </div>
+  </section>
+
+  <section id="dig-sec" style="padding-top:8px">
+    <div class="wrap">
+      <div class="dig-head">
+        <div><span class="eyebrow">Dig deeper</span><h2 class="display" style="margin-top:12px">Look up any player</h2>
+          <p class="muted" style="margin:10px 0 0">Every projected starter in the league is in the model. See his odds, why the model likes him (or doesn't) and how each factor moved him.</p></div>
+        <div><div id="find"></div><div class="dig-try" id="try"></div></div>
+      </div>
+      <div class="dig" id="dig"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head"><div><span class="eyebrow">How the lead changed</span><h2 class="display" style="margin-top:12px">One factor at a time</h2></div>
+        <p class="muted" style="max-width:440px;margin:0">The favourite changed hands almost every time a new piece of voter behaviour went in. Tap through the steps.</p></div>
+      <div class="card reveal">
+        <div class="chips" id="steps" style="margin:0 0 22px"></div>
+        <div id="ladder"></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head"><div><span class="eyebrow">Backtest</span><h2 class="display" style="margin-top:12px">Would it have worked?</h2></div>
+        <p class="muted" style="max-width:440px;margin:0">Each season predicted using only what was known that October. No peeking.</p></div>
+      <div class="grid g4" id="bt"></div>
+      <div id="rows" style="margin-top:22px"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap grid g2">
+      <div class="reveal"><span class="eyebrow">Method</span><h2 class="display" style="margin:12px 0 22px">What's inside</h2>
+        <div class="steps">
+          <div class="step"><div><h3>Project the season</h3><p>Last three seasons weighted 3-2-1 with an age curve: impact, points, rebounds + assists, games.</p></div></div>
+          <div class="step"><div><h3>Score it like a voter</h3><p>Voters reward all-around stars, the best player on a top seed and win shares. They also remember last year.</p></div></div>
+          <div class="step"><div><h3>Voter fatigue</h3><p>Nobody wins three in a row anymore, and nobody 31+ has won since Nash. Both are in the model.</p></div></div>
+          <div class="step"><div><h3>Last year's Finals</h3><p>Stars from last season's Finals teams get a ×1.3 bump. It was the one late idea that held up in the backtest.</p></div></div>
+          <div class="step"><div><h3>Simulate 10,000 seasons</h3><p>Team records and stat lines vary in every run, and the model counts how often each player wins.</p></div></div>
+        </div>
+      </div>
+      <div class="reveal"><span class="eyebrow">Tested &amp; rejected</span><h2 class="display" style="margin:12px 0 22px">Ideas that failed</h2>
+        <div class="card"><ul class="muted" style="margin:0;padding-left:18px;line-height:1.9">
+          <li>Extra credit for the scoring champ, triple-doubles, advanced-stat leaders or the best record</li>
+          <li>Punishing injury history, boosting young "breakout" candidates</li>
+          <li>Vegas win totals, Vegas MVP odds, one giant model that learns everything: all worse</li>
+          <li>Other voter fatigue: back-to-back, chasing a 4th, two of the last three</li>
+          <li>How well a player played last postseason (scoring, plus-minus): sharper odds, fewer winners</li>
+          <li>Blocks, steals and DPOY votes (defensive win shares did help)</li>
+        </ul></div>
+        <p class="callout" style="margin-top:18px">The model's blind spot: leaps. Rose in 2011, Curry in 2015, Giannis in 2019 and Jokić in 2021 all came out of nowhere.</p>
+      </div>
+    </div>
+  </section>
+  <section id="newsletter">
+    <div class="wrap">
+      <div class="card news reveal">
+        <div><span class="eyebrow">The newsletter</span><h2 class="display" style="margin:12px 0 10px">The numbers that didn't make the video</h2>
+          <p class="muted" style="margin:0 0 16px">Extra charts, cut segments and tracker updates between videos. Free.</p>
+          <a class="btn red" href="https://www.youtube.com/@spreadsheetsportsanalytics?sub_confirmation=1" target="_blank" rel="noopener">▶&nbsp; Subscribe on YouTube</a></div>
+        <div id="nl-page"></div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/mvp-dig.js?v=12" defer></script>
+<script>document.addEventListener("DOMContentLoaded", () => SS.newsletter(document.getElementById("nl-page")));</script>
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+  const { data, $, esc, pct, bars, embed, table, reveal } = SS;
+  const m = await data("mvp");
+  bars($("#odds"), m.odds.map(([name, p]) => ({ name, p })), { onPick: (r) => window.digPlayer?.(r.name) });
+  embed($("#video"), m.video);
+
+  const steps = m.ladder, max = Math.max(...steps.flatMap(([, r]) => r.map((x) => x[1])));
+  const draw = (i) => {
+    document.querySelectorAll("#steps .chip").forEach((c, j) => c.classList.toggle("on", i === j));
+    bars($("#ladder"), steps[i][1].map(([name, p]) => ({ name, p })), { max });
+  };
+  const NICE = ["Projections + simulation", "How voters vote", "Voters' memory", "Three-peat fatigue", "Age 31+", "Tuned", "Defense", "Everyone healthy", "Last year's Finals ★"];
+  $("#steps").innerHTML = steps.map(([s], i) => `<button class="chip" title="${esc(s)}">${i + 1}. ${esc(NICE[i] || s)}</button>`).join("");
+  $("#steps").addEventListener("click", (e) => { const b = e.target.closest(".chip"); if (b) draw([...b.parentNode.children].indexOf(b)); });
+  draw(steps.length - 1);
+
+  const v = m.backtest.v5;
+  const vg = m.vegas || {};
+  $("#bt").innerHTML = [
+    [`${v.since2007.favorite_won}<small>/20</small>`, "Real MVP was the model's October favourite since 2007"],
+    [`${vg.favorite_won ?? 8}<small>/20</small>`, "Vegas's preseason favourite over the same 20 seasons"],
+    [`${v.all.favorite_won}<small>/42</small>`, "Favourite won, all seasons back to 1985"],
+    [`${v.all.winner_top3}<small>/42</small>`, "Real MVP somewhere in the model's top 3"],
+  ].map(([n, t]) => `<div class="card stat reveal"><div class="big">${n}</div><p>${t}</p></div>`).join("");
+
+  table($("#rows"), [
+    { key: "y", label: "Season", num: true, fmt: (r) => `${r.y - 1}-${String(r.y).slice(2)}` },
+    { key: "winner", label: "Actual MVP", fmt: (r) => esc(r.winner) },
+    { key: "rank", label: "Model rank", num: true, asc: true, fmt: (r) => `<span class="pill ${r.rank === 1 ? "hit" : r.rank <= 3 ? "near" : "miss"}">#${r.rank}</span>` },
+    { key: "p", label: "Model gave him", num: true, fmt: (r) => pct(r.p) },
+    { key: "fav", label: "Model's favourite", fmt: (r) => esc(r.fav) + ` <span class="dim mono">${pct(r.fav_p)}</span>` },
+  ], m.rows, { sort: "y", dir: -1, limit: 12 });
+  reveal();
+});
+</script>
+</body>
+</html>

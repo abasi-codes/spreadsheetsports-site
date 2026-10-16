@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2027 NBA Title Odds — 10,000 Simulations · Spreadsheet Sports</title>
+<meta name="description" content="Every 2026-27 NBA team's title and conference odds from 10,000 simulated seasons, plus the most likely Finals matchups and a 21-season backtest.">
+<meta property="og:title" content="2027 NBA Title Odds — 10,000 Simulations">
+<meta property="og:image" content="https://spreadsheetsports.com/assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#08090b">
+<link rel="icon" href="/assets/img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/site.css?v=12">
+<script src="/assets/js/site.js?v=12" defer></script>
+</head>
+<body>
+<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow live">Title Odds · 2026-27</span>
+      <h1 class="display">10,000<br><span class="hl">seasons</span>.</h1>
+      <p class="lead">Every game, every play-in and every playoff series of 2026-27, simulated ten thousand times. Here's how often each team ends up holding the trophy.</p>
+      <div class="meta-row"><span>Locked <b>Oct 8, 2026</b></span><span>Backtest <b>2006–2026</b></span><span>Model <b>R.I.N.G.S. v5</b></span></div>
+    </div>
+  </section>
+
+  <section style="padding-top:16px">
+    <div class="wrap grid g2" style="align-items:start">
+      <div class="card reveal">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;gap:12px;flex-wrap:wrap"><span class="card-label">Chance to win the title</span>
+          <div class="chips" id="conf" style="margin:0"><button class="chip on" data-c="">All</button><button class="chip" data-c="E">East</button><button class="chip" data-c="W">West</button></div></div>
+        <div id="odds"></div>
+      </div>
+      <div>
+        <div class="reveal"><div id="video"></div></div>
+        <div class="card reveal" style="margin-top:18px">
+          <span class="card-label">Most likely Finals</span>
+          <div id="finals" style="margin-top:14px"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="dig-sec" style="padding-top:8px">
+    <div class="wrap">
+      <div class="dig-head">
+        <div><span class="eyebrow">Dig deeper</span><h2 class="display" style="margin-top:12px">Look up any team</h2>
+          <p class="muted" style="margin:10px 0 0">See what's driving each team's odds: last season, roster moves, playoff experience, the rotation the model expects and who they'd most likely meet in the Finals.</p></div>
+        <div><div id="find"></div><div class="dig-try" id="try"></div></div>
+      </div>
+      <div class="dig" id="dig"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head"><div><span class="eyebrow">Every team</span><h2 class="display" style="margin-top:12px">Full table</h2></div>
+        <p class="muted" style="max-width:440px;margin:0">Click a column to sort.</p></div>
+      <div id="table"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head"><div><span class="eyebrow">Backtest</span><h2 class="display" style="margin-top:12px">Would it have worked?</h2></div>
+        <p class="muted" style="max-width:440px;margin:0">Leave-one-season-out: each season was predicted by a model that never saw it.</p></div>
+      <div class="grid g4" id="bt"></div>
+      <div id="rows" style="margin-top:22px"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap grid g2">
+      <div class="reveal"><span class="eyebrow">Method</span><h2 class="display" style="margin:12px 0 22px">How a season is simulated</h2>
+        <div class="steps">
+          <div class="step"><div><h3>Project every team</h3><p>Last season's net rating, adjusted for roster changes by each player's minutes and impact, plus playoff experience.</p></div></div>
+          <div class="step"><div><h3>Play the real schedule</h3><p>All 1,230 games. Each game's win chance comes from the rating gap plus about 2 points of home court.</p></div></div>
+          <div class="step"><div><h3>Add October uncertainty</h3><p>Every simulated season gives each team a random shake, because nobody knows exactly how good a team is before tip-off.</p></div></div>
+          <div class="step"><div><h3>Play-in &amp; playoffs</h3><p>Real seeding rules, best-of-seven series with 2-2-1-1-1 home court. Then repeat 10,000 times.</p></div></div>
+        </div>
+      </div>
+      <div class="reveal"><span class="eyebrow">Tested &amp; rejected</span><h2 class="display" style="margin:12px 0 22px">Ideas that failed</h2>
+        <div class="card"><ul class="muted" style="margin:0;padding-left:18px;line-height:1.9">
+          <li>Aging and health discounts</li><li>Rings already won</li><li>Roster continuity</li>
+          <li>Two-year net rating</li><li>Coaching experience</li><li>Defense-specific ratings</li>
+        </ul>
+        <p class="dim" style="font-size:13px;margin:16px 0 0">Each made the backtest worse or no better, so none of them made the final model.</p></div>
+      </div>
+    </div>
+  </section>
+  <section id="newsletter">
+    <div class="wrap">
+      <div class="card news reveal">
+        <div><span class="eyebrow">The newsletter</span><h2 class="display" style="margin:12px 0 10px">The numbers that didn't make the video</h2>
+          <p class="muted" style="margin:0 0 16px">Extra charts, cut segments and tracker updates between videos. Free.</p>
+          <a class="btn red" href="https://www.youtube.com/@spreadsheetsportsanalytics?sub_confirmation=1" target="_blank" rel="noopener">▶&nbsp; Subscribe on YouTube</a></div>
+        <div id="nl-page"></div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/title-dig.js?v=12" defer></script>
+<script>document.addEventListener("DOMContentLoaded", () => SS.newsletter(document.getElementById("nl-page")));</script>
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+  const { data, $, esc, pct, bars, embed, table, reveal } = SS;
+  const [t, teams] = await Promise.all([data("title"), data("teams")]);
+  embed($("#video"), t.video);
+  const all = Object.keys(teams).map((k) => ({ k, ...teams[k], p: t.titles[k] || 0, c: t.conf[k] || 0 })).sort((a, b) => b.p - a.p);
+  const max = all[0].p;
+  const draw = (conf) => bars($("#odds"), all.filter((x) => !conf || x.conf === conf).slice(0, 10).map((x) => ({ k: x.k, name: x.name, sub: `${x.conf === "E" ? "East" : "West"} · ${pct(x.c)} to win conf`, p: x.p })), { max, onPick: (r) => window.digTeam?.(r.k) });
+  draw("");
+  $("#conf").addEventListener("click", (e) => { const b = e.target.closest(".chip"); if (!b) return; document.querySelectorAll("#conf .chip").forEach((c) => c.classList.toggle("on", c === b)); draw(b.dataset.c); });
+
+  $("#finals").innerHTML = t.finals.slice(0, 6).map(([[a, b], p], i) => {
+    const [w, e] = teams[a].conf === "W" ? [a, b] : [b, a];
+    return `<div class="comp" style="grid-template-columns:1fr auto"><div class="lbl">${esc(teams[w].name)} <span class="dim">vs</span> ${esc(teams[e].name)}</div><div class="p">${pct(p)}</div></div>`;
+  }).join("");
+
+  table($("#table"), [
+    { key: "name", label: "Team", asc: true, fmt: (r) => `<a href="#${r.k}" style="color:inherit"><span style="display:inline-block;width:10px;height:10px;border-radius:3px;background:${r.color};margin-right:10px"></span>${esc(r.name)}</a>` },
+    { key: "conf", label: "Conf", asc: true, fmt: (r) => (r.conf === "E" ? "East" : "West") },
+    { key: "c", label: "Win conference", num: true, fmt: (r) => pct(r.c) },
+    { key: "p", label: "Win title", num: true, fmt: (r) => `<b>${pct(r.p)}</b>` },
+  ], all, { sort: "p" });
+
+  const s = t.backtest.summary;
+  $("#bt").innerHTML = [
+    [`${s.top3}<small>/21</small>`, "Real champion in the preseason top 3"],
+    [`${s.fav}<small>/21</small>`, "The preseason favourite won it all"],
+    [`${Math.round(s.avg_p * 100)}%`, "Average odds given to the eventual champion"],
+    ["3%", "What a random guess would give them (1 in 30)"],
+  ].map(([n, x]) => `<div class="card stat reveal"><div class="big">${n}</div><p>${x}</p></div>`).join("");
+  const nm = (k) => teams[k]?.name || k;
+  table($("#rows"), [
+    { key: "year", label: "Season", num: true, fmt: (r) => `${r.year - 1}-${String(r.year).slice(2)}` },
+    { key: "champ", label: "Champion", fmt: (r) => esc(nm(r.champ)) },
+    { key: "rank", label: "Model rank", num: true, asc: true, fmt: (r) => `<span class="pill ${r.rank === 1 ? "hit" : r.rank <= 3 ? "near" : "miss"}">#${r.rank}</span>` },
+    { key: "p", label: "Model gave them", num: true, fmt: (r) => pct(r.p) },
+    { key: "fav", label: "Model's favourite", fmt: (r) => esc(nm(r.fav)) + ` <span class="dim mono">${pct(r.fav_p)}</span>` },
+  ], t.backtest.rows, { sort: "year", dir: -1, limit: 10 });
+  reveal();
+});
+</script>
+</body>
+</html>

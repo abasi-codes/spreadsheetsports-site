@@ -1,0 +1,99 @@
+[
+ {
+  "id": "KR5X3VpLKz8",
+  "title": "Why the Knicks Can Go Back-to-Back",
+  "kind": "Film Breakdown",
+  "date": "2026-10-15",
+  "team": "NYK",
+  "blurb": "Last season +6.5, playoff evidence +2.4, the champion hangover and life without Mitchell Robinson.",
+  "publishAt": "2026-10-15T21:10:00Z"
+ },
+ {
+  "id": "-jQwtovsvOw",
+  "title": "I Built a Model to Predict the 2027 NBA MVP",
+  "kind": "Model",
+  "date": "2026-10-14",
+  "model": "mvp",
+  "blurb": "Backtested on 42 seasons of voting. Picked the real MVP 10 times since 2007, Vegas picked 8."
+ },
+ {
+  "id": "_5w5Oa4fF7U",
+  "title": "Jalen Brunson: King of New York",
+  "kind": "Documentary",
+  "date": "2026-10-13",
+  "team": "NYK",
+  "blurb": "From second-round pick to the face of the Garden."
+ },
+ {
+  "id": "BYJeoO6TL-A",
+  "title": "Statistical Case: Celtics NBA Champions 2027",
+  "kind": "Film Breakdown",
+  "date": "2026-10-11",
+  "team": "BOS",
+  "blurb": "Why trading Jaylen Brown might make Boston better. Projected +10.9 net rating."
+ },
+ {
+  "id": "_C3tUeCVC-M",
+  "title": "Kawhi Returns: King of the North",
+  "kind": "Documentary",
+  "date": "2026-10-09",
+  "team": "TOR",
+  "blurb": "The shot with four bounces, the summer he left, and the return home."
+ },
+ {
+  "id": "bbdBAKKqb8g",
+  "title": "Why the Heat Can Win It All",
+  "kind": "Film Breakdown",
+  "date": "2026-10-08",
+  "team": "MIA",
+  "blurb": "Giannis next to Bam, Spo's system, and the defense the numbers underrate."
+ },
+ {
+  "id": "QWx6CHAfNco",
+  "title": "I Simulated the 2027 NBA Season 10,000 Times",
+  "kind": "Model",
+  "date": "2026-10-08",
+  "model": "title",
+  "blurb": "Every game, every play-in, every playoff series. Ten thousand times."
+ },
+ {
+  "id": "gjn_6D42mGI",
+  "title": "Why the Raptors Can Win It All",
+  "kind": "Film Breakdown",
+  "date": "2026-10-08",
+  "team": "TOR",
+  "blurb": "Kawhi as a 3-and-D initiator and Scottie with space everywhere."
+ },
+ {
+  "id": "QHk7HwZ1NEs",
+  "title": "I Built a Model to Find the NBA's Most Underrated Player",
+  "kind": "Model",
+  "date": "2026-10-07",
+  "model": "underrated",
+  "blurb": "Impact on winning vs where ESPN, HoopsHype and The Ringer rank you."
+ },
+ {
+  "id": "GLs_XICBAAs",
+  "title": "Statistical Case: LeBron 76ers NBA Champions 2027",
+  "kind": "Film Breakdown",
+  "date": "2026-10-07",
+  "team": "PHI",
+  "blurb": "Embiid, Maxey, Jaylen Brown and LeBron. Can it work?"
+ },
+ {
+  "id": "a2IzRKUvgIE",
+  "title": "Statistical Case: Timberwolves NBA Champions 2027",
+  "kind": "Film Breakdown",
+  "date": "2026-10-07",
+  "team": "MIN",
+  "blurb": "The model says 0.2%. Here's what it misses."
+ },
+ {
+  "id": "Yz5eX2-5LmQ",
+  "title": "I Built a Model to Find the Unluckiest NBA Player Ever",
+  "kind": "Model",
+  "date": "2026-10-05",
+  "model": "unluckiest",
+  "blurb": "Rings, teammates, injuries, dynasties, coin flips and timing. 10,000 versions of the model."
+ }
+]
