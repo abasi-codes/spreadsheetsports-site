@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PSBYLFEM9T"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-PSBYLFEM9T');</script>
+<title>The Most Cursed Careers in NBA History (CURSE Model) · Spreadsheet Sports</title>
+<meta name="description" content="Elgin Baylor had the most cursed career in NBA history. The CURSE model scores 301 great careers on Finals losses, champions in the way, injuries and bad timing.">
+<link rel="canonical" href="https://spreadsheetsports.com/models/unluckiest.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Spreadsheet Sports">
+<meta property="og:title" content="The Most Cursed Careers in NBA History (CURSE Model) · Spreadsheet Sports">
+<meta property="og:description" content="Elgin Baylor had the most cursed career in NBA history. The CURSE model scores 301 great careers on Finals losses, champions in the way, injuries and bad timing.">
+<meta property="og:url" content="https://spreadsheetsports.com/models/unluckiest.html">
+<meta property="og:image" content="https://spreadsheetsports.com/assets/img/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@SpreadsheetNBA">
+<meta name="twitter:image" content="https://spreadsheetsports.com/assets/img/og.png">
+<meta name="theme-color" content="#08090b">
+<link rel="icon" href="/assets/img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/site.css?v=23">
+<script src="/assets/js/site.js?v=23" defer></script>
+</head>
+<body>
+<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow">CURSE model · all-time</span>
+      <h1 class="display">The most <span class="hl">cursed</span><br>careers in NBA history</h1>
+      <p class="lead">Every great career, scored on what stood between the player and a ring: Finals losses, the champions who knocked him out, injuries in his prime, the teammates he had and titles won right after he left.</p>
+      <div class="meta-row"><span><b>301</b> careers</span><span><b>60+</b> career win shares</span><span><b>10,000</b> model versions</span><span>Answer: <b>Elgin Baylor</b></span></div>
+    </div>
+  </section>
+  <section style="padding-top:16px">
+    <div class="wrap grid g2" style="align-items:start">
+      <div class="card reveal">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px"><span class="card-label">Most cursed careers</span><span class="tag red">Final model</span></div>
+        <div id="board"></div>
+      </div>
+      <div class="reveal"><div id="video"></div>
+        <p class="muted" style="font-size:14px;margin:14px 2px 0">Watch the model get built, version by version.</p></div>
+    </div>
+  </section>
+  <section>
+    <div class="wrap">
+      <div class="section-head"><div><span class="eyebrow">Every career</span><h2 class="display" style="margin-top:12px">All 301 players</h2></div>
+        <p class="muted" style="max-width:440px;margin:0">Tap a column to sort. Current players link to their advanced-stats page.</p></div>
+      <div id="rows"></div>
+    </div>
+  </section>
+  <section id="newsletter">
+    <div class="wrap">
+      <div class="card news reveal">
+        <div><span class="eyebrow">The newsletter</span><h2 class="display" style="margin:12px 0 10px">The numbers that didn't make the video</h2>
+          <p class="muted" style="margin:0 0 16px">Extra charts, cut segments and tracker updates between videos. Free.</p>
+          <a class="btn red" href="https://www.youtube.com/@spreadsheetsportsanalytics?sub_confirmation=1" target="_blank" rel="noopener">▶&nbsp; Subscribe on YouTube</a></div>
+        <div id="nl-page"></div>
+      </div>
+    </div>
+  </section>
+</main>
+<script>document.addEventListener("DOMContentLoaded", () => SS.newsletter(document.getElementById("nl-page")));</script>
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+  const { data, $, esc, embed, table, reveal } = SS;
+  const d = await data("unluckiest"); const P = d.players;
+  const nm = (r) => r.page ? `<a href="/players/${r.s}/">${esc(r.name)}</a>` : esc(r.name);
+  $("#board").innerHTML = P.slice(0, 5).map((r) => `<div class="ub-row"><span class="ub-n">${r.rank}</span><span class="ub-name">${nm(r)}<small>${r.first}–${r.last}</small></span><span class="ub-r"><b>${r.finals_lost}</b><small>lost Finals</small></span><span class="ub-r"><b>${r.rings}</b><small>rings</small></span><span class="ub-gap">${r.score.toFixed(1)}</span></div>`).join("");
+  embed($("#video"), d.video);
+  table($("#rows"), [
+    { key: "rank", label: "#", num: true, asc: true },
+    { key: "name", label: "Player", fmt: (r) => nm(r) + ` <span class="dim mono">${r.first}–${r.last}</span>` },
+    { key: "rings", label: "Rings", num: true }, { key: "finals_lost", label: "Finals lost", num: true },
+    { key: "elim_by_champ", label: "Out vs champ", num: true }, { key: "ws", label: "Career WS", num: true },
+    { key: "score", label: "CURSE", num: true, fmt: (r) => r.score.toFixed(2) },
+  ], P, { sort: "rank", dir: 1, limit: 25 });
+  reveal();
+});
+</script>
+</body>
+</html>

@@ -40,10 +40,13 @@ const SS = (() => {
   const thumb = (id, q = "maxresdefault") => `https://i.ytimg.com/vi/${id}/${q}.jpg`;
   const fmtDate = (d) => new Date(d + "T12:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
 
+  // models that live in the "More models" dropdown only (homepage stays MVP + title)
+  const MORE = [["/models/underrated.html", "Most underrated", "Impact vs the expert rankings"],
+                ["/models/unluckiest.html", "Most cursed careers", "The CURSE model, all-time"]];
   function chrome() {
     document.body.prepend(h(`<header class="site-head"><div class="wrap">
       <a class="brand" href="/"><img src="/assets/img/logo.png" alt="" width="32" height="32">Spreadsheet <b>Sports</b></a>
-      <nav class="nav-lite"><a href="/models/mvp.html">MVP Tracker</a><a href="/models/title.html">Title Odds</a><a href="/#newsletter">Newsletter</a></nav>
+      <nav class="nav-lite"><a href="/models/mvp.html">MVP Tracker</a><a href="/models/title.html">Title Odds</a><div class="nav-more"><button type="button" aria-haspopup="true" aria-expanded="false">More models <svg viewBox="0 0 12 12" width="10" height="10" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button><div class="nav-drop">${MORE.map(([u, t, d]) => `<a href="${u}"><b>${t}</b><small>${d}</small></a>`).join("")}</div></div><a href="/#newsletter">Newsletter</a></nav>
       <div class="socials">${icons()}</div>
       <a class="yt-btn" href="${SUB}" target="_blank" rel="noopener">▶ Subscribe</a>
       <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="m-nav"><span></span><span></span><span></span></button>
@@ -51,10 +54,14 @@ const SS = (() => {
     <nav class="m-nav" id="m-nav" hidden>
       <a href="/models/mvp.html"><b>MVP Tracker</b><small>2027 odds · look up any player</small></a>
       <a href="/models/title.html"><b>Title Odds</b><small>10,000 seasons · look up any team</small></a>
+      <div class="m-more"><span>More models</span>${MORE.map(([u, t]) => `<a href="${u}">${t}</a>`).join("")}</div>
       <a href="/#videos"><b>Latest videos</b><small>New on the channel</small></a>
       <a href="/#newsletter"><b>Newsletter</b><small>The numbers that didn't make the video</small></a>
       <div class="m-soc"><span>Follow</span><div class="socials">${icons()}</div></div>
     </nav></header>`));
+    const more = $(".nav-more"), mb = $(".nav-more button");
+    mb.onclick = () => { const o = !more.classList.contains("open"); more.classList.toggle("open", o); mb.setAttribute("aria-expanded", o); };
+    document.addEventListener("click", (e) => { if (!e.target.closest(".nav-more")) { more.classList.remove("open"); mb.setAttribute("aria-expanded", false); } });
     const btn = $(".menu-btn"), nav = $("#m-nav");
     const set = (open) => { nav.hidden = !open; btn.setAttribute("aria-expanded", open); btn.setAttribute("aria-label", open ? "Close menu" : "Open menu"); document.body.classList.toggle("menu-open", open); };
     btn.onclick = () => set(nav.hidden);
