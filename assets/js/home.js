@@ -30,7 +30,7 @@
 // hero montage: show the model stat that goes with each cut
 (async () => {
   const v = document.querySelector(".hero-film video"), el = document.getElementById("cue"); if (!v || !el) return;
-  const { cues, poster } = await fetch("/assets/media/hero.json?v=2").then((r) => r.json());
+  const { cues, poster } = await fetch("/assets/media/hero.json?v=3").then((r) => r.json());
   const bar = document.getElementById("cue-bar");
   if (bar) bar.innerHTML = cues.map(() => "<i></i>").join("");
   let cur = -1;
