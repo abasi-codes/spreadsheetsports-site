@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   if (SINGLE) {
     const k = keys.find((x) => slug(teams[x].name) === SINGLE); if (k) render(k);
-    if ($("#find")) search($("#find"), keys.map((x) => ({ k: x, name: teams[x].name, meta: `${x} · ${pctS(T[x].p)}` })), (n) => { location.href = `/teams/${slug(n.name)}/`; }, "Look up another team…");
+    if ($("#find")) search($("#find"), keys.map((x) => ({ k: x, name: teams[x].name, meta: `${x} · ${pctS(T[x].p)}` })), (n) => { location.href = `/teams/${slug(n.name)}/`; }, "Look up another team…", { big: true, cycle: ["Knicks", "Lakers", "Thunder", "Raptors"] });
     return;
   }
   const open = (k, scroll = true) => {
@@ -82,7 +82,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   };
   window.digTeam = open;
   const names = keys.map((k) => ({ k, name: teams[k].name, meta: `${k} · ${pctS(T[k].p)}` }));
-  const s = search($("#find"), names, (n) => open(n.k, false), "Search a team: Knicks, Lakers, Celtics…");
+  const TCYCLE = ["Knicks", "Lakers", "Celtics", "Thunder", "Raptors", "Warriors"];
+  const s1 = search($("#find"), names, (n) => open(n.k, false), "Search a team: Knicks, Lakers, Celtics…");
+  const s2 = $("#find-top") ? search($("#find-top"), names, (n) => open(n.k, true), "Search any team…", { big: true, cycle: TCYCLE }) : null;
+  const s = { set: (v) => { s1.set(v); s2 && s2.set(v); } };
   // nicknames match too ("Knicks", "Sixers", "Wolves")
   const ALIAS = { sixers: "PHI", wolves: "MIN", cavs: "CLE", mavs: "DAL", blazers: "POR", dubs: "GSW", nets: "BRK" };
   $("#find input").addEventListener("keydown", (e) => {

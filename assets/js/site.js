@@ -128,10 +128,23 @@ const SS = (() => {
   }
 
   // search with suggestions
-  function search(wrapper, names, onPick, placeholder) {
-    wrapper.classList.add("search");
-    wrapper.innerHTML = `<input type="search" placeholder="${esc(placeholder)}" autocomplete="off" aria-label="${esc(placeholder)}"><div class="suggest" role="listbox"></div>`;
+  // big: hero-style box with a "/" hint; cycle: example names typed into the placeholder
+  function search(wrapper, names, onPick, placeholder, { big, cycle } = {}) {
+    wrapper.classList.add("search"); if (big) wrapper.classList.add("big");
+    wrapper.innerHTML = `<input type="search" placeholder="${esc(placeholder)}" autocomplete="off" aria-label="${esc(placeholder)}">${big ? `<kbd class="search-kbd" aria-hidden="true">/</kbd>` : ""}<div class="suggest" role="listbox"></div>`;
     const input = $("input", wrapper), box = $(".suggest", wrapper);
+    if (cycle && cycle.length && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      const base = placeholder.replace(/[:…].*$/, ""); let i = 0, j = 0, del = false;
+      const step = () => {
+        if (document.activeElement === input || input.value) { setTimeout(step, 600); return; }
+        const w = cycle[i % cycle.length];
+        j += del ? -1 : 1; input.placeholder = `${base}: ${w.slice(0, j)}`;
+        if (!del && j >= w.length) { del = true; setTimeout(step, 1400); return; }
+        if (del && j <= 0) { del = false; i++; }
+        setTimeout(step, del ? 35 : 75);
+      };
+      setTimeout(step, 900);
+    }
     let act = -1, items = [];
     const close = () => { box.classList.remove("open"); act = -1; };
     const draw = () => { box.innerHTML = items.map((n, i) => `<button type="button" class="${i === act ? "act" : ""}" data-i="${i}">${esc(n.name)}<span>${esc(n.meta || "")}</span></button>`).join(""); box.classList.toggle("open", items.length > 0); };
@@ -179,7 +192,14 @@ const SS = (() => {
     });
   }
 
-  function boot() { chrome(); requestAnimationFrame(reveal); }
+  function boot() {
+    chrome(); requestAnimationFrame(reveal);
+    document.addEventListener("keydown", (e) => {
+      if (e.key !== "/" || /input|textarea/i.test(document.activeElement?.tagName || "")) return;
+      const inp = document.querySelector(".search.big input"); if (!inp) return;
+      e.preventDefault(); inp.scrollIntoView({ block: "center", behavior: "smooth" }); inp.focus({ preventScroll: true });
+    });
+  }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot); else boot();
   return { data, $, $$, h, esc, pct, ord, fold, slug, track, shareBar, thumb, bars, videos, videoCard, embed, table, search, reveal, newsletter, fmtDate, YT_CHANNEL, SUB, icons };
 })();

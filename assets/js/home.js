@@ -53,3 +53,17 @@
   };
   requestAnimationFrame(tick);
 })();
+
+// homepage search: every player and team in the models, straight to their page
+(async () => {
+  const el = document.getElementById("find-home"); if (!el) return;
+  const { data, search, slug, pct } = SS;
+  const [{ players }, { teams: T }, teams] = await Promise.all([data("mvp_players"), data("title_teams"), data("teams")]);
+  const p = (x) => (x < 0.001 ? "<0.1%" : pct(x));
+  const list = [
+    ...Object.keys(T).map((k) => ({ name: teams[k].name, meta: `Team · ${p(T[k].p)} title`, href: `/teams/${slug(teams[k].name)}/` })),
+    ...players.map((r) => ({ name: r.name, meta: `${r.team || "FA"} · ${p(r.p)} MVP`, href: `/players/${slug(r.name)}/` })),
+  ];
+  search(el, list, (n) => { SS.track("search", { search_term: n.name }); location.href = n.href; }, "Look up any player or team…",
+    { big: true, cycle: ["Wembanyama", "New York Knicks", "LeBron James", "Toronto Raptors", "Jalen Brunson", "Oklahoma City Thunder"] });
+})();

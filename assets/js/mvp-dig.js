@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   if (SINGLE) {
     const r = players.find((p) => slug(p.name) === SINGLE); if (r) render(r);
     const go = (n) => { location.href = `/players/${slug(n.name)}/`; };
-    if ($("#find")) search($("#find"), players.map((p) => ({ name: p.name, meta: `${p.team || "FA"} · ${pctS(p.p)}` })), go, "Look up another player…");
+    if ($("#find")) search($("#find"), players.map((p) => ({ name: p.name, meta: `${p.team || "FA"} · ${pctS(p.p)}` })), go, "Look up another player…", { big: true, cycle: ["Wembanyama", "Jalen Brunson", "LeBron James", "Kawhi Leonard"] });
     return;
   }
   const open = (name, scroll = true) => {
@@ -98,7 +98,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (scroll) $("#dig-sec").scrollIntoView({ behavior: "smooth", block: "start" });
   };
   window.digPlayer = open;
-  const s = search($("#find"), players.map((p) => ({ name: p.name, meta: `${p.team || "FA"} · ${pctS(p.p)}` })), (n) => open(n.name, false), "Search a player: Brunson, LeBron, Edwards…");
+  const LIST = players.map((p) => ({ name: p.name, meta: `${p.team || "FA"} · ${pctS(p.p)}` }));
+  const CYCLE = ["Wembanyama", "Jalen Brunson", "LeBron James", "Anthony Edwards", "Kawhi Leonard", "Luka Dončić"];
+  const s1 = search($("#find"), LIST, (n) => open(n.name, false), "Search a player: Brunson, LeBron, Edwards…");
+  const s2 = $("#find-top") ? search($("#find-top"), LIST, (n) => open(n.name, true), "Search any player…", { big: true, cycle: CYCLE }) : null;
+  const s = { set: (v) => { s1.set(v); s2 && s2.set(v); } };
   const TRY = ["Jalen Brunson", "Anthony Edwards", "LeBron James", "Stephen Curry", "Giannis Antetokounmpo"].filter((n) => players.some((p) => p.name === n));
   $("#try").innerHTML = `Try: ${TRY.map((n) => `<button class="chip" data-n="${esc(n)}">${esc(n.split(" ").slice(-1)[0])}</button>`).join(" ")} <div style="margin-top:8px">${N} players in the model: everyone projected to start.</div>`;
   $("#try").onclick = (e) => { const b = e.target.closest(".chip"); if (b) open(b.dataset.n, false); };
