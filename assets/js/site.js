@@ -134,7 +134,7 @@ const SS = (() => {
       btn.disabled = true; btn.textContent = "Joining…";
       try {
         const r = await fetch(NEWSLETTER_ACTION, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" },
-          body: JSON.stringify({ email: form.email.value.trim(), page: location.pathname, signed_up: new Date().toISOString() }) });
+          body: JSON.stringify({ email: form.email.value.trim(), page: location.pathname, signed_up: new Date().toISOString(), "_email.from": "Spreadsheet Sports" }) });
         if (!r.ok) throw new Error(r.status);
         form.outerHTML = `<div class="nl-done"><b>You're in.</b> Check your inbox for a welcome email.</div>`;
         note.textContent = "Didn't get it? Check spam or promotions.";
