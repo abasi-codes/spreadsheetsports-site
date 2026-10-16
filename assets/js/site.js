@@ -42,7 +42,8 @@ const SS = (() => {
 
   // models that live in the "More models" dropdown only (homepage stays MVP + title)
   const MORE = [["/models/underrated.html", "Most underrated", "Impact vs the expert rankings"],
-                ["/models/unluckiest.html", "Most cursed careers", "The CURSE model, all-time"]];
+                ["/models/unluckiest.html", "Most cursed careers", "The CURSE model, all-time"],
+                ["/models/no3.html", "No 3-point line", "Every playoff game since 1980, re-scored"]];
   function chrome() {
     document.body.prepend(h(`<header class="site-head"><div class="wrap">
       <a class="brand" href="/"><img src="/assets/img/logo.png" alt="" width="32" height="32">Spreadsheet <b>Sports</b></a>

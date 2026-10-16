@@ -581,3 +581,9 @@ a.ub-row:hover { background: rgba(255,255,255,.03); }
 .verdict small { font: 600 10px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--dim); }
 .verdict b { color: var(--text); font-size: 15px; margin-top: 3px; }
 @media (max-width: 560px) { .ub-row { grid-template-columns: 20px minmax(0, 1fr) 50px 54px 44px; gap: 6px; } .ub-name { white-space: normal; font-size: 15px; line-height: 1.2; } .ub-r b { font-size: 13px; } .ub-r small { font-size: 10px; } .ub-gap { font-size: 22px; } }
+/* no-3 model: universe tiles */
+.u-tile { display: flex; flex-direction: column; gap: 10px; }
+.u-tile h3 { margin: 0; font: 400 24px/1.1 var(--display); letter-spacing: .01em; }
+.u-tile p { margin: 0; font-size: 14px; }
+.u-tile.u4 { border-color: rgba(227,20,30,.55); box-shadow: inset 0 0 0 1px rgba(227,20,30,.25); }
+.u-tile .u-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; min-height: 20px; }
