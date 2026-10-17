@@ -3,6 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+// Fix bad links before anything loads: YouTube pulls a closing ")" or "." into links, and the domain's previous owner had /free-tools/ and /projection-tools/ pages.
+(() => {
+  const l = location; let p = l.pathname, q = p;
+  try { q = decodeURIComponent(p); } catch {}
+  const t = q.replace(/[)\]}>.,;:!?'"\u2019\u201d\s]+$/, "");
+  const go = (u) => l.replace(u + l.search + l.hash);
+  if (t !== q && t) return go(t || "/");
+  if (/^\/(free-tools|projection-tools)(\/|$)/.test(q)) return go("/");
+})();
+</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PSBYLFEM9T"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-PSBYLFEM9T');</script>
 <title>Page not found · Spreadsheet Sports</title>
