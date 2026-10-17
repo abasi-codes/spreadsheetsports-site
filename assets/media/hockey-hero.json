@@ -1,0 +1,83 @@
+{
+ "duration": 31.2,
+ "poster": 5,
+ "cues": [
+  {
+   "t0": 0.0,
+   "t1": 2.4,
+   "kicker": "2026 Presidents' Trophy · Avalanche",
+   "big": "0–4",
+   "label": "Swept in the West Final"
+  },
+  {
+   "t0": 2.4,
+   "t1": 5.2,
+   "kicker": "2019 Lightning",
+   "big": "62 wins",
+   "label": "Swept in Round 1 by the 8th seed"
+  },
+  {
+   "t0": 5.2,
+   "t1": 7.7,
+   "kicker": "2023 Bruins",
+   "big": "65 wins",
+   "label": "An NHL record. Out in Round 1."
+  },
+  {
+   "t0": 7.7,
+   "t1": 10.7,
+   "kicker": "Since 1986",
+   "big": "8 of 40",
+   "label": "Presidents' Trophy winners who won the Cup"
+  },
+  {
+   "t0": 10.7,
+   "t1": 13.7,
+   "kicker": "2012 Kings",
+   "big": "8th seed",
+   "label": "The first 8th seed ever to win the Cup"
+  },
+  {
+   "t0": 13.7,
+   "t1": 16.7,
+   "kicker": "2019 Blues",
+   "big": "Last",
+   "label": "Last in the NHL on Jan 3. Champions in June."
+  },
+  {
+   "t0": 16.7,
+   "t1": 19.6,
+   "kicker": "Every save. Every bounce.",
+   "big": "10,000",
+   "label": "Seasons simulated"
+  },
+  {
+   "t0": 19.6,
+   "t1": 22.4,
+   "kicker": "Canadian teams in the Final since 1993",
+   "big": "0–8",
+   "label": "Five of those losses came in Game 7"
+  },
+  {
+   "t0": 22.4,
+   "t1": 25.4,
+   "kicker": "The last Canadian Stanley Cup",
+   "big": "1993",
+   "label": "Montreal. 33 seasons and counting."
+  },
+  {
+   "t0": 25.4,
+   "t1": 28.2,
+   "kicker": "Every season since 2009",
+   "big": "18",
+   "label": "Seasons backtested before we trust a model"
+  },
+  {
+   "t0": 28.2,
+   "t1": 31.2,
+   "kicker": "Since the 2013 Blackhawks",
+   "big": "13",
+   "label": "Straight Cups without a Presidents' Trophy winner"
+  }
+ ]
+}

@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PSBYLFEM9T"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-PSBYLFEM9T');</script>
+<title>Spreadsheet Sports Hockey — hockey, by the numbers</title>
+<meta name="description" content="Hockey models and 10,000-season simulations, backtested on every season since 2009. Subscribe to Spreadsheet Sports Hockey on YouTube.">
+<meta property="og:title" content="Spreadsheet Sports Hockey — hockey, by the numbers">
+<meta property="og:description" content="Hockey models and 10,000-season simulations, backtested on every season since 2009.">
+<meta property="og:image" content="https://spreadsheetsports.com/assets/img/og-hockey.png">
+<link rel="preload" as="image" href="/assets/media/hockey-hero-poster.jpg?v=1">
+<meta property="og:url" content="https://spreadsheetsports.com/hockey/">
+<link rel="canonical" href="https://spreadsheetsports.com/hockey/">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:site_name" content="Spreadsheet Sports">
+<meta name="theme-color" content="#08090b">
+<link rel="icon" href="/assets/img/logo-hockey.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/site.css?v=27">
+<script src="/assets/js/site.js?v=26" defer></script>
+<script src="/assets/js/hero.js?v=26" defer></script>
+</head>
+<body>
+<main>
+  <section class="hero hero-film hk">
+    <video autoplay muted loop playsinline preload="auto" poster="/assets/media/hockey-hero-poster.jpg?v=1" data-cues="/assets/media/hockey-hero.json?v=1" aria-hidden="true">
+      <source src="/assets/media/hockey-hero.mp4?v=1" type="video/mp4">
+    </video>
+    <div class="scrim"></div><div class="scrim-flat"></div>
+    <div class="wrap hero-in">
+      <span class="eyebrow live">New channel</span>
+      <h1 class="display">Hockey, by the <span class="stroke">numbers</span><span class="red">.</span></h1>
+      <p class="lead">Models and 10,000-season simulations for the arguments every hockey fan has. Every model is backtested before we trust it.</p>
+      <div class="hero-cta-card">
+        <a class="btn red big" id="sub-main" href="#" target="_blank" rel="noopener" style="width:100%;justify-content:center">▶&nbsp; Subscribe to Spreadsheet Sports Hockey</a>
+        <div class="or">and get the numbers that didn't make the video</div>
+        <div id="nl-hero"></div>
+      </div>
+    </div>
+    <div class="stat-cue" id="cue" aria-hidden="true"><b class="n"></b><span class="txt"><span class="k"></span><span class="l"></span></span></div>
+    <div class="cue-bar" id="cue-bar" aria-hidden="true"></div>
+  </section>
+
+  <section id="sim" style="padding-top:16px">
+    <div class="wrap">
+      <div class="card hk-soon reveal">
+        <div>
+          <span class="eyebrow">First video · coming soon</span>
+          <h2 class="display">We simulated the season 10,000 times.</h2>
+          <p class="muted" style="margin:0 0 22px">Every team's Stanley Cup odds for 2026-27, from a model tested on every season since 2009. The full board goes up here the day the video drops.</p>
+          <a class="btn red" id="sub-sim" href="#" target="_blank" rel="noopener">▶&nbsp; Subscribe so you don't miss it</a>
+        </div>
+        <div class="hk-board" id="board"></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head"><div><span class="eyebrow">How the models work</span><h2 class="display" style="margin-top:12px">No vibes. Just backtests.</h2></div></div>
+      <div class="grid g3 hk-how">
+        <div class="card reveal"><span class="num">01</span><h3>Built on shot data</h3><p>Expected goals and shot attempts, not just the standings, because the standings carry a lot of luck.</p></div>
+        <div class="card reveal"><span class="num">02</span><h3>Tested on the past</h3><p>Every idea is checked against seasons it never saw. If it doesn't beat the betting market there, it doesn't go in.</p></div>
+        <div class="card reveal"><span class="num">03</span><h3>Locked, then graded</h3><p>Picks are locked before the season and graded in June, out in the open. No moving the goalposts.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="newsletter">
+    <div class="wrap">
+      <div class="card news reveal">
+        <div><span class="eyebrow">The newsletter</span><h2 class="display" style="margin:12px 0 10px">The numbers that didn't make the video.</h2>
+          <p class="muted" style="margin:0">Extra charts, cut segments, the ideas that failed and the model updates between videos. Free, and it takes two minutes to read.</p></div>
+        <div id="nl-main"></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:8px">
+    <div class="wrap">
+      <div class="card hk-cross reveal">
+        <div><span class="card-label">Also from Spreadsheet Sports</span><h3 class="display" style="font-size:30px;margin:10px 0 4px">The NBA side</h3><p class="muted" style="margin:0">MVP tracker, title odds and a page for every player.</p></div>
+        <a class="btn ghost" href="/">Go to NBA →</a>
+      </div>
+    </div>
+  </section>
+</main>
+<script>
+addEventListener("DOMContentLoaded", () => {
+  const { $, newsletter, SUB } = SS;
+  ["#sub-main", "#sub-sim"].forEach((s) => ($(s).href = SUB));
+  newsletter($("#nl-hero"), { compact: true });
+  newsletter($("#nl-main"));
+  // the Cup board, redacted until the video is out
+  const w = [100, 74, 41, 33, 30, 22, 20, 17];
+  $("#board").innerHTML = w.map((p, i) => `<div class="row"><span>${i + 1}</span><span class="nm" style="width:${60 + ((i * 37) % 35)}%"></span><span class="bar"><i style="width:${p}%"></i></span><span class="v"></span></div>`).join("")
+    + `<div class="lock"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M6 10V7a6 6 0 1 1 12 0v3h1v12H5V10h1Zm2 0h8V7a4 4 0 1 0-8 0v3Z"/></svg>Unlocks when the video drops</div>`;
+});
+</script>
+</body>
+</html>

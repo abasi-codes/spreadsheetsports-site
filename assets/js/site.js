@@ -1,7 +1,11 @@
 // Spreadsheet Sports — shared site code (no dependencies)
 const SS = (() => {
   const DATA_V = 3;   // bump after re-exporting data/*.json so browsers refetch
-  const YT_CHANNEL = "https://www.youtube.com/@spreadsheetsportsanalytics";
+  // /hockey/* pages get the hockey channel, logo and nav; everything else is the NBA site
+  const HOCKEY = location.pathname.startsWith("/hockey");
+  const YT_CHANNEL = HOCKEY ? "https://www.youtube.com/@spreadsheetsportshockey" : "https://www.youtube.com/@spreadsheetsportsanalytics";
+  const LOGO = HOCKEY ? "/assets/img/logo-hockey.png" : "/assets/img/logo.png", HOME = HOCKEY ? "/hockey/" : "/";
+  const SPORT = `<div class="sport-sw" role="navigation" aria-label="Sport"><a href="/" class="${HOCKEY ? "" : "on"}">NBA</a><a href="/hockey/" class="${HOCKEY ? "on" : ""}">Hockey</a></div>`;
   const SUB = YT_CHANNEL + "?sub_confirmation=1";
   const SOCIAL = [
     ["YouTube", YT_CHANNEL, '<path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8ZM9.7 15.1V8.9l5.8 3.1-5.8 3.1Z"/>'],
@@ -46,23 +50,27 @@ const SS = (() => {
                 ["/models/no3.html", "No 3-point line", "Every playoff game since 1980, re-scored"]];
   function chrome() {
     document.body.prepend(h(`<header class="site-head"><div class="wrap">
-      <a class="brand" href="/"><img src="/assets/img/logo.png" alt="" width="32" height="32">Spreadsheet <b>Sports</b></a>
-      <nav class="nav-lite"><a href="/models/mvp.html">MVP Tracker</a><a href="/models/title.html">Title Odds</a><div class="nav-more"><button type="button" aria-haspopup="true" aria-expanded="false">More models <svg viewBox="0 0 12 12" width="10" height="10" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button><div class="nav-drop">${MORE.map(([u, t, d]) => `<a href="${u}"><b>${t}</b><small>${d}</small></a>`).join("")}</div></div><a href="/#newsletter">Newsletter</a></nav>
+      <a class="brand" href="${HOME}"><img src="${LOGO}" alt="" width="32" height="32">Spreadsheet <b>Sports</b></a>${SPORT}
+      ${HOCKEY ? `<nav class="nav-lite"><a href="/hockey/#sim">Title Odds</a><a href="/hockey/#newsletter">Newsletter</a></nav>` : `<nav class="nav-lite"><a href="/models/mvp.html">MVP Tracker</a><a href="/models/title.html">Title Odds</a><div class="nav-more"><button type="button" aria-haspopup="true" aria-expanded="false">More models <svg viewBox="0 0 12 12" width="10" height="10" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button><div class="nav-drop">${MORE.map(([u, t, d]) => `<a href="${u}"><b>${t}</b><small>${d}</small></a>`).join("")}</div></div><a href="/#newsletter">Newsletter</a></nav>`}
       <div class="socials">${icons()}</div>
       <a class="yt-btn" href="${SUB}" target="_blank" rel="noopener">▶ Subscribe</a>
       <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="m-nav"><span></span><span></span><span></span></button>
     </div>
-    <nav class="m-nav" id="m-nav" hidden>
+    <nav class="m-nav" id="m-nav" hidden>${SPORT}${HOCKEY ? `
+      <a href="/hockey/#sim"><b>Title Odds</b><small>The season, simulated 10,000 times</small></a>
+      <a href="/hockey/#newsletter"><b>Newsletter</b><small>The numbers that didn't make the video</small></a>
+      <a href="/"><b>NBA side</b><small>MVP tracker, title odds, every player</small></a>` : `
       <a href="/models/mvp.html"><b>MVP Tracker</b><small>2027 odds · look up any player</small></a>
       <a href="/models/title.html"><b>Title Odds</b><small>10,000 seasons · look up any team</small></a>
       <div class="m-more"><span>More models</span>${MORE.map(([u, t]) => `<a href="${u}">${t}</a>`).join("")}</div>
       <a href="/#videos"><b>Latest videos</b><small>New on the channel</small></a>
       <a href="/#newsletter"><b>Newsletter</b><small>The numbers that didn't make the video</small></a>
+      <a href="/hockey/"><b>Hockey</b><small>The new hockey channel</small></a>`}
       <div class="m-soc"><span>Follow</span><div class="socials">${icons()}</div></div>
     </nav></header>`));
     const more = $(".nav-more"), mb = $(".nav-more button");
-    mb.onclick = () => { const o = !more.classList.contains("open"); more.classList.toggle("open", o); mb.setAttribute("aria-expanded", o); };
-    document.addEventListener("click", (e) => { if (!e.target.closest(".nav-more")) { more.classList.remove("open"); mb.setAttribute("aria-expanded", false); } });
+    if (more) mb.onclick = () => { const o = !more.classList.contains("open"); more.classList.toggle("open", o); mb.setAttribute("aria-expanded", o); };
+    if (more) document.addEventListener("click", (e) => { if (!e.target.closest(".nav-more")) { more.classList.remove("open"); mb.setAttribute("aria-expanded", false); } });
     const btn = $(".menu-btn"), nav = $("#m-nav");
     const set = (open) => { nav.hidden = !open; btn.setAttribute("aria-expanded", open); btn.setAttribute("aria-label", open ? "Close menu" : "Open menu"); document.body.classList.toggle("menu-open", open); };
     btn.onclick = () => set(nav.hidden);
@@ -70,10 +78,10 @@ const SS = (() => {
     document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !nav.hidden) set(false); });
     matchMedia("(min-width: 761px)").addEventListener("change", (e) => e.matches && set(false));
     document.body.append(h(`<footer class="site-foot"><div class="wrap">
-      <div><a class="brand" href="/"><img src="/assets/img/logo.png" alt="" width="28" height="28">Spreadsheet <b>Sports</b></a>
-      <p style="margin:10px 0 0;max-width:360px">NBA, by the numbers. Models, simulations and film breakdowns.</p></div>
+      <div><a class="brand" href="${HOME}"><img src="${LOGO}" alt="" width="28" height="28">Spreadsheet <b>Sports</b></a>
+      <p style="margin:10px 0 0;max-width:360px">${HOCKEY ? "Hockey" : "NBA"}, by the numbers. Models, simulations and ${HOCKEY ? "backtests" : "film breakdowns"}.</p></div>
       <div class="socials big">${icons()}</div>
-      <div class="fine">© ${new Date().getFullYear()} Spreadsheet Sports. Not affiliated with the NBA or its teams.</div>
+      <div class="fine">© ${new Date().getFullYear()} Spreadsheet Sports. Not affiliated with the ${HOCKEY ? "NHL" : "NBA"} or its teams.</div>
     </div></footer>`));
   }
 
@@ -215,5 +223,5 @@ const SS = (() => {
     });
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot); else boot();
-  return { data, $, $$, h, esc, pct, ord, fold, slug, track, shareBar, thumb, bars, videos, videoCard, embed, table, search, reveal, newsletter, fmtDate, YT_CHANNEL, SUB, icons };
+  return { HOCKEY, data, $, $$, h, esc, pct, ord, fold, slug, track, shareBar, thumb, bars, videos, videoCard, embed, table, search, reveal, newsletter, fmtDate, YT_CHANNEL, SUB, icons };
 })();
