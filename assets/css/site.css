@@ -618,3 +618,7 @@ a.ub-row:hover { background: rgba(255,255,255,.03); }
 .m-nav .sport-sw a { display: inline-block; padding: 7px 16px; border: 0; font-size: 12px; }
 .hk-board .row { grid-template-columns: 22px minmax(0,1fr) minmax(0,2fr) 44px; }
 @media (prefers-reduced-motion: reduce) { .hero-film.hk { background-image: url(/assets/media/hockey-hero-poster.jpg); } }
+/* hockey board, unlocked */
+.hk-board .nm.on, .hk-board .v.on { height: auto; background: none; color: var(--text, #fff); white-space: nowrap; }
+.hk-board a.row:hover .bar i { background: linear-gradient(90deg, var(--red), rgba(227,20,30,.35)); }
+.hk-board .row:first-child .bar i { background: linear-gradient(90deg, var(--red), rgba(227,20,30,.35)); }

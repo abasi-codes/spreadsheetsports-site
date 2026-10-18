@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PSBYLFEM9T"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-PSBYLFEM9T');</script>
+<title>2027 Stanley Cup Odds — 10,000 Simulations · Spreadsheet Sports Hockey</title>
+<meta name="description" content="Every NHL team's 2027 Stanley Cup odds from 10,000 simulated seasons, from a preseason model backtested on every season since 2009. Carolina leads at 22.8%.">
+<meta property="og:title" content="2027 Stanley Cup Odds — 10,000 Simulations">
+<meta property="og:description" content="Every team's Cup odds from a preseason model backtested on every season since 2009.">
+<meta property="og:image" content="https://spreadsheetsports.com/assets/img/og-hockey.png">
+<meta property="og:url" content="https://spreadsheetsports.com/hockey/cup.html">
+<link rel="canonical" href="https://spreadsheetsports.com/hockey/cup.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:site_name" content="Spreadsheet Sports">
+<meta name="theme-color" content="#08090b">
+<link rel="icon" href="/assets/img/logo-hockey.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/site.css?v=28">
+<script src="/assets/js/site.js?v=27" defer></script>
+</head>
+<body>
+<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow live">Stanley Cup Odds · 2026-27</span>
+      <h1 class="display">10,000<br><span class="hl">seasons</span>.</h1>
+      <p class="lead">All 1,344 games, every overtime, every shootout and every playoff series of 2026-27, simulated ten thousand times. Here's how often each team lifts the Cup.</p>
+      <div class="meta-row"><span>Locked <b>Oct 17, 2026</b></span><span>Backtest <b>2009–2026</b></span><span>Model <b>Preseason only</b></span></div>
+      <div class="hero-find"><div id="find-top"></div><div class="find-note">Search all 32 teams · or press /</div></div>
+    </div>
+  </section>
+
+  <section style="padding-top:16px">
+    <div class="wrap grid g2" style="align-items:start">
+      <div class="card reveal">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;gap:12px;flex-wrap:wrap"><span class="card-label">Chance to win the Stanley Cup</span>
+          <div class="chips" id="conf" style="margin:0"><button class="chip on" data-c="">All</button><button class="chip" data-c="E">East</button><button class="chip" data-c="W">West</button></div></div>
+        <div id="odds"></div>
+      </div>
+      <div>
+        <div class="reveal"><div id="video"></div></div>
+        <div class="card reveal" style="margin-top:18px">
+          <span class="card-label">Most likely Stanley Cup Final</span>
+          <div id="finals" style="margin-top:14px"></div>
+        </div>
+        <div class="card reveal" style="margin-top:18px">
+          <span class="card-label">Canada</span>
+          <p style="margin:12px 0 0;font-size:15px" id="canada"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="dig-sec" style="padding-top:8px">
+    <div class="wrap">
+      <div class="dig-head">
+        <div><span class="eyebrow">Dig deeper</span><h2 class="display" style="margin-top:12px">Look up any team</h2>
+          <p class="muted" style="margin:10px 0 0">See what's driving each team's odds: last season's chances, playoff experience, how the odds moved as the model was built, and who they'd most likely meet in the Final.</p></div>
+        <div><div id="find"></div><div class="dig-try" id="try"></div></div>
+      </div>
+      <div class="dig" id="dig"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head"><div><span class="eyebrow">All 32 teams</span><h2 class="display" style="margin-top:12px">Full table</h2></div>
+        <p class="muted" style="max-width:440px;margin:0">Click a column to sort. Betting markets = preseason Cup odds, vig removed.</p></div>
+      <div id="table"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head"><div><span class="eyebrow">Backtest</span><h2 class="display" style="margin-top:12px">Would it have worked?</h2></div>
+        <p class="muted" style="max-width:440px;margin:0">Leave-one-season-out: each season since 2009 was predicted by a model that never saw it, using only what was known in October.</p></div>
+      <div class="grid g4" id="bt"></div>
+      <div class="card reveal" style="margin-top:22px"><span class="card-label">Every version, same 18 seasons</span><div id="ladder" style="margin-top:14px"></div></div>
+      <div id="rows" style="margin-top:22px"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap grid g2">
+      <div class="reveal"><span class="eyebrow">Method</span><h2 class="display" style="margin:12px 0 22px">How a season is simulated</h2>
+        <div class="steps">
+          <div class="step"><div><h3>Rate every team on chances</h3><p>Expected goals from the last two seasons (score- and venue-adjusted), blended with goal differential. The standings alone carry too much luck.</p></div></div>
+          <div class="step"><div><h3>Add playoff experience</h3><p>Playoff series won over the last three years. It was the biggest single improvement in the backtest.</p></div></div>
+          <div class="step"><div><h3>Play the real schedule</h3><p>All 1,344 games of the 84-game season, with home ice, overtime and shootouts, plus random October uncertainty in every simulated season.</p></div></div>
+          <div class="step"><div><h3>Playoffs, 10,000 times</h3><p>Real playoff format, best-of-seven series. Preseason only: not one 2026-27 game is in the model.</p></div></div>
+        </div>
+      </div>
+      <div class="reveal"><span class="eyebrow">Tested &amp; rejected</span><h2 class="display" style="margin:12px 0 22px">Ideas that failed</h2>
+        <div class="card"><ul class="muted" style="margin:0;padding-left:18px;line-height:1.9">
+          <li>Summer roster moves (v3)</li><li>Goaltending, goals saved above expected (v4)</li><li>The Presidents' Trophy curse</li>
+          <li>Cup Final hangover</li><li>Special teams</li><li>"Defence wins championships"</li><li>The hot goalie from last spring</li>
+          <li>Blending in the betting markets</li><li>Shot attempts (Corsi): cost one champion</li><li>The first few weeks of the season</li>
+        </ul>
+        <p class="dim" style="font-size:13px;margin:16px 0 0">Each made the backtest worse or picked no extra champions, so none of them made the final model.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="newsletter">
+    <div class="wrap">
+      <div class="card news reveal">
+        <div><span class="eyebrow">The newsletter</span><h2 class="display" style="margin:12px 0 10px">The numbers that didn't make the video</h2>
+          <p class="muted" style="margin:0 0 16px">Extra charts, cut segments and model updates between videos. Free.</p>
+          <a class="btn red" id="sub-page" href="#" target="_blank" rel="noopener">▶&nbsp; Subscribe on YouTube</a></div>
+        <div id="nl-page"></div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/cup-dig.js?v=4" defer></script>
+</body>
+</html>
