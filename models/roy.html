@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PSBYLFEM9T"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-PSBYLFEM9T');</script>
+<title>2027 NBA Rookie of the Year Odds: 10,000 Simulated Seasons · Spreadsheet Sports</title>
+<meta name="description" content="Every 2026-27 NBA rookie&#x27;s chance to win Rookie of the Year from 10,000 simulated seasons. AJ Dybantsa 31.2%. Backtested on every class since 1990: favourite won 19 of 37, 10 to 7 vs Vegas since 2008.">
+<link rel="canonical" href="https://spreadsheetsports.com/models/roy.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Spreadsheet Sports">
+<meta property="og:title" content="2027 NBA Rookie of the Year Odds: 10,000 Simulated Seasons · Spreadsheet Sports">
+<meta property="og:description" content="Every 2026-27 NBA rookie&#x27;s chance to win Rookie of the Year from 10,000 simulated seasons. AJ Dybantsa 31.2%. Backtested on every class since 1990: favourite won 19 of 37, 10 to 7 vs Vegas since 2008.">
+<meta property="og:url" content="https://spreadsheetsports.com/models/roy.html">
+<meta property="og:image" content="https://spreadsheetsports.com/assets/img/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@SpreadsheetNBA">
+<meta name="twitter:image" content="https://spreadsheetsports.com/assets/img/og.png">
+<meta name="theme-color" content="#08090b">
+<link rel="icon" href="/assets/img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/site.css?v=28">
+<script src="/assets/js/site.js?v=28" defer></script>
+</head>
+<body>
+<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow">Rookie of the Year model · 2026-27</span>
+      <h1 class="display">Who wins<br><span class="hl">Rookie of the Year</span>?</h1>
+      <p class="lead">Every rookie's 2026-27 season projected from what's known on opening night, handed to a voter model trained on 37 years of real ballots, and played out 10,000 times.</p>
+      <div class="meta-row"><span><b>80</b> rookies simulated</span><span>Favourite won <b>19 of 37</b> since 1990</span><span>vs Vegas since 2008: <b>10 to 7</b></span></div>
+    </div>
+  </section>
+  <section style="padding-top:16px">
+    <div class="wrap grid g2" style="align-items:start">
+      <div class="reveal"><div id="video"></div>
+        <p class="muted" style="font-size:14px;margin:14px 2px 0">Watch every version of the model get built, and the countdown.</p></div>
+      <div class="grid g2 reveal">
+        <div class="card stat"><span class="card-label">Model favourite</span><div class="big">31.2%</div><p>AJ Dybantsa, the No. 1 pick. Vegas has him 4th at +450.</p></div>
+        <div class="card stat"><span class="card-label">Backtest</span><div class="big">19<small> / 37</small></div><p>Rookie classes since 1990 where the model's favourite won, using only opening-night information. The real winner was in its top 3 28 times.</p></div>
+        <div class="card stat"><span class="card-label">Model vs Vegas</span><div class="big">+43%</div><p>More winners than the preseason betting favourite since 2008: 10 to 7.</p></div>
+        <div class="card stat"><span class="card-label">Vegas favourite</span><div class="big">4.9%</div><p>Cameron Boozer is +260 in the market (odds as of 2026-10-18). The model has him 5th.</p></div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="wrap">
+      <div class="section-head"><div><span class="eyebrow">10,000 simulated seasons</span><h2 class="display" style="margin-top:12px">Every rookie's chance</h2></div>
+        <p class="muted" style="max-width:460px;margin:0">Win share of 10,000 simulated seasons, with each rookie's projected season. Preseason minutes and being healthy on opening night are the two things the model leans on most. Search a name or tap a column to sort.</p></div>
+      <div id="roy-search" class="search" style="max-width:420px;margin-bottom:16px"><input type="search" placeholder="Search a rookie, team or college" autocomplete="off" aria-label="Search a rookie"></div>
+      <div id="rows"></div>
+    </div>
+  </section>
+  <section>
+    <div class="wrap">
+      <span class="eyebrow">How it was built</span><h2 class="display" style="margin:12px 0 18px">Five versions</h2>
+      <div id="vers" class="grid g3 reveal"></div>
+      <div class="grid g3 reveal" style="margin-top:18px">
+        <div class="card"><span class="card-label">The rule</span><h3>Opening-night info only</h3><p class="muted">Every version is backtested on every rookie class since 1990 using only what was known before the season: draft slot, college numbers, teammates, last season's record, preseason minutes, health.</p></div>
+        <div class="card"><span class="card-label">The honest test</span><h3>21 fell back to 19</h3><p class="muted">Searching for extra factors got the backtest to 21. Hiding one season at a time and predicting it blind brought it back to 19, so the extras were luck and were thrown out.</p></div>
+        <div class="card"><span class="card-label">The voters</span><h3>31 / 37 with hindsight</h3><p class="muted">Shown a rookie's real full season, the voter model names the actual winner 31 times out of 37. Before the season, the stats have to be projected, which is where the 10,000 simulations come in.</p></div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="wrap">
+      <div class="section-head"><div><span class="eyebrow">Report card</span><h2 class="display" style="margin-top:12px">Every Rookie of the Year since 1990</h2></div>
+        <p class="muted" style="max-width:460px;margin:0">Where the final model ranked each winner before his rookie season. Ties (1995, 2000) count as one season.</p></div>
+      <div id="report"></div>
+    </div>
+  </section>
+  <section>
+    <div class="wrap">
+      <div class="section-head"><div><span class="eyebrow">Model vs Vegas</span><h2 class="display" style="margin-top:12px">Did the favourite win?</h2></div>
+        <p class="muted" style="max-width:460px;margin:0">Preseason betting favourite vs the model's favourite, every season with preseason odds (2008-2026). Vegas 7, model 10.</p></div>
+      <div id="vegas"></div>
+    </div>
+  </section>
+  <section id="newsletter">
+    <div class="wrap">
+      <div class="card news reveal">
+        <div><span class="eyebrow">The newsletter</span><h2 class="display" style="margin:12px 0 10px">The numbers that didn't make the video</h2>
+          <p class="muted" style="margin:0 0 16px">Extra charts, cut segments and tracker updates between videos. Free.</p>
+          <a class="btn red" href="https://www.youtube.com/@spreadsheetsportsanalytics?sub_confirmation=1" target="_blank" rel="noopener">▶&nbsp; Subscribe on YouTube</a></div>
+        <div id="nl-page"></div>
+      </div>
+    </div>
+  </section>
+</main>
+<script>document.addEventListener("DOMContentLoaded", () => SS.newsletter(document.getElementById("nl-page")));</script>
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+  const { data, $, esc, embed, table, reveal, fold } = SS;
+  const d = await data("roy");
+  embed($("#video"), d.video);
+  const nm = (r) => r.page ? `<a href="/players/${r.s}/">${esc(r.name)}</a>` : esc(r.name);
+  const cols = [
+    { key: "rank", label: "#", num: true },
+    { key: "name", label: "Rookie", fmt: (r) => nm(r) + ` <span class="dim mono">${esc(r.t)}${r.pick ? " · No. " + r.pick : ""}</span>` },
+    { key: "p", label: "Win %", num: true, fmt: (r) => `<b>${r.p.toFixed(1)}%</b>` },
+    { key: "odds", label: "Vegas", fmt: (r) => r.odds || "" },
+    { key: "ppg", label: "Proj. PPG", num: true, fmt: (r) => r.ppg == null ? "" : r.ppg.toFixed(1) },
+    { key: "g", label: "Proj. games", num: true },
+    { key: "mpg", label: "Proj. MPG", num: true, fmt: (r) => r.mpg == null ? "" : r.mpg.toFixed(1) },
+    { key: "pre_mpg", label: "Preseason MPG", num: true, fmt: (r) => r.pre_mpg == null ? "" : r.pre_mpg.toFixed(1) },
+    { key: "col", label: "College / club", fmt: (r) => `<span class="dim">${esc(r.col || "")}</span>` },
+  ];
+  const inp = $("#roy-search input");
+  const draw = () => { const q = fold(inp.value.trim()); table($("#rows"), cols, d.rows.filter((r) => !q || fold(`${r.name} ${r.t} ${r.col}`).includes(q)), { sort: "p", dir: -1, limit: 15 }); };
+  inp.addEventListener("input", draw); draw();
+  $("#vers").innerHTML = d.versions.map((v) => `<div class="card"><span class="card-label">${esc(v.v)} · ${v.fav} / 37</span><h3>${esc(v.name)}</h3>
+    <p class="muted">${v.board.map(([n, p], i) => `${i + 1}. ${esc(n)} <b>${(+p).toFixed(1)}%</b>`).join("<br>")}</p></div>`).join("");
+  const rp = (k) => `<span class="pill ${k === 1 ? "hit" : k <= 3 ? "near" : "miss"}">${k === 1 ? "Favourite" : k <= 3 ? "Top 3" : ordn(k)}</span>`;
+  function ordn(n) { const s = ["th", "st", "nd", "rd"], v = n % 100; return n + (s[(v - 20) % 10] || s[v] || s[0]); }
+  table($("#report"), [
+    { key: "y", label: "Season", num: true, fmt: (r) => `${r.y - 1}-${String(r.y).slice(2)}` },
+    { key: "name", label: "Rookie of the Year", fmt: (r) => esc(r.name) + ` <span class="dim mono">No. ${r.pick}</span>` },
+    { key: "rank", label: "Model rank", num: true, fmt: (r) => rp(r.rank) },
+    { key: "fav", label: "Model favourite", fmt: (r) => r.rank === 1 ? "" : `<span class="dim">${esc(r.fav)}</span>` },
+  ], d.report, { sort: "y", dir: -1, limit: 40 });
+  const ck = (x) => x === 1 ? `<span class="pill hit">✓ Won</span>` : x == null ? `<span class="dim">—</span>` : `<span class="dim">${ordn(x)}</span>`;
+  table($("#vegas"), [
+    { key: "y", label: "Season", num: true, fmt: (r) => `${r.y - 1}-${String(r.y).slice(2)}` },
+    { key: "winner", label: "Winner", fmt: (r) => esc(r.winner) },
+    { key: "vegas", label: "Vegas had him", num: true, fmt: (r) => ck(r.vegas) },
+    { key: "model", label: "Model had him", num: true, fmt: (r) => ck(r.model) },
+  ], d.vegas, { sort: "y", dir: -1, limit: 25 });
+  reveal();
+});
+</script>
+</body>
+</html>

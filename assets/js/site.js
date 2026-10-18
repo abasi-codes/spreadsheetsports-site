@@ -48,7 +48,8 @@ const SS = (() => {
   const MORE = [["/models/underrated.html", "Most underrated", "Impact vs the expert rankings"],
                 ["/models/unluckiest.html", "Most cursed careers", "The CURSE model, all-time"],
                 ["/models/no3.html", "No 3-point line", "Every playoff game since 1980, re-scored"],
-                ["/models/contract.html", "Contract years", "Do players play better when they're due?"]];
+                ["/models/contract.html", "Contract years", "Do players play better when they're due?"],
+                ["/models/roy.html", "Rookie of the Year", "2027 odds for every rookie, 10,000 sims"]];
   function chrome() {
     document.body.prepend(h(`<header class="site-head"><div class="wrap">
       <a class="brand" href="${HOME}"><img src="${LOGO}" alt="" width="32" height="32">Spreadsheet <b>Sports</b></a>${SPORT}

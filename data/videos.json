@@ -1,5 +1,14 @@
 [
  {
+  "id": "06VEziLlTqw",
+  "title": "I Built a Model to Predict the 2027 NBA Rookie of the Year",
+  "kind": "Model",
+  "date": "2026-10-18",
+  "model": "roy",
+  "blurb": "Every rookie class since 1990 backtested on opening-night info, then the 2026-27 rookie season simulated 10,000 times. 10 winners to Vegas's 7 since 2008.",
+  "publishAt": "2026-10-18T18:30:00Z"
+ },
+ {
   "id": "SQjJtBuF1yg",
   "title": "My Model Predicts the 2027 Stanley Cup Champion",
   "kind": "Model",
