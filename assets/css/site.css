@@ -622,3 +622,9 @@ a.ub-row:hover { background: rgba(255,255,255,.03); }
 .hk-board .nm.on, .hk-board .v.on { height: auto; background: none; color: var(--text, #fff); white-space: nowrap; }
 .hk-board a.row:hover .bar i { background: linear-gradient(90deg, var(--red), rgba(227,20,30,.35)); }
 .hk-board .row:first-child .bar i { background: linear-gradient(90deg, var(--red), rgba(227,20,30,.35)); }
+
+/* hockey underrated team grid */
+.ur-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
+@media (max-width:960px){ .ur-grid{grid-template-columns:repeat(2,minmax(0,1fr));} }
+@media (max-width:480px){ .ur-grid{grid-template-columns:minmax(0,1fr);} }
+.ur-tile{color:inherit;text-decoration:none} .ur-tile.flash,.ur-tile:target{outline:2px solid var(--yellow,#ffd84a)}

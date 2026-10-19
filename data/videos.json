@@ -9,6 +9,16 @@
   "publishAt": "2026-10-18T18:30:00Z"
  },
  {
+  "id": "0lqH3s1gHeQ",
+  "title": "I Built a Model to Find the NHL's Most Underrated Player",
+  "kind": "Model",
+  "date": "2026-10-19",
+  "model": "underrated",
+  "sport": "hockey",
+  "blurb": "618 skaters' real impact over two seasons against where ESPN, The Hockey News, TSN and NHL Network ranked them, with a linemate test to remove passengers.",
+  "publishAt": "2026-10-19T07:30:00Z"
+ },
+ {
   "id": "SQjJtBuF1yg",
   "title": "My Model Predicts the 2027 Stanley Cup Champion",
   "kind": "Model",
