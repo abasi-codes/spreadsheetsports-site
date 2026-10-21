@@ -18,7 +18,7 @@
 
   $("#latest").innerHTML = (await videos()).slice(0, 6).map(videoCard).join("");
 
-  const F = [["YouTube", "@spreadsheetsportsanalytics", "New videos every day"], ["X", "@SpreadsheetNBA", "Daily charts & takes"], ["Instagram", "@spreadsheetsportsanalytics", "Reels & clips"]];
+  const F = [["YouTube", "@spreadsheetsportsanalytics", "New videos every day"], ["X", "@SpreadsheetSprt", "Daily charts & takes"], ["Instagram", "@spreadsheetsportsanalytics", "Reels & clips"]];
   const tmp = document.createElement("div"); tmp.innerHTML = icons("big");
   const links = [...tmp.children];
   $("#follow").innerHTML = F.map(([n, handle, sub], i) => `<a class="card reveal" href="${links[i].href}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:14px;text-align:left">
