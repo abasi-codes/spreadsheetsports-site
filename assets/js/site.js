@@ -82,7 +82,8 @@ const SS = (() => {
     matchMedia("(min-width: 761px)").addEventListener("change", (e) => e.matches && set(false));
     document.body.append(h(`<footer class="site-foot"><div class="wrap">
       <div><a class="brand" href="${HOME}"><img src="${LOGO}" alt="" width="28" height="28">Spreadsheet <b>Sports</b></a>
-      <p style="margin:10px 0 0;max-width:360px">${HOCKEY ? "Hockey" : "NBA"}, by the numbers. Models, simulations and ${HOCKEY ? "backtests" : "film breakdowns"}.</p></div>
+      <p style="margin:10px 0 0;max-width:360px">${HOCKEY ? "Hockey" : "NBA"}, by the numbers. Models, simulations and ${HOCKEY ? "backtests" : "film breakdowns"}.</p>
+      <p style="margin:8px 0 0">All enquiries: <a href="mailto:team@spreadsheetsports.com" style="color:var(--text)">team@spreadsheetsports.com</a></p></div>
       <div class="socials big">${icons()}</div>
       <div class="fine">© ${new Date().getFullYear()} Spreadsheet Sports. Not affiliated with the ${HOCKEY ? "NHL" : "NBA"} or its teams.</div>
     </div></footer>`));
