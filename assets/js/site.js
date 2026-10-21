@@ -1,6 +1,6 @@
 // Spreadsheet Sports — shared site code (no dependencies)
 const SS = (() => {
-  const DATA_V = 4;   // bump after re-exporting data/*.json so browsers refetch
+  const DATA_V = 5;   // bump after re-exporting data/*.json so browsers refetch
   // /hockey/* pages get the hockey channel, logo and nav; everything else is the NBA site
   const HOCKEY = location.pathname.startsWith("/hockey");
   const YT_CHANNEL = HOCKEY ? "https://www.youtube.com/@spreadsheetsportshockey" : "https://www.youtube.com/@spreadsheetsportsanalytics";
@@ -49,7 +49,8 @@ const SS = (() => {
                 ["/models/unluckiest.html", "Most cursed careers", "The CURSE model, all-time"],
                 ["/models/no3.html", "No 3-point line", "Every playoff game since 1980, re-scored"],
                 ["/models/contract.html", "Contract years", "Do players play better when they're due?"],
-                ["/models/roy.html", "Rookie of the Year", "2027 odds for every rookie, 10,000 sims"]];
+                ["/models/roy.html", "Rookie of the Year", "2027 odds for every rookie, 10,000 sims"],
+                ["/models/smoy.html", "Sixth Man of the Year", "2027 odds for every bench player, 10,000 sims"]];
   function chrome() {
     document.body.prepend(h(`<header class="site-head"><div class="wrap">
       <a class="brand" href="${HOME}"><img src="${LOGO}" alt="" width="32" height="32">Spreadsheet <b>Sports</b></a>${SPORT}
