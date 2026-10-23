@@ -65,7 +65,8 @@ Pool: 500+ minutes that season (379 players in 2025-26, 375 in 2024-25). Percent
 | | Self-created makes (Unast%) | 1 − assisted FGM ÷ FGM | 0.5 |
 | | Ball security (TOV%) | BBRef, lower is better | 0.5 |
 | Perimeter D | Steals (STL%), Defensive box +/- (DBPM), Defensive win shares (DWS × 48 ÷ MP), Defensive rating (DRtg, lower better) | BBRef | 1.5 / 1.5 / 1 / 0.5 |
-| Rim & glass | Shot blocking (BLK%), Defensive rebounding (DRB%), Offensive rebounding (ORB%) | BBRef | 2 / 1.5 / 1 |
+| Rim & glass | **Rim protection** (Rim pts saved/100), **Rim deterrence** (Rim shots deterred/100), **Rim FG% saved** (Rim FG% pp) | Spreadsheet Sports Rim Protection v1.0 (~/rim-protection, see below) | 2.5 / 1 / 1 |
+| | Shot blocking (BLK%), Defensive rebounding (DRB%), Offensive rebounding (ORB%) | BBRef | 1 / 1.5 / 1 |
 | Impact | BPM, On/off net, WS/48, VORP | BBRef | 2 / 1 / 1.5 / shown |
 
 **Shot creation est.** is our own, transparent estimate. Ben Taylor's published "Box Creation" and "Passer Rating" are regression formulas on box-score inputs. We did not copy their coefficients. Ours counts baskets created directly: his own unassisted makes plus the teammate makes he assists, using Basketball-Reference's "% assisted" splits.
@@ -107,19 +108,52 @@ Defense: Rim Protector (BLK% ≥ 4.5) → Rebounder (big, DRB% ≥ 24) → Versa
 
 **Role names are a user decision.** We avoided "Perimeter Stopper" because box-score data can't tell who a player guards. Steals-heavy defenders are "Ball Hawk" instead. "Play Finisher" is the catch-all, since "Post Scorer" needs post-up data we don't have and was renamed "Interior Scorer". The KAT miss needs a rule tweak, which the user should weigh against moving wings like OG Anunoby into "Stretch Big".
 
-## Rim protection: data-source options (user to pick)
+## Rim protection (integrated Oct 23; replaces the "coming soon" placeholder)
 
-Today the Rim & glass card says "Shot blocking" (BLK%). It carries a "Rim protection (opponent FG% at the rim): coming soon" note. We don't invent a rim-protection number.
+**Source.** `~/rim-protection/data/rim.json` (REPORT.md there). It's a lineup-adjusted ridge regression (RAPM-style, with a block-rate prior) on every 10-man unit of 2024-25 + 2025-26 NBA play-by-play, pooled. That's option (b) from the earlier list, built in-house. Options (a) NBA tracking and (c) a license remain open for a future cross-check.
 
-- **(a) NBA.com defense tracking** (opponent FG% at the rim, contests). This is the best quality, but it's NBA Stats data and its terms restrict reuse and republishing. We'd need permission, or would have to stick to brief commentary use.
-- **(b) Our own on/off opponent rim FG%, derived from play-by-play.** Parse every game's play-by-play (shot distance is in the text) and compute the opponent rim FG% and rim attempt rate with the player on vs off the floor. It's fully ours and transparent, but noisy (lineup effects) and needs ~1,230 games of play-by-play per season plus lineup reconstruction. That means a careful, rate-limited scrape or a licensed play-by-play feed. It also unlocks on/off **defense** (DRtg on/off), which we can't show today.
-- **(c) License or partnership.** Second Spectrum/Genius, Synergy, or a stats partner such as PBP Stats, Cleaning the Glass or Basketball Index. Clean data and the right to publish, at a cost.
+**On the site**
+- **Metrics.** Three metrics lead the Rim & glass card: Rim protection (+5.1 (±0.7); the ± is the 90% band, 1.645 SE), Rim deterrence and Rim FG% saved. Glossary and tooltip text is REPORT §4 nearly verbatim.
+- **Plain-English line.** The card has a read such as "With him on defense, opponents take 3.7 fewer rim shots per 100 possessions and shoot 7.8 points worse at the rim: +5.1 points saved per 100." It ends with a "Lineup-adjusted, backtested vs blocks" link to `/methods/rim-protection.html`.
+- **Pooled number.** It's the same in both season views, tagged "2024-25 + 2025-26 combined". Players under 1,000 pooled minutes, or missing from rim.json, show "—" with "not enough minutes: N of 1,000".
+- **Percentiles: recomputed, not taken from rim.json.** We rank the pooled value inside each season's 500-min pool, among players who have a value, league-wide and within our Guard/Wing/Big groups. That keeps them on the same scale and position grouping as every other number on the page. rim.json's own percentiles (405 qualified, G/F/C groups) agree closely, e.g. Zubac 90 here vs 90 there.
+- **Weights.** In the Rim & glass score: Rim protection 2.5, deterrence 1, FG% saved 1, BLK% 1 (was 2), DRB% 1.5, ORB% 1. Players without a rim value are scored on BLK/DRB/ORB alone (weights re-normalised).
+- **Leaders.** New boards at the top of the defense boards: "Best rim protectors", "Best rim deterrents", and "Shot blockers teams still attack". The last one takes bigs with a BLK% percentile of 85+ and sorts them by block percentile minus deterrence percentile. It shows both percentiles and links to the methods page and to the explorer filtered by `pos=B&blk≥4%`, sorted by deterrence ascending. There are static pages `/leaders/rim-protection/`, `/leaders/rim-deterrence/` and `/leaders/rim-fg-saved/`, and explorer columns in the Rim & glass tab.
+- **Methods page** `/methods/rim-protection.html` (in the sitemap):
+  - plain-English explanation and formula, with league constants from rim.json;
+  - glossary;
+  - the backtest table (ours vs no-prior vs blocks vs raw on/off), read from rim.json meta, with the "graded the honest way" wording;
+  - year-to-year stability and the R² 0.85 overlap with blocks;
+  - top 10 and the "teams still attack" list;
+  - the caveats from §8;
+  - data credit: "Play-by-play via the NBA's public game data (archived by shufinskiy/nba_data, Apache-2.0); all metrics computed by Spreadsheet Sports".
+  - It has no raw play-by-play and no download links.
+
+**Rim & glass score moves (2025-26 view, before → after)**
+
+| Player | Before | After | Why |
+|---|---|---|---|
+| Victor Wembanyama | 98 | 99 | #1 in all three rim metrics |
+| Rudy Gobert | 98 | 98 | Rim protection 94th pct, deterrence 97th |
+| Ivica Zubac | 92 | 95 | Deterrence 98th pct (blocks only 78th) |
+| Jusuf Nurkić | 86 | 94 | Deterrence 99th pct; block 67th. The "doesn't block, still protects" case |
+| Jay Huff | 82 | 82 | FG% saved 99th but deterrence 15th: the two cancel |
+| Nic Claxton | 92 | **81** | Deterrence 22nd pct; rim protection only 79th |
+| Yves Missi | 93 | 87 | Same pattern as Claxton |
+| Brook Lopez | 76 | 87 | Rim protection 97th |
+| Draymond Green | 70 | 83 | Deterrence 98th |
+| Domantas Sabonis | 67 | 80 | Deterrence 94th. REPORT flags his deterrence as not robust (mostly 2024-25) |
+| Derrick White | 61 | 76 | #1 guard in rim protection |
+
+The biggest moves are wings and guards, where rim percentiles swing a lot inside a narrow value range. Examples: Sam Merrill +45, Landry Shamet +32, Dillon Brooks +30, Brandon Ingram −38, Tyrese Maxey −30. That is team scheme leaking into perimeter players (REPORT §8). Option: weight rim protection less for Guards/Wings, or grade the guard/wing Rim & glass score on blocks and rebounding only.
+
+Not changed: the defensive **role** rule "Rim Protector" still uses BLK% ≥ 4.5. Switching it to rim protection percentile ≥ 90 would move Nurkić and Zubac in and Claxton out. That's a user call.
 
 ## Leaders
 
 - `/leaders/`: 12 preset boards (top 10 each, 2025-26). Each links to its full list and to the explorer with the same filter.
 - `/leaders/explore.html`: rank by any metric or category score, then filter by season, position, offensive/defensive role, team, age range, minimum minutes and name. There's a column view per category, "vs all / vs position" shading, sortable headers, and every setting in the URL (`?sort=blk&pos=B&min=1000`). No CSV export.
-- `/leaders/<metric>/`: 30 static, crawlable pages (6 category scores + every graded or shown metric). Each has its own title, description and canonical, and appears in the sitemap (588 URLs total).
+- `/leaders/<metric>/`: 43 static, crawlable pages (6 category scores + every graded or shown metric, incl. per-game and rim protection). Each has its own title, description and canonical, and appears in the sitemap (602 URLs total, incl. /methods/rim-protection.html).
 - Nav: "Leaders" is added between Title Odds and More models (and in the mobile menu).
 
 ## Build
@@ -128,7 +162,7 @@ Today the Rim & glass card says "Shot blocking" (BLK%). It carries a "Rim protec
 
 ## Known gaps
 
-- No on/off defense: Basketball-Reference's play-by-play summary only splits net rating (see option b).
+- No on/off defense: Basketball-Reference's play-by-play summary only splits net rating. The rim-protection play-by-play pipeline could produce it later.
 - Box-score defense (DBPM/DWS) flatters steal- and rebound-heavy bigs. Jokić scores 95 in Perimeter D. The card says to read it as rough.
 - Phase 1 covers 2024-25 and 2025-26 only. There are no metrics for 2023-24, and 2024-25 players without a site page (out of the league) count in the percentile pools but aren't listed.
 - Similar players compares within the same season only. The match % is a scaled distance, not a probability.

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PSBYLFEM9T"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-PSBYLFEM9T');</script>
+<title>How We Measure Rim Protection · Spreadsheet Sports</title>
+<meta name="description" content="How Spreadsheet Sports measures NBA rim protection: rim points saved per 100 possessions from shots deterred and makes prevented, lineup-adjusted from two seasons of play-by-play and backtested against blocks and on/off.">
+<link rel="canonical" href="https://spreadsheetsports.com/methods/rim-protection.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Spreadsheet Sports">
+<meta property="og:title" content="How We Measure Rim Protection · Spreadsheet Sports">
+<meta property="og:description" content="How Spreadsheet Sports measures NBA rim protection: rim points saved per 100 possessions from shots deterred and makes prevented, lineup-adjusted from two seasons of play-by-play and backtested against blocks and on/off.">
+<meta property="og:url" content="https://spreadsheetsports.com/methods/rim-protection.html">
+<meta property="og:image" content="https://spreadsheetsports.com/assets/img/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@SpreadsheetNBA">
+<meta name="twitter:image" content="https://spreadsheetsports.com/assets/img/og.png">
+<meta name="theme-color" content="#08090b">
+<link rel="icon" href="/assets/img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/site.css?v=32">
+<script src="/assets/js/site.js?v=32" defer></script>
+</head>
+<body data-leaders="methods-rim">
+<main>
+  <section class="entity-hero"><div class="wrap">
+    <div class="crumbs"><a href="/">Spreadsheet Sports</a> / <a href="/leaders/">League leaders</a> / Methods</div>
+    <h1 class="display">Rim protection</h1>
+    <p class="lead">Blocks are the highlight, but they're not the whole job. The best rim protectors also stop shots from happening and make the ones that do happen miss. This number counts all of it: <b>rim points saved per 100 opponent possessions</b>.</p>
+    <div class="lb-cta"><a class="btn red" href="/leaders/rim-protection/">Rim protection leaders</a><a class="btn ghost" href="/leaders/explore.html?sort=rimp">Explore</a></div>
+  </div></section>
+  <section class="mx-sec"><div class="wrap meth">
+    <div class="card meth-card"><div class="card-label">In plain English</div><h2 class="sec-h">What it measures</h2>
+      <p>Two things happen at the rim when a great big is on the floor. Opponents <b>take fewer shots there</b> (deterrence), and they <b>make fewer of the ones they take</b> (FG% saved). We measure both from every possession of the last two regular seasons, then turn them into points:</p>
+      <p class="meth-f">rim points saved per 100 = shots deterred × (1.31 − 1.00) + FG% saved × 25.6 rim attempts per 100</p>
+      <p>A rim shot is worth 1.31 points on average (65.5% in the restricted area); every other shot is worth about 1.00. So a deterred rim attempt saves about 0.31 points. 0 is league average, +2 is elite, +4 is historic.</p>
+      <p><b>Lineup-adjusted</b> means we estimate every player at the same time from every 10-man combination on the floor (a ridge regression, the same idea as RAPM), so nobody gets credit just for sharing the floor with a great rim protector. Each defender's estimate is gently pulled toward what his block rate suggests, because blocks turn out to carry real signal about FG% at the rim.</p>
+      <dl class="gloss-dl"><div><dt>Rim pts saved/100<small>Rim protection</small></dt><dd>How many points a defender saves at the rim per 100 opponent possessions, from fewer shots at the rim and fewer makes on the ones that are taken. 0 is league average, +2 is elite, +4 is historic.</dd></div><div><dt>Rim shots deterred/100<small>Rim deterrence</small></dt><dd>How many fewer shots opponents take at the rim (inside 4 feet) per 100 possessions when he is on defense, adjusted for all nine other players on the floor.</dd></div><div><dt>Rim FG% pp<small>Rim FG% saved</small></dt><dd>How many percentage points lower opponents shoot at the rim with him on defense, adjusted for teammates and opponents.</dd></div><div><dt>Blocks per rim attempt</dt><dd>Share of opponent rim attempts this player blocks while he is on the floor.</dd></div><div><dt>On/off</dt><dd>Opponent rim numbers with the player on the floor minus with him off. Not adjusted for teammates or opponents.</dd></div><div><dt>Lineup-adjusted</dt><dd>We estimate every player at once from every 10-man combination, so a defender doesn't get credit just for playing next to a great rim protector.</dd></div></dl>
+    </div>
+    <div class="card meth-card"><div class="card-label">Backtest</div><h2 class="sec-h">Graded the honest way</h2>
+      <p>We graded the model the honest way. We built it on 2024-25 only, then asked it to predict 2025-26 lineups it had never seen. If it can't beat simple stats on games it hasn't seen, there's no reason to trust it.</p>
+      <div class="stat-scroll" tabindex="0" role="region" aria-label="Backtest"><table class="stat-table meth-t"><thead><tr><th>Predictor, built on 2024-25</th><th class="num">Rim attempt rate, 2025-26</th><th class="num">Rim FG%, 2025-26</th></tr></thead><tbody><tr><th scope="row">Spreadsheet Sports Rim Protection</th><td class="num">.061</td><td class="num">.069</td></tr><tr><th scope="row">Same model, no block prior</th><td class="num">.057</td><td class="num">.059</td></tr><tr><th scope="row">Blocks per rim attempt</th><td class="num">.026</td><td class="num">.059</td></tr><tr><th scope="row">Raw on/off</th><td class="num">.028</td><td class="num">.033</td></tr></tbody></table></div>
+      <p class="muted meth-small">Weighted correlation with what actually happened in every 2025-26 defensive unit. Single lineups are tiny samples, so every number is small; the comparison is what matters. Our metric beats block rate by +0.035 on deterrence and +0.011 on FG%, and raw on/off by +0.033 and +0.036. All four gaps have 95% confidence intervals above zero (bootstrap over games).</p>
+      <h3 class="meth-h">Year to year</h3><p class="muted meth-small">Correlation between a player's 2024-25 and 2025-26 values (190 players with 1,000+ minutes in both).</p><div class="stat-scroll"><table class="stat-table meth-t"><thead><tr><th>Metric</th><th class="num">r</th></tr></thead><tbody><tr><th scope="row">Rim protection (combined)</th><td class="num">.864</td></tr><tr><th scope="row">Rim deterrence</th><td class="num">.589</td></tr><tr><th scope="row">Rim FG% saved</th><td class="num">.870</td></tr><tr><th scope="row">Raw on/off, deterrence</th><td class="num">.337</td></tr><tr><th scope="row">Raw on/off, FG%</th><td class="num">.294</td></tr><tr><th scope="row">Blocks per rim attempt</th><td class="num">.903</td></tr></tbody></table></div><p class="muted meth-small">Block rate is very stable but predicts deterrence poorly. Ours is nearly as stable and predicts better. Being honest about the overlap: across qualified players the combined number tracks block rate closely (R² 0.85), so the FG% half is largely “blocks, adjusted for lineups and made predictive”. The new information lives in deterrence.</p>
+    </div>
+    <div class="meth-two">
+      <div class="card"><div class="card-label">2025-26 pool</div><h2 class="sec-h">Top 10</h2><ol class="lb-list"><li><i>1</i><a href="/players/victor-wembanyama/"><span class="sw" style="background:#C4CED4"></span><span class="nm">Victor Wembanyama</span></a><small>SAS</small><b>+5.1</b></li><li><i>2</i><a href="/players/chet-holmgren/"><span class="sw" style="background:#007AC1"></span><span class="nm">Chet Holmgren</span></a><small>OKC</small><b>+4.3</b></li><li><i>3</i><a href="/players/isaiah-stewart/"><span class="sw" style="background:#C8102E"></span><span class="nm">Isaiah Stewart</span></a><small>DET</small><b>+3.7</b></li><li><i>4</i><a href="/players/daniel-gafford/"><span class="sw" style="background:#0064B1"></span><span class="nm">Daniel Gafford</span></a><small>DAL</small><b>+3.2</b></li><li><i>5</i><a href="/players/neemias-queta/"><span class="sw" style="background:#007A33"></span><span class="nm">Neemias Queta</span></a><small>BOS</small><b>+2.8</b></li><li><i>6</i><a href="/players/donovan-clingan/"><span class="sw" style="background:#E03A3E"></span><span class="nm">Donovan Clingan</span></a><small>POR</small><b>+2.7</b></li><li><i>7</i><a href="/players/ryan-kalkbrenner/"><span class="sw" style="background:#00788C"></span><span class="nm">Ryan Kalkbrenner</span></a><small>CHO</small><b>+2.6</b></li><li><i>8</i><a href="/players/brook-lopez/"><span class="sw" style="background:#C8102E"></span><span class="nm">Brook Lopez</span></a><small>LAC</small><b>+2.5</b></li><li><i>9</i><a href="/players/clint-capela/"><span class="sw" style="background:#CE1141"></span><span class="nm">Clint Capela</span></a><small>HOU</small><b>+2.5</b></li><li><i>10</i><a href="/players/evan-mobley/"><span class="sw" style="background:#860038"></span><span class="nm">Evan Mobley</span></a><small>CLE</small><b>+2.5</b></li></ol></div>
+      <div class="card" id="attack"><div class="card-label">Block pctl / deterrence pctl</div><h2 class="sec-h">Shot blockers teams still attack</h2>
+        <p class="muted meth-small">Bigs in the top 15% for block rate whose deterrence ranks far lower: great at contesting, but opponents keep coming anyway.</p><ol class="lb-list"><li><i>1</i><a href="/players/matas-buzelis/"><span class="sw" style="background:#CE1141"></span><span class="nm">Matas Buzelis</span></a><small>CHI</small><b>93 / 8</b></li><li><i>2</i><a href="/players/jay-huff/"><span class="sw" style="background:#FDBB30"></span><span class="nm">Jay Huff</span></a><small>IND</small><b>99 / 15</b></li><li><i>3</i><a href="/players/zeke-nnaji/"><span class="sw" style="background:#FEC524"></span><span class="nm">Zeke Nnaji</span></a><small>DEN</small><b>88 / 4</b></li><li><i>4</i><a href="/players/nic-claxton/"><span class="sw" style="background:#777D84"></span><span class="nm">Nic Claxton</span></a><small>BRK</small><b>89 / 22</b></li><li><i>5</i><a href="/players/yves-missi/"><span class="sw" style="background:#85714D"></span><span class="nm">Yves Missi</span></a><small>NOP</small><b>99 / 40</b></li><li><i>6</i><a href="/players/derik-queen/"><span class="sw" style="background:#85714D"></span><span class="nm">Derik Queen</span></a><small>NOP</small><b>87 / 31</b></li><li><i>7</i><a href="/players/moussa-diabate/"><span class="sw" style="background:#00788C"></span><span class="nm">Moussa Diabaté</span></a><small>CHO</small><b>87 / 32</b></li><li><i>8</i><a href="/players/tristan-vukcevic/"><span class="sw" style="background:#E31837"></span><span class="nm">Tristan Vukcevic</span></a><small>WAS</small><b>92 / 46</b></li></ol></div>
+    </div>
+    <div class="card meth-card"><div class="card-label">Caveats</div><h2 class="sec-h">What it can't see</h2><ul class="meth-ul">
+      <li><b>Team scheme.</b> There's no team term, so scheme (drop vs switch, zone) is partly credited to players, and teammates who almost always share the floor split credit uncertainly.</li>
+      <li><b>Uncertainty is model-based.</b> The ± band is a 90% interval conditional on the model's shrinkage; it understates true uncertainty for low-minute players, whose estimates lean on the block prior. Treat percentile differences under about 10 points as ties.</li>
+      <li><b>Deterrence is the noisiest part</b> (year-to-year r 0.59), and it assumes a deterred shot becomes an average non-rim shot. Turnovers and kick-outs to corner threes aren't modeled separately.</li>
+      <li><b>Rim = restricted-area field-goal attempts.</b> Rim fouls without a recorded shot are left out, which slightly undervalues bigs who foul.</li>
+      <li><b>Two seasons pooled</b> (2024-25 + 2025-26, equal weight), so it doesn't capture aging or injury inside that window. The same number shows in both season views on player pages.</li>
+      <li><b>Not yet cross-checked</b> against the NBA's tracking-based opponent FG% at the rim, by design (licensing).</li>
+      <li>Shown for players with 1,000+ minutes over the two seasons (405 players).</li>
+    </ul></div>
+    <p class="adv-src">Play-by-play via the NBA's public game data (archived by shufinskiy/nba_data, Apache-2.0); all metrics computed by Spreadsheet Sports. Model v1.0, 2026-10-23.</p>
+  </div></section>
+</main>
+<script src="/assets/js/stats.js?v=32" defer></script>
+</body>
+</html>
