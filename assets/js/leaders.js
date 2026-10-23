@@ -40,9 +40,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   // ---------- columns ----------
   const catCols = CATS.map((c) => ({ id: `cat_${c}`, lab: M.cats.find((x) => x.k === c).n, abbr: "Score", cat: c }));
   const metCol = (k) => ({ id: k, lab: MET[k].n, abbr: MET[k].a, k });
-  const VIEWS = [["cats", "Category scores"], ...M.cats.map((c) => [c.k, c.n])];
+  const GROUPS = M.box ? [M.box, ...M.cats] : M.cats;          // "Per game" box score first, then the graded categories
+  const VIEWS = [["cats", "Category scores"], ...GROUPS.map((c) => [c.k, c.n])];
   const colsFor = (view, sort) => {
-    let cs = view === "cats" ? catCols : M.cats.find((c) => c.k === view).m.map(metCol);
+    let cs = view === "cats" ? catCols : GROUPS.find((c) => c.k === view).m.map(metCol);
     if (sort && !cs.some((c) => c.id === sort)) cs = [sort.startsWith("cat_") ? catCols.find((c) => c.id === sort) : metCol(sort), ...cs];
     return cs;
   };
@@ -69,7 +70,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const offRoles = M.roles.off.map((r) => r[0]), defRoles = M.roles.def.map((r) => r[0]);
   const opt = (v, lab, cur) => `<option value="${esc(v)}"${String(cur) === String(v) ? " selected" : ""}>${esc(lab)}</option>`;
   const metricSelect = () => `<optgroup label="Category scores (0–99)">${catCols.map((c) => opt(c.id, c.lab + " score", st.sort)).join("")}</optgroup>` +
-    M.cats.map((c) => `<optgroup label="${esc(c.n)}">${c.m.map((k) => opt(k, `${MET[k].n} (${MET[k].a})`, st.sort)).join("")}</optgroup>`).join("");
+    GROUPS.map((c) => `<optgroup label="${esc(c.n)}">${c.m.map((k) => opt(k, `${MET[k].n} (${MET[k].a})`, st.sort)).join("")}</optgroup>`).join("");
   el.innerHTML = `
     <div class="lx-controls">
       <label class="lx-f wide"><span>Rank by</span><select data-k="sort">${metricSelect()}</select></label>

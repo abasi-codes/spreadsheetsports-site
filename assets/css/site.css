@@ -897,6 +897,9 @@ a.ub-row:hover { background: rgba(255,255,255,.03); }
 .lx-f.wide { grid-column: span 2; }
 .lx-f > span { font: 600 10px var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--dim); }
 .lx-f select, .lx-f input { width: 100%; min-height: 44px; background: rgba(0,0,0,.4); color: var(--text); border: 1px solid var(--line-2); border-radius: 10px; padding: 0 12px; font: 500 15px var(--sans); outline: none; }
+.lx-f select { appearance: none; -webkit-appearance: none; cursor: pointer; padding-right: 40px; text-overflow: ellipsis; background: rgba(0,0,0,.4) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23a3a3ad' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 16px center / 12px 8px; }
+.lx-f select:hover { border-color: rgba(255,255,255,.28); }
+.lx-f select option { background: #15161a; color: var(--text); }
 .lx-f select:focus, .lx-f input:focus { border-color: var(--red); box-shadow: 0 0 0 3px var(--red-soft); }
 .lx-f.age > div { display: flex; align-items: center; gap: 6px; }
 .lx-f.age i { color: var(--dim); font-style: normal; }
