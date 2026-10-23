@@ -1,6 +1,6 @@
 // Spreadsheet Sports — shared site code (no dependencies)
 const SS = (() => {
-  const DATA_V = 5;   // bump after re-exporting data/*.json so browsers refetch
+  const DATA_V = 6;   // bump after re-exporting data/*.json so browsers refetch
   // /hockey/* pages get the hockey channel, logo and nav; everything else is the NBA site
   const HOCKEY = location.pathname.startsWith("/hockey");
   const YT_CHANNEL = HOCKEY ? "https://www.youtube.com/@spreadsheetsportshockey" : "https://www.youtube.com/@spreadsheetsportsanalytics";
@@ -54,7 +54,7 @@ const SS = (() => {
   function chrome() {
     document.body.prepend(h(`<header class="site-head"><div class="wrap">
       <a class="brand" href="${HOME}"><img src="${LOGO}" alt="" width="32" height="32">Spreadsheet <b>Sports</b></a>${SPORT}
-      ${HOCKEY ? `<nav class="nav-lite"><a href="/hockey/cup.html">Cup Odds</a><a href="/hockey/underrated.html">Underrated</a><a href="/hockey/#newsletter">Newsletter</a></nav>` : `<nav class="nav-lite"><a href="/models/mvp.html">MVP Tracker</a><a href="/models/title.html">Title Odds</a><div class="nav-more"><button type="button" aria-haspopup="true" aria-expanded="false">More models <svg viewBox="0 0 12 12" width="10" height="10" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button><div class="nav-drop">${MORE.map(([u, t, d]) => `<a href="${u}"><b>${t}</b><small>${d}</small></a>`).join("")}</div></div><a href="/#newsletter">Newsletter</a></nav>`}
+      ${HOCKEY ? `<nav class="nav-lite"><a href="/hockey/cup.html">Cup Odds</a><a href="/hockey/underrated.html">Underrated</a><a href="/hockey/#newsletter">Newsletter</a></nav>` : `<nav class="nav-lite"><a href="/models/mvp.html">MVP Tracker</a><a href="/models/title.html">Title Odds</a><a href="/leaders/">Leaders</a><div class="nav-more"><button type="button" aria-haspopup="true" aria-expanded="false">More models <svg viewBox="0 0 12 12" width="10" height="10" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button><div class="nav-drop">${MORE.map(([u, t, d]) => `<a href="${u}"><b>${t}</b><small>${d}</small></a>`).join("")}</div></div><a href="/#newsletter">Newsletter</a></nav>`}
       <div class="socials">${icons()}</div>
       <a class="yt-btn" href="${SUB}" target="_blank" rel="noopener">▶ Subscribe</a>
       <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="m-nav"><span></span><span></span><span></span></button>
@@ -65,6 +65,7 @@ const SS = (() => {
       <a href="/"><b>NBA side</b><small>MVP tracker, title odds, every player</small></a>` : `
       <a href="/models/mvp.html"><b>MVP Tracker</b><small>2027 odds · look up any player</small></a>
       <a href="/models/title.html"><b>Title Odds</b><small>10,000 seasons · look up any team</small></a>
+      <a href="/leaders/"><b>Leaders</b><small>Who's best at blocks, creation, shooting, defense</small></a>
       <div class="m-more"><span>More models</span>${MORE.map(([u, t]) => `<a href="${u}">${t}</a>`).join("")}</div>
       <a href="/#videos"><b>Latest videos</b><small>New on the channel</small></a>
       <a href="/#newsletter"><b>Newsletter</b><small>The numbers that didn't make the video</small></a>
