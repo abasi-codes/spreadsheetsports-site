@@ -18,8 +18,8 @@
 <link rel="icon" href="/assets/img/logo-hockey.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/site.css?v=34">
-<script src="/assets/js/site.js?v=34" defer></script>
+<link rel="stylesheet" href="/assets/css/site.css?v=35">
+<script src="/assets/js/site.js?v=35" defer></script>
 </head>
 <body>
 <main>
@@ -83,8 +83,9 @@
     </div>
   </section>
 
-  <section>
-    <div class="wrap grid g2">
+  <section style="padding-top:0">
+    <div class="wrap"><details class="card lb-every"><summary>How a season is simulated, and the ideas that failed</summary>
+    <div class="grid g2" style="margin-top:22px">
       <div class="reveal"><span class="eyebrow">Method</span><h2 class="display" style="margin:12px 0 22px">How a season is simulated</h2>
         <div class="steps">
           <div class="step"><div><h3>Rate every team on chances</h3><p>Expected goals from the last two seasons (score- and venue-adjusted), blended with goal differential. The standings alone carry too much luck.</p></div></div>
@@ -101,20 +102,19 @@
         </ul>
         <p class="dim" style="font-size:13px;margin:16px 0 0">Each made the backtest worse or picked no extra champions, so none of them made the final model.</p></div>
       </div>
-    </div>
+    </div></details></div>
   </section>
 
   <section id="newsletter">
     <div class="wrap">
       <div class="card news reveal">
         <div><span class="eyebrow">The newsletter</span><h2 class="display" style="margin:12px 0 10px">The numbers that didn't make the video</h2>
-          <p class="muted" style="margin:0 0 16px">Extra charts, cut segments and model updates between videos. Free.</p>
-          <a class="btn red" id="sub-page" href="#" target="_blank" rel="noopener">▶&nbsp; Subscribe on YouTube</a></div>
+          <p class="muted" style="margin:0">Extra charts, cut segments and model updates between videos. Free.</p></div>
         <div id="nl-page"></div>
       </div>
     </div>
   </section>
 </main>
-<script src="/assets/js/cup-dig.js?v=4" defer></script>
+<script src="/assets/js/cup-dig.js?v=35" defer></script>
 </body>
 </html>

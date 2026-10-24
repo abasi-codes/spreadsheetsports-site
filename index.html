@@ -18,83 +18,68 @@
 <link rel="icon" href="/assets/img/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/site.css?v=34">
-<script src="/assets/js/site.js?v=34" defer></script>
+<link rel="stylesheet" href="/assets/css/site.css?v=35">
+<script src="/assets/js/site.js?v=35" defer></script>
 </head>
 <body>
 <main>
-  <section class="hero hero-film">
-    <video autoplay muted loop playsinline preload="auto" poster="/assets/media/hero-poster.jpg?v=3" aria-hidden="true">
-      <source src="/assets/media/hero.mp4?v=3" type="video/mp4">
-    </video>
-    <div class="scrim"></div><div class="scrim-flat"></div>
-    <div class="wrap hero-in">
-      <span class="eyebrow live">New videos every day</span>
-      <h1 class="display">NBA, by the <span class="stroke">numbers</span><span class="red">.</span></h1>
-      <p class="lead">Models, 10,000-season simulations and film breakdowns that settle the arguments everyone has about the NBA.</p>
-      <div class="hero-cta-card">
-        <a class="btn red big" id="sub-main" href="#" target="_blank" rel="noopener" style="width:100%;justify-content:center">▶&nbsp; Subscribe on YouTube</a>
-        <div class="or">to get the numbers that didn't make the video</div>
-        <div id="nl-hero"></div>
-      </div>
-      <div class="proof"><span><b>2,000+</b> subscribers</span><span><b>250K</b> views/week</span><span class="follow">Follow <span class="socials" id="hero-soc"></span></span></div>
-    </div>
-    <div class="stat-cue" id="cue" aria-hidden="true"><b class="n"></b><span class="txt"><span class="k"></span><span class="l"></span></span></div>
-    <div class="cue-bar" id="cue-bar" aria-hidden="true"></div>
-  </section>
-
-  <section style="padding-top:24px">
+  <section class="home-hero">
     <div class="wrap">
-      <div class="section-head">
-        <div><span class="eyebrow live">Live trackers</span><h2 class="display" style="margin-top:12px">Who wins it all?</h2></div>
-        <p class="muted" style="max-width:420px;margin:0">Preseason models, locked before tip-off and graded in June. No moving the goalposts.</p>
-      </div>
+      <span class="eyebrow">Stats · scores · predictions</span>
+      <h1 class="display">NBA, by the <span class="stroke">numbers</span><span class="red">.</span></h1>
+      <p class="lead">Look up any player or team: normal stats, what he's best at in plain English, and what our models predict.</p>
       <div class="home-find" id="find-home"></div>
-      <div class="grid g2">
-        <a class="card reveal" href="/models/mvp.html">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px"><span class="card-label">2027 MVP · model odds</span><span class="tag red">Locked Oct 14</span></div>
-          <div id="mvp-mini"></div>
-          <p class="link-arrow" style="margin:18px 0 0">Full MVP tracker</p>
+      <nav class="quick" aria-label="Popular pages"><span>Popular</span>
+        <a href="/players/victor-wembanyama/">Wembanyama</a><a href="/players/shai-gilgeous-alexander/">SGA</a><a href="/players/nikola-jokic/">Jokić</a><a href="/players/luka-doncic/">Dončić</a><a href="/players/jalen-brunson/">Brunson</a><a href="/teams/oklahoma-city-thunder/">Thunder</a><a href="/teams/new-york-knicks/">Knicks</a>
+      </nav>
+    </div>
+  </section>
+
+  <section class="doors-sec">
+    <div class="wrap">
+      <div class="doors">
+        <a class="card door" href="/players/">
+          <span class="card-label">Player pages</span><h2>Every player</h2>
+          <p>One page per player, built to answer one question fast: how good is he, and at what?</p>
+          <div class="door-odds door-sample" id="door-sample"></div>
+          <span class="link-arrow">Browse all players</span>
         </a>
-        <a class="card reveal" href="/models/title.html">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px"><span class="card-label">2027 Title · 10,000 simulations</span><span class="tag red">Locked Oct 8</span></div>
-          <div id="title-mini"></div>
-          <p class="link-arrow" style="margin:18px 0 0">All 30 teams</p>
+        <a class="card door" href="/leaders/">
+          <span class="card-label">Leaders</span><h2>Who's best at…</h2>
+          <p>Scoring, passing, 3-point shooting, rim protection and impact, ranked. Or sort every player by any number yourself.</p>
+          <div class="door-odds" id="door-leaders"></div>
+          <span class="link-arrow">See the leaders</span>
         </a>
+        <div class="card door">
+          <span class="card-label">Our predictions</span><h2>Who wins it all?</h2>
+          <p>Preseason models, locked before tip-off and graded in June.</p>
+          <div class="door-odds" id="pred-odds"></div>
+          <div class="door-more"><a href="/models/mvp.html">MVP tracker</a><a href="/models/title.html">Title odds</a><a href="/models/roy.html">Rookie of the Year</a><a href="/models/">All predictions</a></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="videos">
+  <section class="home-sec" id="videos">
     <div class="wrap">
       <div class="section-head">
         <div><span class="eyebrow">Latest</span><h2 class="display" style="margin-top:12px">New on the channel</h2></div>
         <a class="link-arrow" id="all-yt" href="#" target="_blank" rel="noopener">All videos on YouTube</a>
       </div>
       <div class="grid g3" id="latest"></div>
-      <div style="text-align:center;margin-top:36px"><a class="btn red big" id="sub-2" href="#" target="_blank" rel="noopener">▶&nbsp; Subscribe for the next one</a></div>
     </div>
   </section>
 
-  <section id="newsletter">
+  <section class="home-sec" id="newsletter">
     <div class="wrap">
       <div class="card news reveal">
         <div><span class="eyebrow">The newsletter</span><h2 class="display" style="margin:12px 0 10px">The numbers that didn't make the video.</h2>
           <p class="muted" style="margin:0">Extra charts, cut segments, the ideas that failed and the model updates between videos. Free, and it takes two minutes to read.</p></div>
-        <div id="nl-main"></div>
+        <div data-nl=""></div>
       </div>
     </div>
   </section>
-
-  <section style="padding-top:8px">
-    <div class="wrap" style="text-align:center">
-      <span class="eyebrow">Follow along</span>
-      <h2 class="display" style="margin:12px 0 22px">More between videos</h2>
-      <div class="grid g3" id="follow" style="max-width:820px;margin:0 auto"></div>
-    </div>
-  </section>
 </main>
-<script src="/assets/js/hero.js?v=26" defer></script>
-<script src="/assets/js/home.js?v=26" defer></script>
+<script src="/assets/js/home.js?v=35" defer></script>
 </body>
 </html>

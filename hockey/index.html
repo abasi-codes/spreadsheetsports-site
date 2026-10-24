@@ -10,7 +10,6 @@
 <meta property="og:title" content="Spreadsheet Sports Hockey — hockey, by the numbers">
 <meta property="og:description" content="Hockey models and 10,000-season simulations, backtested on every season since 2009.">
 <meta property="og:image" content="https://spreadsheetsports.com/assets/img/og-hockey.png">
-<link rel="preload" as="image" href="/assets/media/hockey-hero-poster.jpg?v=1">
 <meta property="og:url" content="https://spreadsheetsports.com/hockey/">
 <link rel="canonical" href="https://spreadsheetsports.com/hockey/">
 <meta name="twitter:card" content="summary_large_image">
@@ -19,88 +18,69 @@
 <link rel="icon" href="/assets/img/logo-hockey.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/site.css?v=34">
-<script src="/assets/js/site.js?v=34" defer></script>
-<script src="/assets/js/hero.js?v=26" defer></script>
+<link rel="stylesheet" href="/assets/css/site.css?v=35">
+<script src="/assets/js/site.js?v=35" defer></script>
 </head>
 <body>
 <main>
-  <section class="hero hero-film hk">
-    <video autoplay muted loop playsinline preload="auto" poster="/assets/media/hockey-hero-poster.jpg?v=1" data-cues="/assets/media/hockey-hero.json?v=1" aria-hidden="true">
-      <source src="/assets/media/hockey-hero.mp4?v=1" type="video/mp4">
-    </video>
-    <div class="scrim"></div><div class="scrim-flat"></div>
-    <div class="wrap hero-in">
-      <span class="eyebrow live">New channel</span>
+  <section class="home-hero">
+    <div class="wrap">
+      <span class="eyebrow">Stats · scores · predictions</span>
       <h1 class="display">Hockey, by the <span class="stroke">numbers</span><span class="red">.</span></h1>
-      <p class="lead">Models and 10,000-season simulations for the arguments every hockey fan has. Every model is backtested before we trust it.</p>
-      <div class="hero-cta-card">
-        <a class="btn red big" id="sub-main" href="#" target="_blank" rel="noopener" style="width:100%;justify-content:center">▶&nbsp; Subscribe to Spreadsheet Sports Hockey</a>
-        <div class="or">and get the numbers that didn't make the video</div>
-        <div id="nl-hero"></div>
-      </div>
+      <p class="lead">Look up any NHL player or team: normal stats, what he's best at in plain English, and what our models predict.</p>
+      <div class="home-find" id="find-home"></div>
+      <nav class="quick" aria-label="Popular pages"><span>Popular</span>
+        <a href="/hockey/players/connor-mcdavid/">McDavid</a><a href="/hockey/players/macklin-celebrini/">Celebrini</a><a href="/hockey/players/nathan-mackinnon/">MacKinnon</a><a href="/hockey/players/cale-makar/">Makar</a><a href="/hockey/players/auston-matthews/">Matthews</a><a href="/hockey/cup.html#EDM">Oilers</a><a href="/hockey/cup.html#TOR">Maple Leafs</a>
+      </nav>
     </div>
-    <div class="stat-cue" id="cue" aria-hidden="true"><b class="n"></b><span class="txt"><span class="k"></span><span class="l"></span></span></div>
-    <div class="cue-bar" id="cue-bar" aria-hidden="true"></div>
   </section>
 
-  <section id="sim" style="padding-top:16px">
+  <section class="doors-sec">
     <div class="wrap">
-      <div class="card hk-soon reveal">
-        <div>
-          <span class="eyebrow live">Stanley Cup Odds · 2026-27</span>
-          <h2 class="display">We simulated the season 10,000 times.</h2>
-          <p class="muted" style="margin:0 0 22px">Every team's 2027 Stanley Cup odds, from a preseason model tested on every season since 2009. Its favourite won 6 Cups in 18 seasons; the betting markets' favourite won 3.</p>
-          <div style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn red" href="/hockey/cup.html">See all 32 teams →</a><a class="btn ghost" id="sub-sim" href="#" target="_blank" rel="noopener">▶&nbsp; Subscribe</a></div>
+      <div class="doors">
+        <a class="card door" href="/hockey/players/">
+          <span class="card-label">Player pages</span><h2>Every player</h2>
+          <p>One page per skater and goalie, built to answer one question fast: how good is he, and at what?</p>
+          <div class="door-odds door-sample" id="door-sample"></div>
+          <span class="link-arrow">Browse all players</span>
+        </a>
+        <a class="card door" href="/hockey/leaders/">
+          <span class="card-label">Leaders</span><h2>Who's best at…</h2>
+          <p>The scoring race, 5v5 defense, playmaking and goaltending, ranked. Or sort every player by any number yourself.</p>
+          <div class="door-odds" id="door-leaders"></div>
+          <span class="link-arrow">See the leaders</span>
+        </a>
+        <div class="card door">
+          <span class="card-label">Our predictions</span><h2>Who lifts the Cup?</h2>
+          <p>Every team's 2027 Cup odds from 10,000 simulated seasons. Its favourite won 6 Cups in 18 backtested seasons; the betting markets' won 3.</p>
+          <div class="door-odds" id="pred-odds"></div>
+          <div class="door-more"><a href="/hockey/cup.html">All 32 teams</a><a href="/hockey/underrated.html">Most underrated</a></div>
         </div>
-        <div class="hk-board" id="board"></div>
       </div>
+      <p class="how-line"><b>No vibes, just backtests:</b> every model is built on shot data and tested on seasons it never saw. <a class="link-arrow" href="/hockey/methods/">How it works</a></p>
     </div>
   </section>
 
-  <section>
+  <section class="home-sec" id="videos">
     <div class="wrap">
-      <div class="section-head"><div><span class="eyebrow">How the models work</span><h2 class="display" style="margin-top:12px">No vibes. Just backtests.</h2></div></div>
-      <div class="grid g3 hk-how">
-        <div class="card reveal"><span class="num">01</span><h3>Built on shot data</h3><p>Expected goals and shot attempts, not just the standings, because the standings carry a lot of luck.</p></div>
-        <div class="card reveal"><span class="num">02</span><h3>Tested on the past</h3><p>Every idea is checked against seasons it never saw. If it doesn't beat the betting market there, it doesn't go in.</p></div>
-        <div class="card reveal"><span class="num">03</span><h3>Locked, then graded</h3><p>Picks are locked before the season and graded in June, out in the open. No moving the goalposts.</p></div>
+      <div class="section-head">
+        <div><span class="eyebrow">Latest</span><h2 class="display" style="margin-top:12px">New on the channel</h2></div>
+        <a class="link-arrow" id="all-yt" href="#" target="_blank" rel="noopener">All videos on YouTube</a>
       </div>
+      <div class="grid g3" id="latest"></div>
     </div>
   </section>
 
-  <section id="newsletter">
+  <section class="home-sec" id="newsletter">
     <div class="wrap">
       <div class="card news reveal">
         <div><span class="eyebrow">The newsletter</span><h2 class="display" style="margin:12px 0 10px">The numbers that didn't make the video.</h2>
           <p class="muted" style="margin:0">Extra charts, cut segments, the ideas that failed and the model updates between videos. Free, and it takes two minutes to read.</p></div>
-        <div id="nl-main"></div>
-      </div>
-    </div>
-  </section>
-
-  <section style="padding-top:8px">
-    <div class="wrap">
-      <div class="card hk-cross reveal">
-        <div><span class="card-label">Also from Spreadsheet Sports</span><h3 class="display" style="font-size:30px;margin:10px 0 4px">The NBA side</h3><p class="muted" style="margin:0">MVP tracker, title odds and a page for every player.</p></div>
-        <a class="btn ghost" href="/">Go to NBA →</a>
+        <div data-nl=""></div>
       </div>
     </div>
   </section>
 </main>
-<script>
-addEventListener("DOMContentLoaded", () => {
-  const { $, newsletter, SUB } = SS;
-  ["#sub-main", "#sub-sim"].forEach((s) => ($(s).href = SUB));
-  newsletter($("#nl-hero"), { compact: true });
-  newsletter($("#nl-main"));
-  // the real Cup board (top 8), from data/hockey.json
-  SS.data("hockey").then((D) => {
-    const ks = Object.keys(D.teams).sort((a, b) => D.teams[b].cup - D.teams[a].cup).slice(0, 8), mx = D.teams[ks[0]].cup;
-    $("#board").innerHTML = ks.map((k, i) => `<a class="row" href="/hockey/cup.html#${k}" style="color:inherit;text-decoration:none"><span>${i + 1}</span><span class="nm on"><img src="https://assets.nhle.com/logos/nhl/svg/${k}_dark.svg" alt="" width="30" height="20" style="object-fit:contain;vertical-align:middle;margin-right:8px">${k}</span><span class="bar"><i style="width:${(D.teams[k].cup / mx) * 100}%"></i></span><span class="v on">${SS.pct(D.teams[k].cup)}</span></a>`).join("")
-      + `<a class="lock" href="/hockey/cup.html" style="color:inherit">All 32 teams →</a>`;
-  });
-});
-</script>
+<script src="/assets/js/home.js?v=35" defer></script>
 </body>
 </html>

@@ -72,12 +72,10 @@ document.addEventListener("DOMContentLoaded", async () => {
           ${bt}
         </div>
       </div>
-      <div class="dig-foot">
-        <div><h4>Get updates when his odds move</h4><div id="nl-dig"></div></div>
+      <div class="dig-foot one">
         <div><h4>Share ${esc(r.name.split(" ").slice(-1)[0])}'s card</h4><div id="share-dig"></div>
           ${SINGLE ? `<a class="link-arrow" href="/models/mvp.html" style="display:inline-block;margin-top:14px">Full 2027 MVP tracker</a>` : `<a class="link-arrow" href="/players/${slug(r.name)}/" style="display:inline-block;margin-top:14px">Open ${esc(r.name)}'s full page</a>`}</div>
       </div></div>`;
-    newsletter($("#nl-dig"), { compact: true, note: "One email a week with model updates. Free." });
     shareBar($("#share-dig"), { url: `/players/${slug(r.name)}/`, item: slug(r.name),
       text: `The model gives ${r.name} a ${pctS(r.p)} chance to win the 2027 MVP (#${r.rank} of ${N}). Here's why:` });
     track("view_item", { item_category: "player", item_id: slug(r.name), item_name: r.name });

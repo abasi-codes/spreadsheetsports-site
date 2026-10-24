@@ -1,5 +1,5 @@
 // Player profile (redesign): season switcher, "percentiles vs all players / vs position" toggle,
-// sticky jump bar highlight, share bar + newsletter. The numbers are static HTML (tools/player_profile.py);
+// category rows that open to their metrics (the newsletter block is filled by site.js [data-nl]). The numbers are static HTML (tools/player_profile.py);
 // every percentile element (.pv) carries data-l (league) and data-p (position group).
 (() => {
   const root = document.querySelector(".mx"); if (!root) return;
@@ -86,13 +86,14 @@
     bar.addEventListener("click", (e) => { const a = e.target.closest("a"); if (a) track("select_content", { content_type: "jump", item_id: a.getAttribute("href").slice(1) }); });
   }
 
-  // share + newsletter (MVP pages have both inside the MVP card instead)
-  const sh = $("#share-pl");
-  if (sh && typeof SS !== "undefined") {
-    const scout = $(".hero-scout:not([hidden]) .scout");
-    const line = scout ? scout.lastChild.textContent.trim() : "";
-    SS.shareBar(sh, { url: location.pathname, item: root.dataset.player, text: `${sh.dataset.name}, by the numbers: ${line}` });
-    SS.newsletter($("#nl-pl"), { compact: true, note: "One email a week with model updates. Free." });
-  }
+  // at a glance: each category row is a <details>; a #c-<cat> link (or old jump link) opens it
+  const openHash = () => {
+    const id = decodeURIComponent(location.hash.slice(1)); if (!id) return;
+    const el = document.getElementById(id);
+    if (el && el.tagName === "DETAILS") { el.open = true; requestAnimationFrame(() => el.scrollIntoView({ block: "start" })); }
+  };
+  window.addEventListener("hashchange", openHash);
+  root.addEventListener("toggle", (e) => { const d = e.target; if (d.open && d.dataset && d.dataset.id) track("select_content", { content_type: "category", item_id: d.dataset.id }); }, true);
   apply();
+  openHash();
 })();

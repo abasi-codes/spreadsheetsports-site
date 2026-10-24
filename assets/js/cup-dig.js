@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const keys = Object.keys(T).sort((a, b) => T[b].cup - T[a].cup);
   const confN = (k) => (T[k].conf === "E" ? "East" : "West");
   const champ26 = D.backtest.rows.find((r) => r.year === 2026)?.champ;
-  $("#sub-page").href = SUB;
+  if ($("#sub-page")) $("#sub-page").href = SUB;
   newsletter($("#nl-page"));
 
   // ---------- video, odds bars, finals, Canada
@@ -79,29 +79,27 @@ document.addEventListener("DOMContentLoaded", async () => {
     return out;
   }
   function render(k) {
-    const t = T[k], mxv = Math.max(...t.versions, 0.001), rank = keys.indexOf(k) + 1;
+    const t = T[k], mxv = Math.max(...t.versions, 0.001), rank = keys.indexOf(k) + 1, W = why(k);
     $("#dig").innerHTML = `<div class="card">
       <div class="dig-top">
         <div><span class="card-label">#${rank} of 32 · ${confN(k)}</span><h3>${logo(k, 40)} ${esc(nm(k))}</h3>
           <div class="meta"><span>Make the playoffs <b>${pct(t.playoffs)}</b></span><span>Reach the Final <b>${pct(t.final)}</b></span><span>Projected points <b>${Math.round(t.pts)}</b> (${t.pts_lo}–${t.pts_hi})</span><span>Betting markets <b>${pct(t.market)}</b></span></div></div>
         <div style="display:flex;gap:18px;align-items:flex-start"><div class="dig-odds"><div class="n">${pctS(t.cup)}</div><div class="l">Win the 2027 Cup</div></div><button class="dig-close" aria-label="Close">✕</button></div>
       </div>
+      <div class="dig-why3"><h4>Why the model says ${pctS(t.cup)}</h4><ul class="why">${W.slice(0, 3).map(([c, x]) => `<li class="${c}">${x}</li>`).join("")}</ul></div>
+      <details class="dig-more"><summary>How the model got there</summary>
       <div class="dig-body">
         <div>
-          <div class="dig-sec"><h4>Why the model says ${pctS(t.cup)}</h4><ul class="why">${why(k).map(([c, x]) => `<li class="${c}">${x}</li>`).join("")}</ul></div>
+          ${W.length > 3 ? `<div class="dig-sec"><h4>Also in the mix</h4><ul class="why">${W.slice(3).map(([c, x]) => `<li class="${c}">${x}</li>`).join("")}</ul></div>` : ""}
           <div class="dig-sec"><h4>Cup odds as the model was built</h4><div class="path">${t.versions.map((p, i) => `<div class="path-row"><span class="lb">${VER[i]}</span><span class="tr"><i style="width:${(p / mxv) * 100}%"></i></span><span class="pv">${pctS(p)}</span></div>`).join("")}</div></div>
+          <div class="dig-sec"><h4>Road to the Cup (share of 10,000 seasons)</h4><div class="path">${[["Make the playoffs", t.playoffs], ["Win a round", t.r2], ["Win the conference", t.final], ["Win the Cup", t.cup]].map(([l, p]) => `<div class="path-row"><span class="lb">${l}</span><span class="tr"><i style="width:${p * 100}%"></i></span><span class="pv">${pctS(p)}</span></div>`).join("")}</div></div>
         </div>
         <div>
-          <div class="dig-sec"><h4>Road to the Cup (share of 10,000 seasons)</h4><div class="path">${[["Make the playoffs", t.playoffs], ["Win a round", t.r2], ["Win the conference", t.final], ["Win the Cup", t.cup]].map(([l, p]) => `<div class="path-row"><span class="lb">${l}</span><span class="tr"><i style="width:${p * 100}%"></i></span><span class="pv">${pctS(p)}</span></div>`).join("")}</div></div>
           <div class="dig-sec"><h4>Most likely Final opponents</h4>${t.opp.length ? t.opp.map(([o, q]) => `<div class="comp" style="grid-template-columns:1fr auto"><div class="lbl"><a href="#${o}" style="color:inherit">${logo(o, 16)} ${esc(nm(o))}</a></div><div class="p">${pct(q)}</div></div>`).join("") : `<p class="muted" style="margin:0">Not among the most common Finals.</p>`}</div>
           <div class="dig-sec"><h4>Cups in the backtest (2009–2026)</h4><div class="vote-chips">${D.backtest.rows.filter((r) => r.champ === k).map((r) => `<span class="win">★ ${r.year} · model had them #${r.rank} (${pct(r.p)})</span>`).join("") || "<span>No Cups since 2009</span>"}</div></div>
         </div>
-      </div>
-      <div class="dig-foot">
-        <div><h4>Get updates when the ${esc(nick(k))}' odds move</h4><div id="nl-dig"></div></div>
-        <div><h4>Share this card</h4><div id="share-dig"></div></div>
-      </div></div>`;
-    newsletter($("#nl-dig"), { compact: true, note: "Model updates between videos. Free." });
+      </div></details>
+      <div class="dig-links"><a class="link-arrow" href="/hockey/players/#${k}">${esc(nm(k))} players</a><div id="share-dig"></div></div></div>`;
     shareBar($("#share-dig"), { url: `/hockey/cup.html#${k}`, item: k, text: `The model gives the ${nm(k)} a ${pctS(t.cup)} chance to win the 2027 Stanley Cup (#${rank} of 32). Here's why:` });
     track("view_item", { item_category: "nhl_team", item_id: k, item_name: nm(k) });
     $(".dig-close").onclick = () => { $("#dig").innerHTML = ""; s.set(""); history.replaceState(null, "", location.pathname); };

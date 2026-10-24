@@ -5,8 +5,7 @@ const SS = (() => {
   const HOCKEY = location.pathname.startsWith("/hockey");
   const YT_CHANNEL = HOCKEY ? "https://www.youtube.com/@spreadsheetsportshockey" : "https://www.youtube.com/@spreadsheetsportsanalytics";
   const LOGO = HOCKEY ? "/assets/img/logo-hockey.png" : "/assets/img/logo.png", HOME = HOCKEY ? "/hockey/" : "/";
-  const SPORT = `<div class="sport-sw" role="navigation" aria-label="Sport"><a href="/" class="${HOCKEY ? "" : "on"}">NBA</a><a href="/hockey/" class="${HOCKEY ? "on" : ""}">Hockey</a></div>`;
-  const SUB = YT_CHANNEL + "?sub_confirmation=1";
+    const SUB = YT_CHANNEL + "?sub_confirmation=1";
   const SOCIAL = [
     ["YouTube", YT_CHANNEL, '<path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8ZM9.7 15.1V8.9l5.8 3.1-5.8 3.1Z"/>'],
     ["X", "https://x.com/SpreadsheetSprt", '<path d="M18.2 2.3h3.4l-7.4 8.4 8.7 11.5h-6.8l-5.3-7-6.1 7H1.3l7.9-9L.9 2.3h7l4.8 6.4 5.5-6.4Zm-1.2 17.9h1.9L6.8 4.2H4.8L17 20.2Z"/>'],
@@ -44,34 +43,39 @@ const SS = (() => {
   const thumb = (id, q = "maxresdefault") => `https://i.ytimg.com/vi/${id}/${q}.jpg`;
   const fmtDate = (d) => new Date(d + "T12:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
 
-  // models that live in the "More models" dropdown only (homepage stays MVP + title)
-  const MORE = [["/models/underrated.html", "Most underrated", "Impact vs the expert rankings"],
-                ["/models/unluckiest.html", "Most cursed careers", "The CURSE model, all-time"],
-                ["/models/no3.html", "No 3-point line", "Every playoff game since 1980, re-scored"],
-                ["/models/contract.html", "Contract years", "Do players play better when they're due?"],
-                ["/models/roy.html", "Rookie of the Year", "2027 odds for every rookie, 10,000 sims"],
-                ["/models/smoy.html", "Sixth Man of the Year", "2027 odds for every bench player, 10,000 sims"]];
+  // Global nav, same shape for both sports: sport switch · Players · Teams · Leaders · Predictions ▾ · Subscribe.
+  // Newsletter + social icons live in the footer (one ask per page; the page itself carries at most one signup).
+  const PRED = HOCKEY
+    ? [["/hockey/cup.html", "Stanley Cup odds", "2027 odds for all 32 teams, 10,000 seasons"],
+       ["/hockey/underrated.html", "Most underrated", "Impact vs the experts, every team"]]
+    : [["/models/mvp.html", "MVP tracker", "2027 MVP odds for every projected starter"],
+       ["/models/title.html", "Title odds", "All 30 teams, 10,000 simulated seasons"],
+       ["/models/roy.html", "Rookie of the Year", "2027 odds for every rookie"],
+       ["/models/smoy.html", "Sixth Man of the Year", "2027 odds for every bench player"],
+       ["/models/underrated.html", "Most underrated", "Impact vs the expert rankings"],
+       ["/models/unluckiest.html", "Most cursed careers", "The CURSE model, all-time"],
+       ["/models/no3.html", "No 3-point line", "Every playoff game since 1980, re-scored"],
+       ["/models/contract.html", "Contract years", "Do players play better when they're due?"]];
+  const P = HOCKEY ? "/hockey" : "";
+  const NAV = [["Players", `${P}/players/`, HOCKEY ? "Stats, scores and roles for every NHL player" : "Stats and what every player is best at"],
+               ["Teams", HOCKEY ? "/hockey/cup.html" : "/teams/", HOCKEY ? "All 32 teams and their Cup odds" : "All 30 teams, rosters and title odds"],
+               ["Leaders", `${P}/leaders/`, HOCKEY ? "Points, 5v5 defense, goalies · every player" : "Who's best at scoring, passing, defense"]];
+  const NL_HREF = HOCKEY ? "/hockey/#newsletter" : "/#newsletter";
+  const path = location.pathname;
+  const navOn = (u) => (u === "/teams/" ? path.startsWith("/teams/") : u === "/hockey/cup.html" ? path === u : path.startsWith(u));
+  const predOn = !NAV.some(([, u]) => navOn(u)) && (PRED.some(([u]) => path === u) || path === "/models/");
+  const SPORT = (cls = "") => `<div class="sport-sw ${cls}" role="navigation" aria-label="Sport"><a href="/" class="${HOCKEY ? "" : "on"}" ${HOCKEY ? "" : 'aria-current="true"'}>NBA</a><a href="/hockey/" class="${HOCKEY ? "on" : ""}" ${HOCKEY ? 'aria-current="true"' : ""}>NHL</a></div>`;
+  const CARET = '<svg viewBox="0 0 12 12" width="10" height="10" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>';
   function chrome() {
     document.body.prepend(h(`<header class="site-head"><div class="wrap">
-      <a class="brand" href="${HOME}"><img src="${LOGO}" alt="" width="32" height="32">Spreadsheet <b>Sports</b></a>${SPORT}
-      ${HOCKEY ? `<nav class="nav-lite"><a href="/hockey/cup.html">Cup Odds</a><a href="/hockey/underrated.html">Underrated</a><a href="/hockey/leaders/">Leaders</a><a href="/hockey/#newsletter">Newsletter</a></nav>` : `<nav class="nav-lite"><a href="/models/mvp.html">MVP Tracker</a><a href="/models/title.html">Title Odds</a><a href="/leaders/">Leaders</a><div class="nav-more"><button type="button" aria-haspopup="true" aria-expanded="false">More models <svg viewBox="0 0 12 12" width="10" height="10" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button><div class="nav-drop">${MORE.map(([u, t, d]) => `<a href="${u}"><b>${t}</b><small>${d}</small></a>`).join("")}</div></div><a href="/#newsletter">Newsletter</a></nav>`}
-      <div class="socials">${icons()}</div>
+      <a class="brand" href="${HOME}"><img src="${LOGO}" alt="" width="32" height="32">Spreadsheet <b>Sports</b></a>${SPORT()}
+      <nav class="nav-lite" aria-label="Main">${NAV.map(([t, u]) => `<a href="${u}" class="${navOn(u) ? "on" : ""}">${t}</a>`).join("")}<div class="nav-more"><button type="button" aria-haspopup="true" aria-expanded="false" class="${predOn ? "on" : ""}">Predictions ${CARET}</button><div class="nav-drop">${PRED.map(([u, t, d]) => `<a href="${u}"><b>${t}</b><small>${d}</small></a>`).join("")}${HOCKEY ? "" : `<a href="/models/" class="drop-all"><b>All predictions →</b></a>`}</div></div></nav>
       <a class="yt-btn" href="${SUB}" target="_blank" rel="noopener">▶ Subscribe</a>
       <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="m-nav"><span></span><span></span><span></span></button>
     </div>
-    <nav class="m-nav" id="m-nav" hidden>${SPORT}${HOCKEY ? `
-      <a href="/hockey/cup.html"><b>Cup Odds</b><small>10,000 seasons · look up any team</small></a>
-      <a href="/hockey/leaders/"><b>Leaders</b><small>Points, 5v5 defense, xG, goalies · every player</small></a>
-      <a href="/hockey/#newsletter"><b>Newsletter</b><small>The numbers that didn't make the video</small></a>
-      <a href="/"><b>NBA side</b><small>MVP tracker, title odds, every player</small></a>` : `
-      <a href="/models/mvp.html"><b>MVP Tracker</b><small>2027 odds · look up any player</small></a>
-      <a href="/models/title.html"><b>Title Odds</b><small>10,000 seasons · look up any team</small></a>
-      <a href="/leaders/"><b>Leaders</b><small>Who's best at blocks, creation, shooting, defense</small></a>
-      <div class="m-more"><span>More models</span>${MORE.map(([u, t]) => `<a href="${u}">${t}</a>`).join("")}</div>
-      <a href="/#videos"><b>Latest videos</b><small>New on the channel</small></a>
-      <a href="/#newsletter"><b>Newsletter</b><small>The numbers that didn't make the video</small></a>
-      <a href="/hockey/"><b>Hockey</b><small>The new hockey channel</small></a>`}
-      <div class="m-soc"><span>Follow</span><div class="socials">${icons()}</div></div>
+    <nav class="m-nav" id="m-nav" hidden><div class="m-sport"><span>Sport</span>${SPORT("big")}</div>
+      ${NAV.map(([t, u, d]) => `<a href="${u}"><b>${t}</b><small>${d}</small></a>`).join("")}
+      <div class="m-more"><span>Predictions</span>${PRED.map(([u, t]) => `<a href="${u}">${t}</a>`).join("")}</div>
     </nav></header>`));
     const more = $(".nav-more"), mb = $(".nav-more button");
     if (more) mb.onclick = () => { const o = !more.classList.contains("open"); more.classList.toggle("open", o); mb.setAttribute("aria-expanded", o); };
@@ -82,10 +86,13 @@ const SS = (() => {
     nav.addEventListener("click", (e) => { if (e.target.closest("a")) set(false); });
     document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !nav.hidden) set(false); });
     matchMedia("(min-width: 761px)").addEventListener("change", (e) => e.matches && set(false));
+    const col = (title, links) => `<div class="foot-col"><b>${title}</b>${links.map(([t, u, ext]) => `<a href="${u}"${ext ? ' target="_blank" rel="noopener"' : ""}>${t}</a>`).join("")}</div>`;
     document.body.append(h(`<footer class="site-foot"><div class="wrap">
-      <div><a class="brand" href="${HOME}"><img src="${LOGO}" alt="" width="28" height="28">Spreadsheet <b>Sports</b></a>
-      <p style="margin:10px 0 0;max-width:360px">${HOCKEY ? "Hockey" : "NBA"}, by the numbers. Models, simulations and ${HOCKEY ? "backtests" : "film breakdowns"}.</p>
+      <div class="foot-brand"><a class="brand" href="${HOME}"><img src="${LOGO}" alt="" width="28" height="28">Spreadsheet <b>Sports</b></a>
+      <p style="margin:10px 0 0;max-width:340px">${HOCKEY ? "Hockey" : "NBA"}, by the numbers. Models, simulations and ${HOCKEY ? "backtests" : "film breakdowns"}.</p>
       <p style="margin:8px 0 0">All enquiries: <a href="mailto:team@spreadsheetsports.com" style="color:var(--text)">team@spreadsheetsports.com</a></p></div>
+      ${col("Explore", [...NAV.map(([t, u]) => [t, u]), ["Predictions", HOCKEY ? "/hockey/cup.html" : "/models/"], ["How it works", HOCKEY ? "/hockey/methods/" : "/methods/rim-protection.html"], [HOCKEY ? "NBA side" : "Hockey side", HOCKEY ? "/" : "/hockey/"]])}
+      ${col("Follow", [["Newsletter", NL_HREF], ["YouTube", YT_CHANNEL, 1], ["X", "https://x.com/SpreadsheetSprt", 1], ["Instagram", "https://www.instagram.com/spreadsheetsportsanalytics/", 1]])}
       <div class="socials big">${icons()}</div>
       <div class="fine">© ${new Date().getFullYear()} Spreadsheet Sports. Not affiliated with the ${HOCKEY ? "NHL" : "NBA"} or its teams.</div>
     </div></footer>`));
@@ -216,6 +223,7 @@ const SS = (() => {
 
   function boot() {
     chrome(); requestAnimationFrame(reveal);
+    $$("[data-nl]").forEach((el) => newsletter(el, { compact: el.dataset.nl === "compact", note: el.dataset.note }));
     $$(".all-links").forEach((el) => {
       const n = el.querySelectorAll("a").length; if (n <= 24) return;
       el.classList.add("clip");

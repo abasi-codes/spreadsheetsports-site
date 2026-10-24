@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const t = T[k], tm = teams[k], mxv = Math.max(...t.versions, 0.001), b = t.breakdown;
     const mxb = Math.max(...Object.values(b).map(Math.abs), 1);
     const mxr = Math.max(...t.rotation.map(([, x]) => Math.abs(x)), 1);
-    const rank = keys.indexOf(k) + 1;
+    const rank = keys.indexOf(k) + 1, W = why(k);
     $("#dig").innerHTML = `<div class="card" style="border-top:3px solid ${tm.color}">
       <div class="dig-top">
         <div><span class="card-label">#${rank} of 30 · ${confN(k)}</span><h3>${esc(tm.name)}</h3>
@@ -42,9 +42,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         <div style="display:flex;gap:18px;align-items:flex-start"><div class="dig-odds"><div class="n">${pctS(t.p)}</div><div class="l">Win the 2027 title</div></div>
           ${SINGLE ? "" : `<button class="dig-close" aria-label="Close">✕</button>`}</div>
       </div>
+      <div class="dig-why3"><h4>Why the model says ${pctS(t.p)}</h4><ul class="why">${W.slice(0, 3).map(([c, x]) => `<li class="${c}">${x}</li>`).join("")}</ul></div>
+      <details class="dig-more"><summary>How the model got there</summary>
       <div class="dig-body">
         <div>
-          <div class="dig-sec"><h4>Why the model says ${pctS(t.p)}</h4><ul class="why">${why(k).map(([c, x]) => `<li class="${c}">${x}</li>`).join("")}</ul></div>
+          ${W.length > 3 ? `<div class="dig-sec"><h4>Also in the mix</h4><ul class="why">${W.slice(3).map(([c, x]) => `<li class="${c}">${x}</li>`).join("")}</ul></div>` : ""}
           <div class="dig-sec"><h4>What builds their playoff rating (points per 100)</h4><div class="div-bars">${Object.entries(b).map(([n, v]) => `<div class="div-row"><span class="lb">${n}</span>
             <span class="neg">${v < 0 ? `<i style="width:${(-v / mxb) * 100}%"></i>` : ""}</span><span class="pos">${v > 0 ? `<i style="width:${(v / mxb) * 100}%"></i>` : ""}</span><span class="pv">${sg(v)}</span></div>`).join("")}</div></div>
           <div class="dig-sec"><h4>Title odds as the model was built</h4><div class="path">${t.versions.map((p, i) => `<div class="path-row"><span class="lb">v${i + 1}. ${VER[i]}</span><span class="tr"><i style="width:${(p / mxv) * 100}%"></i></span><span class="pv">${pctS(p)}</span></div>`).join("")}</div></div>
@@ -52,17 +54,13 @@ document.addEventListener("DOMContentLoaded", async () => {
         <div>
           <div class="dig-sec"><h4>Expected playoff rotation</h4><table class="mini-table"><thead><tr><th>Player</th><th>Impact (BPM)</th><th>Min</th></tr></thead><tbody>
             ${t.rotation.map(([n, x, m]) => `<tr><td style="font-family:var(--sans)">${esc(n)}</td><td style="color:${x >= 0 ? "var(--green)" : "var(--muted)"}">${sg(x)}</td><td>${Math.round(m)}</td></tr>`).join("")}</tbody></table></div>
-          <div class="dig-sec"><h4>Most likely Finals opponents</h4>${t.opp.length ? t.opp.map(([o, q]) => `<div class="comp" style="grid-template-columns:1fr auto"><div class="lbl"><a href="#${o}" style="color:inherit">${esc(teams[o].name)}</a></div><div class="p">${pctS(q)}</div></div>`).join("") : `<p class="muted" style="margin:0">They didn't reach the Finals in any of the 10,000 seasons.</p>`}</div>
+          <div class="dig-sec"><h4>Most likely Finals opponents</h4>${t.opp.length ? t.opp.map(([o, q]) => `<div class="comp" style="grid-template-columns:1fr auto"><div class="lbl"><a href="${SINGLE ? `/teams/${slug(teams[o].name)}/` : `#${o}`}" style="color:inherit">${esc(teams[o].name)}</a></div><div class="p">${pctS(q)}</div></div>`).join("") : `<p class="muted" style="margin:0">They didn't reach the Finals in any of the 10,000 seasons.</p>`}</div>
           <div class="dig-sec"><h4>Titles in the backtest (2006–2026)</h4><div class="vote-chips">${t.history.length ? t.history.map(([y, rk, p]) => `<span class="win">★ ${y} · model had them #${rk} (${pct(p)})</span>`).join("") : "<span>No titles since 2006</span>"}</div></div>
         </div>
-      </div>
-      <div class="dig-foot">
-        <div><h4>Get updates when the ${esc(tm.name.split(" ").slice(-1)[0])}' odds move</h4><div id="nl-dig"></div></div>
-        <div><h4>Share this card</h4><div id="share-dig"></div>
-          ${SINGLE ? `<a class="link-arrow" href="/models/title.html" style="display:inline-block;margin-top:14px">All 30 teams</a>` : `<a class="link-arrow" href="/teams/${slug(tm.name)}/" style="display:inline-block;margin-top:14px">Open the ${esc(tm.name)} page</a>`}</div>
-      </div></div>`;
-    newsletter($("#nl-dig"), { compact: true, note: "One email a week with model updates. Free." });
-    shareBar($("#share-dig"), { url: `/teams/${slug(tm.name)}/`, item: slug(tm.name),
+      </div></details>
+      <div class="dig-links">${SINGLE ? `<a class="link-arrow" href="/models/title.html#${k}">All 30 teams on the title tracker</a><a class="link-arrow" href="#roster">${esc(tm.name)} roster</a>` : `<a class="link-arrow" href="/teams/${slug(tm.name)}/">Open the ${esc(tm.name)} page</a><div id="share-dig"></div>`}</div>
+      </div>`;
+    if (!SINGLE) shareBar($("#share-dig"), { url: `/teams/${slug(tm.name)}/`, item: slug(tm.name),
       text: `The model gives the ${tm.name} a ${pctS(t.p)} chance to win the 2027 title (#${rank} of 30). Here's why:` });
     track("view_item", { item_category: "team", item_id: slug(tm.name), item_name: tm.name });
     if (SINGLE) return;
