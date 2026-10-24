@@ -1174,3 +1174,12 @@ body[data-adv] .adv-sec, body[data-player] .adv-sec { padding: 10px 0; }
 @media (max-width: 640px) { .models-strip .verdicts, .adv .verdicts { grid-template-columns: repeat(2, minmax(0, 1fr)); } .verdicts .verdict { padding: 9px 11px; } .verdicts .verdict b { font-size: 14px; } }
 .door-odds span.k { white-space: normal; overflow: visible; }
 @media (max-width: 640px) { .home-hero h1.display { font-size: 40px; } }
+
+/* home: film hero behind the search (video + stat cues from hero.js) */
+.hero-film.home-hero { min-height: min(86svh, 880px); padding: 72px 0 0; overflow: visible; }
+.hero-film.home-hero .hero-in { padding-bottom: 140px; width: 100%; }
+.hero-film.home-hero .home-find { width: 100%; }
+.hero-film.home-hero .lead { color: rgba(243,244,246,.88); text-shadow: 0 1px 14px rgba(0,0,0,.6); }
+.hero-film.home-hero .quick a { background: rgba(12,14,18,.55); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.hero-film.home-hero .quick > span { color: rgba(243,244,246,.7); }
+@media (max-width: 720px) { .hero-film.home-hero { min-height: auto; padding-top: 48px; } .hero-film.home-hero .hero-in { padding-bottom: 170px; } .hero-film.home-hero .scrim { background: linear-gradient(180deg, rgba(8,9,11,.8) 0%, rgba(8,9,11,.15) 22%, rgba(8,9,11,.2) 70%, rgba(8,9,11,.7) 94%, var(--bg) 100%); } }
