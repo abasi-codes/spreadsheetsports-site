@@ -38,7 +38,7 @@ Cup-odds page. We credit "NHL public game data" on every page and say we're not 
 - **Per-60 rates, all situations, for individual numbers** (goals, ixG, primary assists, hits...), with 5v5-only twins where power-play
   time would distort the read (5v5 primary assists). Season totals stay in the box line and the Per game group.
 - **On-ice numbers are 5v5 only**, from shift charts, and come in three strengths of evidence: raw on-ice, relative to his team
-  (on − off), and RAPM (lineup-adjusted). RAPM carries the most weight because it predicts the next season best (see the backtest).
+  (on − off), and RAPM (lineup-adjusted). RAPM carries the most weight because it predicts the next season best (see the backtest); the published RAPM pools two seasons.
 - **Finishing is shrunk.** Goals minus expected goals swings with luck, so it's pulled toward zero by shot volume and weighted lightly.
 - **Arena-scorer stats are flagged.** Hits, blocks, takeaways and giveaways depend on the rink's scorers. The Physical & puck card
   says so, and the scouting summary reads a low physical score as "plays a low-contact game", not a weakness.
@@ -123,7 +123,7 @@ save % at predicting next year's save %. The methods page says all of this plain
 | Brady Tkachuk | Dual Threat | Volume Shooter | Impact 99; 2024-25 Power Forward / Heavy Hitter ✓ |
 | Sam Reinhart / Mitch Marner / Tom Wilson | Two-Way Star | – / Puck Thief / – | ✓ |
 | Jaccob Slavin | Shutdown D | Puck Thief | 5v5 D 91 ✓ |
-| Adam Fox / Moritz Seider | Two-Way D | | 5v5 O + D both 75+ ✓ |
+| Adam Fox / Moritz Seider | Two-Way D | | 5v5 O + D both 75+ ✓ (Dahlin also Two-Way D with pooled RAPM) |
 | Connor Hellebuyck | Starter | | 2024-25 Shot stopping 99 (Vezina year) ✓; 2025-26 average (53) |
 | Igor Shesterkin / Ilya Sorokin / Andrei Vasilevskiy | Starter | | 88 / 96 / 91 shot stopping ✓ |
 
@@ -132,18 +132,20 @@ Hagel, Kucherov; Impact (RAPM) Hagel, Malinski, Seider; finishing Caufield +11.7
 5v5 defense is led by low-event checkers (Bäck, Heinen, Drury, Holmberg), a known trait of on-ice defensive numbers, so the
 "Best 5v5 defenders" and "Highest impact" boards show regulars only (1,000+ minutes).
 
-## Decisions for the user
+## Decisions applied (user, Oct 23)
 
-1. **Push or not.** Nothing is pushed. On deploy, bump `V` (33 → 34) in build_pages.py and the hand-written pages, since
-   site.js / leaders.js / profile.js changed.
-2. **Role names.** Dual Threat, Two-Way Star, Scorer, Energy Forward, Depth Forward / Two-Way D, Offensive D, Steady D, Depth D,
-   plus the trait chips. "Depth" may read as a put-down on a player page.
-3. **RAPM per season vs pooled.** Single-season RAPM repeats at only r .44. Pooling 2024-25 + 2025-26 (as the NBA rim metric does)
-   would be steadier but blur the season switcher.
-4. **MVP link.** The NHL MVP page isn't live (video publishes Oct 26), so player pages don't link it. Add an "MVP model" verdict
-   when /hockey/mvp.html ships?
-5. **Logos.** Lists use team colour swatches (no logos), as on the NBA side. cup.html already hot-links NHL logo SVGs; we could use
-   them on player headers too.
-6. **OG images.** Hockey pages share /assets/img/og-hockey.png; no per-player share cards yet.
-7. **Goalie grades.** Given how little goalie numbers repeat, keep the 0–99 goalie scores, or show goalie metrics without a
-   category score?
+1. **Role names:** "Depth Forward" → **Role Forward**, "Depth D" → **Stay-at-Home D** (role text, glossary, explorer filters).
+2. **RAPM pooled.** Headline offensive / defensive / net impact = one ridge fit on 2024-25 + 2025-26 stints together
+   (1,756,680 team-shifts, 1,064 skaters, same λ = 100,000 s chosen by the cross-season test). It drives the 5v5 offense /
+   5v5 defense RAPM rows, the Impact score and the leaderboards, and is the same in both season views. Each RAPM row's note shows
+   the season-alone fit ("2025-26 alone: +0.35"). The backtest and the year-over-year table still grade the single-season fits
+   (pooled values would repeat by construction). Pooled top 10 net: Hagel, MacKinnon, B. Tkachuk, Spence, Werenski, Fox, Seider,
+   R. Thomas, Draisaitl, McDavid. Minute thresholds unchanged. No new API requests (cached data only).
+3. **MVP link:** hook in tools/hockey_pages.py (`MVP_LIVE = False`, `MVP_URL = "/hockey/mvp.html"`, reads data/hockey_mvp.json).
+   Flip on when the page goes live (Oct 26).
+4. **Team colour swatches**, no logos.
+5. **Goalie scores kept (0–99)**, with a visible note on the Shot stopping card of every goalie page and on the goalie explorer:
+   goalie numbers swing a lot year to year (r ≈ 0.1–0.2), read as one season's form.
+6. **No per-player OG images** (hockey pages use /assets/img/og-hockey.png).
+7. **Cache-buster V 33 → 34** in build_pages.py and every `?v=` reference (NBA and hockey). NBA pages were rebuilt with
+   `build_pages.py --no-images`; the only NBA diff is the cache-buster.
