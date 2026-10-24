@@ -32,7 +32,7 @@
       $$("[data-id]", p).forEach((el) => (el.id = on ? el.dataset.id : `${el.dataset.id}-${p.dataset.y}`));
     });
     const panel = panels.find((p) => p.dataset.y === season);
-    $$(".grp-lbl").forEach((el) => (el.textContent = GRP[panel.dataset.grp] || "Position"));
+    $$(".grp-lbl").forEach((el) => (el.textContent = panel.dataset.glbl || GRP[panel.dataset.grp] || "Position"));
     $$(".pv", root).forEach((el) => { const v = +el.dataset[cmp]; if (!Number.isNaN(v)) paint(el, v); });
     $$(".cmp-lbl", root).forEach((el) => (el.textContent = el.dataset[cmp]));
     $$("[data-ctl=season] button").forEach((b) => b.setAttribute("aria-checked", b.dataset.y === season));

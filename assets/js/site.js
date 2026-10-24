@@ -54,13 +54,14 @@ const SS = (() => {
   function chrome() {
     document.body.prepend(h(`<header class="site-head"><div class="wrap">
       <a class="brand" href="${HOME}"><img src="${LOGO}" alt="" width="32" height="32">Spreadsheet <b>Sports</b></a>${SPORT}
-      ${HOCKEY ? `<nav class="nav-lite"><a href="/hockey/cup.html">Cup Odds</a><a href="/hockey/underrated.html">Underrated</a><a href="/hockey/#newsletter">Newsletter</a></nav>` : `<nav class="nav-lite"><a href="/models/mvp.html">MVP Tracker</a><a href="/models/title.html">Title Odds</a><a href="/leaders/">Leaders</a><div class="nav-more"><button type="button" aria-haspopup="true" aria-expanded="false">More models <svg viewBox="0 0 12 12" width="10" height="10" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button><div class="nav-drop">${MORE.map(([u, t, d]) => `<a href="${u}"><b>${t}</b><small>${d}</small></a>`).join("")}</div></div><a href="/#newsletter">Newsletter</a></nav>`}
+      ${HOCKEY ? `<nav class="nav-lite"><a href="/hockey/cup.html">Cup Odds</a><a href="/hockey/underrated.html">Underrated</a><a href="/hockey/leaders/">Leaders</a><a href="/hockey/#newsletter">Newsletter</a></nav>` : `<nav class="nav-lite"><a href="/models/mvp.html">MVP Tracker</a><a href="/models/title.html">Title Odds</a><a href="/leaders/">Leaders</a><div class="nav-more"><button type="button" aria-haspopup="true" aria-expanded="false">More models <svg viewBox="0 0 12 12" width="10" height="10" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button><div class="nav-drop">${MORE.map(([u, t, d]) => `<a href="${u}"><b>${t}</b><small>${d}</small></a>`).join("")}</div></div><a href="/#newsletter">Newsletter</a></nav>`}
       <div class="socials">${icons()}</div>
       <a class="yt-btn" href="${SUB}" target="_blank" rel="noopener">▶ Subscribe</a>
       <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="m-nav"><span></span><span></span><span></span></button>
     </div>
     <nav class="m-nav" id="m-nav" hidden>${SPORT}${HOCKEY ? `
       <a href="/hockey/cup.html"><b>Cup Odds</b><small>10,000 seasons · look up any team</small></a>
+      <a href="/hockey/leaders/"><b>Leaders</b><small>Points, 5v5 defense, xG, goalies · every player</small></a>
       <a href="/hockey/#newsletter"><b>Newsletter</b><small>The numbers that didn't make the video</small></a>
       <a href="/"><b>NBA side</b><small>MVP tracker, title odds, every player</small></a>` : `
       <a href="/models/mvp.html"><b>MVP Tracker</b><small>2027 odds · look up any player</small></a>

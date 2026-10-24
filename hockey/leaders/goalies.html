@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PSBYLFEM9T"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-PSBYLFEM9T');</script>
+<title>NHL Goalie Stats Explorer 2025-26: Filter &amp; Sort · Spreadsheet Sports Hockey</title>
+<meta name="description" content="Sort 61 NHL goalies by any Spreadsheet Sports metric: goals saved above expected, save % by danger, workload.">
+<link rel="canonical" href="https://spreadsheetsports.com/hockey/leaders/goalies.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Spreadsheet Sports">
+<meta property="og:title" content="NHL Goalie Stats Explorer 2025-26: Filter &amp; Sort · Spreadsheet Sports Hockey">
+<meta property="og:description" content="Sort 61 NHL goalies by any Spreadsheet Sports metric: goals saved above expected, save % by danger, workload.">
+<meta property="og:url" content="https://spreadsheetsports.com/hockey/leaders/goalies.html">
+<meta property="og:image" content="https://spreadsheetsports.com/assets/img/og-hockey.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://spreadsheetsports.com/assets/img/og-hockey.png">
+<meta name="theme-color" content="#08090b">
+<link rel="icon" href="/assets/img/logo-hockey.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/site.css?v=33">
+<script src="/assets/js/site.js?v=33" defer></script>
+</head>
+<body data-leaders="hockey-explore">
+<main>
+  <section class="entity-hero lx-hero"><div class="wrap">
+    <div class="crumbs"><a href="/hockey/">Spreadsheet Sports Hockey</a> / <a href="/hockey/leaders/">Leaders</a> / Goalie explorer</div>
+    <h1 class="display">Goalie explorer</h1>
+    <p class="lead">Pick a number, set your filters, and share the link: the URL keeps every setting. <a class="link-arrow" href="/hockey/leaders/explore.html">Skaters</a></p>
+  </div></section>
+  <section class="mx-sec"><div class="wrap">
+    <div class="card lx" id="lx" data-src="hockey_goalies" data-base="/hockey/players/"><p class="muted">Loading every player…</p>
+      <noscript><p>The explorer needs JavaScript. The <a href="/hockey/leaders/">leaderboards</a> work without it.</p></noscript></div>
+    <details class="gloss mx-gloss" id="glossary"><summary>How every number is calculated</summary>
+      <p class="gl-intro">Percentiles (0–100) rank him against every goalie with 1,200+ minutes that season (61 in 2025-26). Tiers: Elite 90+ · Strong 70–89 · Average 40–69 · Below avg 20–39 · Weak 0–19. Roles are simple rules applied in order; the first one that fits wins. <a class="link-arrow" href="/hockey/methods/">Expected goals and RAPM, explained and backtested</a></p>
+      <dl><div class="gl-cat"><dt>Shot stopping</dt><dd id="lx-c-stop">Goals saved compared with what our expected-goals model says an average goalie allows on the same shots. Category score = weighted average of the graded metrics&#x27; percentiles in that category, re-ranked 0-99 against every qualified skater (or every skater in his position group when &#x27;vs position&#x27; is on). Style numbers (weight 0) are shown but not graded.</dd></div><div><dt>GSAx<small>Goals saved above expected</small></dt><dd id="lx-g-gsax">Expected goals faced minus goals allowed, season total. +10 is excellent. <span class="bm">How: Sum of our xG on every unblocked, non-empty-net shot he faced − goals allowed on them.</span></dd></div><div><dt>dSV%<small>Save % vs expected</small></dt><dd id="lx-g-dsv">Save percentage minus the save percentage an average goalie would post on his shots, in percentage points. <span class="bm">How: GSAx ÷ shots on goal faced × 100.</span></dd></div><div><dt>GSAx/60<small>GSAx per 60</small></dt><dd id="lx-g-gsax60">Goals saved above expected per 60 minutes. <span class="bm">How: GSAx ÷ time on ice × 60.</span></dd></div><div><dt>SV%<small>Save %</small></dt><dd id="lx-g-sv">Plain save percentage. Shown, not graded: it ignores how hard the shots were. <span class="bm">How: Saves ÷ shots on goal (NHL). Shown, not graded.</span></dd></div><div class="gl-cat"><dt>Danger saves</dt><dd id="lx-c-danger">Save percentage on low-, medium- and high-danger shots (danger = our xG). Category score = weighted average of the graded metrics&#x27; percentiles in that category, re-ranked 0-99 against every qualified skater (or every skater in his position group when &#x27;vs position&#x27; is on). Style numbers (weight 0) are shown but not graded.</dd></div><div><dt>HD SV%<small>High-danger save %</small></dt><dd id="lx-g-hdsv">Save % on shots our model rates 15%+ to score, volume-adjusted. <span class="bm">How: (HD saves + 40 × league HD SV%) ÷ (HD shots + 40). Raw in the note.</span></dd></div><div><dt>MD SV%<small>Medium-danger save %</small></dt><dd id="lx-g-mdsv">Save % on shots rated 5–15% to score, volume-adjusted. <span class="bm">How: Same adjustment, 40 league-average shots added.</span></dd></div><div><dt>LD SV%<small>Low-danger save %</small></dt><dd id="lx-g-ldsv">Save % on shots rated under 5% to score, volume-adjusted. <span class="bm">How: Same adjustment, 40 league-average shots added.</span></dd></div><div class="gl-cat"><dt>Workload</dt><dd id="lx-c-work">How much he plays and how hard the shots are. Category score = weighted average of the graded metrics&#x27; percentiles in that category, re-ranked 0-99 against every qualified skater (or every skater in his position group when &#x27;vs position&#x27; is on). Style numbers (weight 0) are shown but not graded.</dd></div><div><dt>GP<small>Games played</small></dt><dd id="lx-g-gp">Games he appeared in. <span class="bm">How: NHL games played.</span></dd></div><div><dt>GS<small>Games started</small></dt><dd id="lx-g-gs">Games he started. <span class="bm">How: NHL games started.</span></dd></div><div><dt>MIN<small>Minutes</small></dt><dd id="lx-g-gtoi">Minutes played. <span class="bm">How: NHL time on ice.</span></dd></div><div><dt>xGA/60<small>Shot difficulty faced</small></dt><dd id="lx-g-xga60f">Expected goals he faced per 60 minutes: how dangerous the shots were. A style number, not graded. <span class="bm">How: Our xG on unblocked shots faced ÷ time on ice × 60. Style number, not graded.</span></dd></div><div><dt>SA/60<small>Shots faced per 60</small></dt><dd id="lx-g-sa60">Shots on goal faced per 60 minutes. A style number. <span class="bm">How: NHL shots against ÷ time on ice × 60. Style number, not graded.</span></dd></div><div class="gl-roles"><dt>Goalie roles</dt><dd><ul><li id="lx-r-starter"><b>Starter</b> Started 50+ games.</li><li id="lx-r-workhorse-tandem"><b>Workhorse Tandem</b> Started 35–49 games.</li><li id="lx-r-1b-backup"><b>1B / Backup</b> Started fewer than 35 games.</li></ul></dd></div></dl></details>
+  </div></section>
+</main>
+<script src="/assets/js/stats.js?v=33" defer></script>
+<script src="/assets/js/leaders.js?v=33" defer></script>
+</body>
+</html>
