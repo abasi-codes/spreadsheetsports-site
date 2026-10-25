@@ -1,6 +1,6 @@
 // Spreadsheet Sports — shared site code (no dependencies)
 const SS = (() => {
-  const DATA_V = 8;   // bump after re-exporting data/*.json so browsers refetch
+  const DATA_V = 9;   // bump after re-exporting data/*.json so browsers refetch
   // /hockey/* pages get the hockey channel, logo and nav; everything else is the NBA site
   const HOCKEY = location.pathname.startsWith("/hockey");
   const YT_CHANNEL = HOCKEY ? "https://www.youtube.com/@spreadsheetsportshockey" : "https://www.youtube.com/@spreadsheetsportsanalytics";
