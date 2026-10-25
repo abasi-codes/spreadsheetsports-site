@@ -74,9 +74,9 @@ document.addEventListener("DOMContentLoaded", async () => {
       </div>
       <div class="dig-foot one">
         <div><h4>Share ${esc(r.name.split(" ").slice(-1)[0])}'s card</h4><div id="share-dig"></div>
-          ${SINGLE ? `<a class="link-arrow" href="/models/mvp.html" style="display:inline-block;margin-top:14px">Full 2027 MVP tracker</a>` : `<a class="link-arrow" href="/players/${slug(r.name)}/" style="display:inline-block;margin-top:14px">Open ${esc(r.name)}'s full page</a>`}</div>
+          ${SINGLE ? `<a class="link-arrow" href="/models/mvp.html" style="display:inline-block;margin-top:14px">Full 2027 MVP tracker</a>` : `<a class="link-arrow" href="${"/players/" + slug(r.name) + "/"}" style="display:inline-block;margin-top:14px">Open ${esc(r.name)}'s full page</a>`}</div>
       </div></div>`;
-    shareBar($("#share-dig"), { url: `/players/${slug(r.name)}/`, item: slug(r.name),
+    shareBar($("#share-dig"), { url: "/players/" + slug(r.name) + "/", item: slug(r.name),
       text: `The model gives ${r.name} a ${pctS(r.p)} chance to win the 2027 MVP (#${r.rank} of ${N}). Here's why:` });
     track("view_item", { item_category: "player", item_id: slug(r.name), item_name: r.name });
     if (SINGLE) return;
@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   if (SINGLE) {
     const r = players.find((p) => slug(p.name) === SINGLE); if (r) render(r);
-    const go = (n) => { location.href = `/players/${slug(n.name)}/`; };
+    const go = (n) => { location.href = "/players/" + slug(n.name) + "/"; };
     if ($("#find")) search($("#find"), players.map((p) => ({ name: p.name, meta: `${p.team || "FA"} · ${pctS(p.p)}` })), go, "Look up another player…", { big: true, cycle: ["Wembanyama", "Jalen Brunson", "LeBron James", "Kawhi Leonard"] });
     return;
   }

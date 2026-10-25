@@ -76,14 +76,14 @@
 document.addEventListener("DOMContentLoaded", async () => {
   const { data, $, esc, embed, table, search, track, reveal } = SS;
   const d = await data("underrated"); const R = Object.fromEntries(d.rows.map((r) => [r.s, r]));
-  const go = (r) => { if (r.page) location.href = `/players/${r.s}/`; };
-  $("#board").innerHTML = d.board.map((s, i) => { const r = R[s]; return `<a class="ub-row" href="/players/${r.s}/"><span class="ub-n">${i + 1}</span><span class="ub-name">${esc(r.name)}<small>${esc(r.team)}</small></span><span class="ub-r"><b>#${r.impact}</b><small>impact</small></span><span class="ub-r"><b>#${r.experts}</b><small>experts</small></span><span class="ub-gap">+${r.gap}</span></a>`; }).join("");
+  const go = (r) => { if (r.page) location.href = "/players/" + r.s + "/"; };
+  $("#board").innerHTML = d.board.map((s, i) => { const r = R[s]; return `<a class="ub-row" href="${"/players/" + r.s + "/"}"><span class="ub-n">${i + 1}</span><span class="ub-name">${esc(r.name)}<small>${esc(r.team)}</small></span><span class="ub-r"><b>#${r.impact}</b><small>impact</small></span><span class="ub-r"><b>#${r.experts}</b><small>experts</small></span><span class="ub-gap">+${r.gap}</span></a>`; }).join("");
   embed($("#video"), d.video);
   search($("#find-top"), d.rows.filter((r) => r.page).map((r) => ({ ...r, meta: `#${r.impact} impact · #${r.experts} experts` })),
     (r) => { track("search", { search_term: r.name }); go(r); }, "Look up a player…", { big: true, cycle: ["Derrick White", "Jalen Duren", "Christian Braun", "Neemias Queta"] });
   const gap = (g) => `<span class="pill ${g >= 20 ? "hit" : g >= 0 ? "near" : "miss"}">${g > 0 ? "+" : ""}${g}</span>`;
   table($("#rows"), [
-    { key: "name", label: "Player", fmt: (r) => r.page ? `<a href="/players/${r.s}/">${esc(r.name)}</a> <span class="dim mono">${esc(r.team)}</span>` : esc(r.name) },
+    { key: "name", label: "Player", fmt: (r) => r.page ? `<a href="${"/players/" + r.s + "/"}">${esc(r.name)}</a> <span class="dim mono">${esc(r.team)}</span>` : esc(r.name) },
     { key: "impact", label: "Impact rank", num: true, asc: true, fmt: (r) => `#${r.impact}` },
     { key: "experts", label: "Expert rank", num: true, asc: true, fmt: (r) => `#${r.experts}` },
     { key: "gap", label: "Gap", num: true, fmt: (r) => gap(r.gap) },

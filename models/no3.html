@@ -95,7 +95,7 @@
 document.addEventListener("DOMContentLoaded", async () => {
   const { data, $, esc, embed, table, reveal } = SS;
   const d = await data("no3"); const P = Object.fromEntries(d.players.map((r) => [r.s, r]));
-  const nm = (r) => r.page ? `<a href="/players/${r.s}/">${esc(r.name)}</a>` : esc(r.name);
+  const nm = (r) => r.page ? `<a href="${"/players/" + r.s + "/"}">${esc(r.name)}</a>` : esc(r.name);
   $("#board").innerHTML = d.flips.map((r, i) => `<div class="ub-row"><span class="ub-n">${i + 1}</span><span class="ub-name">${esc(r.t)}<small>over ${esc(r.real)}</small></span><span class="ub-r"><b>${r.y}</b><small>season</small></span><span class="ub-r"><b>${r.rp}%</b><small>${esc(r.real)}</small></span><span class="ub-gap">${r.p}%</span></div>`).join("");
   embed($("#video"), d.video);
   $("#five").innerHTML = d.five.map((s) => P[s] ? nm(P[s]) : s).join(", ");

@@ -13,7 +13,7 @@ const SS = (() => {
   ];
   const icons = (cls = "") => SOCIAL.map(([n, u, d]) => `<a class="soc ${cls}" href="${u}" target="_blank" rel="noopener" aria-label="${n}" title="${n}"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">${d}</svg></a>`).join("");
   const cache = {};
-  const data = (name) => (cache[name] ||= fetch(`/data/${name}.json?v=${DATA_V}`).then((r) => r.json()));
+  const data = (name) => (cache[name] ||= fetch("/data/" + name + ".json?v=" + DATA_V).then((r) => r.json()));
   const $ = (s, el = document) => el.querySelector(s);
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
   const h = (html) => { const t = document.createElement("template"); t.innerHTML = html.trim(); return t.content.firstElementChild; };

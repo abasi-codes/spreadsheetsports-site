@@ -68,7 +68,7 @@
 document.addEventListener("DOMContentLoaded", async () => {
   const { data, $, esc, embed, table, reveal } = SS;
   const d = await data("unluckiest"); const P = d.players;
-  const nm = (r) => r.page ? `<a href="/players/${r.s}/">${esc(r.name)}</a>` : esc(r.name);
+  const nm = (r) => r.page ? `<a href="${"/players/" + r.s + "/"}">${esc(r.name)}</a>` : esc(r.name);
   $("#board").innerHTML = P.slice(0, 5).map((r) => `<div class="ub-row"><span class="ub-n">${r.rank}</span><span class="ub-name">${nm(r)}<small>${r.first}–${r.last}</small></span><span class="ub-r"><b>${r.finals_lost}</b><small>lost Finals</small></span><span class="ub-r"><b>${r.rings}</b><small>rings</small></span><span class="ub-gap">${r.score.toFixed(1)}</span></div>`).join("");
   embed($("#video"), d.video);
   table($("#rows"), [

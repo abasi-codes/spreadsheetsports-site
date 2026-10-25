@@ -20,7 +20,7 @@
     const [mvp, title, teams] = await Promise.all([data("mvp"), data("title"), data("teams")]);
     const tt = Object.entries(title.titles).sort((a, b) => b[1] - a[1]).slice(0, 3);
     $("#pred-odds").innerHTML = `<span class="k">2027 MVP</span>` + mvp.odds.slice(0, 3).map(([n, p], i) => row(i + 1, n, p, `/models/mvp.html#${encodeURIComponent(n.replace(/ /g, "-"))}`)).join("")
-      + `<span class="k">2027 title</span>` + tt.map(([t, p], i) => row(i + 1, teams[t].name, p, `/teams/${SS.slug(teams[t].name)}/`)).join("");
+      + `<span class="k">2027 title</span>` + tt.map(([t, p], i) => row(i + 1, teams[t].name, p, "/teams/" + SS.slug(teams[t].name) + "/")).join("");
   }
 
   // doors: a sample player's glance + two live leader boards (data/home.json, written by the build)

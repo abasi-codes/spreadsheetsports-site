@@ -54,13 +54,13 @@ document.addEventListener("DOMContentLoaded", async () => {
         <div>
           <div class="dig-sec"><h4>Expected playoff rotation</h4><table class="mini-table"><thead><tr><th>Player</th><th>Impact (BPM)</th><th>Min</th></tr></thead><tbody>
             ${t.rotation.map(([n, x, m]) => `<tr><td style="font-family:var(--sans)">${esc(n)}</td><td style="color:${x >= 0 ? "var(--green)" : "var(--muted)"}">${sg(x)}</td><td>${Math.round(m)}</td></tr>`).join("")}</tbody></table></div>
-          <div class="dig-sec"><h4>Most likely Finals opponents</h4>${t.opp.length ? t.opp.map(([o, q]) => `<div class="comp" style="grid-template-columns:1fr auto"><div class="lbl"><a href="${SINGLE ? `/teams/${slug(teams[o].name)}/` : `#${o}`}" style="color:inherit">${esc(teams[o].name)}</a></div><div class="p">${pctS(q)}</div></div>`).join("") : `<p class="muted" style="margin:0">They didn't reach the Finals in any of the 10,000 seasons.</p>`}</div>
+          <div class="dig-sec"><h4>Most likely Finals opponents</h4>${t.opp.length ? t.opp.map(([o, q]) => `<div class="comp" style="grid-template-columns:1fr auto"><div class="lbl"><a href="${SINGLE ? "/teams/" + slug(teams[o].name) + "/" : `#${o}`}" style="color:inherit">${esc(teams[o].name)}</a></div><div class="p">${pctS(q)}</div></div>`).join("") : `<p class="muted" style="margin:0">They didn't reach the Finals in any of the 10,000 seasons.</p>`}</div>
           <div class="dig-sec"><h4>Titles in the backtest (2006–2026)</h4><div class="vote-chips">${t.history.length ? t.history.map(([y, rk, p]) => `<span class="win">★ ${y} · model had them #${rk} (${pct(p)})</span>`).join("") : "<span>No titles since 2006</span>"}</div></div>
         </div>
       </div></details>
-      <div class="dig-links">${SINGLE ? `<a class="link-arrow" href="/models/title.html#${k}">All 30 teams on the title tracker</a><a class="link-arrow" href="#roster">${esc(tm.name)} roster</a>` : `<a class="link-arrow" href="/teams/${slug(tm.name)}/">Open the ${esc(tm.name)} page</a><div id="share-dig"></div>`}</div>
+      <div class="dig-links">${SINGLE ? `<a class="link-arrow" href="/models/title.html#${k}">All 30 teams on the title tracker</a><a class="link-arrow" href="#roster">${esc(tm.name)} roster</a>` : `<a class="link-arrow" href="${"/teams/" + slug(tm.name) + "/"}">Open the ${esc(tm.name)} page</a><div id="share-dig"></div>`}</div>
       </div>`;
-    if (!SINGLE) shareBar($("#share-dig"), { url: `/teams/${slug(tm.name)}/`, item: slug(tm.name),
+    if (!SINGLE) shareBar($("#share-dig"), { url: "/teams/" + slug(tm.name) + "/", item: slug(tm.name),
       text: `The model gives the ${tm.name} a ${pctS(t.p)} chance to win the 2027 title (#${rank} of 30). Here's why:` });
     track("view_item", { item_category: "team", item_id: slug(tm.name), item_name: tm.name });
     if (SINGLE) return;
@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   if (SINGLE) {
     const k = keys.find((x) => slug(teams[x].name) === SINGLE); if (k) render(k);
-    if ($("#find")) search($("#find"), keys.map((x) => ({ k: x, name: teams[x].name, meta: `${x} · ${pctS(T[x].p)}` })), (n) => { location.href = `/teams/${slug(n.name)}/`; }, "Look up another team…", { big: true, cycle: ["Knicks", "Lakers", "Thunder", "Raptors"] });
+    if ($("#find")) search($("#find"), keys.map((x) => ({ k: x, name: teams[x].name, meta: `${x} · ${pctS(T[x].p)}` })), (n) => { location.href = "/teams/" + slug(n.name) + "/"; }, "Look up another team…", { big: true, cycle: ["Knicks", "Lakers", "Thunder", "Raptors"] });
     return;
   }
   const open = (k, scroll = true) => {

@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const { data, $, esc, embed, table, reveal, fold } = SS;
   const d = await data("contract");
   embed($("#video"), d.video);
-  const nm = (r) => r.page ? `<a href="/players/${r.s}/">${esc(r.name)}</a>` : esc(r.name);
+  const nm = (r) => r.page ? `<a href="${"/players/" + r.s + "/"}">${esc(r.name)}</a>` : esc(r.name);
   const sg = (x, k = 1) => (x > 0 ? "+" : "") + x.toFixed(k);
   const zp = (z) => `<span class="pill ${z >= 2 ? "hit" : z <= -2 ? "miss" : "near"}">${sg(z)}</span>`;
   const cols = [

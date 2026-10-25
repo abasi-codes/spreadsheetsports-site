@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const d = await data("smoy");
   embed($("#video"), d.video);
   function ordn(n) { const s = ["th", "st", "nd", "rd"], v = n % 100; return n + (s[(v - 20) % 10] || s[v] || s[0]); }
-  const nm = (r) => r.page ? `<a href="/players/${r.s}/">${esc(r.name)}</a>` : esc(r.name);
+  const nm = (r) => r.page ? `<a href="${"/players/" + r.s + "/"}">${esc(r.name)}</a>` : esc(r.name);
   const pc = (p) => p >= 0.1 ? `${p.toFixed(1)}%` : "<0.1%";
   const cols = [
     { key: "rank", label: "#", num: true, fmt: (r) => r.rank == null ? "—" : r.rank },

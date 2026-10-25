@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const { data, $, esc, embed, table, reveal, fold } = SS;
   const d = await data("roy");
   embed($("#video"), d.video);
-  const nm = (r) => r.page ? `<a href="/players/${r.s}/">${esc(r.name)}</a>` : esc(r.name);
+  const nm = (r) => r.page ? `<a href="${"/players/" + r.s + "/"}">${esc(r.name)}</a>` : esc(r.name);
   const cols = [
     { key: "rank", label: "#", num: true },
     { key: "name", label: "Rookie", fmt: (r) => nm(r) + ` <span class="dim mono">${esc(r.t)}${r.pick ? " · No. " + r.pick : ""}</span>` },
