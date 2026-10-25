@@ -1,6 +1,6 @@
 // Hockey: most underrated players page (/hockey/underrated.html). Reads data/hockey_underrated.json (~/nhl-underrated/model/site_export.py).
 document.addEventListener("DOMContentLoaded", async () => {
-  const { data, $, esc, ord, search, newsletter, embed, table, SUB } = SS;
+  const { data, $, esc, ord, search, newsletter, embed, table, reveal, SUB } = SS;
   const D = await data("hockey_underrated");
   const NM = { ANA: "Anaheim Ducks", BOS: "Boston Bruins", BUF: "Buffalo Sabres", CGY: "Calgary Flames", CAR: "Carolina Hurricanes", CHI: "Chicago Blackhawks", COL: "Colorado Avalanche",
     CBJ: "Columbus Blue Jackets", DAL: "Dallas Stars", DET: "Detroit Red Wings", EDM: "Edmonton Oilers", FLA: "Florida Panthers", LAK: "Los Angeles Kings", MIN: "Minnesota Wild",
@@ -37,4 +37,5 @@ document.addEventListener("DOMContentLoaded", async () => {
   const names = D.board.map((r) => ({ name: r.n, k: r.t })).concat(keys.map((k) => ({ name: nm(k), k })));
   const go = (n) => { const el = document.getElementById(n.k); if (el) { el.scrollIntoView({ behavior: "smooth", block: "center" }); el.classList.add("flash"); setTimeout(() => el.classList.remove("flash"), 1600); } };
   search($("#find-top"), names, go, "Search any skater or team…", { big: true, cycle: ["Adam Fox", "Maple Leafs", "Brady Tkachuk", "Canadiens", "Oilers"] });
+  reveal();   // cards are added after site.js's first reveal pass
 });

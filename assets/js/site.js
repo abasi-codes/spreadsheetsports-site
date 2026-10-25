@@ -1,6 +1,6 @@
 // Spreadsheet Sports — shared site code (no dependencies)
 const SS = (() => {
-  const DATA_V = 7;   // bump after re-exporting data/*.json so browsers refetch
+  const DATA_V = 8;   // bump after re-exporting data/*.json so browsers refetch
   // /hockey/* pages get the hockey channel, logo and nav; everything else is the NBA site
   const HOCKEY = location.pathname.startsWith("/hockey");
   const YT_CHANNEL = HOCKEY ? "https://www.youtube.com/@spreadsheetsportshockey" : "https://www.youtube.com/@spreadsheetsportsanalytics";
@@ -46,7 +46,8 @@ const SS = (() => {
   // Global nav, same shape for both sports: sport switch · Players · Teams · Leaders · Predictions ▾ · Subscribe.
   // Newsletter + social icons live in the footer (one ask per page; the page itself carries at most one signup).
   const PRED = HOCKEY
-    ? [["/hockey/cup.html", "Stanley Cup odds", "2027 odds for all 32 teams, 10,000 seasons"],
+    ? [["/hockey/mvp.html", "NHL MVP odds", "2027 Hart odds for every candidate, 10,000 seasons"],
+       ["/hockey/cup.html", "Stanley Cup odds", "2027 odds for all 32 teams, 10,000 seasons"],
        ["/hockey/underrated.html", "Most underrated", "Impact vs the experts, every team"]]
     : [["/models/mvp.html", "MVP tracker", "2027 MVP odds for every projected starter"],
        ["/models/title.html", "Title odds", "All 30 teams, 10,000 simulated seasons"],
