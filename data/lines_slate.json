@@ -1,1 +1,16 @@
-{"updated":"2026-10-27T00:24:01Z","hash":"683c8661187af555","nhl":{"date":"2026-10-26","games":[{"start":"2026-10-26T23:00:00Z","state":"in","home":"NYR","away":"LAK"},{"start":"2026-10-27T00:30:00Z","state":"pre","home":"CGY","away":"TOR"},{"start":"2026-10-27T01:30:00Z","state":"pre","home":"EDM","away":"DET"}],"next":null,"cards":252},"nba":{"date":"2026-10-26","games":[{"start":"2026-10-26T23:00Z","state":"in","home":"CHA","away":"WAS"},{"start":"2026-10-26T23:00Z","state":"in","home":"CLE","away":"MIN"},{"start":"2026-10-26T23:30Z","state":"in","home":"BOS","away":"CHI"},{"start":"2026-10-26T23:30Z","state":"in","home":"MIA","away":"DAL"},{"start":"2026-10-27T00:00Z","state":"in","home":"MIL","away":"IND"},{"start":"2026-10-27T00:00Z","state":"in","home":"OKC","away":"PHX"},{"start":"2026-10-27T00:30Z","state":"pre","home":"HOU","away":"ATL"},{"start":"2026-10-27T01:00Z","state":"pre","home":"UTA","away":"MEM"},{"start":"2026-10-27T02:00Z","state":"pre","home":"DEN","away":"GSW"}],"next":null,"cards":888}}
+{
+"updated":"2026-10-27T00:36:15Z",
+"hash":"0a665a47c31db144",
+"nhl":{
+"date":"2026-10-26",
+"games":[{"start":"2026-10-26T23:00:00Z","state":"in","home":"NYR","away":"LAK"},{"start":"2026-10-27T00:30:00Z","state":"pre","home":"CGY","away":"TOR"},{"start":"2026-10-27T01:30:00Z","state":"pre","home":"EDM","away":"DET"}],
+"next":null,
+"cards":252
+},
+"nba":{
+"date":"2026-10-26",
+"games":[{"start":"2026-10-26T23:00Z","state":"in","home":"CHA","away":"WAS"},{"start":"2026-10-26T23:00Z","state":"in","home":"CLE","away":"MIN"},{"start":"2026-10-26T23:30Z","state":"in","home":"BOS","away":"CHI"},{"start":"2026-10-26T23:30Z","state":"in","home":"MIA","away":"DAL"},{"start":"2026-10-27T00:00Z","state":"in","home":"MIL","away":"IND"},{"start":"2026-10-27T00:00Z","state":"in","home":"OKC","away":"PHX"},{"start":"2026-10-27T00:30Z","state":"pre","home":"HOU","away":"ATL"},{"start":"2026-10-27T01:00Z","state":"pre","home":"UTA","away":"MEM"},{"start":"2026-10-27T02:00Z","state":"pre","home":"DEN","away":"GSW"}],
+"next":null,
+"cards":1142
+}
+}

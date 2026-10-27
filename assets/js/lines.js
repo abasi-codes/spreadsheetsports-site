@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const SPORT = HOCKEY ? "nhl" : "nba";
   const STAT = HOCKEY
     ? { pts: ["points", "Points"], g: ["goals", "Goals"], a: ["assists", "Assists"], sog: ["shots on goal", "Shots on goal"] }
-    : { pts: ["points", "Points"], reb: ["rebounds", "Rebounds"], ast: ["assists", "Assists"], fg3m: ["threes", "Threes made"] };
+    : { pts: ["points", "Points"], reb: ["rebounds", "Rebounds"], ast: ["assists", "Assists"], pra: ["pts + reb + ast", "Pts + Reb + Ast"], fg3m: ["threes", "Threes made"] };
   const ICON = {
     l10: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>',
     vs: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5z"/></svg>',
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // ---------- helpers ----------
   const P = D.players, T = D.teams, G = Object.fromEntries(D.games.map((g) => [g.id, g]));
-  const prices = !!D.prices;           // market prices are off until we have a licensed source (see research/kalshi_terms.md)
+  const prices = !!D.prices;           // unused slot, always null: nothing user-visible depends on it
   const pc = (r) => (r[1] ? Math.round((100 * r[0]) / r[1]) : null);
   const cls = (p) => (p == null ? "" : p >= 70 ? "g" : p <= 30 ? "r" : "");
   const tz = { hour: "numeric", minute: "2-digit" };
@@ -30,9 +30,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   const ago = (iso) => { const m = Math.max(0, Math.round((Date.now() - new Date(iso)) / 60000)); return m < 2 ? "just now" : m < 60 ? m + " min ago" : m < 1440 ? Math.round(m / 60) + "h ago" : Math.round(m / 1440) + "d ago"; };
   const LOGO = "https://assets.nhle.com/logos/nhl/svg/";
   const badge = (t) => HOCKEY
-    ? `<span class="lc-badge logo"><img src="${LOGO + t + "_light.svg"}" alt="${esc(t)}" loading="lazy"></span>`
+    ? `<span class="lc-badge logo"><img src="${LOGO + t + "_dark.svg"}" alt="${esc(t)}" loading="lazy"></span>`
     : `<span class="lc-badge" style="--c:${esc((T[t] && T[t].color) || "#555")}">${esc(t)}</span>`;
-  const mini = (t) => HOCKEY ? `<img class="lg" src="${LOGO + t + "_light.svg"}" alt="">` : `<span class="tdot" style="--c:${esc((T[t] && T[t].color) || "#999")}"></span>`;
+  const mini = (t) => HOCKEY ? `<img class="lg" src="${LOGO + t + "_dark.svg"}" alt="">` : `<span class="tdot" style="--c:${esc((T[t] && T[t].color) || "#999")}"></span>`;
   const label = (c) => c.stat === "win" ? "Win" : c.k + "+ " + (c.team ? (HOCKEY ? "goals" : "points") : STAT[c.stat][0]);
   // The job rolls the slate over at 5 AM ET and its early run lands ~6:40 AM ET, so by 9 AM ET the file must be on
   // today's slate. If it isn't, the hourly refresh has stalled.
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   // ---------- header: sport switch, summary, search ----------
   const other = HOCKEY ? S.nba : S.nhl, mine = { games: D.games };
   const cnt = (s) => { const n = s && s.games ? s.games.length : 0; return n + (n === 1 ? " game" : " games"); };
-  $("#ln-sport").innerHTML = `<a href="/lines/" class="${HOCKEY ? "" : "on"}">NBA<small>${HOCKEY ? cnt(other) : cnt(mine)}</small></a><a href="/hockey/lines/" class="${HOCKEY ? "on" : ""}">NHL<small>${HOCKEY ? cnt(mine) : cnt(other)}</small></a>`;
+  $("#ln-sport").innerHTML = `<a href="/lines/"${HOCKEY ? "" : ' aria-current="true"'}>NBA<small>${HOCKEY ? cnt(other) : cnt(mine)}</small></a><a href="/hockey/lines/"${HOCKEY ? ' aria-current="true"' : ""}>NHL<small>${HOCKEY ? cnt(mine) : cnt(other)}</small></a>`;
   $("#ln-date").textContent = (HOCKEY ? "NHL" : "NBA") + " lines · " + dayName(D.slate_date);
   $("#ln-sum").innerHTML = D.games.length
     ? `${D.games.length} game${D.games.length > 1 ? "s" : ""} · ${D.cards.filter((c) => !c.alt).length} player lines.<span class="xl"> How often each player has cleared his line lately, against tonight's opponent, and at home or on the road.</span>`
@@ -65,12 +65,12 @@ document.addEventListener("DOMContentLoaded", async () => {
   // ---------- controls ----------
   const sorts = [["score", "Consistency"], ["l10", "Last 10 games"], ["streak", "Longest streak"], ["vs", "vs opponent"], ["ven", "Home / away"], ["szn", "This season"]]
     .concat(prices ? [["edge", "Hit rate vs market"]] : []);
-  const controls = () => `<div class="ln-tabs" role="tablist"><button role="tab" data-tab="player" class="${st.tab === "player" ? "on" : ""}">Player</button><button role="tab" data-tab="team" class="${st.tab === "team" ? "on" : ""}">Team</button></div>
+  const controls = () => `<div class="seg" role="tablist"><button role="tab" data-tab="player" aria-selected="${st.tab === "player"}">Player</button><button role="tab" data-tab="team" aria-selected="${st.tab === "team"}">Team</button></div>
     <div class="ln-sel">
-      ${st.tab === "player" ? `<label>Stat<select data-k="stat"><option value="">All stats</option>${Object.entries(STAT).map(([k, v]) => `<option value="${k}" ${st.stat === k ? "selected" : ""}>${v[1]}</option>`).join("")}</select></label>` : ""}
-      ${st.tab === "player" ? `<label>Lines<select data-k="alt"><option value="">Main lines</option><option value="1" ${st.alt ? "selected" : ""}>+ Safer alt lines</option></select></label>` : ""}
-      <label>Hit rate (last 10)<select data-k="min">${[[0, "Any"], [60, "60%+"], [70, "70%+"], [80, "80%+"], [90, "90%+"]].map(([v, t]) => `<option value="${v}" ${st.min === v ? "selected" : ""}>${t}</option>`).join("")}</select></label>
-      <label>Sort by<select data-k="sort">${sorts.map(([v, t]) => `<option value="${v}" ${st.sort === v ? "selected" : ""}>${t}</option>`).join("")}</select></label>
+      ${st.tab === "player" ? `<label class="lx-f"><span>Stat</span><select data-k="stat"><option value="">All stats</option>${Object.entries(STAT).map(([k, v]) => `<option value="${k}" ${st.stat === k ? "selected" : ""}>${v[1]}</option>`).join("")}</select></label>` : ""}
+      ${st.tab === "player" ? `<label class="lx-f"><span>Lines</span><select data-k="alt"><option value="">Main lines</option><option value="1" ${st.alt ? "selected" : ""}>+ Safer alt lines</option></select></label>` : ""}
+      <label class="lx-f"><span>Hit rate (last 10)</span><select data-k="min">${[[0, "Any"], [60, "60%+"], [70, "70%+"], [80, "80%+"], [90, "90%+"]].map(([v, t]) => `<option value="${v}" ${st.min === v ? "selected" : ""}>${t}</option>`).join("")}</select></label>
+      <label class="lx-f"><span>Sort by</span><select data-k="sort">${sorts.map(([v, t]) => `<option value="${v}" ${st.sort === v ? "selected" : ""}>${t}</option>`).join("")}</select></label>
     </div><span class="ln-count" id="ln-count"></span>`;
 
   // ---------- cards ----------
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const last = [...c.last].reverse(), top = Math.max(c.k * 1.6, ...last, 1);
     const spark = c.stat === "win" ? "" : `<div class="lc-spark" aria-label="Last ${last.length} games">${last.map((v) => `<i class="${v >= c.k ? "y" : ""}" style="height:${Math.max(3, (v / top) * 100)}%"><span>${v}</span></i>`).join("")}<span class="line" style="bottom:${(c.k / top) * 100}%"></span></div><div class="lc-spark-x"><span>${last.length} games ago</span><span>Last game</span></div>`;
     const facts = `<div class="lc-facts"><div><b>${c.l5[0]}/${c.l5[1]}</b>Last 5</div><div><b>${c.szn[1] ? c.szn[0] + "/" + c.szn[1] : "–"}</b>This season</div><div><b>${c.stat === "win" ? pc(c.l10) + "%" : c.avg10 ?? "–"}</b>${c.stat === "win" ? "Win rate L10" : "Avg last 10"}</div></div>`;
-    const more = who.href ? `<a class="lc-link" href="${who.href}" data-pl="${esc(nm)}">${c.team ? (HOCKEY ? "Cup odds and more →" : "Team page and title odds →") : "Full player profile →"}</a>` : "";
+    const more = who.href ? `<a class="lc-link" href="${who.href}" data-pl="${esc(nm)}">${c.team ? (HOCKEY ? "Cup odds and more" : "Team page and title odds") : "Full player profile"}</a>` : "";
     const inj = !c.team && who.inj ? `<span class="inj">${esc(who.inj)}</span>` : "";
     return `<article class="lc reveal"><div class="lc-h">${badge(team)}<div class="lc-who"><span class="lc-nm">${link}<span class="opp">${at}</span></span><div class="lc-mk">${label(c)}${c.alt ? '<span class="alt">alt</span>' : ""}${inj}</div></div><div class="lc-r">${right}</div></div>
       <ul class="lc-rows">${rows}</ul><details><summary>Details</summary>${spark}${facts}${more}</details></article>`;
@@ -119,14 +119,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     const box = $("#ln-list"), more = $("#ln-more");
     if (!D.games.length) {
       const n = D.next_slate, o = other && other.games && other.games.length;
-      box.innerHTML = `<div class="ln-empty"><b>No ${HOCKEY ? "NHL" : "NBA"} games today</b>${n ? `Next slate: ${dayName(n.date)} (${n.games} game${n.games > 1 ? "s" : ""}). Lines appear that morning.` : "The next slate isn't scheduled yet."}${o ? `<br><br><a class="lc-link" href="${HOCKEY ? "/lines/" : "/hockey/lines/"}">See tonight's ${HOCKEY ? "NBA" : "NHL"} lines →</a>` : ""}</div>`;
+      box.innerHTML = `<div class="ln-empty"><b>No ${HOCKEY ? "NHL" : "NBA"} games today</b>${n ? `Next slate: ${dayName(n.date)} (${n.games} game${n.games > 1 ? "s" : ""}). Lines appear that morning.` : "The next slate isn't scheduled yet."}${o ? `<br><br><a class="lc-link" href="${HOCKEY ? "/lines/" : "/hockey/lines/"}">See tonight's ${HOCKEY ? "NBA" : "NHL"} lines</a>` : ""}</div>`;
       more.innerHTML = ""; return;
     }
     const L = list();
     const pill = st.pid && st.tab === "player" ? `<span class="ln-pill">${esc(P[st.pid]?.n || "")}<button type="button" aria-label="Clear player" data-clear="1">×</button></span>` : "";
     $("#ln-count").innerHTML = pill + ` Showing ${Math.min(st.shown, L.length)} of ${L.length}`;
     box.innerHTML = L.length ? L.slice(0, st.shown).map(card).join("") : `<div class="ln-empty"><b>Nothing matches</b>Try a lower hit rate or another stat.</div>`;
-    more.innerHTML = L.length > st.shown ? `<button class="ln-btn" type="button">Show ${Math.min(PAGE, L.length - st.shown)} more</button>` : "";
+    more.innerHTML = L.length > st.shown ? `<button class="btn ghost" type="button">Show ${Math.min(PAGE, L.length - st.shown)} more</button>` : "";
     const p = new URLSearchParams();
     if (st.tab !== "player") p.set("tab", st.tab); if (st.g) p.set("g", st.g); if (st.stat) p.set("stat", st.stat);
     if (st.min) p.set("min", st.min); if (st.alt) p.set("alt", "1"); if (st.sort !== "score") p.set("sort", st.sort); if (st.pid) p.set("p", st.pid);

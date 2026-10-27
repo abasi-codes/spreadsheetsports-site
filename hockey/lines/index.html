@@ -14,21 +14,21 @@
 <link rel="canonical" href="https://spreadsheetsports.com/hockey/lines/">
 <meta name="twitter:card" content="summary_large_image">
 <meta property="og:site_name" content="Spreadsheet Sports">
-<meta name="theme-color" content="#0b0c0e">
+<meta name="theme-color" content="#08090b">
 <link rel="icon" href="/assets/img/logo-hockey.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/site.css?v=35">
-<link rel="stylesheet" href="/assets/css/lines.css?v=1">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/site.css?v=36">
+<link rel="stylesheet" href="/assets/css/lines.css?v=2">
 <script src="/assets/js/site.js?v=36" defer></script>
 </head>
-<body class="paper">
+<body>
 <main class="ln" id="lines">
-  <section class="ln-hero"><div class="wrap">
-    <span class="ln-eyebrow" id="ln-date">NHL lines</span>
-    <h1>Tonight's lines</h1>
-    <p class="ln-sum" id="ln-sum">How often each player has cleared his line lately, against tonight's opponent, and at home or on the road.</p>
-    <div class="ln-top"><nav class="ln-sport" id="ln-sport" aria-label="Sport"><a href="/lines/">NBA</a><a href="/hockey/lines/" class="on">NHL</a></nav><div id="ln-find"></div></div>
+  <section class="page-hero ln-hero"><div class="wrap">
+    <span class="eyebrow live" id="ln-date">NHL lines</span>
+    <h1 class="display">Tonight's <span class="hl">lines</span></h1>
+    <p class="lead" id="ln-sum">How often each player has cleared his line lately, against tonight's opponent, and at home or on the road.</p>
+    <div class="ln-top"><nav class="seg" id="ln-sport" aria-label="Sport"><a href="/lines/">NBA</a><a href="/hockey/lines/" aria-current="true">NHL</a></nav><div id="ln-find"></div></div>
     <div id="ln-stale"></div>
   </div></section>
   <div class="wrap">
@@ -36,7 +36,7 @@
     <div class="ln-bar" id="ln-bar"></div>
     <div class="ln-list" id="ln-list"><div class="ln-skel"></div><div class="ln-skel"></div><div class="ln-skel"></div></div>
     <div class="ln-more" id="ln-more"></div>
-    <details class="ln-how"><summary>How to read a line</summary>
+    <details class="gloss ln-how"><summary>How to read a line</summary>
       <ul>
         <li><b>The line</b> is a milestone, like "25+ points". For each player we show the milestone closest to a coin flip over his last 10 games, the way a fair market line sits near 50%. Turn on <b>alt lines</b> to also see the next milestone down.</li>
         <li><b>Hit in 7 of last 10 games</b>: his last 10 games, across seasons. The window is always 10. We never pick the window that makes the number look best.</li>
@@ -50,6 +50,6 @@
     <p class="ln-note"><b>Hit rates from official box scores, updated hourly. For information only, not betting advice.</b> <span id="ln-sample"></span> <span id="ln-upd"></span></p>
   </div>
 </main>
-<script src="/assets/js/lines.js?v=1" defer></script>
+<script src="/assets/js/lines.js?v=2" defer></script>
 </body>
 </html>

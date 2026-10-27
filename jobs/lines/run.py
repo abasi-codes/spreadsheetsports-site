@@ -10,8 +10,7 @@ What it does each run (GitHub Actions calls it hourly, see .github/workflows/lin
   4. Validate and write the JSON only if the content changed. On any API failure the old file is left untouched,
      so the page keeps the last good data and shows its age ("updated 3h ago").
 
-Market prices are OFF: Kalshi's Developer Agreement and Data Terms don't allow showing their prices on a public
-site without written permission (research/kalshi_terms.md). The output keeps a "prices": null slot for a licensed source.
+The output keeps an unused "prices": null slot (off; nothing on the page shows prices).
 Exit code 0 = fine (even if nothing changed), 1 = at least one sport failed (old data kept).
 """
 import argparse
@@ -122,7 +121,7 @@ def results_for(sport, game):
     if not rec:
         return None
     cols = engine.COLS[sport]
-    return {r[0]: dict(zip(cols, r[2:])) for r in rec["p"]}
+    return {r[0]: engine.derive(sport, dict(zip(cols, r[2:]))) for r in rec["p"]}
 
 
 def build(sport, now):
@@ -152,7 +151,7 @@ def build(sport, now):
                 inj = nba.injuries(summ)
                 if g["state"] == "post":
                     rec, _ = nba.box(g["id"], dict(g, date=slate_day), summ)
-                    res = {r[0]: dict(zip(engine.COLS["nba"], r[2:])) for r in rec["p"]} if rec else None
+                    res = {r[0]: engine.derive("nba", dict(zip(engine.COLS["nba"], r[2:]))) for r in rec["p"]} if rec else None
             elif g["state"] == "post":
                 res = results_for(sport, g)
         except Blocked:

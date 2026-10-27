@@ -11,10 +11,10 @@ import unicodedata
 # kept as an "alt" line when it isn't a lock.
 LADDERS = {
     "nba": {"pts": [5, 8, 10, 12, 15, 18, 20, 22, 25, 28, 30, 32, 35, 38, 40, 45, 50], "reb": list(range(2, 17)), "ast": list(range(2, 15)),
-            "fg3m": [1, 2, 3, 4, 5, 6, 7]},
+            "pra": list(range(8, 72, 2)), "fg3m": [1, 2, 3, 4, 5, 6, 7]},
     "nhl": {"pts": [1, 2, 3], "g": [1, 2], "a": [1, 2], "sog": [2, 3, 4, 5, 6]},
 }
-LABEL = {"pts": "points", "reb": "rebounds", "ast": "assists", "fg3m": "threes", "g": "goals", "a": "assists", "sog": "shots on goal"}
+LABEL = {"pra": "points + rebounds + assists", "pts": "points", "reb": "rebounds", "ast": "assists", "fg3m": "threes", "g": "goals", "a": "assists", "sog": "shots on goal"}
 COLS = {"nba": ["min", "pts", "reb", "ast", "fg3m", "stl", "blk", "tov"], "nhl": ["g", "a", "pts", "sog"]}
 TEAM_LADDER = {"nba": [95, 100, 105, 110, 115, 120, 125, 130, 135], "nhl": [2, 3, 4, 5]}
 
@@ -24,6 +24,13 @@ def fold(s):
     s = re.sub(r"[.'’]", "", s)
     s = re.sub(r"\b(jr|sr|ii|iii|iv|v)\b", "", s)
     return re.sub(r"[^a-z0-9]+", " ", s).strip()
+
+
+def derive(sport, st):
+    """Add combo stats to one game's stat dict (NBA: pra = points + rebounds + assists)."""
+    if sport == "nba":
+        st["pra"] = st["pts"] + st["reb"] + st["ast"]
+    return st
 
 
 class Index:
@@ -39,7 +46,7 @@ class Index:
             for row in g["p"]:
                 pid, team = row[0], row[1]
                 opp, home = (g["a"], True) if team == g["h"] else (g["h"], False)
-                st = dict(zip(cols, row[2:]))
+                st = derive(sport, dict(zip(cols, row[2:])))
                 self.player.setdefault(pid, []).append({"d": g["d"], "sy": g["sy"], "team": team, "opp": opp, "home": home, "id": g["id"], **st})
         for v in self.player.values():
             v.reverse()
