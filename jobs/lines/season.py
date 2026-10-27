@@ -136,7 +136,8 @@ def nba_standings(games, end_year, log=print):
             v = lambda k: s.get(k, {}).get("value")
             dv = lambda k: s.get(k, {}).get("displayValue")
             ab = nba.ab(e["team"]["abbreviation"])
-            rows.append({"t": ab, "name": nba.NAMES.get(ab, e["team"]["displayName"]), "w": int(v("wins") or 0), "l": int(v("losses") or 0),
+            full = nba.NAMES.get(ab, e["team"]["displayName"])
+            rows.append({"t": ab, "name": full, "short": "Trail Blazers" if full.endswith("Trail Blazers") else full.split(" ")[-1], "w": int(v("wins") or 0), "l": int(v("losses") or 0),
                          "pct": dv("winPercent"), "gb": dv("gamesBehind"), "seed": int(v("playoffSeed") or 0),
                          "home": dv("Home"), "road": dv("Road"), "l10": dv("Last Ten Games"), "strk": dv("streak"),
                          "ppg": dv("avgPointsFor"), "opp": dv("avgPointsAgainst"), "diff": v("differential")})
@@ -153,7 +154,7 @@ def nhl_standings(end_year, log=print):
     d = get_json("https://api-web.nhle.com/v1/standings/now")
     rows = []
     for s in d.get("standings", []):
-        rows.append({"t": s["teamAbbrev"]["default"], "name": s["teamName"]["default"], "conf": s["conferenceName"], "div": s["divisionName"],
+        rows.append({"t": s["teamAbbrev"]["default"], "name": s["teamName"]["default"], "short": (s.get("teamCommonName") or s["teamName"])["default"], "conf": s["conferenceName"], "div": s["divisionName"],
                      "divseq": s["divisionSequence"], "confseq": s["conferenceSequence"], "wc": s["wildcardSequence"],
                      "gp": s["gamesPlayed"], "w": s["wins"], "l": s["losses"], "otl": s["otLosses"], "pts": s["points"],
                      "pp": round(s["pointPctg"], 3), "gf": s["goalFor"], "ga": s["goalAgainst"], "diff": s["goalDifferential"],

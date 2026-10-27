@@ -19,7 +19,7 @@
   function nbaTable(c) {
     const cols = [["Team"], ["W", 1], ["L", 1], ["PCT", 1], ["GB", 1], ["Home", 1], ["Away", 1], ["L10", 1], ["Strk", 1], ["Diff", 1]];
     const rows = c.teams.map((t, i) => `<tr class="${i === 5 ? "cut-top6" : i === 9 ? "cut-playin" : ""}" title="${esc(t.ppg + " PPG, " + t.opp + " allowed")}">
-      <th scope="row" class="st-team"><i class="st-rk">${t.seed || i + 1}</i><a href="${nbaHref(t.name)}">${esc(t.name)}</a></th><td class="num">${t.w}</td><td class="num">${t.l}</td><td class="num">${esc(t.pct)}</td>
+      <th scope="row" class="st-team"><i class="st-rk">${t.seed || i + 1}</i><a href="${nbaHref(t.name)}" title="${esc(t.name)}">${esc(t.short || t.name)}</a></th><td class="num">${t.w}</td><td class="num">${t.l}</td><td class="num">${esc(t.pct)}</td>
       <td class="num">${esc(t.gb)}</td><td class="num">${esc(t.home)}</td><td class="num">${esc(t.road)}</td><td class="num">${esc(t.l10)}</td><td class="num">${esc(t.strk)}</td>
       <td class="num ${t.diff > 0 ? "pos" : t.diff < 0 ? "neg" : ""}">${t.diff == null ? "—" : sign(Math.round(t.diff * 10) / 10)}</td></tr>`).join("");
     return `<div class="st-block reveal"><h3 class="st-h">${esc(c.name)}</h3><div class="table-wrap st-wrap"><table class="st-tbl">${head(cols)}<tbody>${rows}</tbody></table></div></div>`;
@@ -27,7 +27,7 @@
 
   // ---------- NHL ----------
   const nhlCols = [["Team"], ["GP", 1], ["W", 1], ["L", 1], ["OTL", 1], ["PTS", 1], ["P%", 1], ["GF", 1], ["GA", 1], ["Diff", 1], ["L10", 1], ["Strk", 1]];
-  const nhlRow = (t, cls = "", tag = "") => `<tr class="${cls}"><th scope="row" class="st-team"><a href="${nhlHref(t.t)}"><img src="${"https://assets.nhle.com/logos/nhl/svg/" + t.t + "_dark.svg"}" alt="" width="24" height="16" loading="lazy">${esc(t.name)}</a>${tag}</th>
+  const nhlRow = (t, cls = "", tag = "") => `<tr class="${cls}"><th scope="row" class="st-team"><a href="${nhlHref(t.t)}" title="${esc(t.name)}"><img src="${"https://assets.nhle.com/logos/nhl/svg/" + t.t + "_dark.svg"}" alt="" width="24" height="16" loading="lazy">${esc(t.short || t.name)}</a>${tag}</th>
       <td class="num">${t.gp}</td><td class="num">${t.w}</td><td class="num">${t.l}</td><td class="num">${t.otl}</td><td class="num"><b>${t.pts}</b></td><td class="num">${t.pp.toFixed(3).replace(/^0/, "")}</td>
       <td class="num">${t.gf}</td><td class="num">${t.ga}</td><td class="num ${t.diff > 0 ? "pos" : t.diff < 0 ? "neg" : ""}">${sign(t.diff)}</td><td class="num">${esc(t.l10)}</td><td class="num">${esc(t.strk)}</td></tr>`;
   const nhlTable = (title, rowsHtml) => `<div class="st-block reveal"><h3 class="st-h">${esc(title)}</h3><div class="table-wrap st-wrap"><table class="st-tbl">${head(nhlCols)}<tbody>${rowsHtml}</tbody></table></div></div>`;

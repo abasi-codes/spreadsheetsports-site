@@ -35,6 +35,12 @@
       const body = table.tBodies[0], first = body && body.rows[0];
       if (first && first.querySelector("th") && first.querySelector("th").textContent.trim().startsWith(D.season)) first.replaceWith(tr);
       else if (body) body.prepend(tr);
+      if (!H) {
+        const n = document.createElement("p");
+        n.className = "muted"; n.style.cssText = "font-size:12px;margin:8px 0 0";
+        n.textContent = D.season + " from official box scores, updated hourly.";
+        (table.closest(".stat-scroll") || table).after(n);
+      }
     }
   }
   // ---- header strip: one "so far" line ----

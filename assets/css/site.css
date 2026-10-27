@@ -1190,13 +1190,14 @@ body[data-adv] .adv-sec, body[data-player] .adv-sec { padding: 10px 0; }
 .st-head { margin-bottom: 18px; }
 .st-note { max-width: 440px; margin: 0; font-size: 14px; }
 .st-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
-@media (max-width: 1100px) { .st-grid { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 1239px) { .st-grid { grid-template-columns: minmax(0, 1fr); } }
 .st-block { min-width: 0; }
 .st-h { font: 400 26px/1 var(--display); text-transform: uppercase; margin: 0 0 10px; }
 .st-seg { margin: 0 0 16px; }
-.st-tbl th, .st-tbl td { padding: 9px 10px; font-size: 13px; }
+.st-tbl th, .st-tbl td { padding: 9px 7px; font-size: 13px; }
+.st-tbl thead th { letter-spacing: .04em; }
 .st-tbl thead th { cursor: default; }
-.st-tbl .st-team { position: sticky; left: 0; z-index: 1; background: var(--panel); font: 600 14px var(--sans); letter-spacing: 0; text-transform: none; color: var(--text); min-width: 150px; box-shadow: 1px 0 0 var(--line); }
+.st-tbl .st-team { position: sticky; left: 0; z-index: 1; background: var(--panel); font: 600 14px var(--sans); letter-spacing: 0; text-transform: none; color: var(--text); min-width: 120px; box-shadow: 1px 0 0 var(--line); }
 .st-tbl thead th:first-child { position: sticky; left: 0; z-index: 2; }
 .st-tbl .st-team a { display: inline-flex; align-items: center; gap: 8px; }
 .st-tbl .st-team a:hover { color: var(--yellow); }
