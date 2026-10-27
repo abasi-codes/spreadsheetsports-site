@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PSBYLFEM9T"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-PSBYLFEM9T');</script>
+<title>NHL Player Lines Tonight: Hit Rates for Points, Goals and Shots · Spreadsheet Sports Hockey</title>
+<meta name="description" content="Tonight's NHL player lines with hit rates for points, goals, assists and shots: last 10 games, vs the opponent, home or away, and streaks. Updated hourly.">
+<meta property="og:title" content="Tonight's NHL lines: who keeps clearing them">
+<meta property="og:description" content="Tonight's NHL player lines with hit rates for points, goals, assists and shots: last 10 games, vs the opponent, home or away, and streaks. Updated hourly.">
+<meta property="og:image" content="https://spreadsheetsports.com/assets/img/og-hockey.png">
+<meta property="og:url" content="https://spreadsheetsports.com/hockey/lines/">
+<link rel="canonical" href="https://spreadsheetsports.com/hockey/lines/">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:site_name" content="Spreadsheet Sports">
+<meta name="theme-color" content="#08090b">
+<link rel="icon" href="/assets/img/logo-hockey.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/site.css?v=36">
+<link rel="stylesheet" href="/assets/css/lines.css?v=3">
+<script src="/assets/js/site.js?v=36" defer></script>
+</head>
+<body>
+<main class="ln" id="lines">
+  <section class="page-hero ln-hero"><div class="wrap">
+    <span class="eyebrow live" id="ln-date">NHL lines</span>
+    <h1 class="display">Tonight's lines</h1>
+    <p class="lead" id="ln-sum">How often each player has cleared his line lately, against tonight's opponent, and at home or on the road.</p>
+    <div class="ln-top"><nav class="seg" id="ln-sport" aria-label="Sport"><a href="/lines/">NBA</a><a href="/hockey/lines/" aria-current="true">NHL</a></nav><div id="ln-find"></div></div>
+    <div id="ln-stale"></div>
+  </div></section>
+  <div class="wrap">
+    <div class="ln-slate" id="ln-slate" aria-label="Tonight's games"></div>
+    <div class="ln-bar" id="ln-bar"></div>
+    <div class="ln-list" id="ln-list"><div class="ln-skel"></div><div class="ln-skel"></div><div class="ln-skel"></div></div>
+    <div class="ln-more" id="ln-more"></div>
+    <details class="gloss ln-how"><summary>How to read a line</summary>
+      <ul>
+        <li><b>The line</b> is a milestone, like "25+ points". For each player we show the milestone closest to a coin flip over his last 10 games, the way a fair market line sits near 50%. Turn on <b>alt lines</b> to also see the next milestone down.</li>
+        <li><b>Hit in 7 of last 10 games</b>: his last 10 games, across seasons. The window is always 10. We never pick the window that makes the number look best.</li>
+        <li><b>vs opponent</b>: every game against tonight's opponent in the last two seasons, up to 10.</li>
+        <li><b>Home / away</b>: his last 10 games at home (or on the road), matching tonight's venue.</li>
+        <li><b>🔥 in a row</b>: how many straight games he's cleared it. <b>Consistency</b> (the default sort) pools the three rows, and pulls small samples toward 50%.</li>
+        <li>Once a game is final, each card shows what actually happened (✓ or ✗).</li>
+      </ul>
+      <p>Players come from each team's recent rotation (top 10 skaters by recent points and shots). Injury tags come from the official injury report when one is available.</p>
+    </details>
+    <p class="ln-note"><b>Hit rates from official box scores, updated hourly. For information only, not betting advice.</b> <span id="ln-sample"></span> <span id="ln-upd"></span></p>
+  </div>
+</main>
+<script src="/assets/js/lines.js?v=3" defer></script>
+</body>
+</html>
