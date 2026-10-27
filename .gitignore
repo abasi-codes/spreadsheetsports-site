@@ -1,3 +1,6 @@
 tools/
 .DS_Store
 redesign_shots/
+research/linemate_shots/
+research/lines_preview/
+jobs/lines/__pycache__/

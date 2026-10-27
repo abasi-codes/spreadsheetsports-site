@@ -43,7 +43,7 @@ const SS = (() => {
   const thumb = (id, q = "maxresdefault") => `https://i.ytimg.com/vi/${id}/${q}.jpg`;
   const fmtDate = (d) => new Date(d + "T12:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
 
-  // Global nav, same shape for both sports: sport switch · Players · Teams · Leaders · Predictions ▾ · Subscribe.
+  // Global nav, same shape for both sports: sport switch · Players · Teams · Leaders · Lines · Predictions ▾ · Subscribe.
   // Newsletter + social icons live in the footer (one ask per page; the page itself carries at most one signup).
   const PRED = HOCKEY
     ? [["/hockey/mvp.html", "NHL MVP odds", "2027 Hart odds for every candidate, 10,000 seasons"],
@@ -60,12 +60,15 @@ const SS = (() => {
   const P = HOCKEY ? "/hockey" : "";
   const NAV = [["Players", `${P}/players/`, HOCKEY ? "Stats, scores and roles for every NHL player" : "Stats and what every player is best at"],
                ["Teams", HOCKEY ? "/hockey/cup.html" : "/teams/", HOCKEY ? "All 32 teams and their Cup odds" : "All 30 teams, rosters and title odds"],
-               ["Leaders", `${P}/leaders/`, HOCKEY ? "Points, 5v5 defense, goalies · every player" : "Who's best at scoring, passing, defense"]];
+               ["Leaders", `${P}/leaders/`, HOCKEY ? "Points, 5v5 defense, goalies · every player" : "Who's best at scoring, passing, defense"],
+               ["Lines", `${P}/lines/`, "Tonight's player lines and how often they've hit"]];
   const NL_HREF = HOCKEY ? "/hockey/#newsletter" : "/#newsletter";
   const path = location.pathname;
   const navOn = (u) => (u === "/teams/" ? path.startsWith("/teams/") : u === "/hockey/cup.html" ? path === u : path.startsWith(u));
   const predOn = !NAV.some(([, u]) => navOn(u)) && (PRED.some(([u]) => path === u) || path === "/models/");
-  const SPORT = (cls = "") => `<div class="sport-sw ${cls}" role="navigation" aria-label="Sport"><a href="/" class="${HOCKEY ? "" : "on"}" ${HOCKEY ? "" : 'aria-current="true"'}>NBA</a><a href="/hockey/" class="${HOCKEY ? "on" : ""}" ${HOCKEY ? 'aria-current="true"' : ""}>NHL</a></div>`;
+  // on a Lines page the switch jumps to the other sport's Lines page, everywhere else to that sport's home
+  const LINES = /^\/(hockey\/)?lines\//.test(path);
+  const SPORT = (cls = "") => `<div class="sport-sw ${cls}" role="navigation" aria-label="Sport"><a href="${LINES ? "/lines/" : "/"}" class="${HOCKEY ? "" : "on"}" ${HOCKEY ? "" : 'aria-current="true"'}>NBA</a><a href="${LINES ? "/hockey/lines/" : "/hockey/"}" class="${HOCKEY ? "on" : ""}" ${HOCKEY ? 'aria-current="true"' : ""}>NHL</a></div>`;
   const CARET = '<svg viewBox="0 0 12 12" width="10" height="10" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>';
   function chrome() {
     document.body.prepend(h(`<header class="site-head"><div class="wrap">

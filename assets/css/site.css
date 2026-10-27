@@ -1183,3 +1183,5 @@ body[data-adv] .adv-sec, body[data-player] .adv-sec { padding: 10px 0; }
 .hero-film.home-hero .quick a { background: rgba(12,14,18,.55); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
 .hero-film.home-hero .quick > span { color: rgba(243,244,246,.7); }
 @media (max-width: 720px) { .hero-film.home-hero { min-height: auto; padding-top: 48px; } .hero-film.home-hero .hero-in { padding-bottom: 170px; } .hero-film.home-hero .scrim { background: linear-gradient(180deg, rgba(8,9,11,.8) 0%, rgba(8,9,11,.15) 22%, rgba(8,9,11,.2) 70%, rgba(8,9,11,.7) 94%, var(--bg) 100%); } }
+/* Lines joined the top nav (Oct 26): keep the header within narrow-tablet widths */
+@media (min-width: 761px) and (max-width: 900px) { .nav-lite a, .nav-more button { padding-left: 7px; padding-right: 7px; } .site-head .wrap { gap: 14px; } .nav-lite { gap: 0; } }

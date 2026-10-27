@@ -1,0 +1,76 @@
+# Refreshes the Lines pages (/lines/, /hockey/lines/) with no manual work.
+# Runs jobs/lines/run.py, then commits ONLY data/lines_*.json and new jobs/lines/state/ date files
+# back to the branch it ran on. A commit to main redeploys GitHub Pages. If nothing changed, nothing is committed.
+name: Lines data
+
+on:
+  schedule:
+    # Hourly 15:05-07:05 UTC = 11:05 AM-3:05 AM EDT (10:05 AM-2:05 AM EST). GitHub can start scheduled runs late.
+    - cron: "5 15-23 * * *"
+    - cron: "5 0-7 * * *"
+    # Early morning, 10:40 UTC = 6:40 AM EDT / 5:40 AM EST: store last night's final box scores
+    # so streaks and "last 10" include them, and roll the page over to the new day's slate.
+    - cron: "40 10 * * *"
+  workflow_dispatch: {}
+  push:
+    # test runs while the feature is on its own branch (cron only ever runs on the default branch)
+    branches: [lines]
+    paths: ["jobs/lines/**", ".github/workflows/lines.yml"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: lines-data-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build lines (stdlib only, no installs)
+        id: build
+        # A failed sport keeps its last good file; the step still reports failure so it shows in the Actions tab.
+        continue-on-error: true
+        run: python3 jobs/lines/run.py
+
+      - name: Validate JSON before committing
+        run: |
+          for f in data/lines_nba.json data/lines_nhl.json data/lines_slate.json; do
+            [ -f "$f" ] || continue
+            python3 -c "import json,sys; d=json.load(open('$f')); assert isinstance(d, dict) and d" || { echo "broken $f"; git checkout -- "$f"; }
+          done
+          for f in $(git ls-files --others --modified jobs/lines/state); do
+            python3 -c "import json; json.load(open('$f'))" || { echo "broken $f"; rm -f "$f"; }
+          done
+
+      - name: Commit data if it changed
+        run: |
+          git config user.name "lines-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/lines_nba.json data/lines_nhl.json data/lines_slate.json jobs/lines/state
+          if git diff --cached --quiet; then
+            echo "No changes."
+            exit 0
+          fi
+          git commit -m "Lines data $(date -u +%Y-%m-%dT%H:%MZ)"
+          for i in 1 2 3; do
+            git pull --rebase --quiet origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}" && exit 0
+            sleep $((i * 10))
+          done
+          echo "push failed after 3 tries"; exit 1
+
+      - name: Report a failed build
+        if: steps.build.outcome == 'failure'
+        run: |
+          echo "::warning::run.py reported a failure for at least one sport; the last good data was kept."
+          exit 1
