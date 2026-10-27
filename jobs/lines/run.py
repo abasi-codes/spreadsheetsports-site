@@ -26,6 +26,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import engine  # noqa: E402
 import nba  # noqa: E402
 import nhl  # noqa: E402
+import season as seasonmod  # noqa: E402
 import store  # noqa: E402
 from net import Blocked, stats  # noqa: E402
 
@@ -253,6 +254,32 @@ def write_if_changed(name, d, now):
     return True
 
 
+def extras(now, sports):
+    """Season stats + standings for player/team pages. Each file is independent: a failure keeps its last good copy."""
+    ok = True
+    end = store.season_end_year(now.astimezone(ET).date())
+    jobs = []
+    if "nba" in sports:
+        games, names = store.load("nba")
+        jobs += [("season_nba.json", lambda: seasonmod.nba_season(games, names, end, log=log), lambda d: len(d["players"]) > 0),
+                 ("standings_nba.json", lambda: seasonmod.nba_standings(games, end, log=log), lambda d: sum(len(c["teams"]) for c in d["conferences"]) == 30)]
+    if "nhl" in sports:
+        jobs += [("season_nhl.json", lambda: seasonmod.nhl_season(end, log=log), lambda d: len(d["players"]) > 0),
+                 ("standings_nhl.json", lambda: seasonmod.nhl_standings(end, log=log), lambda d: len(d["teams"]) == 32)]
+    for name, make, check in jobs:
+        try:
+            d = make()
+            assert check(d), "sanity check failed"
+            log(f"[{name}] {'written' if write_if_changed(name, d, now) else 'unchanged'}")
+        except Blocked as e:
+            ok = False
+            log(f"[{name}] BLOCKED, keeping last good data: {e}")
+        except Exception:
+            ok = False
+            log(f"[{name}] FAILED, keeping last good data:\n" + traceback.format_exc())
+    return ok
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--sport", choices=["nba", "nhl", "all"], default="all")
@@ -281,6 +308,7 @@ def main():
         merged = {k: v for k, v in old.items() if k in ("nba", "nhl")}
         merged.update(slate)
         write_if_changed("lines_slate.json", merged, now)
+    ok = extras(now, ["nba", "nhl"] if a.sport == "all" else [a.sport]) and ok
     log(f"requests: {stats['requests']}, errors: {stats['errors']}")
     sys.exit(0 if ok else 1)
 

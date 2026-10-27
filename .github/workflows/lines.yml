@@ -1,5 +1,5 @@
-# Refreshes the Lines pages (/lines/, /hockey/lines/) with no manual work.
-# Runs jobs/lines/run.py, then commits ONLY data/lines_*.json and new jobs/lines/state/ date files
+# Refreshes the Lines pages (/lines/, /hockey/lines/), this season's player stats and the standings with no manual work.
+# Runs jobs/lines/run.py, then commits ONLY data/lines_*, season_*, standings_*.json and new jobs/lines/state/ date files
 # back to the branch it ran on. A commit to main redeploys GitHub Pages. If nothing changed, nothing is committed.
 name: Lines data
 
@@ -47,7 +47,7 @@ jobs:
           git config user.name "lines-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           validate() {
-            for f in data/lines_nba.json data/lines_nhl.json data/lines_slate.json $(git ls-files --others --modified jobs/lines/state); do
+            for f in data/lines_*.json data/season_*.json data/standings_*.json $(git ls-files --others --modified jobs/lines/state); do
               [ -f "$f" ] || continue
               python3 -c "import json,sys; d=json.load(open(sys.argv[1])); assert isinstance(d, dict) and d" "$f" || {
                 echo "::warning::broken $f, not committing it"; git checkout -- "$f" 2>/dev/null || rm -f "$f"; }
@@ -57,7 +57,7 @@ jobs:
           for i in 1 2 3; do
             python3 jobs/lines/run.py || status=1
             validate
-            git add data/lines_nba.json data/lines_nhl.json data/lines_slate.json jobs/lines/state
+            git add data/lines_*.json data/season_*.json data/standings_*.json jobs/lines/state
             if git diff --cached --quiet; then echo "No changes."; exit $status; fi
             git commit -q -m "Lines data $(date -u +%Y-%m-%dT%H:%MZ)"
             if git push -q origin "HEAD:$BR"; then echo "Pushed."; exit $status; fi

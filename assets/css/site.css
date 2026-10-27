@@ -1185,3 +1185,29 @@ body[data-adv] .adv-sec, body[data-player] .adv-sec { padding: 10px 0; }
 @media (max-width: 720px) { .hero-film.home-hero { min-height: auto; padding-top: 48px; } .hero-film.home-hero .hero-in { padding-bottom: 170px; } .hero-film.home-hero .scrim { background: linear-gradient(180deg, rgba(8,9,11,.8) 0%, rgba(8,9,11,.15) 22%, rgba(8,9,11,.2) 70%, rgba(8,9,11,.7) 94%, var(--bg) 100%); } }
 /* Lines joined the top nav (Oct 26): keep the header within narrow-tablet widths */
 @media (min-width: 761px) and (max-width: 900px) { .nav-lite a, .nav-more button { padding-left: 7px; padding-right: 7px; } .site-head .wrap { gap: 14px; } .nav-lite { gap: 0; } }
+/* Standings (assets/js/standings.js): /teams/, /teams/<slug>/, /hockey/cup.html */
+.st-sec { padding: 24px 0 8px; }
+.st-head { margin-bottom: 18px; }
+.st-note { max-width: 440px; margin: 0; font-size: 14px; }
+.st-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+@media (max-width: 1100px) { .st-grid { grid-template-columns: minmax(0, 1fr); } }
+.st-block { min-width: 0; }
+.st-h { font: 400 26px/1 var(--display); text-transform: uppercase; margin: 0 0 10px; }
+.st-seg { margin: 0 0 16px; }
+.st-tbl th, .st-tbl td { padding: 9px 10px; font-size: 13px; }
+.st-tbl thead th { cursor: default; }
+.st-tbl .st-team { position: sticky; left: 0; z-index: 1; background: var(--panel); font: 600 14px var(--sans); letter-spacing: 0; text-transform: none; color: var(--text); min-width: 150px; box-shadow: 1px 0 0 var(--line); }
+.st-tbl thead th:first-child { position: sticky; left: 0; z-index: 2; }
+.st-tbl .st-team a { display: inline-flex; align-items: center; gap: 8px; }
+.st-tbl .st-team a:hover { color: var(--yellow); }
+.st-tbl .st-team img { width: 24px; height: 16px; object-fit: contain; }
+.st-tbl .st-rk { display: inline-block; width: 22px; font: 500 11px var(--mono); font-style: normal; color: var(--dim); }
+.st-tbl td.pos { color: var(--green); }
+.st-tbl td.neg { color: #ff6b72; }
+.st-tbl tr.cut-top6 td, .st-tbl tr.cut-top6 th { border-bottom: 1px solid var(--line-2); }
+.st-tbl tr.cut-playin td, .st-tbl tr.cut-playin th { border-bottom: 1px dashed rgba(255,255,255,.28); }
+.st-tbl .st-sub td { font: 600 10px var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--dim); background: var(--panel-2); padding: 7px 10px; position: sticky; left: 0; }
+.st-tag { font: 600 10px var(--mono); color: var(--yellow); margin-left: 6px; }
+.st-line { margin: 10px 0 0; font-size: 15px; color: var(--muted); }
+.st-line b { color: var(--text); }
+.st-line a { color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }

@@ -19,6 +19,8 @@ NAMES = {"ATL": "Atlanta Hawks", "BOS": "Boston Celtics", "BKN": "Brooklyn Nets"
 SEASON_TYPES = {2, 3, 5}          # regular season, playoffs, play-in (preseason and All-Star are skipped)
 # columns of a compact player row: [player_id, team, MIN, PTS, REB, AST, 3PM, STL, BLK, TOV]
 COLS = ["min", "pts", "reb", "ast", "fg3m", "stl", "blk", "tov"]
+# appended to rows stored from Oct 27 2026 on (season stats need them): FGM, FGA, 3PA, FTM, FTA, started (1/0)
+EXT = ["fgm", "fga", "fg3a", "ftm", "fta", "gs"]
 
 
 def ab(x):
@@ -55,6 +57,14 @@ def _num(v):
         return 0
 
 
+def _pair(v):
+    try:
+        a, b = str(v).split("-")
+        return int(a), int(b)
+    except ValueError:
+        return 0, 0
+
+
 def summary(event_id):
     return get_json(f"{BASE}/summary?event={event_id}")
 
@@ -79,11 +89,14 @@ def box(event_id, game, d=None):
             if a.get("didNotPlay") or not s:
                 continue
             vals = [_num(s[idx[need[c]]]) for c in COLS]
-            if vals[0] <= 0:
+            if vals[0] <= 0 or not a["athlete"].get("id"):
                 continue
+            fg = _pair(s[idx["fieldGoalsMade-fieldGoalsAttempted"]]) if "fieldGoalsMade-fieldGoalsAttempted" in idx else (0, 0)
+            fg3 = _pair(s[idx[need["fg3m"]]])
+            ft = _pair(s[idx["freeThrowsMade-freeThrowsAttempted"]]) if "freeThrowsMade-freeThrowsAttempted" in idx else (0, 0)
             pid = a["athlete"]["id"]
-            names[pid] = a["athlete"]["displayName"]
-            rows.append([pid, team] + vals)
+            names[pid] = a["athlete"].get("displayName") or a["athlete"].get("shortName", pid)
+            rows.append([pid, team] + vals + [fg[0], fg[1], fg3[1], ft[0], ft[1], int(bool(a.get("starter")))])
     if not rows:
         return None, names
     rec = {"id": game["id"], "d": game["date"], "sy": game["season"], "st": game["stype"], "h": game["home"], "a": game["away"],
