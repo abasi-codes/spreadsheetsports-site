@@ -12,9 +12,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     ven: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>',
   };
   const PAGE = 24;
-  const root = $("#lines");
   const q = new URLSearchParams(location.search);
-  const st = { tab: q.get("tab") === "team" ? "team" : "player", g: q.get("g") || "", stat: q.get("stat") || "", min: +q.get("min") || 0, sort: q.get("sort") || "score", pid: q.get("p") || "", shown: PAGE };
+  const st = { tab: q.get("tab") === "team" ? "team" : "player", g: q.get("g") || "", stat: q.get("stat") || "", min: +q.get("min") || 0, sort: q.get("sort") || "score", pid: q.get("p") || "", alt: q.get("alt") === "1", shown: PAGE };
 
   const get = (name) => fetch("/data/" + name + ".json?t=" + Math.floor(Date.now() / 60000), { cache: "no-store" }).then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); });
   let D, S = {};
@@ -29,7 +28,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   const tz = { hour: "numeric", minute: "2-digit" };
   const dayName = (d) => new Date(d + "T12:00:00").toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
   const ago = (iso) => { const m = Math.max(0, Math.round((Date.now() - new Date(iso)) / 60000)); return m < 2 ? "just now" : m < 60 ? m + " min ago" : m < 1440 ? Math.round(m / 60) + "h ago" : Math.round(m / 1440) + "d ago"; };
-  const short = (n) => { const p = n.split(" "); return p.length > 1 ? p[0][0] + ". " + p.slice(1).join(" ") : n; };
   const LOGO = "https://assets.nhle.com/logos/nhl/svg/";
   const badge = (t) => HOCKEY
     ? `<span class="lc-badge logo"><img src="${LOGO + t + "_light.svg"}" alt="${esc(t)}" loading="lazy"></span>`
@@ -42,11 +40,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // ---------- header: sport switch, summary, search ----------
   const other = HOCKEY ? S.nba : S.nhl, mine = { games: D.games };
-  const cnt = (s) => (s && s.games ? s.games.length : 0);
-  $("#ln-sport").innerHTML = `<a href="/lines/" class="${HOCKEY ? "" : "on"}">NBA<small>${HOCKEY ? cnt(other) : cnt(mine)} games</small></a><a href="/hockey/lines/" class="${HOCKEY ? "on" : ""}">NHL<small>${HOCKEY ? cnt(mine) : cnt(other)} games</small></a>`;
+  const cnt = (s) => { const n = s && s.games ? s.games.length : 0; return n + (n === 1 ? " game" : " games"); };
+  $("#ln-sport").innerHTML = `<a href="/lines/" class="${HOCKEY ? "" : "on"}">NBA<small>${HOCKEY ? cnt(other) : cnt(mine)}</small></a><a href="/hockey/lines/" class="${HOCKEY ? "on" : ""}">NHL<small>${HOCKEY ? cnt(mine) : cnt(other)}</small></a>`;
   $("#ln-date").textContent = (HOCKEY ? "NHL" : "NBA") + " lines · " + dayName(D.slate_date);
   $("#ln-sum").innerHTML = D.games.length
-    ? `${D.games.length} game${D.games.length > 1 ? "s" : ""} · ${D.cards.length} player lines.<span class="xl"> How often each player has cleared his line lately, against tonight's opponent, and at home or on the road.</span>`
+    ? `${D.games.length} game${D.games.length > 1 ? "s" : ""} · ${D.cards.filter((c) => !c.alt).length} player lines.<span class="xl"> How often each player has cleared his line lately, against tonight's opponent, and at home or on the road.</span>`
     : `No ${HOCKEY ? "NHL" : "NBA"} games today.`;
   const names = [...Object.entries(P).map(([pid, p]) => ({ name: p.n, meta: p.t, pid })), ...Object.entries(T).map(([t, x]) => ({ name: x.name, meta: "Team", team: t }))];
   search($("#ln-find"), names, (n) => {
@@ -70,6 +68,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const controls = () => `<div class="ln-tabs" role="tablist"><button role="tab" data-tab="player" class="${st.tab === "player" ? "on" : ""}">Player</button><button role="tab" data-tab="team" class="${st.tab === "team" ? "on" : ""}">Team</button></div>
     <div class="ln-sel">
       ${st.tab === "player" ? `<label>Stat<select data-k="stat"><option value="">All stats</option>${Object.entries(STAT).map(([k, v]) => `<option value="${k}" ${st.stat === k ? "selected" : ""}>${v[1]}</option>`).join("")}</select></label>` : ""}
+      ${st.tab === "player" ? `<label>Lines<select data-k="alt"><option value="">Main lines</option><option value="1" ${st.alt ? "selected" : ""}>+ Safer alt lines</option></select></label>` : ""}
       <label>Hit rate (last 10)<select data-k="min">${[[0, "Any"], [60, "60%+"], [70, "70%+"], [80, "80%+"], [90, "90%+"]].map(([v, t]) => `<option value="${v}" ${st.min === v ? "selected" : ""}>${t}</option>`).join("")}</select></label>
       <label>Sort by<select data-k="sort">${sorts.map(([v, t]) => `<option value="${v}" ${st.sort === v ? "selected" : ""}>${t}</option>`).join("")}</select></label>
     </div><span class="ln-count" id="ln-count"></span>`;
@@ -98,7 +97,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const facts = `<div class="lc-facts"><div><b>${c.l5[0]}/${c.l5[1]}</b>Last 5</div><div><b>${c.szn[1] ? c.szn[0] + "/" + c.szn[1] : "–"}</b>This season</div><div><b>${c.stat === "win" ? pc(c.l10) + "%" : c.avg10 ?? "–"}</b>${c.stat === "win" ? "Win rate L10" : "Avg last 10"}</div></div>`;
     const more = who.href ? `<a class="lc-link" href="${who.href}" data-pl="${esc(nm)}">${c.team ? (HOCKEY ? "Cup odds and more →" : "Team page and title odds →") : "Full player profile →"}</a>` : "";
     const inj = !c.team && who.inj ? `<span class="inj">${esc(who.inj)}</span>` : "";
-    return `<article class="lc reveal"><div class="lc-h">${badge(team)}<div class="lc-who"><span class="lc-nm">${link}<span class="opp">${at}</span></span><div class="lc-mk">${label(c)}${inj}</div></div><div class="lc-r">${right}</div></div>
+    return `<article class="lc reveal"><div class="lc-h">${badge(team)}<div class="lc-who"><span class="lc-nm">${link}<span class="opp">${at}</span></span><div class="lc-mk">${label(c)}${c.alt ? '<span class="alt">alt</span>' : ""}${inj}</div></div><div class="lc-r">${right}</div></div>
       <ul class="lc-rows">${rows}</ul><details><summary>Details</summary>${spark}${facts}${more}</details></article>`;
   };
 
@@ -108,6 +107,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (st.g) L = L.filter((c) => c.g === st.g);
     if (st.pid && st.tab === "player") L = L.filter((c) => c.pid === st.pid);
     if (st.stat && st.tab === "player") L = L.filter((c) => c.stat === st.stat);
+    if (!st.alt && !st.pid) L = L.filter((c) => !c.alt);      // a searched player shows both of his rungs
     if (st.min) L = L.filter((c) => (pc(c.l10) ?? 0) >= st.min);
     const f = key[st.sort] || key.score;
     return [...L].sort((a, b) => f(b) - f(a) || b.score - a.score);
@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     more.innerHTML = L.length > st.shown ? `<button class="ln-btn" type="button">Show ${Math.min(PAGE, L.length - st.shown)} more</button>` : "";
     const p = new URLSearchParams();
     if (st.tab !== "player") p.set("tab", st.tab); if (st.g) p.set("g", st.g); if (st.stat) p.set("stat", st.stat);
-    if (st.min) p.set("min", st.min); if (st.sort !== "score") p.set("sort", st.sort); if (st.pid) p.set("p", st.pid);
+    if (st.min) p.set("min", st.min); if (st.alt) p.set("alt", "1"); if (st.sort !== "score") p.set("sort", st.sort); if (st.pid) p.set("p", st.pid);
     history.replaceState(null, "", location.pathname + (p.toString() ? "?" + p : ""));
     reveal();      // cards are rendered after site.js's first reveal pass
   }
@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const t = e.target.closest("[data-tab]"); if (t) { st.tab = t.dataset.tab; st.shown = PAGE; if (st.tab === "team") st.stat = ""; track("lines_tab", { sport: SPORT, tab: st.tab }); draw(); return; }
     if (e.target.closest("[data-clear]")) { st.pid = ""; draw(); }
   });
-  $("#ln-bar").addEventListener("change", (e) => { const s = e.target.closest("select"); if (!s) return; const k = s.dataset.k; st[k] = k === "min" ? +s.value : s.value; st.shown = PAGE; track("lines_filter", { sport: SPORT, filter: k, value: s.value }); draw(); });
+  $("#ln-bar").addEventListener("change", (e) => { const s = e.target.closest("select"); if (!s) return; const k = s.dataset.k; st[k] = k === "min" ? +s.value : k === "alt" ? s.value === "1" : s.value; st.shown = PAGE; track("lines_filter", { sport: SPORT, filter: k, value: s.value }); draw(); });
   $("#ln-more").addEventListener("click", (e) => { if (e.target.closest("button")) { st.shown += PAGE; draw(); } });
   $("#ln-list").addEventListener("click", (e) => { const a = e.target.closest("a[data-pl]"); if (a) track("select_content", { content_type: "lines_player", item_id: a.dataset.pl }); });
 

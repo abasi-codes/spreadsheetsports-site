@@ -6,10 +6,11 @@ the last two seasons). We never pick the window that flatters the number.
 import re
 import unicodedata
 
-# Milestone ladders ("25+ points"). The card shows the rung closest to a coin flip over the player's last 20 games,
-# the same way a market line sits near 50%, plus one safer rung below it when that rung is still informative.
+# Milestone ladders ("25+ points"). The main line is the rung closest to a coin flip over the player's last 10 games
+# (his current role), the same way a market line sits near 50%; ties go to the higher rung. The next rung down is
+# kept as an "alt" line when it isn't a lock.
 LADDERS = {
-    "nba": {"pts": [5, 10, 15, 20, 25, 30, 35, 40, 45, 50], "reb": [2, 4, 6, 8, 10, 12, 14, 16], "ast": [2, 4, 6, 8, 10, 12, 14],
+    "nba": {"pts": [5, 8, 10, 12, 15, 18, 20, 22, 25, 28, 30, 32, 35, 38, 40, 45, 50], "reb": list(range(2, 17)), "ast": list(range(2, 15)),
             "fg3m": [1, 2, 3, 4, 5, 6, 7]},
     "nhl": {"pts": [1, 2, 3], "g": [1, 2], "a": [1, 2], "sog": [2, 3, 4, 5, 6]},
 }
@@ -81,15 +82,15 @@ def card_rows(apps, stat, k, opp, home, season, cur_team=None):
 
 
 def pick_rungs(apps, stat, ladder):
-    """Main rung: closest to 50% over the last 20 games. Safer rung: the next one down, if it isn't a lock (<100% L10)."""
-    last20 = apps[:20]
-    if len(last20) < 3:
+    """Main rung: closest to 50% over the last 10 games (ties -> higher). Alt rung: the next one down, unless it's 10/10."""
+    last = apps[:10]
+    if len(last) < 3:
         return []
     best, best_d = None, 9
     for k in ladder:
-        p = sum(1 for a in last20 if a[stat] >= k) / len(last20)
+        p = sum(1 for a in last if a[stat] >= k) / len(last)
         d = abs(p - 0.5)
-        if d < best_d - 1e-9:
+        if d <= best_d + 1e-9:
             best, best_d = k, d
     out = [best]
     i = ladder.index(best)

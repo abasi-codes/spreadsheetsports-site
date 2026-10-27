@@ -159,7 +159,7 @@ def build(sport, now):
             raise
         except Exception as e:
             log(f"[{sport}] game {g['id']}: injuries/results skipped ({e!r})")
-        out_ids = {pid for pid, s in inj.items() if s.lower() == "out"} if g["state"] == "pre" else set()
+        out_ids = {pid for pid, s in inj.items() if s.lower() == "out"}
         out["games"].append({k: g[k] for k in ("id", "start", "state", "detail", "home", "away", "hs", "as")})
         for team, opp, home in ((g["home"], g["away"], True), (g["away"], g["home"], False)):
             names_map = nba.NAMES if sport == "nba" else nhl.NAMES
@@ -191,13 +191,14 @@ def build(sport, now):
                 status = inj.get(pid)
                 out["players"][pid] = {"n": nm, "t": team, "href": href, "inj": status if status and status.lower() != "active" else None}
                 for stat, ladder in engine.LADDERS[sport].items():
-                    for k in engine.pick_rungs(apps, stat, ladder):
+                    for i, k in enumerate(engine.pick_rungs(apps, stat, ladder)):
                         r = engine.card_rows(apps, stat, k, opp, home, season)
-                        p20 = sum(1 for a in apps[:20] if a[stat] >= k) / len(apps[:20])
-                        if p20 < 0.2:
+                        if r["l10"][0] < 2:       # he almost never gets there (e.g. 1+ goal for a stay-at-home D)
                             continue
                         if res is not None and pid in res:
                             r["res"] = {"v": res[pid][stat], "hit": res[pid][stat] >= k}
+                        if i:
+                            r["alt"] = 1       # the safer rung below the main line: hidden unless "Alt lines" is on
                         out["cards"].append({"g": g["id"], "pid": pid, "opp": opp, "home": home, "stat": stat, **r})
     out["cards"].sort(key=lambda c: -c["score"])
     out["team_cards"].sort(key=lambda c: -c["score"])
