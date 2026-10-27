@@ -1,8 +1,8 @@
 {
-"updated":"2026-10-27T06:09:46Z",
-"hash":"1ed555f3f7f4f7be",
+"updated":"2026-10-27T16:00:45Z",
+"hash":"3ba43b97a79e57f7",
 "season":"2026-27",
-"date":"2026-10-26",
+"date":"2026-10-27",
 "teams":[
 {"t":"CAR","name":"Carolina Hurricanes","short":"Hurricanes","conf":"Eastern","div":"Metropolitan","divseq":1,"confseq":1,"wc":0,"gp":13,"w":9,"l":2,"otl":2,"pts":20,"pp":0.769,"gf":51,"ga":33,"diff":18,"l10":"8-1-1","strk":"W1"},
 {"t":"BOS","name":"Boston Bruins","short":"Bruins","conf":"Eastern","div":"Atlantic","divseq":1,"confseq":2,"wc":0,"gp":12,"w":9,"l":2,"otl":1,"pts":19,"pp":0.792,"gf":48,"ga":26,"diff":22,"l10":"7-2-1","strk":"W2"},
