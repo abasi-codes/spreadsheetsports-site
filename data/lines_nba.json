@@ -1,6 +1,6 @@
 {
-"updated":"2026-10-27T13:07:31Z",
-"hash":"8f78359e78605763",
+"updated":"2026-10-27T20:01:39Z",
+"hash":"b1e7f1236ad6a53b",
 "v":1,
 "sport":"nba",
 "slate_date":"2026-10-27",
@@ -24,7 +24,7 @@
 },
 "players":{
 "4065648":{"n":"Jayson Tatum","t":"BOS","href":"/players/jayson-tatum/","inj":null},
-"3078576":{"n":"Derrick White","t":"BOS","href":"/players/derrick-white/","inj":null},
+"3078576":{"n":"Derrick White","t":"BOS","href":"/players/derrick-white/","inj":"Day-To-Day"},
 "4251":{"n":"Paul George","t":"BOS","href":"/players/paul-george/","inj":null},
 "4066354":{"n":"Payton Pritchard","t":"BOS","href":"/players/payton-pritchard/","inj":null},
 "4397424":{"n":"Neemias Queta","t":"BOS","href":"/players/neemias-queta/","inj":null},
