@@ -143,7 +143,9 @@ def nba_standings(games, end_year, log=print):
                          "ppg": dv("avgPointsFor"), "opp": dv("avgPointsAgainst"), "diff": v("differential")})
             if ab in mine and mine[ab] != [rows[-1]["w"], rows[-1]["l"]]:
                 diffs.append(f"{ab} ESPN {rows[-1]['w']}-{rows[-1]['l']} vs stored {mine[ab][0]}-{mine[ab][1]}")
-        rows.sort(key=lambda r: (r["seed"] or 99, -r["w"]))
+        rows.sort(key=lambda r: r["seed"] or 99)          # stable: ESPN's own entry order breaks ties
+        for i, r in enumerate(rows):
+            r["seed"] = i + 1                                 # unique 1-15 in the displayed order
         confs.append({"name": c["name"].replace(" Conference", ""), "teams": rows})
     log(f"[standings nba] {sum(len(c['teams']) for c in confs)} teams; ESPN vs stored results: "
         + (f"{len(diffs)} differ (usually games finished since our last stored date): " + "; ".join(diffs[:6]) if diffs else "all match"))

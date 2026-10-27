@@ -229,8 +229,8 @@ const SS = (() => {
   const lazy = (src) => { const el = document.createElement("script"); el.src = src; el.async = true; document.body.append(el); };
   function boot() {
     chrome(); requestAnimationFrame(reveal);
-    if (/^\/(hockey\/)?players\/[^/]+\/$/.test(path)) lazy("/assets/js/season-live.js?v=2");
-    if (path.startsWith("/teams/") || path.startsWith("/hockey/cup")) lazy("/assets/js/standings.js?v=2");
+    if (/^\/(hockey\/)?players\/[^/]+\/$/.test(path)) lazy("/assets/js/season-live.js?v=3");
+    if (path.startsWith("/teams/") || path.startsWith("/hockey/cup")) lazy("/assets/js/standings.js?v=3");
     $$("[data-nl]").forEach((el) => newsletter(el, { compact: el.dataset.nl === "compact", note: el.dataset.note }));
     $$(".all-links").forEach((el) => {
       const n = el.querySelectorAll("a").length; if (n <= 24) return;

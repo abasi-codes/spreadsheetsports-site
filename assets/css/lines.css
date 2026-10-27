@@ -38,7 +38,7 @@
 .ln-stale { background: rgba(255, 216, 74, .08); border: 1px solid rgba(255, 216, 74, .35); color: var(--yellow); border-radius: 12px; padding: 10px 14px; font-size: 14px; margin: 14px 0 0; }
 
 /* cards (same surface as .card) */
-.ln-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.ln-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; align-items: start; }
 @media (max-width: 1060px) { .ln-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 680px) { .ln-list { grid-template-columns: minmax(0, 1fr); gap: 12px; } }
 .lc { position: relative; background: linear-gradient(180deg, var(--panel-2), var(--panel)); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px 10px; }

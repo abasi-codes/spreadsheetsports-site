@@ -19,6 +19,17 @@ COLS = {"nba": ["min", "pts", "reb", "ast", "fg3m", "stl", "blk", "tov"], "nhl":
 TEAM_LADDER = {"nba": [95, 100, 105, 110, 115, 120, 125, 130, 135], "nhl": [2, 3, 4, 5]}
 
 
+TWO_WORD = ("Trail Blazers", "Maple Leafs", "Golden Knights", "Red Wings", "Blue Jackets")
+
+
+def nickname(full):
+    """'Oklahoma City Thunder' -> 'Thunder', 'Toronto Maple Leafs' -> 'Maple Leafs'."""
+    for t in TWO_WORD:
+        if full.endswith(t):
+            return t
+    return full.split(" ")[-1]
+
+
 def fold(s):
     s = unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode().lower()
     s = re.sub(r"[.'’]", "", s)

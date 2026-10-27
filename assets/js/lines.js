@@ -78,8 +78,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   const card = (c) => {
     const g = G[c.g], who = c.team ? T[c.team] : P[c.pid], team = c.team || who.t;
     const at = (c.home ? "vs " : "@ ") + c.opp;
-    const nm = c.team ? who.name : who.n;
-    const link = who.href ? `<a href="${who.href}" data-pl="${esc(nm)}">${esc(nm)}</a>` : esc(nm);
+    const nm = c.team ? who.name : who.n, shown = c.team ? who.short || who.name : who.n;
+    const link = who.href ? `<a href="${who.href}" data-pl="${esc(nm)}" title="${esc(nm)}">${esc(shown)}</a>` : `<span title="${esc(nm)}">${esc(shown)}</span>`;
     const venue = c.home ? "home" : "away";
     const verb = c.stat === "win" ? "Won" : "Hit in";
     const rows = row("l10", c.l10, `${verb} ${c.l10[0]} of last ${c.l10[1]} games`)

@@ -43,25 +43,34 @@
       }
     }
   }
-  // ---- header strip: one "so far" line ----
+  // ---- header strip: the big tiles switch to this season; the season they showed moves to the small line ----
   const strip = document.querySelector(".sum-strip");
   if (strip) {
-    const g = p.gp + " GP · ";
-    const line = H
-      ? goalie ? g + p.w + " W · " + sv(p.sv) + " SV% · " + (p.gaa == null ? "—" : p.gaa.toFixed(2)) + " GAA"
-               : g + p.g + " G · " + p.a + " A · " + p.p + " P · " + pm(p.pm)
-      : g + f1(p.pts) + " PTS · " + f1(p.reb) + " REB · " + f1(p.ast) + " AST · " + f1(p.fg) + " FG%";
+    const gaa = p.gaa == null ? "—" : p.gaa.toFixed(2);
+    const map = H
+      ? goalie ? { GP: p.gp, W: p.w, "SV%": sv(p.sv), GAA: gaa, SO: p.so } : { GP: p.gp, G: p.g, A: p.a, P: p.p, "+/-": pm(p.pm) }
+      : { PTS: f1(p.pts), REB: f1(p.reb), AST: f1(p.ast), STL: f1(p.stl), BLK: f1(p.blk) };
+    const chips = [...strip.querySelectorAll(".sum-chip")].map((c) => [c.querySelector("span")?.textContent.trim(), c.querySelector("b")]);
     const label = strip.querySelector(".sum-head .card-label");
-    if (label && label.textContent.startsWith(D.season)) {
-      // hockey pages built mid-season already lead with this season: refresh those chips in place
-      const map = goalie ? { GP: p.gp, W: p.w, "SV%": sv(p.sv), GAA: p.gaa == null ? "—" : p.gaa.toFixed(2) } : { GP: p.gp, G: p.g, A: p.a, P: p.p, "+/-": pm(p.pm) };
-      strip.querySelectorAll(".sum-chip").forEach((c) => { const k = c.querySelector("span")?.textContent.trim(); if (k in map) c.querySelector("b").textContent = map[k]; });
-      label.title = when;
-    } else {
+    const meta = strip.querySelector(".sum-head .sum-meta");
+    const current = label && label.textContent.trim().startsWith(D.season);
+    if (!current) {
+      // remember what the tiles showed ("2024-25: 12.5 PTS · 2.5 REB · 3.4 AST") before overwriting them
+      const old = (label ? label.textContent.trim().split(" ")[0] : "") + ": "
+        + chips.filter(([k]) => k).slice(0, H ? 4 : 3).map(([k, b]) => b.textContent.trim() + " " + k).join(" · ");
       let note = strip.querySelector(".sum-note");
       if (!note) { note = document.createElement("p"); note.className = "sum-note"; strip.querySelector(".sum-head")?.after(note); }
-      note.textContent = D.season + " so far: " + line;
-      note.title = when;
+      note.textContent = old;
+      note.style.color = "var(--muted)";
+    }
+    chips.forEach(([k, b]) => { if (b && k in map) b.textContent = map[k]; });
+    if (label) {
+      label.textContent = H ? D.season + " so far · regular season" : D.season + " per game";
+      label.title = when;
+    }
+    if (meta) {
+      const extra = H ? "" : " · " + p.gp + (p.gp === 1 ? " game" : " games") + " · " + p.gs + (p.gs === 1 ? " start" : " starts");
+      meta.innerHTML = `<a href="${esc(teamHref)}">${esc(p.t)}</a>` + esc(extra);
     }
   }
 })();

@@ -163,7 +163,7 @@ def build(sport, now):
         out["games"].append({k: g[k] for k in ("id", "start", "state", "detail", "home", "away", "hs", "as")})
         for team, opp, home in ((g["home"], g["away"], True), (g["away"], g["home"], False)):
             names_map = nba.NAMES if sport == "nba" else nhl.NAMES
-            out["teams"][team] = {"name": names_map.get(team, team), "href": team_href(sport, team),
+            out["teams"][team] = {"name": names_map.get(team, team), "short": engine.nickname(names_map.get(team, team)), "href": team_href(sport, team),
                                   "color": ("#" + g["colors"][team]) if sport == "nba" and g.get("colors", {}).get(team) else None}
             # team cards: win, team points/goals milestone
             tapps = idx.team.get(team, [])
