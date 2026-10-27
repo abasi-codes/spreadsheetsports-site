@@ -2,7 +2,7 @@
 
 I studied linemate.io on Oct 26 2026 while **logged out** (fresh headless Chrome profile, a handful of page loads, no sign-in, no data scraped).
 - Pages: `/nba`, `/nba/trends`, a game page (MIN @ CLE), `/nhl`, `/responsible-gambling`.
-- Reference screenshots are kept local only, in `research/linemate_shots/` (gitignored, because they show sportsbook logos).
+- Reference screenshots are kept off the repo, in `~/research/linemate_shots/` on the owner's Mac (they show sportsbook logos).
 
 ## 1. Page structure
 - **Top bar:**
