@@ -1,13 +1,13 @@
 {
-"updated":"2026-10-27T20:01:39Z",
-"hash":"b1e7f1236ad6a53b",
+"updated":"2026-10-27T23:44:28Z",
+"hash":"0be9668e00d09e0d",
 "v":1,
 "sport":"nba",
 "slate_date":"2026-10-27",
 "sample":"Last two seasons (2025-26 and 2026-27), regular season, play-in and playoffs.",
 "prices":null,
 "games":[
-{"id":"401909877","start":"2026-10-27T23:30Z","state":"pre","detail":"10/27 - 7:30 PM EDT","home":"BOS","away":"BKN","hs":0,"as":0},
+{"id":"401909877","start":"2026-10-27T23:30Z","state":"in","detail":"9:23 - 1st","home":"BOS","away":"BKN","hs":4,"as":7},
 {"id":"401909878","start":"2026-10-28T00:00Z","state":"pre","detail":"10/27 - 8:00 PM EDT","home":"NYK","away":"DET","hs":0,"as":0},
 {"id":"401909879","start":"2026-10-28T00:00Z","state":"pre","detail":"10/27 - 8:00 PM EDT","home":"SAS","away":"SAC","hs":0,"as":0},
 {"id":"401909880","start":"2026-10-28T03:00Z","state":"pre","detail":"10/27 - 11:00 PM EDT","home":"LAL","away":"POR","hs":0,"as":0}
@@ -24,7 +24,7 @@
 },
 "players":{
 "4065648":{"n":"Jayson Tatum","t":"BOS","href":"/players/jayson-tatum/","inj":null},
-"3078576":{"n":"Derrick White","t":"BOS","href":"/players/derrick-white/","inj":"Day-To-Day"},
+"3078576":{"n":"Derrick White","t":"BOS","href":"/players/derrick-white/","inj":null},
 "4251":{"n":"Paul George","t":"BOS","href":"/players/paul-george/","inj":null},
 "4066354":{"n":"Payton Pritchard","t":"BOS","href":"/players/payton-pritchard/","inj":null},
 "4397424":{"n":"Neemias Queta","t":"BOS","href":"/players/neemias-queta/","inj":null},
@@ -48,7 +48,7 @@
 "5107199":{"n":"Daniss Jenkins","t":"DET","href":"/players/daniss-jenkins/","inj":null},
 "3908845":{"n":"John Collins","t":"DET","href":"/players/john-collins/","inj":null},
 "3157465":{"n":"Duncan Robinson","t":"DET","href":"/players/duncan-robinson/","inj":null},
-"4684742":{"n":"Ausar Thompson","t":"DET","href":"/players/ausar-thompson/","inj":"Day-To-Day"},
+"4684742":{"n":"Ausar Thompson","t":"DET","href":"/players/ausar-thompson/","inj":null},
 "4278562":{"n":"Paul Reed","t":"DET","href":"/players/paul-reed/","inj":null},
 "4395630":{"n":"Devin Vassell","t":"SAS","href":"/players/devin-vassell/","inj":null},
 "5104157":{"n":"Victor Wembanyama","t":"SAS","href":"/players/victor-wembanyama/","inj":null},
