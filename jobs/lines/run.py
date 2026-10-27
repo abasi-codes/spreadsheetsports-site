@@ -221,6 +221,20 @@ def validate(d):
     json.loads(json.dumps(d))
 
 
+def dumps_lines(d):
+    """Compact JSON with one card / game / player per line, so hourly commits are small line diffs."""
+    c = lambda x: json.dumps(x, separators=(",", ":"), ensure_ascii=False)
+    parts = []
+    for k, v in d.items():
+        if isinstance(v, list) and v:
+            parts.append(c(k) + ":[\n" + ",\n".join(c(x) for x in v) + "\n]")
+        elif isinstance(v, dict) and len(v) > 3:
+            parts.append(c(k) + ":{\n" + ",\n".join(c(kk) + ":" + c(vv) for kk, vv in v.items()) + "\n}")
+        else:
+            parts.append(c(k) + ":" + c(v))
+    return "{\n" + ",\n".join(parts) + "\n}\n"
+
+
 def write_if_changed(name, d, now):
     p = os.path.join(DATA, name)
     body = {k: v for k, v in d.items() if k not in ("updated", "hash")}
@@ -234,7 +248,7 @@ def write_if_changed(name, d, now):
     d = {"updated": now.isoformat(timespec="seconds").replace("+00:00", "Z"), "hash": h, **body}
     tmp = p + ".tmp"
     with open(tmp, "w") as f:
-        json.dump(d, f, separators=(",", ":"), ensure_ascii=False)
+        f.write(dumps_lines(d))
     json.load(open(tmp))
     os.replace(tmp, p)
     return True
