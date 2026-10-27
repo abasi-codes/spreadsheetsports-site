@@ -1,6 +1,6 @@
 {
-"updated":"2026-10-27T00:57:23Z",
-"hash":"608649e6a81d4089",
+"updated":"2026-10-27T01:04:18Z",
+"hash":"048247649e5892d3",
 "v":1,
 "sport":"nhl",
 "slate_date":"2026-10-26",
@@ -8,16 +8,16 @@
 "prices":null,
 "games":[
 {"id":"2026020185","start":"2026-10-26T23:00:00Z","state":"in","detail":"LIVE","home":"NYR","away":"LAK","hs":2,"as":5},
-{"id":"2026020186","start":"2026-10-27T00:30:00Z","state":"in","detail":"LIVE","home":"CGY","away":"TOR","hs":1,"as":0},
-{"id":"2026020187","start":"2026-10-27T01:30:00Z","state":"pre","detail":"FUT","home":"EDM","away":"DET","hs":0,"as":0}
+{"id":"2026020186","start":"2026-10-27T00:30:00Z","state":"in","detail":"LIVE","home":"CGY","away":"TOR","hs":2,"as":0},
+{"id":"2026020187","start":"2026-10-27T01:30:00Z","state":"pre","detail":"PRE","home":"EDM","away":"DET","hs":0,"as":0}
 ],
 "teams":{
-"NYR":{"name":"New York Rangers","href":"/hockey/cup.html#NYR","color":null},
-"LAK":{"name":"Los Angeles Kings","href":"/hockey/cup.html#LAK","color":null},
-"CGY":{"name":"Calgary Flames","href":"/hockey/cup.html#CGY","color":null},
-"TOR":{"name":"Toronto Maple Leafs","href":"/hockey/cup.html#TOR","color":null},
-"EDM":{"name":"Edmonton Oilers","href":"/hockey/cup.html#EDM","color":null},
-"DET":{"name":"Detroit Red Wings","href":"/hockey/cup.html#DET","color":null}
+"NYR":{"name":"New York Rangers","short":"Rangers","href":"/hockey/cup.html#NYR","color":null},
+"LAK":{"name":"Los Angeles Kings","short":"Kings","href":"/hockey/cup.html#LAK","color":null},
+"CGY":{"name":"Calgary Flames","short":"Flames","href":"/hockey/cup.html#CGY","color":null},
+"TOR":{"name":"Toronto Maple Leafs","short":"Maple Leafs","href":"/hockey/cup.html#TOR","color":null},
+"EDM":{"name":"Edmonton Oilers","short":"Oilers","href":"/hockey/cup.html#EDM","color":null},
+"DET":{"name":"Detroit Red Wings","short":"Red Wings","href":"/hockey/cup.html#DET","color":null}
 },
 "players":{
 "8482109":{"n":"Alexis Lafrenière","t":"NYR","href":"/hockey/players/alexis-lafreniere/","inj":null},
