@@ -29,48 +29,40 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
+          ref: ${{ github.ref_name }}     # the branch tip now, not the commit that triggered the run
           fetch-depth: 1
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
-      - name: Build lines (stdlib only, no installs)
-        id: build
-        # A failed sport keeps its last good file; the step still reports failure so it shows in the Actions tab.
-        continue-on-error: true
-        run: python3 jobs/lines/run.py
-
-      - name: Validate JSON before committing
+      - name: Build, validate, commit and push (data files only)
+        # run.py never overwrites a file with bad data: on an API failure it keeps the last good file and exits 1.
+        # If the branch moved while we ran (another run, or the owner pushed), we reset to it and rebuild on top,
+        # instead of rebasing generated files.
         run: |
-          for f in data/lines_nba.json data/lines_nhl.json data/lines_slate.json; do
-            [ -f "$f" ] || continue
-            python3 -c "import json,sys; d=json.load(open('$f')); assert isinstance(d, dict) and d" || { echo "broken $f"; git checkout -- "$f"; }
-          done
-          for f in $(git ls-files --others --modified jobs/lines/state); do
-            python3 -c "import json; json.load(open('$f'))" || { echo "broken $f"; rm -f "$f"; }
-          done
-
-      - name: Commit data if it changed
-        run: |
+          BR="${GITHUB_REF_NAME}"
           git config user.name "lines-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/lines_nba.json data/lines_nhl.json data/lines_slate.json jobs/lines/state
-          if git diff --cached --quiet; then
-            echo "No changes."
-            exit 0
-          fi
-          git commit -m "Lines data $(date -u +%Y-%m-%dT%H:%MZ)"
+          validate() {
+            for f in data/lines_nba.json data/lines_nhl.json data/lines_slate.json $(git ls-files --others --modified jobs/lines/state); do
+              [ -f "$f" ] || continue
+              python3 -c "import json,sys; d=json.load(open(sys.argv[1])); assert isinstance(d, dict) and d" "$f" || {
+                echo "::warning::broken $f, not committing it"; git checkout -- "$f" 2>/dev/null || rm -f "$f"; }
+            done
+          }
+          status=0
           for i in 1 2 3; do
-            git pull --rebase --quiet origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}" && exit 0
-            sleep $((i * 10))
+            python3 jobs/lines/run.py || status=1
+            validate
+            git add data/lines_nba.json data/lines_nhl.json data/lines_slate.json jobs/lines/state
+            if git diff --cached --quiet; then echo "No changes."; exit $status; fi
+            git commit -q -m "Lines data $(date -u +%Y-%m-%dT%H:%MZ)"
+            if git push -q origin "HEAD:$BR"; then echo "Pushed."; exit $status; fi
+            echo "Push rejected (the branch moved); rebuilding on top of it."
+            git fetch -q origin "$BR" && git reset -q --hard "origin/$BR" && git clean -fdq jobs/lines/state
+            sleep $((i * 5))
           done
-          echo "push failed after 3 tries"; exit 1
-
-      - name: Report a failed build
-        if: steps.build.outcome == 'failure'
-        run: |
-          echo "::warning::run.py reported a failure for at least one sport; the last good data was kept."
-          exit 1
+          echo "::error::push failed 3 times"; exit 1
