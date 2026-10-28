@@ -1,6 +1,6 @@
 {
-"updated":"2026-10-28T12:39:20Z",
-"hash":"1ec6875fcb206b5e",
+"updated":"2026-10-28T20:13:34Z",
+"hash":"df3ff269543ed726",
 "nhl":{
 "date":"2026-10-28",
 "games":[{"start":"2026-10-28T23:30:00Z","state":"pre","home":"WSH","away":"PHI"},{"start":"2026-10-29T00:30:00Z","state":"pre","home":"EDM","away":"CGY"},{"start":"2026-10-29T01:00:00Z","state":"pre","home":"COL","away":"NJD"},{"start":"2026-10-29T02:00:00Z","state":"pre","home":"SEA","away":"TOR"}],
@@ -11,6 +11,6 @@
 "date":"2026-10-28",
 "games":[{"start":"2026-10-28T23:00Z","state":"pre","home":"ATL","away":"MIA"},{"start":"2026-10-28T23:00Z","state":"pre","home":"CLE","away":"WAS"},{"start":"2026-10-28T23:00Z","state":"pre","home":"DET","away":"CHA"},{"start":"2026-10-28T23:00Z","state":"pre","home":"IND","away":"PHI"},{"start":"2026-10-28T23:30Z","state":"pre","home":"TOR","away":"ORL"},{"start":"2026-10-29T00:00Z","state":"pre","home":"CHI","away":"NYK"},{"start":"2026-10-29T00:00Z","state":"pre","home":"MIL","away":"HOU"},{"start":"2026-10-29T00:00Z","state":"pre","home":"MIN","away":"GSW"},{"start":"2026-10-29T00:00Z","state":"pre","home":"NOP","away":"DEN"},{"start":"2026-10-29T01:00Z","state":"pre","home":"UTA","away":"SAS"},{"start":"2026-10-29T01:30Z","state":"pre","home":"DAL","away":"OKC"},{"start":"2026-10-29T02:30Z","state":"pre","home":"LAC","away":"LAL"}],
 "next":null,
-"cards":1509
+"cards":1490
 }
 }
