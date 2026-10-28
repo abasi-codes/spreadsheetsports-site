@@ -1,6 +1,6 @@
 {
-"updated":"2026-10-28T12:39:20Z",
-"hash":"20e56004af12e6d5",
+"updated":"2026-10-28T16:49:42Z",
+"hash":"5ee5c2f3f1b4da26",
 "v":1,
 "sport":"nba",
 "slate_date":"2026-10-28",
@@ -58,7 +58,7 @@
 "4278053":{"n":"Davion Mitchell","t":"MIA","href":"/players/davion-mitchell/","inj":null},
 "3032977":{"n":"Giannis Antetokounmpo","t":"MIA","href":"/players/giannis-antetokounmpo/","inj":null},
 "3059319":{"n":"Andrew Wiggins","t":"MIA","href":"/players/andrew-wiggins/","inj":null},
-"4601025":{"n":"Pelle Larsson","t":"MIA","href":"/players/pelle-larsson/","inj":"Day-To-Day"},
+"4601025":{"n":"Pelle Larsson","t":"MIA","href":"/players/pelle-larsson/","inj":null},
 "4066261":{"n":"Bam Adebayo","t":"MIA","href":"/players/bam-adebayo/","inj":null},
 "3064482":{"n":"Bobby Portis","t":"MIA","href":"/players/bobby-portis/","inj":null},
 "6475":{"n":"Klay Thompson","t":"MIA","href":"/players/klay-thompson/","inj":null},
