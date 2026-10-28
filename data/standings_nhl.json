@@ -1,6 +1,6 @@
 {
-"updated":"2026-10-28T05:23:51Z",
-"hash":"a2b6b6533bd81240",
+"updated":"2026-10-28T12:39:20Z",
+"hash":"6f72462e3a55be96",
 "season":"2026-27",
 "date":"2026-10-27",
 "teams":[
@@ -22,10 +22,10 @@
 {"t":"NYI","name":"New York Islanders","short":"Islanders","conf":"Eastern","div":"Metropolitan","divseq":4,"confseq":10,"wc":4,"gp":12,"w":6,"l":4,"otl":2,"pts":14,"pp":0.583,"gf":36,"ga":32,"diff":4,"l10":"5-3-2","strk":"W1"},
 {"t":"COL","name":"Colorado Avalanche","short":"Avalanche","conf":"Western","div":"Central","divseq":4,"confseq":7,"wc":1,"gp":12,"w":6,"l":5,"otl":1,"pts":13,"pp":0.542,"gf":49,"ga":40,"diff":9,"l10":"4-5-1","strk":"L1"},
 {"t":"NSH","name":"Nashville Predators","short":"Predators","conf":"Western","div":"Central","divseq":5,"confseq":8,"wc":2,"gp":12,"w":4,"l":3,"otl":5,"pts":13,"pp":0.542,"gf":34,"ga":39,"diff":-5,"l10":"3-2-5","strk":"OT1"},
-{"t":"DET","name":"Detroit Red Wings","short":"Red Wings","conf":"Eastern","div":"Atlantic","divseq":7,"confseq":11,"wc":5,"gp":12,"w":5,"l":4,"otl":3,"pts":13,"pp":0.542,"gf":33,"ga":37,"diff":-4,"l10":"5-2-3","strk":"W1"},
-{"t":"SJS","name":"San Jose Sharks","short":"Sharks","conf":"Western","div":"Pacific","divseq":4,"confseq":9,"wc":3,"gp":12,"w":6,"l":5,"otl":1,"pts":13,"pp":0.542,"gf":37,"ga":43,"diff":-6,"l10":"4-5-1","strk":"L1"},
-{"t":"WSH","name":"Washington Capitals","short":"Capitals","conf":"Eastern","div":"Metropolitan","divseq":5,"confseq":12,"wc":6,"gp":10,"w":6,"l":4,"otl":0,"pts":12,"pp":0.6,"gf":34,"ga":32,"diff":2,"l10":"6-4-0","strk":"W1"},
-{"t":"BUF","name":"Buffalo Sabres","short":"Sabres","conf":"Eastern","div":"Atlantic","divseq":8,"confseq":13,"wc":7,"gp":11,"w":4,"l":4,"otl":3,"pts":11,"pp":0.5,"gf":31,"ga":41,"diff":-10,"l10":"4-3-3","strk":"OT1"},
+{"t":"BUF","name":"Buffalo Sabres","short":"Sabres","conf":"Eastern","div":"Atlantic","divseq":7,"confseq":11,"wc":5,"gp":12,"w":5,"l":4,"otl":3,"pts":13,"pp":0.542,"gf":33,"ga":41,"diff":-8,"l10":"4-3-3","strk":"W1"},
+{"t":"DET","name":"Detroit Red Wings","short":"Red Wings","conf":"Eastern","div":"Atlantic","divseq":8,"confseq":12,"wc":6,"gp":12,"w":5,"l":4,"otl":3,"pts":13,"pp":0.542,"gf":33,"ga":37,"diff":-4,"l10":"5-2-3","strk":"W1"},
+{"t":"SJS","name":"San Jose Sharks","short":"Sharks","conf":"Western","div":"Pacific","divseq":4,"confseq":9,"wc":3,"gp":13,"w":6,"l":6,"otl":1,"pts":13,"pp":0.5,"gf":37,"ga":45,"diff":-8,"l10":"4-5-1","strk":"L2"},
+{"t":"WSH","name":"Washington Capitals","short":"Capitals","conf":"Eastern","div":"Metropolitan","divseq":5,"confseq":13,"wc":7,"gp":10,"w":6,"l":4,"otl":0,"pts":12,"pp":0.6,"gf":34,"ga":32,"diff":2,"l10":"6-4-0","strk":"W1"},
 {"t":"STL","name":"St. Louis Blues","short":"Blues","conf":"Western","div":"Central","divseq":6,"confseq":10,"wc":4,"gp":12,"w":5,"l":6,"otl":1,"pts":11,"pp":0.458,"gf":35,"ga":37,"diff":-2,"l10":"4-5-1","strk":"L2"},
 {"t":"ANA","name":"Anaheim Ducks","short":"Ducks","conf":"Western","div":"Pacific","divseq":5,"confseq":11,"wc":5,"gp":12,"w":5,"l":6,"otl":1,"pts":11,"pp":0.458,"gf":37,"ga":43,"diff":-6,"l10":"3-6-1","strk":"OT1"},
 {"t":"WPG","name":"Winnipeg Jets","short":"Jets","conf":"Western","div":"Central","divseq":7,"confseq":12,"wc":6,"gp":12,"w":4,"l":5,"otl":3,"pts":11,"pp":0.458,"gf":28,"ga":36,"diff":-8,"l10":"3-5-2","strk":"L2"},
