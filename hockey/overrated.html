@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PSBYLFEM9T"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-PSBYLFEM9T');</script>
+<title>The NHL's Most Overrated Players — Every Team · Spreadsheet Sports Hockey</title>
+<meta name="description" content="The same impact model as our most underrated list, flipped: which players do the experts rank far higher than the data? The most overrated player in the NHL and on every team.">
+<meta property="og:title" content="The NHL's Most Overrated Players">
+<meta property="og:description" content="Expert rank vs the data: the most overrated player in the NHL and on all 32 teams.">
+<meta property="og:image" content="https://spreadsheetsports.com/assets/img/og-hockey.png">
+<meta property="og:url" content="https://spreadsheetsports.com/hockey/overrated.html">
+<link rel="canonical" href="https://spreadsheetsports.com/hockey/overrated.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:site_name" content="Spreadsheet Sports">
+<meta name="theme-color" content="#08090b">
+<link rel="icon" href="/assets/img/logo-hockey.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/site.css?v=35">
+<script src="/assets/js/site.js?v=35" defer></script>
+</head>
+<body>
+<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow live">Most Overrated · 2026-27</span>
+      <h1 class="display">The experts vs<br><span class="hl">the data</span>.</h1>
+      <p class="lead">Every player in the experts' top 20, against what 618 NHL skaters actually did on the ice over the last two seasons. The biggest gap wins.</p>
+      <div class="meta-row"><span>Locked <b>Oct 21, 2026</b></span><span>Seasons <b>2024-25 &amp; 2025-26</b></span><span>Skaters <b>618</b></span></div>
+      <div class="hero-find"><div id="find-top"></div><div class="find-note">Search any skater or team · or press /</div></div>
+    </div>
+  </section>
+  <section style="padding-top:16px"><div class="wrap">
+    <div class="grid g3" id="top3"></div>
+    <div class="reveal" style="margin-top:22px"><div id="video"></div></div>
+  </div></section>
+  <section><div class="wrap">
+    <div class="section-head"><div><span class="eyebrow">Version by version</span><h2 class="display" style="margin-top:12px">How Crosby fell</h2></div>
+      <p class="muted" style="max-width:440px;margin:0">Crosby's data rank at each version of the model. The experts have him 16.8 on average.</p></div>
+    <div class="grid" id="ladder" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px"></div>
+  </div></section>
+  <section id="teams-sec"><div class="wrap">
+    <div class="section-head"><div><span class="eyebrow">All 32 teams</span><h2 class="display" style="margin-top:12px">Every team's most overrated</h2></div>
+      <p class="muted" style="max-width:440px;margin:0">The player on each roster the experts rank furthest above the data. Only players on at least one expert list count.</p></div>
+    <div class="ur-grid" id="grid"></div>
+  </div></section>
+  <section><div class="wrap">
+    <div class="section-head"><div><span class="eyebrow">The board</span><h2 class="display" style="margin-top:12px">Expert rank vs data rank</h2></div>
+      <p class="muted" style="max-width:440px;margin:0">The experts' top 30. Expert rank = average across the four lists. Only the top 20 are eligible for most overrated.</p></div>
+    <div id="table"></div>
+  </div></section>
+  <section><div class="wrap grid g2">
+    <div class="reveal"><span class="eyebrow">Method</span><h2 class="display" style="margin:12px 0 22px">How the model works</h2>
+      <div class="steps">
+        <div class="step"><div><h3>V1 · Points</h3><p>Points per game, compared within position (forwards vs forwards, defencemen vs defencemen).</p></div></div>
+        <div class="step"><div><h3>V2 · Chances</h3><p>Adds the chances a player creates for himself: individual expected goals and game score.</p></div></div>
+        <div class="step"><div><h3>V3 · On the ice</h3><p>Adds 5-on-5 expected-goal differential with the player on the ice vs on the bench.</p></div></div>
+        <div class="step"><div><h3>V4 · Defence</h3><p>Adds chances against with him on vs off the ice. 2025-26 counts double; 35+ games last season to qualify.</p></div></div>
+        <div class="step"><div><h3>V5 · Deployment</h3><p>Adjusts for who a player plays against and where his shifts start, from the shift charts of 2,624 NHL games.</p></div></div>
+      </div></div>
+    <div class="reveal"><span class="eyebrow">The rule</span><h2 class="display" style="margin:12px 0 22px">Who can be overrated</h2>
+      <div class="card"><p class="muted" style="margin:0 0 10px">A player has to be in the experts' top 20 in the whole league, using the average of ESPN, The Hockey News, TSN and NHL Network's preseason lists.</p>
+      <p class="muted" style="margin:0 0 10px">Gap = data rank minus expert rank. A big gap means the experts like him much more than the data does.</p>
+      <p class="dim" style="font-size:13px;margin:16px 0 0">Players marked “young” are 21 or younger or had under 40 games in 2024-25, so their expert rank partly projects growth. Leaving them out doesn't change the top 3. Goalies are not included.</p></div></div>
+  </div></section>
+  <section id="newsletter"><div class="wrap"><div class="card news reveal">
+    <div><span class="eyebrow">The flip side</span><h2 class="display" style="margin:12px 0 10px">The most underrated players</h2>
+      <p class="muted" style="margin:0 0 16px">The same model, pointed the other way: who the data loves and the experts missed.</p>
+      <a class="btn" href="/hockey/underrated.html">See the underrated list →</a>&nbsp;
+      <a class="btn red" id="sub-page" href="#" target="_blank" rel="noopener">▶&nbsp; Subscribe on YouTube</a></div>
+    <div id="nl-page"></div></div></div></section>
+</main>
+<script src="/assets/js/overrated-dig.js?v=35" defer></script>
+</body>
+</html>

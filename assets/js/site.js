@@ -48,7 +48,8 @@ const SS = (() => {
   const PRED = HOCKEY
     ? [["/hockey/mvp.html", "NHL MVP odds", "2027 Hart odds for every candidate, 10,000 seasons"],
        ["/hockey/cup.html", "Stanley Cup odds", "2027 odds for all 32 teams, 10,000 seasons"],
-       ["/hockey/underrated.html", "Most underrated", "Impact vs the experts, every team"]]
+       ["/hockey/underrated.html", "Most underrated", "Impact vs the experts, every team"],
+       ["/hockey/overrated.html", "Most overrated", "The experts vs the data, every team"]]
     : [["/models/mvp.html", "MVP tracker", "2027 MVP odds for every projected starter"],
        ["/models/title.html", "Title odds", "All 30 teams, 10,000 simulated seasons"],
        ["/models/roy.html", "Rookie of the Year", "2027 odds for every rookie"],
