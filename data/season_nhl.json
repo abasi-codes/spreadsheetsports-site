@@ -1,6 +1,6 @@
 {
-"updated":"2026-10-29T05:33:07Z",
-"hash":"1ad52300029a5bba",
+"updated":"2026-10-29T12:49:17Z",
+"hash":"69269268a72cf233",
 "season":"2026-27",
 "players":{
 "niko-mikkola":{"t":"FLA","gp":13,"g":2,"a":2,"p":4,"pm":3,"pim":14,"ppp":0,"sog":20,"sh":10.0,"toi":"19:53","hit":15,"blk":15,"fo":null},
@@ -416,7 +416,7 @@
 "dmitry-orlov":{"t":"SJS","gp":13,"g":2,"a":3,"p":5,"pm":-8,"pim":8,"ppp":3,"sog":13,"sh":15.4,"toi":"18:18","hit":22,"blk":14,"fo":null},
 "emil-andrae":{"t":"CBJ","gp":5,"g":0,"a":2,"p":2,"pm":3,"pim":4,"ppp":0,"sog":1,"sh":0.0,"toi":"10:33","hit":4,"blk":5,"fo":null},
 "charlie-mcavoy":{"t":"BOS","gp":7,"g":1,"a":5,"p":6,"pm":3,"pim":4,"ppp":1,"sog":9,"sh":11.1,"toi":"25:00","hit":8,"blk":15,"fo":null},
-"cody-glass":{"t":"NJD","gp":13,"g":1,"a":1,"p":2,"pm":0,"pim":0,"ppp":0,"sog":19,"sh":5.3,"toi":"12:20","hit":15,"blk":8,"fo":55.1},
+"cody-glass":{"t":"NJD","gp":13,"g":1,"a":1,"p":2,"pm":-1,"pim":0,"ppp":0,"sog":19,"sh":5.3,"toi":"12:20","hit":15,"blk":8,"fo":55.1},
 "tyson-kozak":{"t":"BUF","gp":4,"g":0,"a":0,"p":0,"pm":-1,"pim":0,"ppp":0,"sog":1,"sh":0.0,"toi":"10:42","hit":4,"blk":0,"fo":58.8},
 "noah-warren":{"t":"ANA","gp":12,"g":0,"a":4,"p":4,"pm":3,"pim":2,"ppp":0,"sog":9,"sh":0.0,"toi":"17:23","hit":28,"blk":20,"fo":null},
 "porter-martone":{"t":"PHI","gp":15,"g":3,"a":3,"p":6,"pm":-4,"pim":16,"ppp":3,"sog":19,"sh":15.8,"toi":"14:03","hit":22,"blk":1,"fo":42.9},
@@ -575,7 +575,7 @@
 "samuel-girard":{"t":"PIT","gp":9,"g":1,"a":6,"p":7,"pm":-4,"pim":2,"ppp":0,"sog":12,"sh":8.3,"toi":"18:44","hit":5,"blk":10,"fo":null},
 "justin-danforth":{"t":"BUF","gp":6,"g":0,"a":0,"p":0,"pm":1,"pim":2,"ppp":0,"sog":1,"sh":0.0,"toi":"9:09","hit":3,"blk":2,"fo":50.0},
 "brock-nelson":{"t":"COL","gp":13,"g":3,"a":5,"p":8,"pm":2,"pim":4,"ppp":3,"sog":24,"sh":12.5,"toi":"18:12","hit":6,"blk":10,"fo":44.5},
-"nico-hischier":{"t":"NJD","gp":13,"g":7,"a":2,"p":9,"pm":4,"pim":2,"ppp":5,"sog":32,"sh":21.9,"toi":"18:02","hit":12,"blk":7,"fo":60.0},
+"nico-hischier":{"t":"NJD","gp":13,"g":7,"a":2,"p":9,"pm":5,"pim":2,"ppp":5,"sog":32,"sh":21.9,"toi":"18:02","hit":12,"blk":7,"fo":60.0},
 "samuel-helenius":{"t":"LAK","gp":9,"g":1,"a":0,"p":1,"pm":0,"pim":10,"ppp":0,"sog":8,"sh":12.5,"toi":"8:55","hit":27,"blk":2,"fo":43.2},
 "nick-seeler":{"t":"PHI","gp":15,"g":0,"a":4,"p":4,"pm":1,"pim":8,"ppp":0,"sog":10,"sh":0.0,"toi":"19:18","hit":21,"blk":32,"fo":null},
 "neal-pionk":{"t":"WPG","gp":12,"g":1,"a":6,"p":7,"pm":-2,"pim":2,"ppp":1,"sog":24,"sh":4.2,"toi":"24:24","hit":23,"blk":17,"fo":null},
