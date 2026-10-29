@@ -1,8 +1,8 @@
 {
-"updated":"2026-10-29T05:33:07Z",
-"hash":"a4d2d4f3908bf9f9",
+"updated":"2026-10-29T17:04:13Z",
+"hash":"8494056565a87bb1",
 "season":"2026-27",
-"date":"2026-10-28",
+"date":"2026-10-29",
 "teams":[
 {"t":"CAR","name":"Carolina Hurricanes","short":"Hurricanes","conf":"Eastern","div":"Metropolitan","divseq":1,"confseq":1,"wc":0,"gp":14,"w":10,"l":2,"otl":2,"pts":22,"pp":0.786,"gf":53,"ga":34,"diff":19,"l10":"8-1-1","strk":"W2"},
 {"t":"EDM","name":"Edmonton Oilers","short":"Oilers","conf":"Western","div":"Pacific","divseq":1,"confseq":1,"wc":0,"gp":13,"w":9,"l":2,"otl":2,"pts":20,"pp":0.769,"gf":56,"ga":43,"diff":13,"l10":"7-2-1","strk":"W1"},
