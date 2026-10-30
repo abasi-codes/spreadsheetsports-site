@@ -233,6 +233,12 @@ const SS = (() => {
     if (/^\/(hockey\/)?players\/[^/]+\/$/.test(path)) lazy("/assets/js/season-live.js?v=3");
     if (path.startsWith("/teams/") || path.startsWith("/hockey/cup")) lazy("/assets/js/standings.js?v=3");
     $$("[data-nl]").forEach((el) => newsletter(el, { compact: el.dataset.nl === "compact", note: el.dataset.note }));
+    // "Popular" chips stay on one line: drop names from the end until the row fits (re-checked on resize)
+    const fitQuick = () => $$(".quick").forEach((nav) => {
+      const chips = $$("a", nav); chips.forEach((a) => (a.hidden = false));
+      for (let i = chips.length - 1; i > 0 && nav.scrollWidth > nav.clientWidth + 1; i--) chips[i].hidden = true;
+    });
+    if ($(".quick")) { fitQuick(); addEventListener("resize", fitQuick); document.fonts?.ready.then(fitQuick); }
     $$(".all-links").forEach((el) => {
       const n = el.querySelectorAll("a").length; if (n <= 24) return;
       el.classList.add("clip");
