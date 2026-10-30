@@ -1,6 +1,6 @@
 {
-"updated":"2026-10-30T12:40:52Z",
-"hash":"09d80ee688015d52",
+"updated":"2026-10-30T16:49:35Z",
+"hash":"594d8bae4c6a4805",
 "v":1,
 "sport":"nba",
 "slate_date":"2026-10-30",
@@ -73,7 +73,7 @@
 "4702177":{"n":"Keon Ellis","t":"BKN","href":"/players/keon-ellis/","inj":null},
 "5174655":{"n":"Chaney Johnson","t":"BKN","href":"/players/chaney-johnson/","inj":null},
 "5101761":{"n":"Mikel Brown Jr.","t":"BKN","href":null,"inj":null},
-"4712896":{"n":"Noah Clowney","t":"BKN","href":"/players/noah-clowney/","inj":null},
+"4712896":{"n":"Noah Clowney","t":"BKN","href":"/players/noah-clowney/","inj":"Day-To-Day"},
 "4432194":{"n":"Day'Ron Sharpe","t":"BKN","href":"/players/day-ron-sharpe/","inj":null},
 "4687718":{"n":"Josh Minott","t":"BKN","href":"/players/josh-minott/","inj":null},
 "4432166":{"n":"Cade Cunningham","t":"DET","href":"/players/cade-cunningham/","inj":null},
