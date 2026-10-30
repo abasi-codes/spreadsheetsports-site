@@ -1212,3 +1212,8 @@ body[data-adv] .adv-sec, body[data-player] .adv-sec { padding: 10px 0; }
 .st-line { margin: 10px 0 0; font-size: 15px; color: var(--muted); }
 .st-line b { color: var(--text); }
 .st-line a { color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
+/* home hero CTA (restored Oct 30): sits under search + popular links, secondary to search */
+.hero-film .hero-cta-card.compact { margin: 22px auto 0; padding: 16px 18px; max-width: 520px; text-align: center; }
+.hero-cta-card.compact .btn.big { width: 100%; justify-content: center; }
+.hero-cta-card.compact .or { margin: 12px 0 10px; }
+@media (max-width: 600px) { .hero-film .hero-cta-card.compact { padding: 14px; } }
