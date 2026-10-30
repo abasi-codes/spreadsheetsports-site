@@ -1,15 +1,15 @@
 {
-"updated":"2026-10-30T12:40:52Z",
-"hash":"24e4ed106bdbaccf",
+"updated":"2026-10-30T23:39:18Z",
+"hash":"256336399f41d0f5",
 "v":1,
 "sport":"nhl",
 "slate_date":"2026-10-30",
 "sample":"Last two seasons (2025-26 and 2026-27), regular season and playoffs. Shootout goals don't count.",
 "prices":null,
 "games":[
-{"id":"2026020214","start":"2026-10-30T22:00:00Z","state":"pre","detail":"FUT","home":"VGK","away":"NJD","hs":0,"as":0},
-{"id":"2026020215","start":"2026-10-30T23:00:00Z","state":"pre","detail":"FUT","home":"FLA","away":"WPG","hs":0,"as":0},
-{"id":"2026020216","start":"2026-10-31T00:00:00Z","state":"pre","detail":"FUT","home":"CGY","away":"SEA","hs":0,"as":0}
+{"id":"2026020214","start":"2026-10-30T22:00:00Z","state":"in","detail":"LIVE","home":"VGK","away":"NJD","hs":2,"as":4},
+{"id":"2026020215","start":"2026-10-30T23:00:00Z","state":"in","detail":"LIVE","home":"FLA","away":"WPG","hs":0,"as":0},
+{"id":"2026020216","start":"2026-10-31T00:00:00Z","state":"pre","detail":"PRE","home":"CGY","away":"SEA","hs":0,"as":0}
 ],
 "teams":{
 "VGK":{"name":"Vegas Golden Knights","short":"Golden Knights","href":"/hockey/cup.html#VGK","color":null},
