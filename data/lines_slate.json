@@ -1,6 +1,6 @@
 {
-"updated":"2026-11-02T20:29:47Z",
-"hash":"84efe9b2ed9ea0a0",
+"updated":"2026-11-02T23:05:05Z",
+"hash":"7ca6a26cf0b89b56",
 "nhl":{
 "date":"2026-11-02",
 "games":[{"start":"2026-11-03T00:00:00Z","state":"pre","home":"BOS","away":"VGK"},{"start":"2026-11-03T00:00:00Z","state":"pre","home":"FLA","away":"DET"},{"start":"2026-11-03T01:00:00Z","state":"pre","home":"CHI","away":"COL"},{"start":"2026-11-03T02:00:00Z","state":"pre","home":"SJS","away":"CGY"}],
@@ -11,6 +11,6 @@
 "date":"2026-11-02",
 "games":[{"start":"2026-11-03T00:00Z","state":"pre","home":"CLE","away":"OKC"},{"start":"2026-11-03T00:30Z","state":"pre","home":"CHA","away":"DET"},{"start":"2026-11-03T00:30Z","state":"pre","home":"IND","away":"ATL"},{"start":"2026-11-03T00:30Z","state":"pre","home":"NYK","away":"BKN"},{"start":"2026-11-03T00:30Z","state":"pre","home":"ORL","away":"WAS"},{"start":"2026-11-03T00:30Z","state":"pre","home":"PHI","away":"CHI"},{"start":"2026-11-03T01:00Z","state":"pre","home":"DAL","away":"SAC"},{"start":"2026-11-03T01:00Z","state":"pre","home":"MEM","away":"NOP"},{"start":"2026-11-03T01:00Z","state":"pre","home":"MIN","away":"MIL"},{"start":"2026-11-03T01:30Z","state":"pre","home":"HOU","away":"BOS"},{"start":"2026-11-03T01:30Z","state":"pre","home":"SAS","away":"UTA"},{"start":"2026-11-03T02:00Z","state":"pre","home":"DEN","away":"POR"},{"start":"2026-11-03T03:00Z","state":"pre","home":"GSW","away":"PHX"},{"start":"2026-11-03T03:00Z","state":"pre","home":"LAC","away":"TOR"},{"start":"2026-11-03T03:00Z","state":"pre","home":"LAL","away":"MIA"}],
 "next":null,
-"cards":2012
+"cards":1976
 }
 }
