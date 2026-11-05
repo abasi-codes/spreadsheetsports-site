@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PSBYLFEM9T"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-PSBYLFEM9T');</script>
+<title>Luckiest NHL Player Ever: Model Ranks 2,163 Careers · Spreadsheet Sports</title>
+<meta name="description" content="Henri Richard is the luckiest NHL player ever. He won 11 Stanley Cups; my model says his own play earned about 1.6. He was #1 in 35.8% of 10,000 versions.">
+<link rel="canonical" href="https://spreadsheetsports.com/hockey/luckiest.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Spreadsheet Sports">
+<meta property="og:title" content="Luckiest NHL Player Ever: Model Ranks 2,163 Careers · Spreadsheet Sports">
+<meta property="og:description" content="Henri Richard is the luckiest NHL player ever. He won 11 Stanley Cups; my model says his own play earned about 1.6. He was #1 in 35.8% of 10,000 versions.">
+<meta property="og:url" content="https://spreadsheetsports.com/hockey/luckiest.html">
+<meta property="og:image" content="https://spreadsheetsports.com/assets/img/og-hockey.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://spreadsheetsports.com/assets/img/og-hockey.png">
+<meta name="theme-color" content="#08090b">
+<link rel="icon" href="/assets/img/logo-hockey.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/site.css?v=39">
+<script src="/assets/js/site.js?v=39" defer></script>
+<style>
+.lk-stat .lk-big { font: 400 46px/1 var(--display); color: var(--yellow); margin: 10px 0 8px; }
+.lk-stat p { margin: 0; font-size: 14px; }
+.lk-rank { font: 400 34px/1 var(--display); margin: 8px 0 4px; }
+.lk-more { display: grid; gap: 14px; }
+.lk-uni2 { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; margin-top: 22px; }
+.lk-uni2 .lk-h2h { max-width: 640px; }
+#rows .lk-meta { white-space: nowrap; }
+@media (max-width: 520px) { #rows .lk-meta { display: block; font-size: 11px; margin-top: 2px; } }
+.lk-bars { display: grid; grid-template-columns: repeat(20, minmax(0, 1fr)); gap: 4px; align-items: end; height: 170px; margin-top: 18px; }
+.lk-bar { display: flex; flex-direction: column; justify-content: flex-end; align-items: center; height: 100%; min-width: 0; }
+.lk-pair { display: flex; align-items: flex-end; gap: 1px; width: 100%; height: 100%; }
+.lk-pair i, .lk-pair em { display: block; flex: 1 1 0; border-radius: 2px 2px 0 0; min-height: 2px; }
+.lk-pair i { background: var(--red); } .lk-pair em { background: var(--line-2); }
+.lk-bar span { font: 500 10px var(--mono); color: var(--dim); margin-top: 6px; }
+.lk-bar b { font-size: 10px; color: var(--yellow); height: 12px; line-height: 12px; }
+.lk-h2h { display: grid; grid-template-columns: 130px minmax(0, 1fr) 52px; gap: 10px; align-items: center; padding: 6px 0; font-size: 14px; }
+.lk-h2h b { text-align: right; font: 600 14px var(--mono); }
+.lk-h2h .pbar { height: 10px; border-radius: 6px; background: var(--line); overflow: hidden; }
+.lk-h2h .pbar i { display: block; height: 100%; background: var(--red); }
+.lk-find { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 14px; }
+.lk-find #find { flex: 1 1 260px; max-width: 420px; }
+#find-clear[hidden] { display: none; }
+@media (max-width: 520px) { .ub-row { grid-template-columns: 22px minmax(0, 1fr) 50px 64px; gap: 8px; } .ub-row .lk-cups { display: none; } .ub-gap { font-size: 22px; }
+  .lk-bars { gap: 2px; height: 140px; } .lk-bar span { font-size: 8px; } .lk-h2h { grid-template-columns: 104px minmax(0, 1fr) 48px; } }
+</style>
+</head>
+<body>
+<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow">Luckiest model · all-time</span>
+      <h1 class="display">Who's the luckiest<br><span class="hl">NHL player</span> ever?</h1>
+      <p class="lead">Henri Richard. He won 11 Stanley Cups, the most ever, and my model says his own play earned about 1.6 of them. His teammates alone would have been expected to win about 6.2. I scored 2,163 finished NHL careers and ran the model 10,000 different ways: he finished first in 35.8% of them, about twice as often as anyone else.</p>
+      <div class="meta-row"><span><b>2,163</b> careers</span><span>Every season since <b>1918</b></span><span><b>10,000</b> model versions</span><span>Answer: <b>Henri Richard</b></span></div>
+    </div>
+  </section>
+  <section style="padding-top:16px">
+    <div class="wrap grid g2" style="align-items:start">
+      <div class="card reveal">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:18px;flex-wrap:wrap"><span class="card-label">The final five</span><span class="tag red">#1 in 10,000 versions</span></div>
+        <div class="ub-row"><span class="ub-n">1</span><span class="ub-name">Henri Richard<small>C · 1955–1975</small></span><span class="ub-r lk-cups"><b>11</b><small>Cups won</small></span><span class="ub-r"><b>74%</b><small>top 5</small></span><span class="ub-gap">35.8%</span></div><div class="ub-row"><span class="ub-n">2</span><span class="ub-name">Bryan Trottier<small>C · 1975–1994</small></span><span class="ub-r lk-cups"><b>6</b><small>Cups won</small></span><span class="ub-r"><b>57%</b><small>top 5</small></span><span class="ub-gap">18.7%</span></div><div class="ub-row"><span class="ub-n">3</span><span class="ub-name">Yvan Cournoyer<small>R · 1963–1979</small></span><span class="ub-r lk-cups"><b>10</b><small>Cups won</small></span><span class="ub-r"><b>69%</b><small>top 5</small></span><span class="ub-gap">17.9%</span></div><div class="ub-row"><span class="ub-n">4</span><span class="ub-name">Jacques Lemaire<small>C · 1967–1979</small></span><span class="ub-r lk-cups"><b>8</b><small>Cups won</small></span><span class="ub-r"><b>76%</b><small>top 5</small></span><span class="ub-gap">11.6%</span></div><div class="ub-row"><span class="ub-n">5</span><span class="ub-name">Red Kelly<small>D · 1947–1967</small></span><span class="ub-r lk-cups"><b>8</b><small>Cups won</small></span><span class="ub-r"><b>18%</b><small>top 5</small></span><span class="ub-gap">4.7%</span></div>
+        <p class="dim" style="font-size:13px;margin:18px 0 0">Big number = share of the 10,000 versions of the model where he finished first. It's a close race, not a runaway: every name here was #1 in some versions.</p>
+      </div>
+      <div class="reveal"><div id="video"></div>
+        <p class="muted" style="font-size:14px;margin:14px 2px 0">Watch the model get built, version by version.</p></div>
+    </div>
+  </section>
+  <section>
+    <div class="wrap">
+      <div class="section-head"><div><span class="eyebrow">The answer</span><h2 class="display" style="margin-top:12px">The case for Henri Richard</h2></div>
+        <p class="muted" style="max-width:440px;margin:0">A Hall of Fame centre who played all 20 of his seasons for the Canadiens. He won the Cup in each of his first five, and no player in history had stronger teammates for longer.</p></div>
+      <div class="grid g3"><div class="card reveal lk-stat"><span class="card-label">Stanley Cups</span><div class="lk-big">11</div><p class="muted">The most by any player. 20 seasons, all with Montreal, 1955 to 1975.</p></div><div class="card reveal lk-stat"><span class="card-label">Cups his own play earned</span><div class="lk-big">1.6</div><p class="muted">His team's Cup odds with him, minus its odds with his own point shares taken off the standings.</p></div><div class="card reveal lk-stat"><span class="card-label">Cups his teammates alone would win</span><div class="lk-big">6.2</div><p class="muted">The most of anyone in the 2,163 careers. His Canadiens were good enough to win without him.</p></div><div class="card reveal lk-stat"><span class="card-label">Cups expected</span><div class="lk-big">7.8</div><p class="muted">At his teams' real odds, also the most in the pool. He still won 3.2 more than that.</p></div><div class="card reveal lk-stat"><span class="card-label">Favourites knocked out for him</span><div class="lk-big">7</div><p class="muted">In 7 of his 11 Cup years, the pre-playoff favourite was beaten by somebody else before Montreal had to face it.</p></div><div class="card reveal lk-stat"><span class="card-label">Playoff bounce goals</span><div class="lk-big">+65</div><p class="muted">Goals his teams gained from hot shooting and hot goaltending in the playoffs. He also went 3-1 in series that went the distance.</p></div></div>
+    </div>
+  </section>
+  <section>
+    <div class="wrap">
+      <div class="section-head"><div><span class="eyebrow">Every career</span><h2 class="display" style="margin-top:12px">The 2,163 luckiest careers</h2></div>
+        <p class="muted" style="max-width:460px;margin:0">The full model (version 5, equal weights). Score = the luck factors added up, each measured against the pool, so 0 is average. Search any player or tap a column to sort.</p></div>
+      <div class="lk-find"><div id="find"></div><button class="btn sm ghost" id="find-clear" hidden>Show the full board</button></div>
+      <div id="rows"></div>
+      <p class="dim" style="font-size:13px;margin:14px 2px 0">Earned = the Cups his own play added to his teams' odds. Not earned = Cups won minus earned. Teammates = the Cups his teams would have been expected to win without him. Favourites out = Cup years when the pre-playoff favourite lost to somebody else. Bounce goals start in 1959-60, when shot data begins. #1 in = share of the 10,000 versions where he finished first.</p>
+    </div>
+  </section>
+  <section style="padding-top:0">
+    <div class="wrap lk-more">
+      <details class="card lb-every"><summary>Henri Richard, season by season</summary>
+        <p class="muted" style="margin:16px 0 0">Montreal's Cup odds each season, with him (red) and with his own point shares taken off the standings (grey). ★ = won the Cup. The gap between the bars is what he earned. The grey bars are his teammates.</p>
+        <div class="lk-bars"><div class="lk-bar cup" title="1956: 80.3% with him, 72.4% without · Cup"><div class="lk-pair"><i style="height:93%"></i><em style="height:84%"></em></div><span>56</span><b>★</b></div><div class="lk-bar cup" title="1957: 26.1% with him, 16.8% without · Cup"><div class="lk-pair"><i style="height:30%"></i><em style="height:19%"></em></div><span>57</span><b>★</b></div><div class="lk-bar cup" title="1958: 77.5% with him, 59.2% without · Cup"><div class="lk-pair"><i style="height:90%"></i><em style="height:69%"></em></div><span>58</span><b>★</b></div><div class="lk-bar cup" title="1959: 86.2% with him, 75.5% without · Cup"><div class="lk-pair"><i style="height:100%"></i><em style="height:88%"></em></div><span>59</span><b>★</b></div><div class="lk-bar cup" title="1960: 71.8% with him, 52.6% without · Cup"><div class="lk-pair"><i style="height:83%"></i><em style="height:61%"></em></div><span>60</span><b>★</b></div><div class="lk-bar" title="1961: 44.9% with him, 32.5% without"><div class="lk-pair"><i style="height:52%"></i><em style="height:38%"></em></div><span>61</span><b></b></div><div class="lk-bar" title="1962: 61.3% with him, 51.8% without"><div class="lk-pair"><i style="height:71%"></i><em style="height:60%"></em></div><span>62</span><b></b></div><div class="lk-bar" title="1963: 22.8% with him, 12.7% without"><div class="lk-pair"><i style="height:26%"></i><em style="height:15%"></em></div><span>63</span><b></b></div><div class="lk-bar" title="1964: 37.8% with him, 27.1% without"><div class="lk-pair"><i style="height:44%"></i><em style="height:31%"></em></div><span>64</span><b></b></div><div class="lk-bar cup" title="1965: 29.4% with him, 19.5% without · Cup"><div class="lk-pair"><i style="height:34%"></i><em style="height:23%"></em></div><span>65</span><b>★</b></div><div class="lk-bar cup" title="1966: 46.8% with him, 34.9% without · Cup"><div class="lk-pair"><i style="height:54%"></i><em style="height:40%"></em></div><span>66</span><b>★</b></div><div class="lk-bar" title="1967: 13.9% with him, 9.2% without"><div class="lk-pair"><i style="height:16%"></i><em style="height:11%"></em></div><span>67</span><b></b></div><div class="lk-bar cup" title="1968: 42.6% with him, 37.1% without · Cup"><div class="lk-pair"><i style="height:49%"></i><em style="height:43%"></em></div><span>68</span><b>★</b></div><div class="lk-bar cup" title="1969: 36% with him, 27.5% without · Cup"><div class="lk-pair"><i style="height:42%"></i><em style="height:32%"></em></div><span>69</span><b>★</b></div><div class="lk-bar" title="1970: 0% with him, 0% without"><div class="lk-pair"><i style="height:0%"></i><em style="height:0%"></em></div><span>70</span><b></b></div><div class="lk-bar cup" title="1971: 9% with him, 7.3% without · Cup"><div class="lk-pair"><i style="height:10%"></i><em style="height:8%"></em></div><span>71</span><b>★</b></div><div class="lk-bar" title="1972: 18% with him, 15.5% without"><div class="lk-pair"><i style="height:21%"></i><em style="height:18%"></em></div><span>72</span><b></b></div><div class="lk-bar cup" title="1973: 43.3% with him, 38.9% without · Cup"><div class="lk-pair"><i style="height:50%"></i><em style="height:45%"></em></div><span>73</span><b>★</b></div><div class="lk-bar" title="1974: 11.1% with him, 8.5% without"><div class="lk-pair"><i style="height:13%"></i><em style="height:10%"></em></div><span>74</span><b></b></div><div class="lk-bar" title="1975: 18.5% with him, 17.6% without"><div class="lk-pair"><i style="height:21%"></i><em style="height:20%"></em></div><span>75</span><b></b></div></div>
+        <p class="dim" style="font-size:13px;margin:12px 0 0">His least likely Cup was 1971: the model gave Montreal a 9% chance, and he scored the tying and winning goals in Game 7 of the Final in Chicago. 1970 = missed the playoffs.</p>
+      </details>
+      <details class="card lb-every"><summary>Version by version</summary>
+        <p class="muted" style="margin:16px 0 18px">Richard's rank at each version of the model, out of 2,163. He took over at version 2 and never gave it back.</p>
+        <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px"><div class="card" style="padding:14px"><span class="card-label">V1 · Cups per point share</span><div class="lk-rank">#120</div><div class="dim" style="font-size:13px">Richard's rank · leader: Kevin McClelland</div><p class="muted" style="font-size:13px;margin:10px 0 0">Cups divided by career point shares. It rewards being bad: the leader won 4 Cups with fewer than 0 point shares.</p></div><div class="card" style="padding:14px"><span class="card-label">V2 · Cups he didn&#x27;t earn</span><div class="lk-rank">#1</div><div class="dim" style="font-size:13px">Richard's rank · leader: Henri Richard</div><p class="muted" style="font-size:13px;margin:10px 0 0">His team&#x27;s Cup odds with him, minus its odds with his own point shares taken off its standings points, is the part he earned. The rest is luck.</p></div><div class="card" style="padding:14px"><span class="card-label">V3 · Dragons</span><div class="lk-rank">#1</div><div class="dim" style="font-size:13px">Richard's rank · leader: Henri Richard</div><p class="muted" style="font-size:13px;margin:10px 0 0">The pre-playoff favourite knocked out by somebody else in a year he won the Cup.</p></div><div class="card" style="padding:14px"><span class="card-label">V4 · Coin flips and bounces</span><div class="lk-rank">#1</div><div class="dim" style="font-size:13px">Richard's rank · leader: Henri Richard</div><p class="muted" style="font-size:13px;margin:10px 0 0">Series that went the distance (double if the last game was decided by one goal), plus playoff goals gained because his team&#x27;s shooters and goalies ran hot.</p></div><div class="card" style="padding:14px"><span class="card-label">V5 · Arrival and soft awards</span><div class="lk-rank">#1</div><div class="dim" style="font-size:13px">Richard's rank · leader: Henri Richard</div><p class="muted" style="font-size:13px;margin:10px 0 0">Cups in a player&#x27;s first or second season with a team, and Hart, Norris or Vezina wins in seasons someone else at his position had more point shares.</p></div></div>
+      </details>
+      <details class="card lb-every"><summary>10,000 universes: change every choice</summary>
+        <p class="muted" style="margin:16px 0 18px">I chose the weights, the pool, the team ratings and even the definition of luck. So I ran 10,000 versions that each pick those at random, then counted who finished first.</p>
+        <div id="uni"></div>
+        <div class="lk-uni2">
+          <div class="card"><span class="card-label">Head to head</span>
+            <p class="muted" style="margin:10px 0 14px">Share of the 10,000 versions where Richard finished ahead of each challenger.</p><div class="lk-h2h"><span>Yvan Cournoyer</span><div class="pbar"><i style="width:57.2%"></i></div><b>57.2%</b></div><div class="lk-h2h"><span>Bryan Trottier</span><div class="pbar"><i style="width:62.6%"></i></div><b>62.6%</b></div><div class="lk-h2h"><span>Jacques Lemaire</span><div class="pbar"><i style="width:54.5%"></i></div><b>54.5%</b></div><div class="lk-h2h"><span>Jean Beliveau</span><div class="pbar"><i style="width:95.2%"></i></div><b>95.2%</b></div></div>
+          <div class="card"><span class="card-label">Which definition of luck?</span>
+            <p class="muted" style="margin:10px 0 14px">Each version also picked one of seven definitions. Richard wins three of the seven, and he's in the top three of every other one except pure luck, the one where teammates don't count.</p>
+            <div class="table-wrap"><table><thead><tr><th>Definition</th><th>Most often #1</th><th class="num">Share</th><th class="num">Richard</th></tr></thead><tbody><tr><td>Cups he didn&#x27;t earn, nothing else</td><td>Henri Richard</td><td class="num">60.3%</td><td class="num">60.3%</td></tr><tr><td>Everything except soft awards</td><td>Henri Richard</td><td class="num">57.1%</td><td class="num">57.1%</td></tr><tr><td>Everything except arrival and soft awards</td><td>Henri Richard</td><td class="num">42.4%</td><td class="num">42.4%</td></tr><tr><td>The full model</td><td>Bryan Trottier</td><td class="num">41.7%</td><td class="num">34.6%</td></tr><tr><td>The full model plus health</td><td>Bryan Trottier</td><td class="num">48.9%</td><td class="num">24.6%</td></tr><tr><td>Pure luck: teammates don&#x27;t count</td><td>Yvan Cournoyer</td><td class="num">40.3%</td><td class="num">–</td></tr><tr><td>The NBA model&#x27;s recipe</td><td>Yvan Cournoyer</td><td class="num">25.2%</td><td class="num">17.2%</td></tr></tbody></table></div>
+            <p class="dim" style="font-size:13px;margin:12px 0 0">Share = how often the leader finished first in the versions that used that definition (about 1,400 each). Richard = his own share; – = he wasn't among the top three.</p></div>
+        </div>
+      </details>
+      <details class="card lb-every"><summary>How the model works</summary>
+        <div class="grid g2" style="margin-top:22px;align-items:start">
+          <div><div class="steps">
+            <div class="step"><div><h3>The pool</h3><p>Every finished NHL career with at least 5 full seasons of games (goalies 4), 1918 to 2026. 2,163 careers; 807 won at least one Cup. Active players are left out, because an unfinished career can't be scored.</p></div></div>
+            <div class="step"><div><h3>The team Cup model</h3><p>Each playoff team gets a fair share of that year's Cup from its regular-season points percentage (a conditional logit, the same model as my McDavid and Unluckiest videos).</p></div></div>
+            <div class="step"><div><h3>Version 1 · Cups per point share</h3><p>Cups divided by career point shares. It rewards being bad: the leader won 4 Cups with fewer than 0 point shares. Leader: Kevin McClelland.</p></div></div><div class="step"><div><h3>Version 2 · Cups he didn&#x27;t earn</h3><p>His team&#x27;s Cup odds with him, minus its odds with his own point shares taken off its standings points, is the part he earned. The rest is luck. Leader: Henri Richard.</p></div></div><div class="step"><div><h3>Version 3 · Dragons</h3><p>The pre-playoff favourite knocked out by somebody else in a year he won the Cup. Leader: Henri Richard.</p></div></div><div class="step"><div><h3>Version 4 · Coin flips and bounces</h3><p>Series that went the distance (double if the last game was decided by one goal), plus playoff goals gained because his team&#x27;s shooters and goalies ran hot. Leader: Henri Richard.</p></div></div><div class="step"><div><h3>Version 5 · Arrival and soft awards</h3><p>Cups in a player&#x27;s first or second season with a team, and Hart, Norris or Vezina wins in seasons someone else at his position had more point shares. Leader: Henri Richard.</p></div></div>
+            <div class="step"><div><h3>10,000 universes</h3><p>Each one randomly picks the weights, the player pool, the team ratings, the scaling, whether the 6-team era is discounted, whether teammates count as luck, and whether a Cup counts when he never played in that spring's playoffs. Richard finished first in 35.8%, ahead of Bryan Trottier (18.7%), Yvan Cournoyer (17.9%) and Jacques Lemaire (11.6%).</p></div></div>
+          </div></div>
+          <div>
+            <div class="card"><span class="card-label">The backtest</span>
+              <p class="muted" style="margin:10px 0 10px">A backtest means I hid one season at a time, trained the model on the other 98 and asked it to call the hidden season, like an old exam with the answers covered up. I did that 99 times.</p>
+              <p class="muted" style="margin:0">Teams it gave about a 12% chance won 11.7% of the time (12 of 103). Across all 2,163 careers it expected 1,622 Cups, and they won 1,639.</p></div>
+            <div class="card" style="margin-top:14px"><span class="card-label">Luck doesn't repeat</span>
+              <p class="muted" style="margin:10px 0 0">Split every career into odd and even seasons and score each half on its own. Points per game match between the halves (r = 0.95). Cups vs expected (0.19), bounces (0.09) and coin flips (0.07) barely do. That's what luck looks like. Teammates repeat (0.84), because they're circumstance, not chance, which is why some versions leave them out.</p></div>
+            <div class="card" style="margin-top:14px"><span class="card-label">Caveats</span>
+              <ul class="muted" style="margin:10px 0 0;padding-left:18px;line-height:1.7">
+                <li>Two judgement calls decide the order at the top: whether teammates count as luck, and whether a Cup counts when he was hurt and missed that whole playoff run (Cournoyer in 1977 and 1979). Both are split 50/50 across the universes.</li>
+                <li>Career totals favour long careers on dynasties. Per season, the answer is Ken Dryden.</li>
+                <li>The team model only sees the regular season, so it can't see deadline trades, and it slightly underrates strong favourites.</li>
+                <li>Bounce goals need shot data, which starts in 1959-60. That slightly hurts Richard, whose first Cups came earlier.</li>
+              </ul>
+              <p class="dim" style="font-size:13px;margin:14px 0 0">Sources: point shares from Hockey-Reference; games, playoff series, Cup rosters and awards from the NHL stats and records APIs.</p></div>
+          </div>
+        </div>
+      </details>
+    </div>
+  </section>
+  <section>
+    <div class="wrap">
+      <div class="section-head"><div><span class="eyebrow">More models</span><h2 class="display" style="margin-top:12px">Keep digging</h2></div></div>
+      <div class="grid g3">
+        <a class="card reveal" href="/hockey/unluckiest.html" style="display:block"><span class="card-label">The other side</span><h3 style="margin:10px 0 6px">The unluckiest NHL player ever →</h3><p class="muted" style="margin:0">The same idea pointed the other way: the career where the bounces, the dynasties and the timing went wrong the most.</p></a>
+        <a class="card reveal" href="/hockey/underrated.html" style="display:block"><span class="card-label">Most underrated</span><h3 style="margin:10px 0 6px">Impact vs the experts</h3><p class="muted" style="margin:0">Who the data loves and the experts missed, on every team.</p></a>
+        <a class="card reveal" href="/hockey/overrated.html" style="display:block"><span class="card-label">Most overrated</span><h3 style="margin:10px 0 6px">The experts vs the data</h3><p class="muted" style="margin:0">Which players the experts rank far higher than what they did on the ice.</p></a>
+      </div>
+    </div>
+  </section>
+  <section id="newsletter"><div class="wrap"><div class="card news reveal">
+    <div><span class="eyebrow">The newsletter</span><h2 class="display" style="margin:12px 0 10px">The numbers that didn't make the video</h2>
+      <p class="muted" style="margin:0 0 16px">Extra charts, cut segments and tracker updates between videos. Free.</p>
+      <a class="btn red" id="sub-page" href="https://www.youtube.com/@spreadsheetsportshockey?sub_confirmation=1" target="_blank" rel="noopener">▶&nbsp; Subscribe on YouTube</a></div>
+    <div id="nl-page"></div></div></div></section>
+</main>
+<script src="/assets/js/hockey-luckiest.js?v=1" defer></script>
+</body>
+</html>

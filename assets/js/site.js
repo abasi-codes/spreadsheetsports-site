@@ -1,6 +1,6 @@
 // Spreadsheet Sports — shared site code (no dependencies)
 const SS = (() => {
-  const DATA_V = 9;   // bump after re-exporting data/*.json so browsers refetch
+  const DATA_V = 10;   // bump after re-exporting data/*.json so browsers refetch
   // /hockey/* pages get the hockey channel, logo and nav; everything else is the NBA site
   const HOCKEY = location.pathname.startsWith("/hockey");
   const YT_CHANNEL = HOCKEY ? "https://www.youtube.com/@spreadsheetsportshockey" : "https://www.youtube.com/@spreadsheetsportsanalytics";
@@ -50,7 +50,8 @@ const SS = (() => {
        ["/hockey/cup.html", "Stanley Cup odds", "2027 odds for all 32 teams, 10,000 seasons"],
        ["/hockey/underrated.html", "Most underrated", "Impact vs the experts, every team"],
        ["/hockey/overrated.html", "Most overrated", "The experts vs the data, every team"],
-       ["/hockey/unluckiest.html", "Unluckiest player ever", "The careers the bounces went against"]]
+       ["/hockey/unluckiest.html", "Unluckiest player ever", "The careers the bounces went against"],
+       ["/hockey/luckiest.html", "Luckiest player ever", "The most Cups a career didn't earn"]]
     : [["/models/mvp.html", "MVP tracker", "2027 MVP odds for every projected starter"],
        ["/models/title.html", "Title odds", "All 30 teams, 10,000 simulated seasons"],
        ["/models/roy.html", "Rookie of the Year", "2027 odds for every rookie"],
