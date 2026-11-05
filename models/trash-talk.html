@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PSBYLFEM9T"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-PSBYLFEM9T');</script>
+<title>Does Trash Talk Work in the NBA? A Model Tests 2,259 Taunts · Spreadsheet Sports</title>
+<meta name="description" content="No. Playoff trash talkers won 105 games when 105.8 were expected, and each on-court taunt cost about 0.6 points. My model tested it 3 ways over 29 NBA seasons.">
+<link rel="canonical" href="https://spreadsheetsports.com/models/trash-talk.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Spreadsheet Sports">
+<meta property="og:title" content="Does Trash Talk Work in the NBA? A Model Tests 2,259 Taunts · Spreadsheet Sports">
+<meta property="og:description" content="No. Playoff trash talkers won 105 games when 105.8 were expected, and each on-court taunt cost about 0.6 points. My model tested it 3 ways over 29 NBA seasons.">
+<meta property="og:url" content="https://spreadsheetsports.com/models/trash-talk.html">
+<meta property="og:image" content="https://spreadsheetsports.com/assets/img/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@SpreadsheetSprt">
+<meta name="twitter:image" content="https://spreadsheetsports.com/assets/img/og.png">
+<meta name="theme-color" content="#08090b">
+<link rel="icon" href="/assets/img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/site.css?v=39">
+<script src="/assets/js/site.js?v=38" defer></script>
+<style>
+.tt-test .big { font: 400 clamp(38px, 5vw, 52px)/1 var(--display); margin: 14px 0 4px; }
+.tt-test .big small { font-size: .42em; color: var(--muted); }
+.tt-test p { margin: 0; font-size: 14px; color: var(--muted); }
+.tt-test .tt-vs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 16px 0 14px; }
+.tt-test .tt-vs div { border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; }
+.tt-test .tt-vs small { display: block; font: 600 10px/1.3 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--dim); }
+.tt-test .tt-vs b { display: block; font: 600 20px var(--mono); margin-top: 4px; color: var(--text); }
+.tt-verdict { display: flex; gap: 22px; align-items: center; flex-wrap: wrap; }
+.tt-verdict .no { font: 400 clamp(64px, 10vw, 104px)/.9 var(--display); color: var(--red); }
+.tt-verdict p { margin: 0; max-width: 640px; color: var(--muted); }
+.tt-verdict p b { color: var(--text); }
+.tt-star { display: grid; grid-template-columns: minmax(0, 1.3fr) repeat(3, minmax(0, 1fr)); gap: 10px; align-items: center; padding: 12px 2px; border-bottom: 1px solid var(--line); }
+.tt-star:last-child { border-bottom: 0; }
+.tt-star b { font: 600 15px var(--mono); white-space: nowrap; } .tt-star small { display: block; font: 500 11px var(--mono); color: var(--dim); }
+.tt-star .nm { font-weight: 600; } .tt-star .nm a { color: var(--text); }
+.tt-star.hd { font: 600 10px/1.3 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--dim); padding-top: 0; }
+.tt-star > :not(:first-child) { text-align: right; }
+.tt-cell { display: block; white-space: normal; min-width: 110px; max-width: 170px; line-height: 1.3; }
+.tt-what { display: block; max-width: 300px; min-width: 220px; white-space: normal; font-size: 13px; line-height: 1.35; color: var(--muted); }
+.tt-src { font-size: 12px; }
+.pos-n { color: var(--green); } .neg-n { color: var(--red); }
+@media (max-width: 560px) { .tt-star { grid-template-columns: minmax(0, 1.2fr) repeat(3, minmax(0, 1fr)); gap: 6px; } .tt-star b { font-size: 12px; } .tt-star small { font-size: 10px; } }
+</style>
+</head>
+<body>
+<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow">Trash talk model · 29 seasons of play-by-play</span>
+      <h1 class="display">Does trash talk<br>actually <span class="hl">work</span>?</h1>
+      <p class="lead">No. I tested it 3 ways: talk in the media during the playoffs, taunts on the court, and the players who talk all game, every game. On average trash talk changes nothing, and a taunt costs your team about 0.6 points.</p>
+      <div class="meta-row"><span><b>90</b> documented cases</span><span><b>62</b> playoff series</span><span><b>2,259</b> taunts</span><span><b>401,591</b> free throws</span><span>Answer: <b>No</b></span></div>
+    </div>
+  </section>
+  <section style="padding-top:16px">
+    <div class="wrap">
+      <div class="card reveal tt-verdict" style="margin-bottom:22px">
+        <div class="no">NO.</div>
+        <p><b>For almost everybody, trash talk doesn't work.</b> It doesn't win playoff series, it doesn't get in anyone's head at the free-throw line, and a taunt costs about 0.6 points. Jordan, Garnett, Kobe and Luka get no edge the numbers can see either. The players they did it to say it worked, but that's testimony, not proof.</p>
+      </div>
+      <div class="grid g3">
+        <div class="card tt-test reveal"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span class="card-label">Test 1 · Media talk</span><span class="tag">Playoffs</span></div>
+          <div class="big">105 <small>wins vs 105.8 expected</small></div>
+          <p>Teams whose players talked in the media, judged on the 224 playoff games after the talk (62 series since 1993).</p>
+          <div class="tt-vs"><div><small>Real talkers</small><b>+0.3 pts</b><small>per game vs expected</small></div><div><small>10,000 fake lists</small><b>28%</b><small>did better</small></div></div>
+          <p>The fake lists are playoff teams in the exact same spot in a series, like down 2 games to 1. Talkers shot −0.7 points of true shooting vs normal, targets −0.5. <b style="color:var(--text)">Verdict: nothing.</b></p></div>
+        <div class="card tt-test reveal"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span class="card-label">Test 2 · The taunt</span><span class="tag red">Costs you</span></div>
+          <div class="big">−0.64 <small>points per taunt</small></div>
+          <p>2,259 taunts since 1997: a technical foul within 5 seconds of the player's own team making a big play. Net points over the next 2 minutes.</p>
+          <div class="tt-vs"><div><small>Momentum</small><b class="pos-n">+0.21</b><small>pts</small></div><div><small>Technical free throw</small><b class="neg-n">−0.86</b><small>pts</small></div></div>
+          <p>Compared with about 3.5 million matched moments: the same kind of play, at the same score and time, with no taunt. The taunter's next 3 shots: 1,440 made vs 1,454 expected. <b style="color:var(--text)">Verdict: it hurts.</b></p></div>
+        <div class="card tt-test reveal"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span class="card-label">Test 3 · Career talkers</span><span class="tag">Free throws</span></div>
+          <div class="big">1 <small>extra miss every 52 games</small></div>
+          <p>Free throws opponents shot with 35 famous talkers on the floor (401,591 of them), each compared with that shooter's own percentage.</p>
+          <div class="tt-vs"><div><small>Vs famous talkers</small><b>−0.29</b><small>FT% points</small></div><div><small>Fake lists (median)</small><b>−0.17</b><small>FT% points</small></div></div>
+          <p>Only 4% of 10,000 fake lists of ordinary players did better, but the gap is tiny. In the last 5 minutes of close games it's zero (59% of fake lists did better). <b style="color:var(--text)">Verdict: tiny.</b></p></div>
+      </div>
+      <div class="reveal" style="margin-top:22px"><div id="video"></div>
+        <p class="muted" style="font-size:14px;margin:14px 2px 0">Watch the 3 tests get built, plus what Bosh, Larry Johnson and Nurkić said it felt like.</p></div>
+    </div>
+  </section>
+  <section>
+    <div class="wrap grid g2" style="align-items:start">
+      <div class="card reveal">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;gap:8px"><span class="card-label">The 4 greats, same tests</span><span class="tag red">No edge</span></div>
+        <div id="stars"></div>
+        <p class="dim" style="font-size:13px;margin:14px 0 0">My play-by-play starts in 1997, so it only covers Jordan's last 2 seasons in Chicago and his 2 in Washington (18 technicals: too few to trust). Garnett came closest, but even that's within luck. Kobe's opponents missed more free throws with him on the floor, and even more when he sat, so that's the Lakers, not Kobe.</p>
+      </div>
+      <div class="card reveal">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;gap:8px"><span class="card-label">Why everyone believes it</span><span class="tag">Memory</span></div>
+        <div class="tt-test"><div class="tt-vs" style="margin-top:4px">
+          <div><small>Famous trash talk</small><b>8 of 26</b><small>series won · 11.2 expected</small></div>
+          <div><small>Everything else I found</small><b>18 of 40</b><small>series won · 18.3 expected</small></div></div></div>
+        <p class="muted" style="margin:0;font-size:15px">The famous cases lost more than they should have. Everything I found by searching every postseason won right where it should have. So trash talk probably doesn't backfire. People just remember the times it did, because a guy talking big and then losing is the better story.</p>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="wrap">
+      <div class="section-head"><div><span class="eyebrow">Test 1 · every series</span><h2 class="display" style="margin-top:12px">All 62 playoff series</h2></div>
+        <p class="muted" style="max-width:460px;margin:0">One row per series: the first player who talked. Expected wins are for the games after the talk. Tap a column to sort; “Famous” marks the cases from the well-known lists.</p></div>
+      <div id="series"></div>
+    </div>
+  </section>
+  <section>
+    <div class="wrap">
+      <div class="section-head"><div><span class="eyebrow">Test 3 · every talker</span><h2 class="display" style="margin-top:12px">Opponents' free throws vs 35 talkers</h2></div>
+        <p class="muted" style="max-width:460px;margin:0">Opponents' FT% with him on the floor, minus each shooter's own FT%, regular season 1997–2025. For comparison, ordinary players' fake lists land around −0.17. Clutch = last 5 minutes, within 5 points.</p></div>
+      <div id="talkers"></div>
+    </div>
+  </section>
+  <section>
+    <div class="wrap">
+      <div class="reveal"><span class="eyebrow">Method</span><h2 class="display" style="margin:12px 0 22px">How the model works</h2>
+        <div class="steps">
+          <div class="step"><div><h3>V1 · The raw record</h3><p>Teams whose players talked won only 24 of 62 series (39%). That makes trash talk look like it backfires, but 41 of those 62 teams were the underdog.</p></div></div>
+          <div class="step"><div><h3>V2 · An expected result for every game</h3><p>Each game gets an expected result from the two teams' regular seasons and home court. I backtested it, meaning I checked its odds against games that already happened: all 3,566 playoff games since 1980. Said vs won: 56% → 58% · 65% → 65% · 74% → 76% · 83% → 83%.</p></div></div>
+          <div class="step"><div><h3>V3 · Expected vs actual</h3><p>After the talk, those teams were expected to win 105.8 games. They won 105. In other words, they won almost exactly as often as they should have.</p></div></div>
+          <div class="step"><div><h3>V4–V5 · 10,000 fake lists</h3><p>The real talkers against 10,000 fake lists of playoff teams in the same spot in a series. 28% of the fake lists did better than the real talkers.</p></div></div>
+          <div class="step"><div><h3>Taunts vs a matched control</h3><p>The play-by-play stopped labelling taunts, so a taunt is a technical within 5 seconds of the player's own team making a big play. The raw numbers mislead, because after you score the other team gets the ball. So each taunt is compared with the same kind of play, at the same score and time, with no taunt.</p></div></div>
+          <div class="step"><div><h3>Free throws vs career talkers</h3><p>Nobody can guard a free throw, so if trash talk gets in your head, it should show up there. Each opponent free throw is compared with the shooter's own percentage, then the talkers are compared with 10,000 fake lists of ordinary players.</p></div></div>
+          <div class="step"><div><h3>The greats, separately</h3><p>Every test again on just Jordan, Garnett, Kobe and Luka. The interviews in the video (Bosh, Larry Johnson, Nurkić, Payton) are testimony, not proof.</p></div></div>
+        </div>
+        <p class="dim" style="font-size:13px;margin:22px 0 0">Data: NBA play-by-play 1996-97 to 2024-25 (more than 21,000 technical fouls), Basketball-Reference team ratings and playoff results, and 90 documented trash-talk cases from news reports. Bill Laimbeer, Isiah Thomas and Larry Bird played before the play-by-play starts.</p>
+      </div>
+    </div>
+  </section>
+  <section id="newsletter">
+    <div class="wrap">
+      <div class="card news reveal">
+        <div><span class="eyebrow">The newsletter</span><h2 class="display" style="margin:12px 0 10px">The numbers that didn't make the video</h2>
+          <p class="muted" style="margin:0 0 16px">Extra charts, cut segments and tracker updates between videos. Free.</p>
+          <a class="btn red" href="https://www.youtube.com/@spreadsheetsportsanalytics?sub_confirmation=1" target="_blank" rel="noopener">▶&nbsp; Subscribe on YouTube</a></div>
+        <div id="nl-page"></div>
+      </div>
+    </div>
+  </section>
+</main>
+<script>document.addEventListener("DOMContentLoaded", () => SS.newsletter(document.getElementById("nl-page")));</script>
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+  const { data, $, esc, embed, table, reveal } = SS;
+  const d = await data("trash-talk");
+  const sg = (x, p = 2) => { const v = Number(x.toFixed(p)); return (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(v).toFixed(p); };
+  const pl = (name, s) => s ? `<a href="/players/${s}/">${esc(name)}</a>` : esc(name);
+  embed($("#video"), d.video);
+  $("#stars").innerHTML = `<div class="tt-star hd"><span>Player</span><span>Technicals</span><span>Next 2 min vs others' techs</span><span>Opp. FT% with him on</span></div>` +
+    d.stars.map((r) => `<div class="tt-star"><span class="nm">${pl(r.name, r.s)}<small>${esc(r.cover)}</small></span>
+      <span><b>${r.techs}</b></span><span><b${r.techs < 30 ? ' class="dim"' : ""}>${sg(r.vs, 1)}</b><small>pts</small></span>
+      <span><b>${sg(r.on, 1)}</b><small>off: ${sg(r.off, 1)}</small></span></div>`).join("");
+  table($("#series"), [
+    { key: "yr", label: "Year", num: true, fmt: (r) => `${r.yr} <span class="dim mono">${esc(r.rnd)}</span>` },
+    { key: "talker", label: "Talker", fmt: (r) => `<span class="tt-cell">${pl(r.talker, r.ts)} <span class="dim mono">${esc(r.team)}</span></span>` },
+    { key: "opp", label: "Target", fmt: (r) => `<span class="tt-cell">` + (r.target ? pl(r.target, r.tgs) + " " : "Team ") + `<span class="dim mono">${esc(r.opp)}</span></span>` },
+    { key: "what", label: "What was said", fmt: (r) => `<span class="tt-what">${esc(r.what)}${r.famous ? ' <span class="tag">Famous</span>' : ""} <a class="tt-src" href="${esc(r.src)}" target="_blank" rel="noopener nofollow">${esc(r.srcn || "source")}</a></span>` },
+    { key: "p", label: "Series odds", num: true, fmt: (r) => r.p + "%" },
+    { key: "exp", label: "Exp. wins", num: true, fmt: (r) => r.exp.toFixed(1) },
+    { key: "won", label: "Won", num: true },
+    { key: "diff", label: "Vs exp.", num: true, fmt: (r) => `<span class="${r.diff > 0 ? "pos-n" : r.diff < 0 ? "neg-n" : ""}">${sg(r.diff, 1)}</span>` },
+    { key: "sw", label: "Series", num: true, fmt: (r) => r.sw ? "Won" : "Lost" },
+  ], d.series, { sort: "yr", dir: -1, limit: 25 });
+  table($("#talkers"), [
+    { key: "rank", label: "#", num: true, asc: true },
+    { key: "name", label: "Talker", fmt: (r) => pl(r.name, r.s) + ` <span class="dim mono">${r.seasons} seasons</span>` },
+    { key: "att", label: "Opp. FTs", num: true, fmt: (r) => r.att.toLocaleString("en-US") },
+    { key: "pp", label: "Opp. FT% vs own", num: true, asc: true, fmt: (r) => sg(r.pp) },
+    { key: "miss", label: "Extra misses", num: true, fmt: (r) => sg(r.miss, 0) },
+    { key: "cpp", label: "Clutch FT% vs own", num: true, asc: true, fmt: (r) => sg(r.cpp) },
+  ], d.talkers, { sort: "rank", dir: 1, limit: 25 });
+  reveal();
+});
+</script>
+</body>
+</html>

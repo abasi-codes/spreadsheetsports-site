@@ -1,11 +1,104 @@
 [
  {
+  "id": "3Zaton1AxYU",
+  "title": "I Built a Model to Find if Trash Talk Actually Works in the NBA",
+  "kind": "Model",
+  "date": "2026-11-03",
+  "publishAt": "2026-11-03T22:45:26Z",
+  "blurb": "90 documented cases of playoff trash talk, tested against a matched control group: does talking actually help you win?",
+  "page": "/models/trash-talk.html"
+ },
+ {
+  "id": "cOm5bu7iB5w",
+  "title": "Russia's Hockey Return Has Sparked CHAOS. Here's What My Model Found.",
+  "kind": "Model",
+  "sport": "hockey",
+  "date": "2026-11-03",
+  "publishAt": "2026-11-03T22:45:00Z",
+  "blurb": "Russia is back in international hockey. What Kucherov, Kaprizov and the rest change at the Olympics, simulated."
+ },
+ {
+  "id": "DAFKs5cSq20",
+  "title": "I Built a Model to Find the NBA's Best Defensive Player",
+  "kind": "Model",
+  "date": "2026-11-01",
+  "publishAt": "2026-11-01T17:30:15Z",
+  "blurb": "Every Defensive Player of the Year race across 42 seasons backtested, then this season simulated 10,000 times.",
+  "page": "/models/dpoy.html"
+ },
+ {
+  "id": "PVRPsbIRGcs",
+  "title": "I Built a Model to Find the Unluckiest NHL Player Ever",
+  "kind": "Model",
+  "sport": "hockey",
+  "date": "2026-10-31",
+  "publishAt": "2026-10-31T17:40:00Z",
+  "blurb": "Not the best player without a Cup: the career where the bounces, the dynasties and the timing went wrong the most.",
+  "page": "/hockey/unluckiest.html"
+ },
+ {
   "id": "eMarQjPxNus",
-  "title": "The Most Deranged Champion in NBA History",
+  "title": "Dennis Rodman Was Insane. The Numbers Say He Was Elite.",
   "kind": "Deep Dive",
   "date": "2026-10-31",
   "publishAt": "2026-10-31T15:15:00Z",
   "blurb": "Dennis Rodman's chaos measured against every game his teams played: what the meltdowns actually cost, and the greatest rebounding season ever recorded."
+ },
+ {
+  "id": "HfjcYltY7NE",
+  "title": "I Built a Model to Investigate the NBA's Injury Epidemic",
+  "kind": "Model",
+  "date": "2026-10-30",
+  "publishAt": "2026-10-30T21:00:00Z",
+  "blurb": "Are NBA injuries really getting worse? 40 years of injury data, tested properly.",
+  "page": "/models/injuries.html"
+ },
+ {
+  "id": "W64Q6fTi0jg",
+  "title": "Ty Jerome Just Put The Entire NBA On Notice (Film Breakdown)",
+  "kind": "Film Breakdown",
+  "date": "2026-10-29",
+  "publishAt": "2026-10-29T21:00:00Z",
+  "blurb": "Traded, waived and stashed on a two-way deal. Now he's Memphis's first option, on film and in the numbers.",
+  "page": "/players/ty-jerome/"
+ },
+ {
+  "id": "CGIEgv-AxoU",
+  "title": "I Built a Model to Find the NHL's Most Overrated Player",
+  "kind": "Model",
+  "date": "2026-10-29",
+  "sport": "hockey",
+  "publishAt": "2026-10-29T17:05:00Z",
+  "blurb": "Real two-season impact against how the experts rank them, the mirror image of our underrated model.",
+  "page": "/hockey/overrated.html"
+ },
+ {
+  "id": "87DM10w_ytE",
+  "title": "Connor McDavid Is On Pace to Break All The Records. Is it Sustainable?",
+  "kind": "Model",
+  "sport": "hockey",
+  "date": "2026-10-27",
+  "publishAt": "2026-10-27T20:35:00Z",
+  "blurb": "34 points in 12 games is a 238-point pace. How much of it can McDavid keep up?",
+  "page": "/hockey/players/connor-mcdavid/"
+ },
+ {
+  "id": "Q2juivd3MPA",
+  "title": "This is Not The Same Cooper Flagg (Film Breakdown)",
+  "kind": "Film Breakdown",
+  "date": "2026-10-27",
+  "publishAt": "2026-10-27T19:45:00Z",
+  "blurb": "29 points, 11 assists, 5 steals and 3 blocks at 19: what changed in Cooper Flagg's game, play by play.",
+  "page": "/players/cooper-flagg/"
+ },
+ {
+  "id": "I707iIaPapQ",
+  "title": "The NBA Finalist Everyone Forgot About: The Indiana Pacers",
+  "kind": "Deep Dive",
+  "date": "2026-10-26",
+  "publishAt": "2026-10-26T19:45:00Z",
+  "blurb": "Haliburton is back 486 days after his Achilles tear. Can the Pacers core get back to the Finals?",
+  "page": "/teams/indiana-pacers/"
  },
  {
   "id": "fcWL1BDkI5o",
@@ -16,30 +109,14 @@
   "blurb": "Shaq's whole career replayed as a 75% free-throw shooter: 1,423 games, four universes and 10,000 simulated playoffs."
  },
  {
-  "id": "DAFKs5cSq20",
-  "title": "I Built a Model to Find the NBA's Best Defensive Player",
-  "kind": "Model",
-  "date": "2026-10-28",
-  "publishAt": "2026-10-28T15:30:00Z",
-  "blurb": "Every Defensive Player of the Year race across 42 seasons backtested, then this season simulated 10,000 times."
- },
- {
   "id": "9CI0Uvu-TOM",
   "title": "My Model Finds the 2027 NHL MVP",
   "kind": "Model",
   "date": "2026-10-25",
   "sport": "hockey",
   "publishAt": "2026-10-25T14:45:00Z",
-  "blurb": "A preseason MVP model backtested on past Hart races, then the 2026-27 season simulated 10,000 times."
- },
- {
-  "id": "CGIEgv-AxoU",
-  "title": "I Built a Model to Find the NHL's Most Overrated Player",
-  "kind": "Model",
-  "date": "2026-10-29",
-  "sport": "hockey",
-  "publishAt": "2026-10-29T17:05:00Z",
-  "blurb": "Real two-season impact against how the experts rank them, the mirror image of our underrated model."
+  "blurb": "A preseason MVP model backtested on past Hart races, then the 2026-27 season simulated 10,000 times.",
+  "page": "/hockey/mvp.html"
  },
  {
   "id": "dgfx5PRhSyY",
@@ -56,7 +133,8 @@
   "kind": "Model",
   "date": "2026-10-23",
   "publishAt": "2026-10-23T19:45:00Z",
-  "blurb": "Every NBA season scored the way your fantasy league would, to find the greatest fantasy player ever."
+  "blurb": "Every NBA season scored the way your fantasy league would, to find the greatest fantasy player ever.",
+  "page": "/models/fantasy-goat.html"
  },
  {
   "id": "X63yvBRLxbM",
@@ -73,7 +151,8 @@
   "kind": "Model",
   "date": "2026-10-22",
   "publishAt": "2026-10-22T19:45:00Z",
-  "blurb": "Every Most Improved Player race since 2008 backtested, then the 2026-27 season simulated 10,000 times."
+  "blurb": "Every Most Improved Player race since 2008 backtested, then the 2026-27 season simulated 10,000 times.",
+  "page": "/models/mip.html"
  },
  {
   "id": "NfdwFzbkx_A",
@@ -81,7 +160,8 @@
   "kind": "Deep Dive",
   "date": "2026-10-21",
   "publishAt": "2026-10-21T19:00:00Z",
-  "blurb": "Is Lonzo Ball really washed? What his numbers say, and whether the NBA gave up on him too early."
+  "blurb": "Is Lonzo Ball really washed? What his numbers say, and whether the NBA gave up on him too early.",
+  "page": "/players/lonzo-ball/"
  },
  {
   "id": "G9QxutGrICc",
@@ -90,7 +170,8 @@
   "date": "2026-10-20",
   "model": "smoy",
   "blurb": "Every Sixth Man race since 1985 backtested on opening-night info, then the 2026-27 season simulated 10,000 times. 3 winners to Vegas's 2 since 2018.",
-  "publishAt": "2026-10-20T19:45:00Z"
+  "publishAt": "2026-10-20T19:45:00Z",
+  "page": "/models/smoy.html"
  },
  {
   "id": "s2BeV3sjZ9s",
@@ -108,7 +189,8 @@
   "model": "underrated",
   "sport": "hockey",
   "blurb": "618 skaters' real impact over two seasons against where ESPN, The Hockey News, TSN and NHL Network ranked them, with a linemate test to remove passengers.",
-  "publishAt": "2026-10-19T07:30:00Z"
+  "publishAt": "2026-10-19T07:30:00Z",
+  "page": "/hockey/underrated.html"
  },
  {
   "id": "06VEziLlTqw",
@@ -117,7 +199,8 @@
   "date": "2026-10-18",
   "model": "roy",
   "blurb": "Every rookie class since 1990 backtested on opening-night info, then the 2026-27 rookie season simulated 10,000 times. 10 winners to Vegas's 7 since 2008.",
-  "publishAt": "2026-10-18T18:30:00Z"
+  "publishAt": "2026-10-18T18:30:00Z",
+  "page": "/models/roy.html"
  },
  {
   "id": "SQjJtBuF1yg",
@@ -127,7 +210,8 @@
   "model": "cup",
   "sport": "hockey",
   "blurb": "A preseason model backtested on every season since 2009, then the 2026-27 season simulated 10,000 times.",
-  "publishAt": "2026-10-18T12:45:00Z"
+  "publishAt": "2026-10-18T12:45:00Z",
+  "page": "/hockey/cup.html"
  },
  {
   "id": "x0PUS3G_bes",
@@ -136,7 +220,8 @@
   "date": "2026-10-17",
   "model": "contract",
   "blurb": "2,300 contract years since 1991. In their prime players play better and play more, then fall off once they're paid.",
-  "publishAt": "2026-10-18T01:32:00Z"
+  "publishAt": "2026-10-18T01:32:00Z",
+  "page": "/models/contract.html"
  },
  {
   "id": "47seyd6EjFo",
@@ -145,7 +230,8 @@
   "date": "2026-10-16",
   "model": "no3",
   "blurb": "All 3,566 playoff games since 1980 re-scored without the three. Four universes, and the titles that flip.",
-  "publishAt": "2026-10-16T21:00:00Z"
+  "publishAt": "2026-10-16T21:00:00Z",
+  "page": "/models/no3.html"
  },
  {
   "id": "KR5X3VpLKz8",
@@ -154,7 +240,8 @@
   "date": "2026-10-15",
   "team": "NYK",
   "blurb": "Last season +6.5, playoff evidence +2.4, the champion hangover and life without Mitchell Robinson.",
-  "publishAt": "2026-10-15T21:10:00Z"
+  "publishAt": "2026-10-15T21:10:00Z",
+  "page": "/teams/new-york-knicks/"
  },
  {
   "id": "-jQwtovsvOw",
@@ -162,7 +249,8 @@
   "kind": "Model",
   "date": "2026-10-14",
   "model": "mvp",
-  "blurb": "Backtested on 42 seasons of voting. Picked the real MVP 10 times since 2007, Vegas picked 8."
+  "blurb": "Backtested on 42 seasons of voting. Picked the real MVP 10 times since 2007, Vegas picked 8.",
+  "page": "/models/mvp.html"
  },
  {
   "id": "_5w5Oa4fF7U",
@@ -170,7 +258,8 @@
   "kind": "Documentary",
   "date": "2026-10-13",
   "team": "NYK",
-  "blurb": "From second-round pick to the face of the Garden."
+  "blurb": "From second-round pick to the face of the Garden.",
+  "page": "/players/jalen-brunson/"
  },
  {
   "id": "BYJeoO6TL-A",
@@ -178,7 +267,8 @@
   "kind": "Film Breakdown",
   "date": "2026-10-11",
   "team": "BOS",
-  "blurb": "Why trading Jaylen Brown might make Boston better. Projected +10.9 net rating."
+  "blurb": "Why trading Jaylen Brown might make Boston better. Projected +10.9 net rating.",
+  "page": "/teams/boston-celtics/"
  },
  {
   "id": "_C3tUeCVC-M",
@@ -194,7 +284,8 @@
   "kind": "Film Breakdown",
   "date": "2026-10-08",
   "team": "MIA",
-  "blurb": "Giannis next to Bam, Spo's system, and the defense the numbers underrate."
+  "blurb": "Giannis next to Bam, Spo's system, and the defense the numbers underrate.",
+  "page": "/teams/miami-heat/"
  },
  {
   "id": "QWx6CHAfNco",
@@ -202,7 +293,8 @@
   "kind": "Model",
   "date": "2026-10-08",
   "model": "title",
-  "blurb": "Every game, every play-in, every playoff series. Ten thousand times."
+  "blurb": "Every game, every play-in, every playoff series. Ten thousand times.",
+  "page": "/models/title.html"
  },
  {
   "id": "gjn_6D42mGI",
@@ -210,7 +302,8 @@
   "kind": "Film Breakdown",
   "date": "2026-10-08",
   "team": "TOR",
-  "blurb": "Kawhi as a 3-and-D initiator and Scottie with space everywhere."
+  "blurb": "Kawhi as a 3-and-D initiator and Scottie with space everywhere.",
+  "page": "/teams/toronto-raptors/"
  },
  {
   "id": "QHk7HwZ1NEs",
@@ -218,7 +311,8 @@
   "kind": "Model",
   "date": "2026-10-07",
   "model": "underrated",
-  "blurb": "Impact on winning vs where ESPN, HoopsHype and The Ringer rank you."
+  "blurb": "Impact on winning vs where ESPN, HoopsHype and The Ringer rank you.",
+  "page": "/models/underrated.html"
  },
  {
   "id": "GLs_XICBAAs",
@@ -226,7 +320,8 @@
   "kind": "Film Breakdown",
   "date": "2026-10-07",
   "team": "PHI",
-  "blurb": "Embiid, Maxey, Jaylen Brown and LeBron. Can it work?"
+  "blurb": "Embiid, Maxey, Jaylen Brown and LeBron. Can it work?",
+  "page": "/teams/philadelphia-76ers/"
  },
  {
   "id": "a2IzRKUvgIE",
@@ -234,7 +329,8 @@
   "kind": "Film Breakdown",
   "date": "2026-10-07",
   "team": "MIN",
-  "blurb": "The model says 0.2%. Here's what it misses."
+  "blurb": "The model says 0.2%. Here's what it misses.",
+  "page": "/teams/minnesota-timberwolves/"
  },
  {
   "id": "Yz5eX2-5LmQ",
@@ -242,6 +338,7 @@
   "kind": "Model",
   "date": "2026-10-05",
   "model": "unluckiest",
-  "blurb": "Rings, teammates, injuries, dynasties, coin flips and timing. 10,000 versions of the model."
+  "blurb": "Rings, teammates, injuries, dynasties, coin flips and timing. 10,000 versions of the model.",
+  "page": "/models/unluckiest.html"
  }
 ]

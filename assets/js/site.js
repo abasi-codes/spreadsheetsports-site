@@ -49,11 +49,14 @@ const SS = (() => {
     ? [["/hockey/mvp.html", "NHL MVP odds", "2027 Hart odds for every candidate, 10,000 seasons"],
        ["/hockey/cup.html", "Stanley Cup odds", "2027 odds for all 32 teams, 10,000 seasons"],
        ["/hockey/underrated.html", "Most underrated", "Impact vs the experts, every team"],
-       ["/hockey/overrated.html", "Most overrated", "The experts vs the data, every team"]]
+       ["/hockey/overrated.html", "Most overrated", "The experts vs the data, every team"],
+       ["/hockey/unluckiest.html", "Unluckiest player ever", "The careers the bounces went against"]]
     : [["/models/mvp.html", "MVP tracker", "2027 MVP odds for every projected starter"],
        ["/models/title.html", "Title odds", "All 30 teams, 10,000 simulated seasons"],
        ["/models/roy.html", "Rookie of the Year", "2027 odds for every rookie"],
        ["/models/smoy.html", "Sixth Man of the Year", "2027 odds for every bench player"],
+       ["/models/dpoy.html", "Defensive Player of the Year", "2027 odds, backtested on 42 seasons"],
+       ["/models/mip.html", "Most Improved Player", "2027 odds for 180 players"],
        ["/models/underrated.html", "Most underrated", "Impact vs the expert rankings"],
        ["/models/unluckiest.html", "Most cursed careers", "The CURSE model, all-time"],
        ["/models/no3.html", "No 3-point line", "Every playoff game since 1980, re-scored"],
@@ -131,9 +134,11 @@ const SS = (() => {
   async function videos() { return (await data("videos")).filter((v) => live(v) && (v.sport === "hockey") === HOCKEY); }
   function videoCard(v) {
     const model = v.kind === "Model";
-    return `<a class="card vid reveal" href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener">
+    // cards open the video's own page on the site when it has one (data/videos.json "page"), else YouTube
+    const href = v.page || `https://www.youtube.com/watch?v=${v.id}`, ext = v.page ? "" : ` target="_blank" rel="noopener"`;
+    return `<a class="card vid reveal" href="${href}"${ext} onclick="SS.track('select_content',{content_type:'video_card',item_id:'${v.id}'})">
       <div class="thumb"><img loading="lazy" src="${thumb(v.id)}" onerror="this.src='${thumb(v.id, "hqdefault")}'" alt=""><span class="kind ${model ? "model" : ""}">${esc(v.kind)}</span></div>
-      <div class="body"><h3>${esc(v.title)}</h3><p>${esc(v.blurb)}</p><span class="date">${fmtDate(v.date)}</span></div></a>`;
+      <div class="body"><h3>${esc(v.title)}</h3><p>${esc(v.blurb)}</p><span class="date">${fmtDate(v.date)}<span class="go">${v.page ? "See the numbers" : "Watch on YouTube"} →</span></span></div></a>`;
   }
   // lightweight YouTube embed: thumbnail until clicked
   function embed(el, id) {

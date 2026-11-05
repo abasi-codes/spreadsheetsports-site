@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PSBYLFEM9T"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-PSBYLFEM9T');</script>
+<title>Fantasy Basketball GOAT: Model Ranks Every NBA Player Ever · Spreadsheet Sports</title>
+<meta name="description" content="Wilt Chamberlain is the greatest fantasy basketball player ever, 96.7 of 100 in my 4-round model of every NBA season since 1950. Kareem is 2nd, LeBron 3rd.">
+<link rel="canonical" href="https://spreadsheetsports.com/models/fantasy-goat.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Spreadsheet Sports">
+<meta property="og:title" content="Fantasy Basketball GOAT: Model Ranks Every NBA Player Ever · Spreadsheet Sports">
+<meta property="og:description" content="Wilt Chamberlain is the greatest fantasy basketball player ever, 96.7 of 100 in my 4-round model of every NBA season since 1950. Kareem is 2nd, LeBron 3rd.">
+<meta property="og:url" content="https://spreadsheetsports.com/models/fantasy-goat.html">
+<meta property="og:image" content="https://spreadsheetsports.com/assets/img/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@SpreadsheetNBA">
+<meta name="twitter:image" content="https://spreadsheetsports.com/assets/img/og.png">
+<meta name="theme-color" content="#08090b">
+<link rel="icon" href="/assets/img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/site.css?v=39">
+<script src="/assets/js/site.js?v=38" defer></script>
+<style>
+  .fg-row { display: grid; grid-template-columns: 26px minmax(0, 1fr) 62px; gap: 6px 12px; align-items: center; padding: 12px 2px; border-bottom: 1px solid var(--line); }
+  .fg-row:last-child { border-bottom: 0; }
+  .fg-n { font: 400 22px var(--display); color: var(--dim); grid-row: 1 / 3; }
+  .fg-name { font-weight: 600; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .fg-name a { color: var(--text); }
+  .fg-name small { font: 500 11px var(--mono); color: var(--dim); margin-left: 6px; }
+  .fg-tot { grid-row: 1 / 3; grid-column: 3; text-align: right; font: 400 30px var(--display); color: var(--yellow); }
+  .fg-row:first-child .fg-tot { color: var(--red); }
+  .fg-stack { grid-column: 2; display: flex; height: 10px; border-radius: 5px; overflow: hidden; background: rgba(255,255,255,.04); }
+  .fg-stack i { display: block; height: 100%; }
+  .r1 { background: var(--red); } .r2 { background: var(--yellow); } .r3 { background: var(--blue); } .r4 { background: var(--green); }
+  .fg-legend { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 14px; font: 500 12px var(--mono); color: var(--muted); }
+  .fg-legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+  .fg-round h3 { font: 400 28px/1.1 var(--display); margin: 10px 0 8px; letter-spacing: .01em; }
+  .fg-round > p { margin: 0 0 16px; color: var(--muted); font-size: 15px; }
+  .fg-note { font-size: 13px; color: var(--dim); margin: 16px 0 0; }
+  .fg-note b { color: var(--muted); }
+  .bars.compact .bar-row .val { white-space: nowrap; }
+  .fg-big { font: 400 56px/1 var(--display); color: var(--red); white-space: nowrap; }
+  @media (max-width: 560px) { .fg-big { font-size: 44px; } }
+  .fg-pick { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 8px; margin-top: 14px; }
+  .fg-pick div { border: 1px solid var(--line); border-radius: 8px; padding: 8px; font-size: 12px; line-height: 1.3; min-width: 0; }
+  .fg-pick div b { display: block; font: 600 11px var(--mono); color: var(--dim); }
+  .fg-pick div span { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .fg-pick .hit { border-color: rgba(61,220,132,.45); }
+  .fg-pick .hit em { color: var(--green); font-style: normal; }
+  .fg-pick .miss em { color: #ff6b72; font-style: normal; }
+  #board-tbl td, #winners td { white-space: nowrap; }
+  @media (max-width: 560px) { .fg-name small { display: block; margin: 2px 0 0; } }
+</style>
+</head>
+<body>
+<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow">Fantasy GOAT model · all-time</span>
+      <h1 class="display">Who is the greatest<br><span class="hl">fantasy basketball</span><br>player ever?</h1>
+      <p class="lead">I scored every NBA season back to 1950-51 in a Yahoo default points league and ran four rounds: best season, best career, most fantasy titles and how dominant you were. The fantasy GOAT is Wilt Chamberlain, with 96.7 out of 100.</p>
+      <div class="meta-row"><span><b>76</b> seasons</span><span><b>4,813</b> players</span><span><b>4</b> rounds · 100 points</span><span>Answer: <b>Wilt Chamberlain</b></span></div>
+    </div>
+  </section>
+
+  <section style="padding-top:16px">
+    <div class="wrap grid g2" style="align-items:start">
+      <div class="card reveal">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px"><span class="card-label">The scorecard</span><span class="tag red">Out of 100</span></div>
+        <div id="top"></div>
+        <div class="fg-legend"><span><i class="r1"></i>Best season</span><span><i class="r2"></i>Career</span><span><i class="r3"></i>Titles</span><span><i class="r4"></i>Dominance</span></div>
+      </div>
+      <div class="reveal"><div id="video"></div>
+        <p class="muted" style="font-size:14px;margin:14px 2px 0">Watch all four rounds play out in the video.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head"><div><span class="eyebrow">Round by round</span><h2 class="display" style="margin-top:12px">How Wilt won it</h2></div>
+        <p class="muted" style="max-width:440px;margin:0">Each round is worth 25 points. The round winner gets all 25, and everyone else gets points based on how close they came.</p></div>
+      <div class="grid g2">
+        <div class="card reveal fg-round"><span class="card-label">Round 1 · 25 pts</span><h3>The best single season</h3>
+          <p>Fantasy points per game, adjusted to the same pace (per 100 possessions), because teams in the sixties played much faster.</p>
+          <div id="r1"></div><p class="fg-note" id="r1-note"></p></div>
+        <div class="card reveal fg-round"><span class="card-label">Round 2 · 25 pts</span><h3>The best career</h3>
+          <p>Every fantasy point a player ever scored, pace-adjusted. LeBron has played more games than anyone in NBA history.</p>
+          <div id="r2"></div><p class="fg-note" id="r2-note"></p></div>
+        <div class="card reveal fg-round"><span class="card-label">Round 3 · 25 pts</span><h3>Most fantasy titles</h3>
+          <p>Seasons a player finished No. 1 in total fantasy points.</p>
+          <div id="r3"></div><p class="fg-note" id="r3-note"></p></div>
+        <div class="card reveal fg-round"><span class="card-label">Round 4 · 25 pts</span><h3>Most dominant</h3>
+          <p>When a player finished No. 1, how far ahead of No. 2 was he? Average lead, for players with at least two titles.</p>
+          <div id="r4"></div><p class="fg-note" id="r4-note"></p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head"><div><span class="eyebrow">The full board</span><h2 class="display" style="margin-top:12px">Top 100 fantasy players ever</h2></div>
+        <p class="muted" style="max-width:440px;margin:0">Tap a column to sort. Best season is pace-adjusted fantasy points per 100 possessions. Current players link to their stats page.</p></div>
+      <div id="board-tbl"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap grid g2" style="align-items:start">
+      <div class="card reveal fg-round"><span class="card-label">Since online drafts · 1996-97 on</span><h3>A dead heat</h3>
+        <p>Fantasy basketball went online in October 1996. Count only the seasons since then, and Garnett, LeBron and Jokić are within two points of each other.</p>
+        <div id="online"></div></div>
+      <div class="card reveal fg-round"><span class="card-label">Honourable mention · 9-cat leagues</span><h3>The category king: Michael Jordan</h3>
+        <p>Nine-category value (points, rebounds, assists, steals, blocks, threes, FG%, FT%, turnovers), 3-point era only (1979-80 on), so nobody is punished for a shot that didn't exist yet.</p>
+        <span class="card-label">Best single season</span><div id="cat-best" style="margin:10px 0 18px"></div>
+        <span class="card-label">Best career</span><div id="cat-car" style="margin-top:10px"></div>
+        <p class="fg-note">Shawn Marion's 2005-06 is the fourth-best category season ever, because he did a little bit of everything.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap grid g2" style="align-items:start">
+      <div class="card reveal fg-round"><span class="card-label">2026-27 · 10,000 simulated seasons</span><h3>Who to take first this year</h3>
+        <p>It's basically a coin flip. If Jokić finishes first again, that's his seventh fantasy title, tying LeBron.</p>
+        <div id="predict"></div><p class="fg-note">Share of 10,000 simulations in which each player finishes No. 1 in total fantasy points.</p></div>
+      <div class="card reveal fg-round"><span class="card-label">ESPN's No. 1 pick since 2008-09</span><h3>Right only half the time</h3>
+        <div style="display:flex;align-items:baseline;gap:12px"><span class="fg-big" id="espn-hit"></span><span class="muted" id="espn-sub"></span></div>
+        <div class="fg-pick" id="espn"></div>
+        <p class="fg-note">Number = where the No. 1 pick in ESPN drafts actually finished, ranked on points-league and category value combined. Anthony Davis went first in 2015-16 and finished outside the top 15.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head"><div><span class="eyebrow">Every season</span><h2 class="display" style="margin-top:12px">Each year's fantasy No. 1</h2></div>
+        <p class="muted" style="max-width:440px;margin:0">The player with the most total fantasy points each season, and how far ahead of second place he finished. In 1995-96, the year the Bulls went 72-10, it was David Robinson.</p></div>
+      <div id="winners"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap grid g2">
+      <div class="reveal"><span class="eyebrow">Method</span><h2 class="display" style="margin:12px 0 22px">How the model works</h2>
+        <div class="steps">
+          <div class="step"><div><h3>Score every season</h3><p>Every NBA player-season from 1950-51 to 2025-26, in Yahoo's default points league: a point is worth 1, a rebound 1.2, an assist 1.5, a steal or block 3, and a turnover costs 1.</p></div></div>
+          <div class="step"><div><h3>Fill in the stats nobody counted</h3><p>The NBA didn't track steals or blocks until 1973-74, or turnovers until 1977-78. I learned the patterns from modern players (rebound-heavy big men block more shots, players with the ball a lot turn it over more) and used them to estimate the old seasons.</p></div></div>
+          <div class="step"><div><h3>Check the estimates</h3><p>I tested them on seasons where the real numbers are known. On average they were off by about a quarter of a steal, block or turnover a game.</p></div></div>
+          <div class="step"><div><h3>Adjust for pace</h3><p>Teams in the sixties had far more possessions, so more shots and rebounds to go around. Rounds 1 and 2 put every season on the same pace (per 100 possessions).</p></div></div>
+          <div class="step"><div><h3>Run four rounds</h3><p>Best season, best career, most fantasy titles and dominance. Each round is worth 25 points, scored relative to the round winner, for a total out of 100.</p></div></div>
+        </div></div>
+      <div class="reveal"><span class="eyebrow">The fine print</span><h2 class="display" style="margin:12px 0 22px">Is it just the estimates?</h2>
+        <div class="card"><p class="muted" style="margin:0 0 10px" id="fp1"></p>
+          <p class="muted" style="margin:0 0 10px" id="fp2"></p>
+          <p class="muted" style="margin:0 0 10px">The estimates have one weak spot: they probably underrate the best shot-blockers ever, like Bill Russell (about 2.3 blocks a game in my estimate, while historians guess 6 to 8).</p>
+          <p class="dim" style="font-size:13px;margin:16px 0 0">Seasons need at least 70% of games played to count in Round 1. Data: Basketball-Reference and NBA.com; ESPN average draft position for the No. 1 pick history.</p></div></div>
+    </div>
+  </section>
+
+  <section id="newsletter">
+    <div class="wrap">
+      <div class="card news reveal">
+        <div><span class="eyebrow">The newsletter</span><h2 class="display" style="margin:12px 0 10px">The numbers that didn't make the video</h2>
+          <p class="muted" style="margin:0 0 16px">Extra charts, cut segments and tracker updates between videos. Free.</p>
+          <a class="btn red" href="https://www.youtube.com/@spreadsheetsportsanalytics?sub_confirmation=1" target="_blank" rel="noopener">▶&nbsp; Subscribe on YouTube</a></div>
+        <div id="nl-page"></div>
+      </div>
+    </div>
+  </section>
+</main>
+<script>document.addEventListener("DOMContentLoaded", () => SS.newsletter(document.getElementById("nl-page")));</script>
+<script src="/assets/js/fantasy-goat-page.js?v=1" defer></script>
+</body>
+</html>

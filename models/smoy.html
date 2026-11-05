@@ -22,8 +22,8 @@
 <link rel="icon" href="/assets/img/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/site.css?v=35">
-<script src="/assets/js/site.js?v=35" defer></script>
+<link rel="stylesheet" href="/assets/css/site.css?v=39">
+<script src="/assets/js/site.js?v=38" defer></script>
 </head>
 <body>
 <main>
@@ -41,17 +41,17 @@
       <div class="reveal"><div id="video"></div>
         <p class="muted" style="font-size:14px;margin:14px 2px 0">Watch every version get built, the lab, and the countdown. <a href="https://youtu.be/G9QxutGrICc" target="_blank" rel="noopener">Open on YouTube →</a></p></div>
       <div class="grid g2 reveal">
-        <div class="card stat"><span class="card-label">Model pick</span><div class="big">27.4%</div><p>Dylan Harper, Spurs. DraftKings has him 3rd at +800 (about 11%).</p></div>
+        <div class="card stat"><span class="card-label">Model pick</span><div class="big">27.4%</div><p>Dylan Harper, Spurs. Vegas has him 3rd at +800 (about 11%).</p></div>
         <div class="card stat"><span class="card-label">Backtest</span><div class="big">7<small> / 42</small></div><p>Seasons since 1985 where the model's favourite won, using only opening-night information. The real winner was in its top three in 9 seasons.</p></div>
         <div class="card stat"><span class="card-label">Model vs Vegas</span><div class="big">+50%</div><p>More winners than the preseason betting favourite since 2018: 3 to 2. Small sample, and Vegas had more top-3 hits.</p></div>
-        <div class="card stat"><span class="card-label">Vegas favourite</span><div class="big">2.7%</div><p>Ajay Mitchell is +600 at DraftKings. The model has him 8th.</p></div>
+        <div class="card stat"><span class="card-label">Vegas favourite</span><div class="big">2.7%</div><p>Ajay Mitchell is +600 in Vegas. The model has him 8th.</p></div>
       </div>
     </div>
   </section>
   <section>
     <div class="wrap">
       <div class="section-head"><div><span class="eyebrow">10,000 simulated seasons</span><h2 class="display" style="margin-top:12px">Every player's chance</h2></div>
-        <p class="muted" style="max-width:460px;margin:0">Share of 10,000 simulated seasons each player won. The two Spurs in the top 3 add up to about a 35% chance the award goes to San Antonio. DraftKings odds as of Oct 17, 2026 (via SI); "Implied" is the chance those odds suggest. Search a name or tap a column to sort.</p></div>
+        <p class="muted" style="max-width:460px;margin:0">Share of 10,000 simulated seasons each player won. The two Spurs in the top 3 add up to about a 35% chance the award goes to San Antonio. Vegas odds as of Oct 17, 2026 (via SI); "Implied" is the chance those odds suggest. Search a name or tap a column to sort.</p></div>
       <div id="smoy-search" class="search" style="max-width:420px;margin-bottom:16px"><input type="search" placeholder="Search a player or team" autocomplete="off" aria-label="Search a player"></div>
       <div id="rows"></div>
     </div>
@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     { key: "rank", label: "#", num: true, fmt: (r) => r.rank == null ? "—" : r.rank },
     { key: "name", label: "Player", fmt: (r) => nm(r) + ` <span class="dim mono">${esc(r.t)}</span>` },
     { key: "p", label: "Model", num: true, fmt: (r) => `<b>${pc(r.p)}</b>` },
-    { key: "dkn", label: "DraftKings", num: true, asc: true, sortVal: (r) => r.dkn ?? 1e9, fmt: (r) => r.odds || `<span class="dim">—</span>` },
+    { key: "dkn", label: "Vegas odds", num: true, asc: true, sortVal: (r) => r.dkn ?? 1e9, fmt: (r) => r.odds || `<span class="dim">—</span>` },
     { key: "mkt", label: "Implied", num: true, fmt: (r) => r.mkt == null ? "" : `<span class="dim">${r.mkt.toFixed(1)}%</span>` },
   ];
   const inp = $("#smoy-search input");

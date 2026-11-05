@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PSBYLFEM9T"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-PSBYLFEM9T');</script>
+<title>Are NBA Injuries Really Getting Worse? 40 Years of Data, Checked · Spreadsheet Sports</title>
+<meta name="description" content="Yes. NBA rotation players missed 27.0% of games in 2025-26, up from 16.8% in 1990-2010, a 37-season high. Stars now miss the most. Pace doesn&#x27;t explain it.">
+<link rel="canonical" href="https://spreadsheetsports.com/models/injuries.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Spreadsheet Sports">
+<meta property="og:title" content="Are NBA Injuries Really Getting Worse? 40 Years of Data, Checked · Spreadsheet Sports">
+<meta property="og:description" content="Yes. NBA rotation players missed 27.0% of games in 2025-26, up from 16.8% in 1990-2010, a 37-season high. Stars now miss the most. Pace doesn&#x27;t explain it.">
+<meta property="og:url" content="https://spreadsheetsports.com/models/injuries.html">
+<meta property="og:image" content="https://spreadsheetsports.com/assets/img/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@SpreadsheetNBA">
+<meta name="twitter:image" content="https://spreadsheetsports.com/assets/img/og.png">
+<meta name="theme-color" content="#08090b">
+<link rel="icon" href="/assets/img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/site.css?v=39">
+<script src="/assets/js/site.js?v=38" defer></script>
+<style>
+.big-num { font: 400 clamp(34px, 5vw, 46px)/1.05 var(--display); margin: 12px 0 10px; }
+.big-num .red, .red { color: var(--red); }
+.myth h3 { font-size: 20px; margin: 10px 0 8px; } .myth h3 s { text-decoration-color: var(--red); text-decoration-thickness: 3px; }
+.myth p { margin: 0; font-size: 14px; }
+.inj-chart { display: grid; grid-template-columns: 34px 1fr; gap: 8px; }
+.inj-y { position: relative; height: 240px; font: 500 11px var(--mono); color: var(--dim); }
+.inj-y span { position: absolute; right: 0; transform: translateY(50%); }
+.inj-plot { position: relative; height: 240px; display: flex; align-items: flex-end; gap: 2px; border-bottom: 1px solid var(--line-2); }
+.inj-grid { position: absolute; left: 0; right: 0; border-top: 1px solid var(--line); pointer-events: none; }
+.inj-base { position: absolute; left: 0; right: 0; border-top: 2px dashed var(--yellow); pointer-events: none; z-index: 2; }
+.inj-base span { position: absolute; left: 4px; top: -20px; font: 600 11px var(--mono); color: var(--yellow); background: var(--panel); padding: 0 4px; white-space: nowrap; }
+.inj-bar { flex: 1; min-width: 0; height: 100%; display: flex; align-items: flex-end; cursor: pointer; background: none; border: 0; padding: 0; }
+.inj-bar i { display: block; width: 100%; border-radius: 4px 4px 0 0; background: #4a505b; transition: background .15s; }
+.inj-bar.recent i { background: #7a828f; }
+.inj-bar.now i { background: var(--red); }
+.inj-bar:hover i, .inj-bar:focus-visible i, .inj-bar.on i { background: var(--text); }
+.inj-bar.now.on i, .inj-bar.now:hover i { background: #ff4b53; }
+.inj-x { display: flex; justify-content: space-between; margin: 8px 0 0 42px; font: 500 11px var(--mono); color: var(--dim); }
+.inj-read { margin: 0 0 16px; min-height: 22px; font: 500 14px var(--mono); color: var(--muted); }
+.inj-read b { color: var(--text); }
+.inj-key { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 14px; font: 500 12px var(--mono); color: var(--dim); }
+.inj-key i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+@media (max-width: 640px) { .inj-plot, .inj-y { height: 200px; } .inj-bar i { border-radius: 2px 2px 0 0; } .inj-plot { gap: 1px; } }
+</style>
+</head>
+<body>
+<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow">Injury model · 1989-90 to 2025-26</span>
+      <h1 class="display">Are NBA injuries<br><span class="hl">really</span> getting worse?</h1>
+      <p class="lead">Yes. Rotation players missed 16.8% of their teams' games from 1990 to 2010 and 27.0% in 2025-26, the most in 37 seasons. But it's not the injuries you'd guess: most of the rise is absences of 1 to 3 weeks, and stars went from the most available players in the league to the least.</p>
+      <div class="meta-row"><span><b>955,424</b> box-score lines</span><span><b>37</b> seasons</span><span><b>10,000</b> simulated seasons</span><span>Answer: <b>Yes, 27.0% in 2025-26</b></span></div>
+    </div>
+  </section>
+  <section style="padding-top:16px"><div class="wrap">
+    <div class="grid g3">
+      <div class="card reveal"><span class="card-label">#1 · It's real</span>
+        <div class="big-num">16.8% <span class="dim">→</span> <span class="red">27.0%</span></div>
+        <p class="muted">Share of games rotation players missed, 1990-2010 vs 2025-26. A typical rotation player used to miss about 1 game in 6. Now it's more than 1 in 4, the highest of all 37 seasons.</p></div>
+      <div class="card reveal"><span class="card-label">#2 · The stars flipped</span>
+        <div class="big-num">13.8% <span class="dim">→</span> <span class="red">26.9%</span></div>
+        <p class="muted">From 1990 to 2010, stars missed fewer games than other rotation players (13.8% vs 17.1%). Over the last 4 seasons they missed more (26.9% vs 24.7%). That's about 11 games a season per star then, 22 now.</p></div>
+      <div class="card reveal"><span class="card-label">#3 · Not the injuries you'd guess</span>
+        <div class="big-num">+8 <span class="dim" style="font-size:.5em">points</span></div>
+        <p class="muted">Of the rise since 1990-2010, about 2 points are single-game absences (where rest days live) and just 1 is absences of 20+ games. The other 5 come from absences of 2 to 19 games: 1 to 3 weeks.</p></div>
+    </div>
+    <div class="reveal" style="margin-top:22px"><div id="video"></div>
+      <p class="muted" style="font-size:14px;margin:14px 2px 0">Watch the model get built, version by version.</p></div>
+  </div></section>
+  <section><div class="wrap">
+    <div class="section-head"><div><span class="eyebrow">Every season</span><h2 class="display" style="margin-top:12px">Share of games missed</h2></div>
+      <p class="muted" style="max-width:440px;margin:0">Rotation players, all absences, 1989-90 to 2025-26. The jump starts in 2017-18, before COVID, and each of the last 4 seasons is higher than any season before 2018. Hover or tap a bar.</p></div>
+    <div class="card reveal"><div id="chart"></div></div>
+  </div></section>
+  <section><div class="wrap">
+    <div class="section-head"><div><span class="eyebrow">Version 3</span><h2 class="display" style="margin-top:12px">The usual explanations don't fit</h2></div>
+      <p class="muted" style="max-width:440px;margin:0">The 4 explanations I hear most, tested against the data.</p></div>
+    <div class="grid g4">
+      <div class="card myth reveal"><span class="card-label">Pace</span><h3><s>Faster games</s></h3><p class="muted">Teams play faster than in the 2000s (91.5 possessions), but the early 1990s (96.9) were nearly as fast as today (99.0), and those were the healthiest seasons in my data.</p></div>
+      <div class="card myth reveal"><span class="card-label">Age</span><h3><s>Older players</s></h3><p class="muted">Rotation players are younger now (26.5) than in 1990-2010 (27.6). Adjusting for age, minutes and star status barely moves the rise (5.9 points raw, 5.6 adjusted).</p></div>
+      <div class="card myth reveal"><span class="card-label">Schedule</span><h3><s>More back-to-backs</s></h3><p class="muted">The schedule got easier: about 21 back-to-backs a team per season in 1990-2010, about 14 now.</p></div>
+      <div class="card myth reveal"><span class="card-label">Minutes</span><h3><s>Heavier minutes</s></h3><p class="muted">Rotation players average 27 minutes a game now, against 28.5 back then. They play less, rest more, and still miss more games.</p></div>
+    </div>
+    <div class="card reveal" style="margin-top:18px"><p class="muted" style="margin:0">What does fit is the shape of the absences: almost twice as many injury-type absences per game played (22.4 → 40.3 per 1,000 games), but each one a little shorter (7.7 → 6.8 games). That points to teams managing bodies differently, although box scores can't prove it. And a 2024 report the NBA commissioned found that resting players did not lower their risk of getting hurt later in the season: rest didn't buy health.</p></div>
+  </div></section>
+  <section><div class="wrap">
+    <div class="section-head"><div><span class="eyebrow">Version 4</span><h2 class="display" style="margin-top:12px">Severe injuries and the Achilles</h2></div>
+      <p class="muted" style="max-width:440px;margin:0">Short absences are up a lot. Severe ones are up a little.</p></div>
+    <div class="grid g2">
+      <div class="card reveal"><span class="card-label">Absences of 20+ games</span>
+        <div class="big-num">14.4 <span class="dim">→</span> 18.4</div>
+        <p class="muted">Per 100 rotation players a season, 1990-2010 vs the last 4 seasons: a rise of about 25%, much smaller than everything else. By games lost to long absences, 2025-26 ranks just 5th, behind seasons like 1996-97.</p></div>
+      <div class="card reveal"><span class="card-label">The 2024-25 Achilles cluster</span>
+        <div class="big-num"><span class="red">7</span> <span class="dim" style="font-size:.5em">tears vs 0.88 a season</span></div>
+        <p class="muted">7 players tore an Achilles during the 2024-25 season or playoffs: <a href="/players/james-wiseman/">James Wiseman</a> <span class="dim">(IND)</span>, <a href="/players/isaiah-jackson/">Isaiah Jackson</a> <span class="dim">(IND)</span>, <a href="/players/dru-smith/">Dru Smith</a> <span class="dim">(MIA)</span>, <a href="/players/dejounte-murray/">Dejounte Murray</a> <span class="dim">(NOP)</span>, <a href="/players/damian-lillard/">Damian Lillard</a> <span class="dim">(MIL, playoffs)</span>, <a href="/players/jayson-tatum/">Jayson Tatum</a> <span class="dim">(BOS, playoffs)</span>, <a href="/players/tyrese-haliburton/">Tyrese Haliburton</a> <span class="dim">(IND, playoffs)</span>. At the 1990-2024 rate that happens about once in 10,000 seasons, so it was a real cluster. But 2025-26 had only 1, and without that one record year the long-term rise isn't statistically significant. ACL tears have stayed flat at about 2 a season.</p>
+        <p class="dim" style="font-size:13px;margin:12px 0 0">Before the 2026-27 opener there were already 3 more full Achilles tears in the preseason: <a href="/players/ariel-hukporti/">Ariel Hukporti</a> <span class="dim">(PHI)</span>, Otega Oweh <span class="dim">(OKC)</span>, <a href="/players/ben-simmons/">Ben Simmons</a> <span class="dim">(SAC)</span>.</p></div>
+    </div>
+  </div></section>
+  <section><div class="wrap">
+    <div class="section-head"><div><span class="eyebrow">This season</span><h2 class="display" style="margin-top:12px">2026-27, as of Oct 27, 2026</h2></div>
+      <p class="muted" style="max-width:440px;margin:0">A snapshot from the video, not a live tracker: each team's first 3 games (Oct 20-27, 2026). The big injury headlines came in the days right after it.</p></div>
+    <div class="grid g3">
+      <div class="card reveal"><span class="card-label">Rotation players · as of Oct 27, 2026</span><div class="big-num">15.5%</div>
+        <p class="muted">of games missed (108 of 696 player-games). That ranks 16th of 38 seasons at the same point, lower than 20.4% a year earlier.</p></div>
+      <div class="card reveal"><span class="card-label">Stars · as of Oct 27, 2026</span><div class="big-num">8.6%</div>
+        <p class="muted">of games missed by last season's All-Stars and All-NBA players. That ranks 25th of 38.</p></div>
+      <div class="card reveal"><span class="card-label">Why it's not a verdict</span><div class="big-num">r = 0.53</div>
+        <p class="muted">In past seasons the opening week only loosely predicted the full season. The opening week was normal; the full season is still open.</p></div>
+    </div>
+  </div></section>
+  <section><div class="wrap">
+    <div class="section-head"><div><span class="eyebrow">The board</span><h2 class="display" style="margin-top:12px">All 37 seasons</h2></div>
+      <p class="muted" style="max-width:440px;margin:0">Share of their teams' games that rotation players missed, split by how long each absence lasted. Tap a column to sort. Stars = All-Star or All-NBA the season before. Achilles = full tears during the season or playoffs.</p></div>
+    <div id="table"></div>
+  </div></section>
+  <section><div class="wrap grid g2">
+    <div class="reveal"><span class="eyebrow">Method</span><h2 class="display" style="margin:12px 0 22px">How the model works</h2>
+      <div class="steps">
+        <div class="step"><div><h3>V1 · The raw count</h3><p>Total games rotation players missed each season: about 3,363 a season in 1990-2010, 6,704 in 2025-26. Unfair on its own: the league added 3 teams and coaches spread minutes across more players.</p></div></div>
+        <div class="step"><div><h3>V2 · A fair rate</h3><p>Each player's games missed divided by the games his team played while he was on the roster, then split by absence length: 1 game, 2 to 19, and 20+.</p></div></div>
+        <div class="step"><div><h3>V3 · Who, and why</h3><p>Stars vs everyone else, then the usual explanations: pace, age, back-to-backs and minutes, with an age-adjusted check.</p></div></div>
+        <div class="step"><div><h3>V4 · Severe injuries</h3><p>Absences of 20+ games, plus a hand-checked list of full Achilles and ACL tears during the season or playoffs.</p></div></div>
+        <div class="step"><div><h3>V5 · Noise and a backtest</h3><p>10,000 simulated seasons where nothing changed after 2010, each built from random real 1990-2010 player seasons. They landed between 14.55% and 19.53%, and none reached even the lowest of the last 4 real seasons (22.8%, 2023-24). A backtest predicts each past season using only the seasons before it: the "nothing changes" forecast was too low in 26 of 27 seasons since 1999-2000, off by about 5 points a year since 2018.</p></div></div>
+      </div></div>
+    <div class="reveal"><span class="eyebrow">The rules</span><h2 class="display" style="margin:12px 0 22px">What counts as a game missed</h2>
+      <div class="card"><p class="muted" style="margin:0 0 10px">Injury reports keep changing (injured lists, official reports, resting rules, the 65-game minimum), so I used the one thing that hasn't changed since the 1980s: the box score. Either you played or you didn't.</p>
+        <p class="muted" style="margin:0 0 10px">955,424 regular-season box-score lines, 1986-87 to Oct 27, 2026. A rotation player is anyone who plays about 20 minutes a night. If he isn't in his team's box score, that's a game missed.</p>
+        <p class="dim" style="font-size:13px;margin:16px 0 0">A box score can't say why a player sat: injury, illness, rest or suspension all count. That's why later versions split absences by length. 2019-20 and 2020-21 were shortened seasons, and 2021-22 includes COVID protocol absences.</p></div></div>
+  </div></section>
+  <section id="newsletter">
+    <div class="wrap">
+      <div class="card news reveal">
+        <div><span class="eyebrow">The newsletter</span><h2 class="display" style="margin:12px 0 10px">The numbers that didn't make the video</h2>
+          <p class="muted" style="margin:0 0 16px">Extra charts, cut segments and tracker updates between videos. Free.</p>
+          <a class="btn red" href="https://www.youtube.com/@spreadsheetsportsanalytics?sub_confirmation=1" target="_blank" rel="noopener">▶&nbsp; Subscribe on YouTube</a></div>
+        <div id="nl-page"></div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/injuries-page.js?v=1" defer></script>
+</body>
+</html>
