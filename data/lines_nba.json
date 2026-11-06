@@ -1,6 +1,6 @@
 {
-"updated":"2026-11-06T14:56:12Z",
-"hash":"60c8a470984a07e7",
+"updated":"2026-11-06T17:40:36Z",
+"hash":"4d0212054352da1d",
 "v":1,
 "sport":"nba",
 "slate_date":"2026-11-06",
@@ -65,7 +65,7 @@
 "4065648":{"n":"Jayson Tatum","t":"BOS","href":"/players/jayson-tatum/","inj":null},
 "3078576":{"n":"Derrick White","t":"BOS","href":"/players/derrick-white/","inj":null},
 "4251":{"n":"Paul George","t":"BOS","href":"/players/paul-george/","inj":null},
-"4066354":{"n":"Payton Pritchard","t":"BOS","href":"/players/payton-pritchard/","inj":"Day-To-Day"},
+"4066354":{"n":"Payton Pritchard","t":"BOS","href":"/players/payton-pritchard/","inj":null},
 "4593841":{"n":"Baylor Scheierman","t":"BOS","href":"/players/baylor-scheierman/","inj":null},
 "4397424":{"n":"Neemias Queta","t":"BOS","href":"/players/neemias-queta/","inj":null},
 "4065804":{"n":"Sam Hauser","t":"BOS","href":"/players/sam-hauser/","inj":null},
