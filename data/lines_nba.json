@@ -1,13 +1,13 @@
 {
-"updated":"2026-11-05T21:26:48Z",
-"hash":"384eb5e09a268103",
+"updated":"2026-11-06T02:17:19Z",
+"hash":"8d3d98dca11d3abc",
 "v":1,
 "sport":"nba",
 "slate_date":"2026-11-05",
 "sample":"Last two seasons (2025-26 and 2026-27), regular season, play-in and playoffs.",
 "prices":null,
 "games":[
-{"id":"401909936","start":"2026-11-06T02:00Z","state":"pre","detail":"11/5 - 9:00 PM EST","home":"PHX","away":"ORL","hs":0,"as":0},
+{"id":"401909936","start":"2026-11-06T02:00Z","state":"in","detail":"8:51 - 1st","home":"PHX","away":"ORL","hs":8,"as":9},
 {"id":"401909937","start":"2026-11-06T03:00Z","state":"pre","detail":"11/5 - 10:00 PM EST","home":"GSW","away":"MIA","hs":0,"as":0}
 ],
 "teams":{
