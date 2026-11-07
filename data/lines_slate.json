@@ -1,6 +1,6 @@
 {
-"updated":"2026-11-07T12:50:52Z",
-"hash":"b2f5b88507a5f985",
+"updated":"2026-11-07T16:37:10Z",
+"hash":"4992afce1db0cda4",
 "nhl":{
 "date":"2026-11-07",
 "games":[{"start":"2026-11-07T17:30:00Z","state":"pre","home":"WSH","away":"FLA"},{"start":"2026-11-07T18:00:00Z","state":"pre","home":"NSH","away":"STL"},{"start":"2026-11-07T22:00:00Z","state":"pre","home":"SEA","away":"NYR"},{"start":"2026-11-08T00:00:00Z","state":"pre","home":"TOR","away":"MTL"},{"start":"2026-11-08T00:00:00Z","state":"pre","home":"OTT","away":"UTA"},{"start":"2026-11-08T00:00:00Z","state":"pre","home":"NYI","away":"NJD"},{"start":"2026-11-08T01:00:00Z","state":"pre","home":"CAR","away":"CHI"},{"start":"2026-11-08T01:00:00Z","state":"pre","home":"DAL","away":"SJS"},{"start":"2026-11-08T01:00:00Z","state":"pre","home":"MIN","away":"TBL"},{"start":"2026-11-08T02:00:00Z","state":"pre","home":"COL","away":"DET"},{"start":"2026-11-08T02:00:00Z","state":"pre","home":"LAK","away":"PIT"},{"start":"2026-11-08T03:00:00Z","state":"pre","home":"EDM","away":"VAN"}],
@@ -11,6 +11,6 @@
 "date":"2026-11-07",
 "games":[{"start":"2026-11-07T22:00Z","state":"pre","home":"IND","away":"DEN"},{"start":"2026-11-08T00:30Z","state":"pre","home":"ATL","away":"BKN"},{"start":"2026-11-08T01:00Z","state":"pre","home":"CLE","away":"NYK"},{"start":"2026-11-08T01:00Z","state":"pre","home":"OKC","away":"WAS"},{"start":"2026-11-08T01:30Z","state":"pre","home":"GSW","away":"ORL"},{"start":"2026-11-08T02:00Z","state":"pre","home":"PHX","away":"HOU"},{"start":"2026-11-08T03:00Z","state":"pre","home":"POR","away":"SAS"}],
 "next":null,
-"cards":967
+"cards":1000
 }
 }
