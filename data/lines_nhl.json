@@ -1,14 +1,14 @@
 {
-"updated":"2026-11-07T12:50:52Z",
-"hash":"7c76007662afede0",
+"updated":"2026-11-07T19:21:40Z",
+"hash":"c7edb25ba8cb43b0",
 "v":1,
 "sport":"nhl",
 "slate_date":"2026-11-07",
 "sample":"Last two seasons (2025-26 and 2026-27), regular season and playoffs. Shootout goals don't count.",
 "prices":null,
 "games":[
-{"id":"2026020265","start":"2026-11-07T17:30:00Z","state":"pre","detail":"FUT","home":"WSH","away":"FLA","hs":0,"as":0},
-{"id":"2026020266","start":"2026-11-07T18:00:00Z","state":"pre","detail":"FUT","home":"NSH","away":"STL","hs":0,"as":0},
+{"id":"2026020265","start":"2026-11-07T17:30:00Z","state":"in","detail":"LIVE","home":"WSH","away":"FLA","hs":3,"as":2},
+{"id":"2026020266","start":"2026-11-07T18:00:00Z","state":"in","detail":"LIVE","home":"NSH","away":"STL","hs":2,"as":1},
 {"id":"2026020267","start":"2026-11-07T22:00:00Z","state":"pre","detail":"FUT","home":"SEA","away":"NYR","hs":0,"as":0},
 {"id":"2026020268","start":"2026-11-08T00:00:00Z","state":"pre","detail":"FUT","home":"TOR","away":"MTL","hs":0,"as":0},
 {"id":"2026020269","start":"2026-11-08T00:00:00Z","state":"pre","detail":"FUT","home":"OTT","away":"UTA","hs":0,"as":0},
