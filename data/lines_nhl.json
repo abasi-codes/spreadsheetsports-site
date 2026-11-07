@@ -1,15 +1,15 @@
 {
-"updated":"2026-11-06T14:56:12Z",
-"hash":"b9897fea50f41ffb",
+"updated":"2026-11-07T00:51:26Z",
+"hash":"50ddb199bc47a49e",
 "v":1,
 "sport":"nhl",
 "slate_date":"2026-11-06",
 "sample":"Last two seasons (2025-26 and 2026-27), regular season and playoffs. Shootout goals don't count.",
 "prices":null,
 "games":[
-{"id":"2026020262","start":"2026-11-07T00:00:00Z","state":"pre","detail":"FUT","home":"BUF","away":"CBJ","hs":0,"as":0},
-{"id":"2026020263","start":"2026-11-07T01:00:00Z","state":"pre","detail":"FUT","home":"MIN","away":"SJS","hs":0,"as":0},
-{"id":"2026020264","start":"2026-11-07T01:00:00Z","state":"pre","detail":"FUT","home":"CGY","away":"ANA","hs":0,"as":0}
+{"id":"2026020262","start":"2026-11-07T00:00:00Z","state":"in","detail":"LIVE","home":"BUF","away":"CBJ","hs":2,"as":1},
+{"id":"2026020263","start":"2026-11-07T01:00:00Z","state":"pre","detail":"PRE","home":"MIN","away":"SJS","hs":0,"as":0},
+{"id":"2026020264","start":"2026-11-07T01:00:00Z","state":"pre","detail":"PRE","home":"CGY","away":"ANA","hs":0,"as":0}
 ],
 "teams":{
 "BUF":{"name":"Buffalo Sabres","short":"Sabres","href":"/hockey/cup.html#BUF","color":null},
