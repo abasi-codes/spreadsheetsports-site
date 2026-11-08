@@ -1,6 +1,6 @@
 {
-"updated":"2026-11-08T13:12:59Z",
-"hash":"b75b059d777531b1",
+"updated":"2026-11-08T16:46:39Z",
+"hash":"e5130245e9cf75d3",
 "v":1,
 "sport":"nba",
 "slate_date":"2026-11-08",
@@ -33,7 +33,7 @@
 },
 "players":{
 "5095151":{"n":"Caleb Wilson","t":"CHI","href":null,"inj":null},
-"2595516":{"n":"Norman Powell","t":"CHI","href":"/players/norman-powell/","inj":null},
+"2595516":{"n":"Norman Powell","t":"CHI","href":"/players/norman-powell/","inj":"Day-To-Day"},
 "4871145":{"n":"Josh Giddey","t":"CHI","href":"/players/josh-giddey/","inj":null},
 "4711294":{"n":"Matas Buzelis","t":"CHI","href":"/players/matas-buzelis/","inj":null},
 "4397189":{"n":"Jalen Smith","t":"CHI","href":"/players/jalen-smith/","inj":"Day-To-Day"},
@@ -72,7 +72,7 @@
 "4432247":{"n":"Jaylen Clark","t":"MIN","href":"/players/jaylen-clark/","inj":null},
 "3136196":{"n":"Trey Lyles","t":"MIN","href":"/players/trey-lyles/","inj":null},
 "4873138":{"n":"Ace Bailey","t":"UTA","href":"/players/ace-bailey/","inj":null},
-"4433627":{"n":"Keyonte George","t":"UTA","href":"/players/keyonte-george/","inj":null},
+"4433627":{"n":"Keyonte George","t":"UTA","href":"/players/keyonte-george/","inj":"Day-To-Day"},
 "5041955":{"n":"Darryn Peterson","t":"UTA","href":null,"inj":null},
 "4066336":{"n":"Lauri Markkanen","t":"UTA","href":"/players/lauri-markkanen/","inj":"Day-To-Day"},
 "4397077":{"n":"Jaxson Hayes","t":"UTA","href":"/players/jaxson-hayes/","inj":null},
