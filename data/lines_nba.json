@@ -1,6 +1,6 @@
 {
-"updated":"2026-11-10T15:31:49Z",
-"hash":"642b8a33cf128490",
+"updated":"2026-11-10T18:13:45Z",
+"hash":"916ce656477aed8e",
 "v":1,
 "sport":"nba",
 "slate_date":"2026-11-10",
@@ -97,7 +97,7 @@
 "4566434":{"n":"Franz Wagner","t":"ORL","href":"/players/franz-wagner/","inj":null},
 "4277847":{"n":"Wendell Carter Jr.","t":"ORL","href":"/players/wendell-carter-jr/","inj":null},
 "4066320":{"n":"Desmond Bane","t":"ORL","href":"/players/desmond-bane/","inj":null},
-"4702382":{"n":"Tristan da Silva","t":"ORL","href":"/players/tristan-da-silva/","inj":null},
+"4702382":{"n":"Tristan da Silva","t":"ORL","href":"/players/tristan-da-silva/","inj":"Day-To-Day"},
 "4712849":{"n":"Anthony Black","t":"ORL","href":"/players/anthony-black/","inj":null},
 "5239561":{"n":"Jase Richardson","t":"ORL","href":"/players/jase-richardson/","inj":null},
 "4278572":{"n":"Jamal Cain","t":"ORL","href":"/players/jamal-cain/","inj":null},
