@@ -1,6 +1,6 @@
 {
-"updated":"2026-11-12T18:34:53Z",
-"hash":"452896c3a8fb5059",
+"updated":"2026-11-12T21:49:23Z",
+"hash":"f521057a299d3f0f",
 "v":1,
 "sport":"nba",
 "slate_date":"2026-11-12",
@@ -76,7 +76,7 @@
 "4601023":{"n":"Oso Ighodaro","t":"PHX","href":"/players/oso-ighodaro/","inj":null},
 "5203685":{"n":"Khaman Maluach","t":"PHX","href":"/players/khaman-maluach/","inj":null},
 "4396971":{"n":"Naz Reid","t":"CHA","href":"/players/naz-reid/","inj":null},
-"4433249":{"n":"Moussa Diabate","t":"CHA","href":"/players/moussa-diabate/","inj":"Day-To-Day"},
+"4433249":{"n":"Moussa Diabate","t":"CHA","href":"/players/moussa-diabate/","inj":null},
 "3135045":{"n":"Grayson Allen","t":"CHA","href":"/players/grayson-allen/","inj":null},
 "4602025":{"n":"Sion James","t":"CHA","href":"/players/sion-james/","inj":null},
 "4576060":{"n":"Ryan Kalkbrenner","t":"CHA","href":"/players/ryan-kalkbrenner/","inj":null},
