@@ -1,13 +1,13 @@
 {
-"updated":"2026-11-14T13:24:25Z",
-"hash":"954400eb74818ea4",
+"updated":"2026-11-14T19:53:08Z",
+"hash":"33cbbea06e1d3239",
 "v":1,
 "sport":"nhl",
 "slate_date":"2026-11-14",
 "sample":"Last two seasons (2025-26 and 2026-27), regular season and playoffs. Shootout goals don't count.",
 "prices":null,
 "games":[
-{"id":"2026020321","start":"2026-11-14T18:00:00Z","state":"pre","detail":"FUT","home":"CAR","away":"SEA","hs":0,"as":0},
+{"id":"2026020321","start":"2026-11-14T18:00:00Z","state":"in","detail":"LIVE","home":"CAR","away":"SEA","hs":4,"as":1},
 {"id":"2026020312","start":"2026-11-14T20:30:00Z","state":"pre","detail":"FUT","home":"CHI","away":"WPG","hs":0,"as":0},
 {"id":"2026020313","start":"2026-11-15T00:00:00Z","state":"pre","detail":"FUT","home":"BOS","away":"MIN","hs":0,"as":0},
 {"id":"2026020314","start":"2026-11-15T00:00:00Z","state":"pre","detail":"FUT","home":"TOR","away":"EDM","hs":0,"as":0},
