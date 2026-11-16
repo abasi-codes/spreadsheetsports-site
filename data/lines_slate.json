@@ -1,6 +1,6 @@
 {
-"updated":"2026-11-16T16:55:48Z",
-"hash":"58e4d4d48dafffd3",
+"updated":"2026-11-16T20:40:04Z",
+"hash":"de8deb4af12f790a",
 "nhl":{
 "date":"2026-11-16",
 "games":[{"start":"2026-11-17T00:30:00Z","state":"pre","home":"NYR","away":"MTL"},{"start":"2026-11-17T02:30:00Z","state":"pre","home":"UTA","away":"VAN"}],
@@ -11,6 +11,6 @@
 "date":"2026-11-16",
 "games":[{"start":"2026-11-17T00:00Z","state":"pre","home":"BOS","away":"ORL"},{"start":"2026-11-17T00:00Z","state":"pre","home":"CLE","away":"CHI"},{"start":"2026-11-17T00:00Z","state":"pre","home":"WAS","away":"MEM"},{"start":"2026-11-17T00:30Z","state":"pre","home":"BKN","away":"PHI"},{"start":"2026-11-17T00:30Z","state":"pre","home":"MIA","away":"HOU"},{"start":"2026-11-17T01:00Z","state":"pre","home":"MIN","away":"POR"},{"start":"2026-11-17T01:00Z","state":"pre","home":"NOP","away":"GSW"},{"start":"2026-11-17T02:00Z","state":"pre","home":"DEN","away":"PHX"}],
 "next":null,
-"cards":1087
+"cards":1070
 }
 }
