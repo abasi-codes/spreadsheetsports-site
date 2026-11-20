@@ -1,11 +1,11 @@
 {
-"updated":"2026-11-20T03:56:49Z",
-"hash":"dcccef66fd68dd17",
+"updated":"2026-11-20T06:57:58Z",
+"hash":"dcde2ac43d1f6f53",
 "nhl":{
 "date":"2026-11-19",
-"games":[{"start":"2026-11-20T00:00:00Z","state":"post","home":"TOR","away":"LAK"},{"start":"2026-11-20T00:00:00Z","state":"post","home":"OTT","away":"PHI"},{"start":"2026-11-20T00:00:00Z","state":"post","home":"PIT","away":"STL"},{"start":"2026-11-20T00:00:00Z","state":"post","home":"WSH","away":"BUF"},{"start":"2026-11-20T00:00:00Z","state":"post","home":"CAR","away":"MTL"},{"start":"2026-11-20T00:00:00Z","state":"post","home":"WPG","away":"NYI"},{"start":"2026-11-20T00:30:00Z","state":"post","home":"TBL","away":"EDM"},{"start":"2026-11-20T01:00:00Z","state":"post","home":"CHI","away":"CBJ"},{"start":"2026-11-20T01:00:00Z","state":"post","home":"CGY","away":"MIN"},{"start":"2026-11-20T02:00:00Z","state":"in","home":"COL","away":"ANA"},{"start":"2026-11-20T02:40:00Z","state":"in","home":"SEA","away":"VAN"},{"start":"2026-11-20T03:00:00Z","state":"in","home":"VGK","away":"DAL"}],
+"games":[{"start":"2026-11-20T00:00:00Z","state":"post","home":"TOR","away":"LAK"},{"start":"2026-11-20T00:00:00Z","state":"post","home":"OTT","away":"PHI"},{"start":"2026-11-20T00:00:00Z","state":"post","home":"PIT","away":"STL"},{"start":"2026-11-20T00:00:00Z","state":"post","home":"WSH","away":"BUF"},{"start":"2026-11-20T00:00:00Z","state":"post","home":"CAR","away":"MTL"},{"start":"2026-11-20T00:00:00Z","state":"post","home":"WPG","away":"NYI"},{"start":"2026-11-20T00:30:00Z","state":"post","home":"TBL","away":"EDM"},{"start":"2026-11-20T01:00:00Z","state":"post","home":"CHI","away":"CBJ"},{"start":"2026-11-20T01:00:00Z","state":"post","home":"CGY","away":"MIN"},{"start":"2026-11-20T02:00:00Z","state":"post","home":"COL","away":"ANA"},{"start":"2026-11-20T02:40:00Z","state":"post","home":"SEA","away":"VAN"},{"start":"2026-11-20T03:00:00Z","state":"post","home":"VGK","away":"DAL"}],
 "next":null,
-"cards":974
+"cards":963
 },
 "nba":{
 "date":"2026-11-19",
