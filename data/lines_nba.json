@@ -1,6 +1,6 @@
 {
-"updated":"2026-11-20T16:01:36Z",
-"hash":"d65a6b3f3e2825f3",
+"updated":"2026-11-20T18:48:36Z",
+"hash":"bc44be714ae7bbf2",
 "v":1,
 "sport":"nba",
 "slate_date":"2026-11-20",
@@ -103,7 +103,7 @@
 "4711294":{"n":"Matas Buzelis","t":"CHI","href":"/players/matas-buzelis/","inj":null},
 "4871145":{"n":"Josh Giddey","t":"CHI","href":"/players/josh-giddey/","inj":null},
 "2595516":{"n":"Norman Powell","t":"CHI","href":"/players/norman-powell/","inj":null},
-"4397189":{"n":"Jalen Smith","t":"CHI","href":"/players/jalen-smith/","inj":null},
+"4397189":{"n":"Jalen Smith","t":"CHI","href":"/players/jalen-smith/","inj":"Day-To-Day"},
 "4395626":{"n":"Tre Jones","t":"CHI","href":"/players/tre-jones/","inj":null},
 "4431687":{"n":"Patrick Williams","t":"CHI","href":"/players/patrick-williams/","inj":null},
 "4278067":{"n":"Nic Claxton","t":"CHI","href":"/players/nic-claxton/","inj":null},

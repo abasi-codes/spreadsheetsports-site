@@ -1,8 +1,8 @@
 {
-"updated":"2026-11-20T06:57:58Z",
-"hash":"1ef9375d215ae4cb",
+"updated":"2026-11-20T18:48:36Z",
+"hash":"897aa01239122763",
 "season":"2026-27",
-"date":"2026-11-19",
+"date":"2026-11-20",
 "teams":[
 {"t":"MIN","name":"Minnesota Wild","short":"Wild","conf":"Western","div":"Central","divseq":1,"confseq":1,"wc":0,"gp":24,"w":17,"l":3,"otl":4,"pts":38,"pp":0.792,"gf":87,"ga":52,"diff":35,"l10":"8-0-2","strk":"W5"},
 {"t":"EDM","name":"Edmonton Oilers","short":"Oilers","conf":"Western","div":"Pacific","divseq":1,"confseq":2,"wc":0,"gp":24,"w":17,"l":4,"otl":3,"pts":37,"pp":0.771,"gf":93,"ga":65,"diff":28,"l10":"7-2-1","strk":"L1"},
