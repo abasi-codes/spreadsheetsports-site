@@ -1,6 +1,6 @@
 {
-"updated":"2026-11-20T22:13:42Z",
-"hash":"11a09da493c03b24",
+"updated":"2026-11-21T03:54:12Z",
+"hash":"2ea15fb0e29f7483",
 "nhl":{
 "date":"2026-11-20",
 "games":[],
@@ -9,8 +9,8 @@
 },
 "nba":{
 "date":"2026-11-20",
-"games":[{"start":"2026-11-21T00:00Z","state":"pre","home":"ATL","away":"CHA"},{"start":"2026-11-21T00:30Z","state":"pre","home":"BKN","away":"ORL"},{"start":"2026-11-21T00:30Z","state":"pre","home":"CLE","away":"IND"},{"start":"2026-11-21T00:30Z","state":"pre","home":"DET","away":"TOR"},{"start":"2026-11-21T01:00Z","state":"pre","home":"CHI","away":"WAS"},{"start":"2026-11-21T01:00Z","state":"pre","home":"OKC","away":"NOP"},{"start":"2026-11-21T02:30Z","state":"pre","home":"UTA","away":"PHX"},{"start":"2026-11-21T03:00Z","state":"pre","home":"DEN","away":"HOU"},{"start":"2026-11-21T03:00Z","state":"pre","home":"LAL","away":"SAC"}],
+"games":[{"start":"2026-11-21T00:00Z","state":"post","home":"ATL","away":"CHA"},{"start":"2026-11-21T00:30Z","state":"post","home":"BKN","away":"ORL"},{"start":"2026-11-21T00:30Z","state":"post","home":"CLE","away":"IND"},{"start":"2026-11-21T00:30Z","state":"post","home":"DET","away":"TOR"},{"start":"2026-11-21T01:00Z","state":"post","home":"CHI","away":"WAS"},{"start":"2026-11-21T01:00Z","state":"post","home":"OKC","away":"NOP"},{"start":"2026-11-21T02:30Z","state":"in","home":"UTA","away":"PHX"},{"start":"2026-11-21T03:00Z","state":"in","home":"DEN","away":"HOU"},{"start":"2026-11-21T03:00Z","state":"in","home":"LAL","away":"SAC"}],
 "next":null,
-"cards":1222
+"cards":1168
 }
 }
