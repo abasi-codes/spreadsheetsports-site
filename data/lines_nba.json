@@ -1,6 +1,6 @@
 {
-"updated":"2026-11-21T15:15:22Z",
-"hash":"57810489da205658",
+"updated":"2026-11-21T17:45:47Z",
+"hash":"f89fe653e2361a6f",
 "v":1,
 "sport":"nba",
 "slate_date":"2026-11-21",
@@ -29,7 +29,7 @@
 "BOS":{"name":"Boston Celtics","short":"Celtics","href":"/teams/boston-celtics/","color":"#008348"}
 },
 "players":{
-"4431678":{"n":"Tyrese Maxey","t":"PHI","href":"/players/tyrese-maxey/","inj":"Day-To-Day"},
+"4431678":{"n":"Tyrese Maxey","t":"PHI","href":"/players/tyrese-maxey/","inj":null},
 "5124612":{"n":"VJ Edgecombe","t":"PHI","href":"/players/vj-edgecombe/","inj":null},
 "1966":{"n":"LeBron James","t":"PHI","href":"/players/lebron-james/","inj":null},
 "3059318":{"n":"Joel Embiid","t":"PHI","href":"/players/joel-embiid/","inj":null},
@@ -48,7 +48,7 @@
 "2991043":{"n":"Caris LeVert","t":"MIL","href":"/players/caris-levert/","inj":null},
 "3934719":{"n":"OG Anunoby","t":"NYK","href":"/players/og-anunoby/","inj":"Day-To-Day"},
 "3934672":{"n":"Jalen Brunson","t":"NYK","href":"/players/jalen-brunson/","inj":null},
-"3136195":{"n":"Karl-Anthony Towns","t":"NYK","href":"/players/karl-anthony-towns/","inj":null},
+"3136195":{"n":"Karl-Anthony Towns","t":"NYK","href":"/players/karl-anthony-towns/","inj":"Day-To-Day"},
 "3147657":{"n":"Mikal Bridges","t":"NYK","href":"/players/mikal-bridges/","inj":null},
 "3914044":{"n":"Landry Shamet","t":"NYK","href":"/players/landry-shamet/","inj":null},
 "3062679":{"n":"Josh Hart","t":"NYK","href":"/players/josh-hart/","inj":null},
