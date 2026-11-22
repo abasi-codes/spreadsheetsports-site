@@ -1,12 +1,12 @@
 {
-"updated":"2026-11-21T17:45:47Z",
-"hash":"147bfb070d241b4c",
+"updated":"2026-11-22T01:09:58Z",
+"hash":"6aedebf5788cf80d",
 "season":"2026-27",
 "date":"2026-11-21",
 "teams":[
 {"t":"MIN","name":"Minnesota Wild","short":"Wild","conf":"Western","div":"Central","divseq":1,"confseq":1,"wc":0,"gp":24,"w":17,"l":3,"otl":4,"pts":38,"pp":0.792,"gf":87,"ga":52,"diff":35,"l10":"8-0-2","strk":"W5"},
-{"t":"EDM","name":"Edmonton Oilers","short":"Oilers","conf":"Western","div":"Pacific","divseq":1,"confseq":2,"wc":0,"gp":24,"w":17,"l":4,"otl":3,"pts":37,"pp":0.771,"gf":93,"ga":65,"diff":28,"l10":"7-2-1","strk":"L1"},
-{"t":"CAR","name":"Carolina Hurricanes","short":"Hurricanes","conf":"Eastern","div":"Metropolitan","divseq":1,"confseq":1,"wc":0,"gp":22,"w":16,"l":3,"otl":3,"pts":35,"pp":0.795,"gf":88,"ga":49,"diff":39,"l10":"8-1-1","strk":"OT1"},
+{"t":"CAR","name":"Carolina Hurricanes","short":"Hurricanes","conf":"Eastern","div":"Metropolitan","divseq":1,"confseq":1,"wc":0,"gp":23,"w":17,"l":3,"otl":3,"pts":37,"pp":0.804,"gf":95,"ga":53,"diff":42,"l10":"8-1-1","strk":"W1"},
+{"t":"EDM","name":"Edmonton Oilers","short":"Oilers","conf":"Western","div":"Pacific","divseq":1,"confseq":2,"wc":0,"gp":25,"w":17,"l":5,"otl":3,"pts":37,"pp":0.74,"gf":97,"ga":72,"diff":25,"l10":"6-3-1","strk":"L2"},
 {"t":"TBL","name":"Tampa Bay Lightning","short":"Lightning","conf":"Eastern","div":"Atlantic","divseq":1,"confseq":2,"wc":0,"gp":22,"w":15,"l":5,"otl":2,"pts":32,"pp":0.727,"gf":82,"ga":62,"diff":20,"l10":"7-2-1","strk":"W2"},
 {"t":"MTL","name":"Montréal Canadiens","short":"Canadiens","conf":"Eastern","div":"Atlantic","divseq":2,"confseq":3,"wc":0,"gp":23,"w":14,"l":5,"otl":4,"pts":32,"pp":0.696,"gf":74,"ga":67,"diff":7,"l10":"6-2-2","strk":"W2"},
 {"t":"OTT","name":"Ottawa Senators","short":"Senators","conf":"Eastern","div":"Atlantic","divseq":3,"confseq":4,"wc":0,"gp":23,"w":14,"l":6,"otl":3,"pts":31,"pp":0.674,"gf":75,"ga":68,"diff":7,"l10":"6-1-3","strk":"OT1"},
@@ -24,17 +24,17 @@
 {"t":"STL","name":"St. Louis Blues","short":"Blues","conf":"Western","div":"Central","divseq":7,"confseq":9,"wc":4,"gp":22,"w":11,"l":9,"otl":2,"pts":24,"pp":0.545,"gf":68,"ga":67,"diff":1,"l10":"6-3-1","strk":"W2"},
 {"t":"ANA","name":"Anaheim Ducks","short":"Ducks","conf":"Western","div":"Pacific","divseq":3,"confseq":10,"wc":0,"gp":23,"w":11,"l":11,"otl":1,"pts":23,"pp":0.5,"gf":85,"ga":89,"diff":-4,"l10":"6-4-0","strk":"L2"},
 {"t":"BUF","name":"Buffalo Sabres","short":"Sabres","conf":"Eastern","div":"Atlantic","divseq":6,"confseq":10,"wc":4,"gp":22,"w":9,"l":9,"otl":4,"pts":22,"pp":0.5,"gf":64,"ga":77,"diff":-13,"l10":"4-5-1","strk":"W1"},
-{"t":"SJS","name":"San Jose Sharks","short":"Sharks","conf":"Western","div":"Pacific","divseq":4,"confseq":11,"wc":5,"gp":24,"w":10,"l":12,"otl":2,"pts":22,"pp":0.458,"gf":65,"ga":86,"diff":-21,"l10":"3-6-1","strk":"L1"},
+{"t":"CGY","name":"Calgary Flames","short":"Flames","conf":"Western","div":"Pacific","divseq":4,"confseq":11,"wc":5,"gp":24,"w":10,"l":12,"otl":2,"pts":22,"pp":0.458,"gf":60,"ga":84,"diff":-24,"l10":"4-4-2","strk":"OT1"},
+{"t":"SJS","name":"San Jose Sharks","short":"Sharks","conf":"Western","div":"Pacific","divseq":5,"confseq":12,"wc":6,"gp":24,"w":10,"l":12,"otl":2,"pts":22,"pp":0.458,"gf":65,"ga":86,"diff":-21,"l10":"3-6-1","strk":"L1"},
 {"t":"PHI","name":"Philadelphia Flyers","short":"Flyers","conf":"Eastern","div":"Metropolitan","divseq":5,"confseq":11,"wc":5,"gp":25,"w":8,"l":11,"otl":6,"pts":22,"pp":0.44,"gf":63,"ga":85,"diff":-22,"l10":"5-3-2","strk":"W2"},
-{"t":"SEA","name":"Seattle Kraken","short":"Kraken","conf":"Western","div":"Pacific","divseq":5,"confseq":12,"wc":6,"gp":19,"w":10,"l":8,"otl":1,"pts":21,"pp":0.553,"gf":64,"ga":67,"diff":-3,"l10":"5-5-0","strk":"W1"},
-{"t":"CGY","name":"Calgary Flames","short":"Flames","conf":"Western","div":"Pacific","divseq":6,"confseq":13,"wc":7,"gp":23,"w":10,"l":12,"otl":1,"pts":21,"pp":0.457,"gf":57,"ga":80,"diff":-23,"l10":"4-5-1","strk":"L1"},
+{"t":"SEA","name":"Seattle Kraken","short":"Kraken","conf":"Western","div":"Pacific","divseq":6,"confseq":13,"wc":7,"gp":19,"w":10,"l":8,"otl":1,"pts":21,"pp":0.553,"gf":64,"ga":67,"diff":-3,"l10":"5-5-0","strk":"W1"},
 {"t":"WSH","name":"Washington Capitals","short":"Capitals","conf":"Eastern","div":"Metropolitan","divseq":6,"confseq":12,"wc":6,"gp":20,"w":10,"l":10,"otl":0,"pts":20,"pp":0.5,"gf":67,"ga":76,"diff":-9,"l10":"4-6-0","strk":"L4"},
 {"t":"DET","name":"Detroit Red Wings","short":"Red Wings","conf":"Eastern","div":"Atlantic","divseq":7,"confseq":13,"wc":7,"gp":22,"w":8,"l":11,"otl":3,"pts":19,"pp":0.432,"gf":58,"ga":68,"diff":-10,"l10":"3-7-0","strk":"L1"},
 {"t":"TOR","name":"Toronto Maple Leafs","short":"Maple Leafs","conf":"Eastern","div":"Atlantic","divseq":8,"confseq":14,"wc":8,"gp":24,"w":8,"l":13,"otl":3,"pts":19,"pp":0.396,"gf":75,"ga":86,"diff":-11,"l10":"1-8-1","strk":"OT1"},
 {"t":"LAK","name":"Los Angeles Kings","short":"Kings","conf":"Western","div":"Pacific","divseq":7,"confseq":14,"wc":8,"gp":20,"w":7,"l":11,"otl":2,"pts":16,"pp":0.4,"gf":56,"ga":66,"diff":-10,"l10":"4-6-0","strk":"W2"},
 {"t":"CBJ","name":"Columbus Blue Jackets","short":"Blue Jackets","conf":"Eastern","div":"Metropolitan","divseq":7,"confseq":15,"wc":9,"gp":20,"w":8,"l":12,"otl":0,"pts":16,"pp":0.4,"gf":50,"ga":65,"diff":-15,"l10":"3-7-0","strk":"W1"},
 {"t":"PIT","name":"Pittsburgh Penguins","short":"Penguins","conf":"Eastern","div":"Metropolitan","divseq":8,"confseq":16,"wc":10,"gp":21,"w":7,"l":12,"otl":2,"pts":16,"pp":0.381,"gf":64,"ga":76,"diff":-12,"l10":"3-6-1","strk":"L2"},
-{"t":"CHI","name":"Chicago Blackhawks","short":"Blackhawks","conf":"Western","div":"Central","divseq":8,"confseq":15,"wc":9,"gp":22,"w":6,"l":14,"otl":2,"pts":14,"pp":0.318,"gf":54,"ga":90,"diff":-36,"l10":"2-6-2","strk":"L1"},
+{"t":"CHI","name":"Chicago Blackhawks","short":"Blackhawks","conf":"Western","div":"Central","divseq":8,"confseq":15,"wc":9,"gp":23,"w":7,"l":14,"otl":2,"pts":16,"pp":0.348,"gf":58,"ga":93,"diff":-35,"l10":"3-5-2","strk":"W1"},
 {"t":"VAN","name":"Vancouver Canucks","short":"Canucks","conf":"Western","div":"Pacific","divseq":8,"confseq":16,"wc":10,"gp":24,"w":5,"l":18,"otl":1,"pts":11,"pp":0.229,"gf":67,"ga":105,"diff":-38,"l10":"2-8-0","strk":"L1"}
 ]
 }
