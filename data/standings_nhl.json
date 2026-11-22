@@ -1,8 +1,8 @@
 {
-"updated":"2026-11-22T06:28:23Z",
-"hash":"4dbc35a69092819f",
+"updated":"2026-11-22T18:01:27Z",
+"hash":"e422335ab2668481",
 "season":"2026-27",
-"date":"2026-11-21",
+"date":"2026-11-22",
 "teams":[
 {"t":"MIN","name":"Minnesota Wild","short":"Wild","conf":"Western","div":"Central","divseq":1,"confseq":1,"wc":0,"gp":25,"w":17,"l":3,"otl":5,"pts":39,"pp":0.78,"gf":90,"ga":56,"diff":34,"l10":"8-0-2","strk":"OT1"},
 {"t":"CAR","name":"Carolina Hurricanes","short":"Hurricanes","conf":"Eastern","div":"Metropolitan","divseq":1,"confseq":1,"wc":0,"gp":23,"w":17,"l":3,"otl":3,"pts":37,"pp":0.804,"gf":95,"ga":53,"diff":42,"l10":"8-1-1","strk":"W1"},
