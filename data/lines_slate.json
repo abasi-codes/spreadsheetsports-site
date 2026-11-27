@@ -1,11 +1,11 @@
 {
-"updated":"2026-11-27T19:38:23Z",
-"hash":"f4a41f84d739e404",
+"updated":"2026-11-27T23:23:19Z",
+"hash":"b6564e7259494f75",
 "nhl":{
 "date":"2026-11-27",
-"games":[{"start":"2026-11-27T18:00:00Z","state":"in","home":"BOS","away":"TOR"},{"start":"2026-11-27T18:00:00Z","state":"in","home":"NJD","away":"CGY"},{"start":"2026-11-27T18:00:00Z","state":"in","home":"NSH","away":"UTA"},{"start":"2026-11-27T19:00:00Z","state":"in","home":"STL","away":"DAL"},{"start":"2026-11-27T20:00:00Z","state":"pre","home":"TBL","away":"OTT"},{"start":"2026-11-27T20:00:00Z","state":"pre","home":"PHI","away":"VAN"},{"start":"2026-11-27T20:00:00Z","state":"pre","home":"WSH","away":"FLA"},{"start":"2026-11-27T20:00:00Z","state":"pre","home":"CBJ","away":"DET"},{"start":"2026-11-27T21:00:00Z","state":"pre","home":"MIN","away":"COL"},{"start":"2026-11-27T21:00:00Z","state":"pre","home":"ANA","away":"LAK"},{"start":"2026-11-27T21:00:00Z","state":"pre","home":"SJS","away":"VGK"},{"start":"2026-11-27T22:30:00Z","state":"pre","home":"CHI","away":"NYR"},{"start":"2026-11-28T00:30:00Z","state":"pre","home":"NYI","away":"WPG"},{"start":"2026-11-28T01:00:00Z","state":"pre","home":"BUF","away":"PIT"},{"start":"2026-11-28T01:00:00Z","state":"pre","home":"EDM","away":"SEA"}],
+"games":[{"start":"2026-11-27T18:00:00Z","state":"post","home":"BOS","away":"TOR"},{"start":"2026-11-27T18:00:00Z","state":"post","home":"NJD","away":"CGY"},{"start":"2026-11-27T18:00:00Z","state":"post","home":"NSH","away":"UTA"},{"start":"2026-11-27T19:00:00Z","state":"post","home":"STL","away":"DAL"},{"start":"2026-11-27T20:00:00Z","state":"post","home":"TBL","away":"OTT"},{"start":"2026-11-27T20:00:00Z","state":"post","home":"PHI","away":"VAN"},{"start":"2026-11-27T20:00:00Z","state":"post","home":"WSH","away":"FLA"},{"start":"2026-11-27T20:00:00Z","state":"post","home":"CBJ","away":"DET"},{"start":"2026-11-27T21:00:00Z","state":"in","home":"MIN","away":"COL"},{"start":"2026-11-27T21:00:00Z","state":"in","home":"ANA","away":"LAK"},{"start":"2026-11-27T21:00:00Z","state":"in","home":"SJS","away":"VGK"},{"start":"2026-11-27T22:30:00Z","state":"in","home":"CHI","away":"NYR"},{"start":"2026-11-28T00:30:00Z","state":"pre","home":"NYI","away":"WPG"},{"start":"2026-11-28T01:00:00Z","state":"pre","home":"BUF","away":"PIT"},{"start":"2026-11-28T01:00:00Z","state":"pre","home":"EDM","away":"SEA"}],
 "next":null,
-"cards":1214
+"cards":1168
 },
 "nba":{
 "date":"2026-11-27",
